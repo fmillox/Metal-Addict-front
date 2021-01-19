@@ -1,6 +1,8 @@
+// == Import npm
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
+// == Import
 import AutocompleteInput from 'src/components/AutocompleteInput';
 import TextFieldInput from 'src/components/TextFieldInput';
 import Button from 'src/components/Button';
@@ -9,6 +11,7 @@ import { sortByName, createYearArray, isObjectValid } from 'src/utils';
 
 import './searchForm.scss';
 
+// == Composant
 const SearchForm = ({ bands, countries }) => {
   const [years, setYears] = useState([]);
 
@@ -68,4 +71,5 @@ SearchForm.propTypes = {
   countries: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
+// == Export
 export default SearchForm;

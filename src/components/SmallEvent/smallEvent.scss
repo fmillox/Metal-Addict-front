@@ -1,0 +1,52 @@
+@use 'src/styles/vars'; 
+
+.smallEvent {
+  width: 310px;
+  margin: 5px auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: relative;
+  
+  .smallEvent-picture-container {
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 55px;
+    height: 55px;
+    display: inline-block;
+    border: gray 1px solid;
+
+    .smallEvent-picture {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+    }
+  }
+
+  .smallEvent-content-container {
+    text-align: center;
+    color: ivory;
+    padding: 0.5em;
+
+    .smallEvent-band {
+      text-transform: uppercase;
+      font-size: 1.7em;
+      font-weight: 700;
+    }
+
+    .smallEvent-date {
+      margin-top: 0.5 * vars.$gutter;
+      font-style: italic;
+      font-size: .8em;
+    }
+
+    .smallEvent-place {
+      margin-top: 0.5 * vars.$gutter;
+    }
+
+    .smallEvent-city, .smallEvent-country {
+      margin-top: 0.5 * vars.$gutter;
+      display: inline-block;
+    }
+  }
+}
