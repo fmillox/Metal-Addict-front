@@ -2,22 +2,23 @@
 import React from 'react';
 
 // == Import
-import Review from 'src/components/Review';
-import Reviews from 'src/components/Reviews';
-import Event from 'src/components/Event';
-import SearchForm from 'src/components/SearchForm';
+import SmallEvent from 'src/components/SmallEvent';
 
-import data from 'src/datas/searchForm';
+import data from 'src/datas/smallEvent';
 
 import './styles.scss';
 
 // == Composant
 const App = () => (
   <div className="app">
-    <Review />
-    <Reviews />
-    <Event />
-    <SearchForm bands={data.bands} countries={data.countries} />
+    <SmallEvent
+      band={data.band}
+      date={data.date}
+      place={data.place}
+      city={data.city}
+      country={data.country}
+      picture={data.picture}
+    />
   </div>
 );
 
