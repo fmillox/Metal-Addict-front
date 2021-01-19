@@ -6,4 +6,4 @@ const Reviews = () => (
   <div>Hello Reviews</div>
 );
 
-export default Review;
+export default Reviews;
