@@ -1,0 +1,14 @@
+@import "src/styles/media";
+
+.events {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @include md {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include lg {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
