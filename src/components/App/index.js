@@ -2,23 +2,16 @@
 import React from 'react';
 
 // == Import
-import SmallEvent from 'src/components/SmallEvent';
+import Events from 'src/components/Events';
 
-import data from 'src/datas/smallEvent';
+import data from 'src/datas/events';
 
 import './styles.scss';
 
 // == Composant
 const App = () => (
   <div className="app">
-    <SmallEvent
-      band={data.band}
-      date={data.date}
-      place={data.place}
-      city={data.city}
-      country={data.country}
-      picture={data.picture}
-    />
+    <Events events={data} />
   </div>
 );
 
