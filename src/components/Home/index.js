@@ -5,35 +5,39 @@ import './home.scss';
 import { ArrowLeft, ArrowRight } from 'react-feather';
 
 import firstPicture from 'src/images/concert5.jpg';
-import dave from 'src/images/dave.jpg';
+import secondPicture from 'src/images/concert3.jpg';
 
 import Reviews from 'src/components/Reviews';
+import Header from 'src/components/Header';
+import Footer from 'src/components//Footer';
+
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+AOS.init();
 
 const Home = () => (
   <div className="home">
-    <header className="header">
-      <h1>Share O Metal</h1>
-      <div className="image"><img src={dave} className="image-content" alt="" /></div>
-    </header>
+    <Header />
     <div className="introduction">
-      Welcome !! Prepare to share your reviews and pictures of your best concerts
+      <p data-aos="fade-right">Welcome !! Prepare to share your reviews and pictures of your best concerts</p>
     </div>
     <div className="news">
       <ArrowLeft />
       <p className="news-content">Nouvelle fonctionnalité : ajouter vos photos!!</p>
       <ArrowRight />
     </div>
-    <div className="firstImage">
+    <div className="firstImage" data-aos="fade-up-left" data-aos-duration="1000">
       <img src={firstPicture} className="image" alt="" />
     </div>
-    <div className="description"> Ecrivez vos reviews</div>
+    <div className="description"> <p data-aos="fade-left">Ecrivez vos reviews</p></div>
     <h2 className="lastReviews">Dernières reviews</h2>
     <Reviews />
     <div className="about">About</div>
-    <div className="firstImage">
-      <img src={firstPicture} className="image" alt="" />
+    <div className="firstImage" data-aos="fade-up-left" data-aos-duration="1000">
+      <img src={secondPicture} className="image" alt="" />
     </div>
-    <div className="footer">Footer</div>
+    <Footer />
   </div>
 );
 

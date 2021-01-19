@@ -9,6 +9,8 @@ const Reviews = () => (
     <Review />
     <Review />
     <Review />
+    <Review />
+    <Review />
   </div>
 );
 
