@@ -1,0 +1,13 @@
+.searchForm {
+  display: flex;
+  flex-direction: column;
+  
+  .searchForm-input {
+    margin: 0.5em;
+  }
+
+  .searchForm-button {
+    margin-top: 1em;
+    text-align: center;
+  }
+}
