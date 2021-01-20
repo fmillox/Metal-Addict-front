@@ -8,12 +8,12 @@ import SmallEvent from 'src/components/SmallEvent';
 import './events.scss';
 
 // == Composant
-const Events = ({ events }) => (
+const Events = ({ events, picture }) => (
   <div className="events">
     {
       events.map((event) => (
         <div key={event.id}>
-          <SmallEvent key={event.id} {...event} />
+          <SmallEvent key={event.id} {...event} picture={picture} />
         </div>
       ))
     }
@@ -26,6 +26,7 @@ Events.propTypes = {
       id: PropTypes.string.isRequired,
     }.isRequired).isRequired,
   ).isRequired,
+  picture: PropTypes.string.isRequired,
 };
 
 // == Export
