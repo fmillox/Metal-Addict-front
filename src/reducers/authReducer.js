@@ -3,10 +3,16 @@ const initialState = {
   email: '',
   /* contenu du champ password du formulaire de login */
   password: '',
-  /* indique si l'utilisateur est authentifié */
-  isLogged: false,
   /* token JWT */
   token: null,
+
+  nickname: null,
+
+  avatar: '',
+
+  biography: '',
+
+  userId: null,
 };
 
 function authReducer(state = initialState, action = {}) {

@@ -1,5 +1,9 @@
 const initialState = {
+  searchEvents: [],
 
+  userEvents: [],
+
+  loading: false,
 };
 
 function eventReducer(state = initialState, action = {}) {

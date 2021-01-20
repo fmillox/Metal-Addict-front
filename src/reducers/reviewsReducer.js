@@ -1,5 +1,11 @@
 const initialState = {
+  lastReviews: [],
 
+  eventReviews: [],
+
+  userReviews: [],
+
+  loading: false,
 };
 
 function reviewsReducer(state = initialState, action = {}) {

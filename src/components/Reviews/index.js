@@ -4,10 +4,12 @@ import './reviews.scss';
 
 import SmallReview from 'src/components/SmallReview';
 
-const Reviews = () => (
+const Reviews = ({ reviews }) => (
   <div className="reviews">
-    <SmallReview />
-    <SmallReview />
+    {reviews.map((review) => (
+      <SmallReview key={review.id} {...review} />
+    ))}
+
     <SmallReview />
     <SmallReview />
     <SmallReview />
