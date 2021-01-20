@@ -28,27 +28,3 @@
   }
 }
 
-.introduction {
-  width: 325px;
-  height: 80px;
-  background: linear-gradient(to right, #e6dada, #274046);
-  margin-top: 35px;
-  font-size: 1.2em;
-}
-
-.news {
-  width: 325px;
-  height: 150px;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-around;
-  align-items: center;
-  margin-top: 35px;
-  background: linear-gradient(to right, #005aa7, #fffde4);
-
-  .news-content {
-    width: 70%;
-    font-size: 1em;
-    font-style: italic;
-  }
-}

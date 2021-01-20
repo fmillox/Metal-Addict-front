@@ -9,8 +9,10 @@ import secondPicture from 'src/images/concert3.jpg';
 
 import Reviews from 'src/components/Reviews';
 import Header from 'src/components/Header';
-import Footer from 'src/components//Footer';
+import Footer from 'src/components/Footer';
+import SearchForm from 'src/components/SearchForm';
 
+import data from 'src/datas/searchForm';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -19,6 +21,9 @@ AOS.init();
 const Home = () => (
   <div className="home">
     <Header />
+    <div className="form">
+      <SearchForm bands={data.bands} countries={data.countries} />
+    </div>
     <div className="introduction">
       <p data-aos="fade-right">Welcome !! Prepare to share your reviews and pictures of your best concerts</p>
     </div>
