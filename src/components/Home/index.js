@@ -8,8 +8,6 @@ import firstPicture from 'src/images/concert5.jpg';
 import secondPicture from 'src/images/concert3.jpg';
 
 import Reviews from 'src/components/Reviews';
-import Header from 'src/components/Header';
-import Footer from 'src/components/Footer';
 import SearchForm from 'src/components/SearchForm';
 
 import data from 'src/datas/searchForm';
@@ -20,7 +18,6 @@ AOS.init();
 
 const Home = () => (
   <div className="home">
-    <Header />
     <div className="form">
       <SearchForm bands={data.bands} countries={data.countries} />
     </div>
@@ -42,7 +39,6 @@ const Home = () => (
     <div className="firstImage" data-aos="fade-up-left" data-aos-duration="1000">
       <img src={secondPicture} className="image" alt="" />
     </div>
-    <Footer />
   </div>
 );
 
