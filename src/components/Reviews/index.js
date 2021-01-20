@@ -2,15 +2,16 @@ import React from 'react';
 
 import './reviews.scss';
 
-import Review from 'src/components/Review';
+import SmallReview from 'src/components/SmallReview';
 
 const Reviews = () => (
   <div className="reviews">
-    <Review />
-    <Review />
-    <Review />
-    <Review />
-    <Review />
+    <SmallReview />
+    <SmallReview />
+    <SmallReview />
+    <SmallReview />
+    <SmallReview />
+    <SmallReview />
   </div>
 );
 

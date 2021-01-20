@@ -1,15 +1,15 @@
 .home {
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 
   .form{
-    width: 325px;
+    
   }
 
   .introduction {
-    width: 325px;
+    
     height: 80px;
     background: linear-gradient(to right, #e6dada, #274046);
     margin-top: 35px;
@@ -17,7 +17,7 @@
   }
 
   .news {
-    width: 325px;
+  
     height: 150px;
     display: flex;
     flex-wrap: nowrap;
@@ -34,7 +34,7 @@
   }
 
   .firstImage {
-    width: 325px;
+    
     height: 250px;
     margin-top: 35px;
 
@@ -45,7 +45,7 @@
   }
 
   .description {
-    width: 325px;
+    
     height: 150px;
     margin-top: 35px;
     background: linear-gradient(to right, #5d4157, #a8caba);
@@ -60,7 +60,7 @@
 
   .about {
     margin-top: 35px;
-    width: 325px;
+    
     height: 150px;
     background: linear-gradient(to right, #232526, #414345);
     text-align: center;
