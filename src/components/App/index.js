@@ -11,7 +11,7 @@ import './styles.scss';
 // == Composant
 const App = () => (
   <div className="app">
-    <Events events={data} />
+    <Events events={data.setlist} picture={data.picture} />
   </div>
 );
 
