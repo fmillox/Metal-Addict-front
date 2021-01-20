@@ -1,0 +1,33 @@
+@use 'src/styles/vars'; 
+@import "src/styles/media";
+
+.eventsResults {
+  display: flex;
+  flex-direction: column;
+  
+  .eventsResults-searchForm {
+    margin-top: vars.$gutter;
+    
+    @include md {
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+    @include lg {
+      width: 60%;
+    }
+  }
+
+  .eventsResults-container-events {
+    margin-top: 2 * vars.$gutter;
+    
+    .eventsResults-nb-events-found {
+      text-align: center;
+    }
+
+    .eventsResults-events {
+      margin-top: vars.$gutter;
+    }
+  }
+}

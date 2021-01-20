@@ -1,7 +1,4 @@
 export default {
-  // ****************** IMAGE A RETOURNER PAR LES API ??? *********************
-  picture: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Iron_Maiden_in_the_Palais_Omnisports_of_Paris-Bercy_%28France%29.jpg',
-  // **************************************************************************
   "type": "setlists",
   "itemsPerPage": 20,
   "page": 1,
