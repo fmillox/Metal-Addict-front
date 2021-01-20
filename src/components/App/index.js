@@ -2,16 +2,17 @@
 import React from 'react';
 
 // == Import
-import Events from 'src/components/Events';
 
-import data from 'src/datas/events';
+import Home from 'src/components/Home';
+
+import picture from 'src/images/concert2.jpg';
 
 import './styles.scss';
 
 // == Composant
 const App = () => (
-  <div className="app">
-    <Events events={data.setlist} picture={data.picture} />
+  <div className="app" style={{ backgroundImage: `url({picture})` }}>
+    <Home />
   </div>
 );
 
