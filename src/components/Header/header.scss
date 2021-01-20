@@ -1,5 +1,5 @@
 .header {
-  width: 325px;
+  width: 100%;
   background: linear-gradient(to right, #403b4a, #e7e9bb);
   display: flex;
   align-items: center;
@@ -8,7 +8,6 @@
   font-weight: 700;
   position: relative;
   height: 130px;
-  margin-top: 10px;
 
   .image {
     border-radius: 50%;

@@ -12,8 +12,8 @@ export default {
     { id: 10, name: 'Led Zeppelin' },
   ],
   countries: [
-    { id: 'FR', name: 'France' },
-    { id: 'US', name: 'Etats Unis' },
-    { id: 'UK', name: 'Angleterre' },
+    { id: 1, name: 'France' },
+    { id: 2, name: 'Etats Unis' },
+    { id: 3, name: 'Angleterre' },
   ],
 };

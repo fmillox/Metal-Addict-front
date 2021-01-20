@@ -1,12 +1,16 @@
 import React from 'react';
 
-import Home from 'src/components/Home';
+import Header from 'src/components/Header';
+import Footer from 'src/components/Footer';
+import EventsResults from 'src/components/EventsResults';
 
 import './main.scss';
 
 const Main = () => (
   <div className="main">
-    <Home />
+    <Header />
+    <EventsResults />
+    <Footer />
   </div>
 );
 
