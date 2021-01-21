@@ -20,7 +20,11 @@ import 'aos/dist/aos.css';
 
 AOS.init();
 
-const Home = ({ reviews, loadingReviews }) => {
+const Home = ({
+  reviews,
+  loadingReviews,
+  loadingSearchForm,
+}) => {
   // TODO : DELETE AFTER TEST
   const [band, setBand] = useState(null);
   const [country, setCountry] = useState(null);
@@ -34,28 +38,30 @@ const Home = ({ reviews, loadingReviews }) => {
     if (!isObjectValid(country)) setCountry(null);
     if (!isObjectValid(year)) setYear(null);
   };
-  //
 
   return (
     <div className="home">
-      <div className="form">
-        <SearchForm
-          bands={data.bands}
-          countries={data.countries}
-          showOpenButton
-          band={band}
-          country={country}
-          city={city}
-          year={year}
-          eventPlace={eventPlace}
-          setBand={setBand}
-          setCountry={setCountry}
-          setCity={setCity}
-          setYear={setYear}
-          setEventPlace={setEventPlace}
-          manageSubmit={manageSubmit}
-        />
-      </div>
+      {loadingSearchForm && <ScaleLoader />}
+      {!loadingSearchForm && (
+        <div className="form">
+          <SearchForm
+            bands={data.bands}
+            countries={data.countries}
+            showOpenButton
+            band={band}
+            country={country}
+            city={city}
+            year={year}
+            eventPlace={eventPlace}
+            setBand={setBand}
+            setCountry={setCountry}
+            setCity={setCity}
+            setYear={setYear}
+            setEventPlace={setEventPlace}
+            manageSubmit={manageSubmit}
+          />
+        </div>
+      )}
       <div className="introduction">
         <p data-aos="fade-right">Welcome !! Prepare to share your reviews and pictures of your best concerts</p>
       </div>
@@ -82,6 +88,7 @@ const Home = ({ reviews, loadingReviews }) => {
 Home.propTypes = {
   reviews: PropTypes.array.isRequired,
   loadingReviews: PropTypes.bool.isRequired,
+  loadingSearchForm: PropTypes.bool.isRequired,
 };
 
 export default Home;

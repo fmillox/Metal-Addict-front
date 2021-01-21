@@ -10,7 +10,7 @@ const reviewsMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
   switch (action.type) {
     case FETCH_LAST_REVIEWS:
-      store.dispatch(hideLoader);
+      store.dispatch(hideLoader());
       axios.get('http://localhost:3001/api/home')
         .then((response) => {
           console.log(response);
