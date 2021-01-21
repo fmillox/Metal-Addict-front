@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './home.scss';
 
@@ -16,7 +17,7 @@ import 'aos/dist/aos.css';
 
 AOS.init();
 
-const Home = () => (
+const Home = ({ reviews }) => (
   <div className="home">
     <div className="form">
       <SearchForm bands={data.bands} countries={data.countries} />
@@ -34,12 +35,16 @@ const Home = () => (
     </div>
     <div className="description"> <p data-aos="fade-left">Ecrivez vos reviews</p></div>
     <h2 className="lastReviews">Dernières reviews</h2>
-    <Reviews />
+    <Reviews reviews={reviews} />
     <div className="about">About</div>
     <div className="firstImage" data-aos="fade-up-left" data-aos-duration="1000">
       <img src={secondPicture} className="image" alt="" />
     </div>
   </div>
 );
+
+Home.propTypes = {
+  reviews: PropTypes.array.isRequired,
+};
 
 export default Home;

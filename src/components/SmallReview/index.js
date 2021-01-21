@@ -9,7 +9,17 @@ import 'aos/dist/aos.css';
 
 AOS.init();
 
-const SmallReview = () => (
+const SmallReview = (
+  title,
+  createdDate,
+  eventDate,
+  bandName,
+  venue,
+  country,
+  city,
+  avatar,
+  writer,
+) => (
   <article
     className="smallReview"
     data-aos="zoom-in"
