@@ -5,6 +5,7 @@ import { Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import history from 'src/router/history';
 import store from 'src/store';
+import history from 'src/router/history';
 
 // == Import : local
 // Composants

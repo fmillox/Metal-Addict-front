@@ -21,5 +21,17 @@ export const getObjectByName = (name, array) => (
 );
 
 export const isObjectValid = (object) => (
-  (object !== null && object.name !== undefined && object.id !== undefined) || object === null
+  object === null || (object !== null && object.name !== undefined && object.id !== undefined)
 );
+
+export const checkMoreEventsInSetListApi = (object) => {
+  if (object === null) {
+    return false;
+  }
+
+  const total = Number(object.total);
+  const itemsPerPage = Number(object.itemsPerPage);
+  const page = Number(object.page);
+
+  return total > itemsPerPage * page;
+};

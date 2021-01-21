@@ -4,6 +4,7 @@
 .eventsResults {
   display: flex;
   flex-direction: column;
+  align-items: center;
   
   .eventsResults-searchForm {
     margin-top: vars.$gutter;

@@ -1,6 +1,8 @@
 // == Import npm
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
+import ScaleLoader from 'react-spinners/ScaleLoader';
 
 // == Import
 import SearchForm from 'src/components/SearchForm';
@@ -9,18 +11,16 @@ import Events from 'src/components/Events';
 import { isObjectValid } from 'src/utils';
 
 import searchForm from 'src/datas/searchForm';
-import events from 'src/datas/events';
 
 import './eventsResults.scss';
 
-// TODO : DELETE AFTER TEST
-const onSubmit = (evt) => {
-  evt.preventDefault();
-};
-//
-
 // == Composant
-const EventsResults = ({ loadingEvents, moreEvents, manageMoreEventsSubmit }) => {
+const EventsResults = ({
+  loadingEvents,
+  events,
+  moreEvents,
+  manageMoreEventsSubmit,
+}) => {
   // TODO : DELETE AFTER TEST
   const [band, setBand] = useState(null);
   const [country, setCountry] = useState(null);
@@ -35,6 +35,16 @@ const EventsResults = ({ loadingEvents, moreEvents, manageMoreEventsSubmit }) =>
     if (!isObjectValid(year)) setYear(null);
   };
   //
+
+  const history = useHistory();
+
+  useEffect(() => {
+    if (events === null) {
+      history.push('/');
+    }
+  }, []);
+
+  console.log(events);
 
   return (
     <div className="eventsResults">
@@ -57,33 +67,41 @@ const EventsResults = ({ loadingEvents, moreEvents, manageMoreEventsSubmit }) =>
         />
       </div>
       <div className="eventsResults-container-events">
-        <div className="eventsResults-nb-events-found">{events.total} résultat(s) trouvé(s)</div>
-        <div className="eventsResults-events">
-          <Events
-            events={events.setlist}
-            loadingEvents={loadingEvents}
-            moreEvents={moreEvents}
-            manageSubmit={manageMoreEventsSubmit}
-          />
-        </div>
+        {
+          loadingEvents && <ScaleLoader />
+        }
+        {
+          !loadingEvents && (
+            <>
+              <div className="eventsResults-nb-events-found">
+                {events.total} résultat(s) trouvé(s)
+              </div>
+              <div className="eventsResults-events">
+                <Events
+                  events={events.setlist}
+                  loadingEvents={loadingEvents}
+                  moreEvents={moreEvents}
+                  manageSubmit={manageMoreEventsSubmit}
+                />
+              </div>
+            </>
+          )
+        }
       </div>
     </div>
   );
 };
 
 EventsResults.propTypes = {
-  loadingEvents: PropTypes.bool, // .isRequired
-  moreEvents: PropTypes.bool, // .isRequired
-  manageMoreEventsSubmit: PropTypes.func, // .isRequired
+  loadingEvents: PropTypes.bool.isRequired,
+  events: PropTypes.object,
+  moreEvents: PropTypes.bool.isRequired,
+  manageMoreEventsSubmit: PropTypes.func.isRequired,
 };
 
-// TODO : DELETE AFTER TEST
 EventsResults.defaultProps = {
-  loadingEvents: false,
-  moreEvents: true,
-  manageMoreEventsSubmit: onSubmit,
+  events: null,
 };
-//
 
 // == Export
 export default EventsResults;

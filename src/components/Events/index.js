@@ -1,7 +1,6 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
-import ScaleLoader from 'react-spinners/ScaleLoader';
 
 // == Import
 // eslint-disable-next-line import/order
@@ -16,32 +15,35 @@ import './events.scss';
 const Events = ({
   events,
   picture,
-  loadingEvents,
   moreEvents,
   manageSubmit,
-}) => (
-  <div className="events">
-    {
-      loadingEvents && <ScaleLoader />
-    }
-    <div className="events-list">
+}) => {
+  const onSubmit = (evt) => {
+    evt.preventDefault();
+    manageSubmit();
+  };
+
+  return (
+    <div className="events">
+      <div className="events-list">
+        {
+          events.map((event) => (
+            <div key={event.id}>
+              <SmallEvent key={event.id} {...event} picture={picture} />
+            </div>
+          ))
+        }
+      </div>
       {
-        !loadingEvents && events.map((event) => (
-          <div key={event.id}>
-            <SmallEvent key={event.id} {...event} picture={picture} />
-          </div>
-        ))
+        moreEvents && (
+          <form className="events-more-results" onSubmit={onSubmit}>
+            <Button label="Plus de résultats" />
+          </form>
+        )
       }
     </div>
-    {
-      !loadingEvents && moreEvents && (
-        <form className="events-more-results" onSubmit={manageSubmit}>
-          <Button label="Plus de résultats" />
-        </form>
-      )
-    }
-  </div>
-);
+  );
+};
 
 Events.propTypes = {
   events: PropTypes.arrayOf(
@@ -50,7 +52,6 @@ Events.propTypes = {
     }.isRequired).isRequired,
   ).isRequired,
   picture: PropTypes.string,
-  loadingEvents: PropTypes.bool.isRequired,
   moreEvents: PropTypes.bool.isRequired,
   manageSubmit: PropTypes.func.isRequired,
 };
