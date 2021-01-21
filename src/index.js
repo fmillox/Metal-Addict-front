@@ -1,10 +1,9 @@
 // == Import : npm
 import React from 'react';
 import { render } from 'react-dom';
-// import { BrowserRouter as Router } from 'react-router-dom';
 import { Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
-
+import history from 'src/router/history';
 import store from 'src/store';
 import history from 'src/router/history';
 

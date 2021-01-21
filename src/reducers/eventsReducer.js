@@ -1,12 +1,11 @@
 import {
   SET_LOADING,
+  SAVE_EVENTS_RESULTS,
   SAVE_SET_LIST_API_MORE_EVENTS,
 } from 'src/actions/events';
 
-import data from 'src/datas/events';
-
 const initialState = {
-  searchEvents: data, // null,
+  searchEvents: null,
 
   userEvents: [],
 
@@ -19,6 +18,11 @@ function eventReducer(state = initialState, action = {}) {
       return {
         ...state,
         loading: action.loading,
+      };
+    case SAVE_EVENTS_RESULTS:
+      return {
+        ...state,
+        searchEvents: action.events,
       };
     case SAVE_SET_LIST_API_MORE_EVENTS: {
       const newSearchEvents = { ...state.searchEvents };
