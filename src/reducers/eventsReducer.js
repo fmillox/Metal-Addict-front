@@ -1,4 +1,4 @@
-import { SAVE_EVENTS_RESULTS} from 'src/actions/events'
+import { SAVE_EVENTS_RESULTS } from 'src/actions/events';
 
 const initialState = {
   searchEvents: [],

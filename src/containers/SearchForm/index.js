@@ -18,9 +18,9 @@ const mapStateToProps = (state) => ({
   // nom de la prop à remplir: élément à récupérer dans le state
   bands: state.searchForm.bands,
   countries: state.searchForm.countries,
-  city: state.searchForm.city,
   band: state.searchForm.band,
   country: state.searchForm.country,
+  city: state.searchForm.city,
   year: state.searchForm.year,
   eventPlace: state.searchForm.venue,
 });

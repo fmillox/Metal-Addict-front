@@ -3,13 +3,14 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { ChevronsDown, ChevronsUp } from 'react-feather';
+import { withRouter } from 'react-router-dom';
 
 // == Import
 import AutocompleteInput from 'src/components/AutocompleteInput';
 import TextFieldInput from 'src/components/TextFieldInput';
 import Button from 'src/components/Button';
 
-import { sortByName, createYearArray } from 'src/utils';
+import { sortByName, createYearArray, isObjectValid } from 'src/utils';
 
 import './searchForm.scss';
 
@@ -44,8 +45,24 @@ const SearchForm = ({
     setOpen(!open);
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (!isObjectValid(band)) {
+      setBand(null);
+    }
+    else if (!isObjectValid(country)) {
+      setCountry(null);
+    }
+    else if (!isObjectValid(year)) {
+      setYear(null);
+    }
+    else {
+      manageSubmit();
+    }
+  };
+
   return (
-    <form className="searchForm" onSubmit={manageSubmit}>
+    <form className="searchForm" onSubmit={handleSubmit}>
       <div className={classNames('searchForm-container', { 'searchForm-container--close': !open })}>
         <div className="searchForm-input">
           <AutocompleteInput name="band" label="Nom du groupe" options={bands} required value={band} manageChange={setBand} />

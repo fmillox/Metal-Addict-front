@@ -1,4 +1,5 @@
 import axios from 'axios';
+import history from 'src/router/history';
 
 import {
   FETCH_BANDS,
@@ -40,7 +41,8 @@ const searchFormMiddleware = (store) => (next) => (action) => {
       axios.post('')
         .then((response) => {
           console.log(response);
-          // store.display(saveEventsResults(response.data))
+          // store.display(saveEventsResults(response.data));
+          history.push('/evenements');
         })
         .catch((error) => {
           console.log(error);
