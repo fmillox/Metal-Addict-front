@@ -14,7 +14,9 @@ const searchFormMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
   switch (action.type) {
     case FETCH_BANDS:
-      axios.get('http://ec2-54-162-156-51.compute-1.amazonaws.com/Share-O-Metal/public/api/band')
+      axios.get('https://cors-anywhere.herokuapp.com/http://ec2-54-162-156-51.compute-1.amazonaws.com/Share-O-Metal/public/api/band', {
+        headers: { 'Access-Control-Allow-Origin': '*' },
+      })
         .then((response) => {
           console.log(response);
           // store.dispatch(updateBands(response.data));
@@ -26,7 +28,9 @@ const searchFormMiddleware = (store) => (next) => (action) => {
       break;
 
     case FETCH_COUNTRIES:
-      axios.get('')
+      axios.get('https://cors-anywhere.herokuapp.com/http://ec2-54-162-156-51.compute-1.amazonaws.com/Share-O-Metal/public/api/country', {
+        headers: { 'Access-Control-Allow-Origin': '*' },
+      })
         .then((response) => {
           console.log(response);
           // store.dispatch(updateCountries(response.data));

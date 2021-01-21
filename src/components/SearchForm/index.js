@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { ChevronsDown, ChevronsUp } from 'react-feather';
-import { withRouter } from 'react-router-dom';
 
 // == Import
 import AutocompleteInput from 'src/components/AutocompleteInput';

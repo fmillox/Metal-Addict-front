@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import './home.scss';
@@ -10,11 +10,8 @@ import firstPicture from 'src/images/concert5.jpg';
 import secondPicture from 'src/images/concert3.jpg';
 
 import Reviews from 'src/components/Reviews';
-import SearchForm from 'src/components/SearchForm';
+import SearchForm from 'src/containers/SearchForm';
 
-import { isObjectValid } from 'src/utils';
-
-import data from 'src/datas/searchForm';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -27,21 +24,6 @@ const Home = ({
   loadSearchForm,
   loadReviews,
 }) => {
-  // TODO : DELETE AFTER TEST
-  const [band, setBand] = useState(null);
-  const [country, setCountry] = useState(null);
-  const [city, setCity] = useState('');
-  const [year, setYear] = useState(null);
-  const [eventPlace, setEventPlace] = useState('');
-
-  const manageSubmit = (evt) => {
-    evt.preventDefault();
-    if (!isObjectValid(band)) setBand(null);
-    if (!isObjectValid(country)) setCountry(null);
-    if (!isObjectValid(year)) setYear(null);
-  };
-  // ***************************************
-
   useEffect(() => {
     loadSearchForm();
   }, []);
@@ -55,22 +37,7 @@ const Home = ({
       {loadingSearchForm && <ScaleLoader />}
       {!loadingSearchForm && (
         <div className="form">
-          <SearchForm
-            bands={data.bands}
-            countries={data.countries}
-            showOpenButton
-            band={band}
-            country={country}
-            city={city}
-            year={year}
-            eventPlace={eventPlace}
-            setBand={setBand}
-            setCountry={setCountry}
-            setCity={setCity}
-            setYear={setYear}
-            setEventPlace={setEventPlace}
-            manageSubmit={manageSubmit}
-          />
+          <SearchForm />
         </div>
       )}
       <div className="introduction">
