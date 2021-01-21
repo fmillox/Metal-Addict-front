@@ -5,6 +5,7 @@ import {
   FETCH_COUNTRIES,
   updateBands,
   updateCountries,
+  saveEventsResults,
   SUBMIT_EVENTS_SEARCH,
 } from 'src/actions/searchForm';
 
@@ -39,6 +40,7 @@ const searchFormMiddleware = (store) => (next) => (action) => {
       axios.post('')
         .then((response) => {
           console.log(response);
+          // store.display(saveEventsResults(response.data))
         })
         .catch((error) => {
           console.log(error);
