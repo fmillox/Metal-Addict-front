@@ -28,9 +28,9 @@ const Home = ({
     loadSearchForm();
   }, []);
 
-  useEffect(() => {
+  /*useEffect(() => {
     loadReviews();
-  }, [reviews]);
+  }, [reviews]);*/
 
   return (
     <div className="home">

@@ -6,9 +6,10 @@ import {
   FETCH_COUNTRIES,
   updateBands,
   updateCountries,
-  saveEventsResults,
   SUBMIT_EVENTS_SEARCH,
 } from 'src/actions/searchForm';
+
+import { saveEventsResults } from 'src/actions/events'
 
 const searchFormMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
@@ -18,8 +19,8 @@ const searchFormMiddleware = (store) => (next) => (action) => {
         headers: { 'Access-Control-Allow-Origin': '*' },
       })
         .then((response) => {
-          console.log(response);
-          // store.dispatch(updateBands(response.data));
+          // console.log(response.data);
+          store.dispatch(updateBands(response.data));
         })
         .catch((error) => {
           console.log(error);
@@ -32,8 +33,8 @@ const searchFormMiddleware = (store) => (next) => (action) => {
         headers: { 'Access-Control-Allow-Origin': '*' },
       })
         .then((response) => {
-          console.log(response);
-          // store.dispatch(updateCountries(response.data));
+          // console.log(response.data);
+          store.dispatch(updateCountries(response.data));
         })
         .catch((error) => {
           console.log(error);
@@ -41,11 +42,28 @@ const searchFormMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
 
-    case SUBMIT_EVENTS_SEARCH:
-      axios.post('')
+    case SUBMIT_EVENTS_SEARCH: {
+      const {
+        band,
+        city,
+        venue,
+        country,
+        year,
+      } = store.getState().searchForm;
+
+      axios.get(`https://cors-anywhere.herokuapp.com/http://ec2-54-162-156-51.compute-1.amazonaws.com/Share-O-Metal/public/api/search/${band.id}`, {
+        headers: { 'Access-Control-Allow-Origin': '*' },
+        params: {
+          city,
+          venueName: venue,
+          country: country === null ? '' : country.id,
+          year: year === null ? '' : year.id,
+          p: 1,
+        },
+      })
         .then((response) => {
-          console.log(response);
-          // store.display(saveEventsResults(response.data));
+          console.log(response.data);
+          store.dispatch(saveEventsResults(response.data));
           history.push('/evenements');
         })
         .catch((error) => {
@@ -53,7 +71,7 @@ const searchFormMiddleware = (store) => (next) => (action) => {
         });
       next(action);
       break;
-
+    }
     default:
       // on passe l'action au suivant (middleware suivant ou reducer)
       next(action);

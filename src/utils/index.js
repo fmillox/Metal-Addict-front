@@ -21,5 +21,5 @@ export const getObjectByName = (name, array) => (
 );
 
 export const isObjectValid = (object) => (
-  object !== null && object.name !== undefined && object.id !== undefined
+  (object !== null && object.name !== undefined && object.id !== undefined) || object === null
 );
