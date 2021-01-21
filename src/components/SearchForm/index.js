@@ -9,12 +9,27 @@ import AutocompleteInput from 'src/components/AutocompleteInput';
 import TextFieldInput from 'src/components/TextFieldInput';
 import Button from 'src/components/Button';
 
-import { sortByName, createYearArray, isObjectValid } from 'src/utils';
+import { sortByName, createYearArray } from 'src/utils';
 
 import './searchForm.scss';
 
 // == Composant
-const SearchForm = ({ bands, countries, showOpenButton }) => {
+const SearchForm = ({
+  bands,
+  countries,
+  showOpenButton,
+  band,
+  country,
+  city,
+  year,
+  eventPlace,
+  setBand,
+  setCountry,
+  setCity,
+  setYear,
+  setEventPlace,
+  manageSubmit,
+}) => {
   const [years, setYears] = useState([]);
   const [open, setOpen] = useState(true);
 
@@ -29,23 +44,8 @@ const SearchForm = ({ bands, countries, showOpenButton }) => {
     setOpen(!open);
   };
 
-  // TODO : DELETE AFTER TEST
-  const [band, setBand] = useState(null);
-  const [country, setCountry] = useState(null);
-  const [city, setCity] = useState('');
-  const [year, setYear] = useState(null);
-  const [eventPlace, setEventPlace] = useState('');
-
-  const onSubmit = (evt) => {
-    evt.preventDefault();
-    if (!isObjectValid(band)) setBand(null);
-    if (!isObjectValid(country)) setCountry(null);
-    if (!isObjectValid(year)) setYear(null);
-  };
-  //
-
   return (
-    <form className="searchForm" onSubmit={onSubmit}>
+    <form className="searchForm" onSubmit={manageSubmit}>
       <div className={classNames('searchForm-container', { 'searchForm-container--close': !open })}>
         <div className="searchForm-input">
           <AutocompleteInput name="band" label="Nom du groupe" options={bands} required value={band} manageChange={setBand} />
@@ -86,10 +86,24 @@ SearchForm.propTypes = {
   bands: PropTypes.arrayOf(PropTypes.object).isRequired,
   countries: PropTypes.arrayOf(PropTypes.object).isRequired,
   showOpenButton: PropTypes.bool,
+  band: PropTypes.object,
+  country: PropTypes.object,
+  city: PropTypes.string.isRequired,
+  year: PropTypes.object,
+  eventPlace: PropTypes.string.isRequired,
+  setBand: PropTypes.func.isRequired,
+  setCountry: PropTypes.func.isRequired,
+  setCity: PropTypes.func.isRequired,
+  setYear: PropTypes.func.isRequired,
+  setEventPlace: PropTypes.func.isRequired,
+  manageSubmit: PropTypes.func.isRequired,
 };
 
 SearchForm.defaultProps = {
   showOpenButton: false,
+  band: null,
+  country: null,
+  year: null,
 };
 
 // == Export
