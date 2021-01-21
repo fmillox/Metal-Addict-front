@@ -14,7 +14,7 @@ const searchFormMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
   switch (action.type) {
     case FETCH_BANDS:
-      axios.get('')
+      axios.get('http://ec2-54-162-156-51.compute-1.amazonaws.com/Share-O-Metal/public/api/band')
         .then((response) => {
           console.log(response);
           // store.dispatch(updateBands(response.data));

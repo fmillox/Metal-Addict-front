@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import './home.scss';
@@ -24,6 +24,8 @@ const Home = ({
   reviews,
   loadingReviews,
   loadingSearchForm,
+  loadSearchForm,
+  loadReviews,
 }) => {
   // TODO : DELETE AFTER TEST
   const [band, setBand] = useState(null);
@@ -38,6 +40,15 @@ const Home = ({
     if (!isObjectValid(country)) setCountry(null);
     if (!isObjectValid(year)) setYear(null);
   };
+  // ***************************************
+
+  useEffect(() => {
+    loadSearchForm();
+  }, []);
+
+  useEffect(() => {
+    loadReviews();
+  }, [reviews]);
 
   return (
     <div className="home">
@@ -76,7 +87,7 @@ const Home = ({
       <div className="description"> <p data-aos="fade-left">Ecrivez vos reviews</p></div>
       <h2 className="lastReviews">Dernières reviews</h2>
       {loadingReviews && <ScaleLoader />}
-      <Reviews reviews={reviews} />
+      {!loadingReviews && <Reviews reviews={reviews} />}
       <div className="about">About</div>
       <div className="firstImage" data-aos="fade-up-left" data-aos-duration="1000">
         <img src={secondPicture} className="image" alt="" />
@@ -89,6 +100,8 @@ Home.propTypes = {
   reviews: PropTypes.array.isRequired,
   loadingReviews: PropTypes.bool.isRequired,
   loadingSearchForm: PropTypes.bool.isRequired,
+  loadSearchForm: PropTypes.func.isRequired,
+  loadReviews: PropTypes.func.isRequired,
 };
 
 export default Home;

@@ -20,9 +20,9 @@ const initialState = {
 
   venue: '',
 
-  loadingBands: true,
+  loadingBands: false, // todo: a passer en true une fois les requêtes axios ok
 
-  loadingCountries: true,
+  loadingCountries: false, // todo: a passer en true une fois les requêtes axios ok
 
   bands: [],
 

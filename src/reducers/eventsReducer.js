@@ -5,7 +5,7 @@ const initialState = {
 
   userEvents: [],
 
-  loading: false,
+  loading: false, // todo: a passer en true une fois les requêtes axios ok
 };
 
 function eventReducer(state = initialState, action = {}) {
