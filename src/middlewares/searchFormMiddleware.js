@@ -1,5 +1,4 @@
 import axios from 'axios';
-import history from 'src/router/history';
 
 import {
   FETCH_BANDS,
@@ -12,15 +11,13 @@ import {
 
 } from 'src/actions/searchForm';
 
-import { saveEventsResults } from 'src/actions/events'
+import { saveEventsResults } from 'src/actions/events';
 
 const searchFormMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
   switch (action.type) {
     case FETCH_BANDS:
-      axios.get('https://cors-anywhere.herokuapp.com/http://ec2-54-162-156-51.compute-1.amazonaws.com/Share-O-Metal/public/api/band', {
-        headers: { 'Access-Control-Allow-Origin': '*' },
-      })
+      axios.get('/band')
         .then((response) => {
           store.dispatch(updateBands(response.data));
         })
@@ -34,7 +31,7 @@ const searchFormMiddleware = (store) => (next) => (action) => {
       break;
 
     case FETCH_COUNTRIES:
-      axios.get('http://ec2-54-162-156-51.compute-1.amazonaws.com/Share-O-Metal/public/api/country')
+      axios.get('/country')
         .then((response) => {
           store.dispatch(updateCountries(response.data));
         })
@@ -56,7 +53,7 @@ const searchFormMiddleware = (store) => (next) => (action) => {
         year,
       } = store.getState().searchForm;
 
-      axios.get(`http://ec2-54-162-156-51.compute-1.amazonaws.com/Share-O-Metal/public/api/search/${band.id}`, {
+      axios.get(`/search/${band.id}`, {
         params: {
           city,
           venueName: venue,
@@ -68,7 +65,6 @@ const searchFormMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           // console.log(response.data);
           store.dispatch(saveEventsResults(response.data));
-          history.push('/evenements');
         })
         .catch((error) => {
           console.log(error);

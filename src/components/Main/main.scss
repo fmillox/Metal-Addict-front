@@ -1,0 +1,27 @@
+@use 'src/styles/vars'; 
+@import "src/styles/media";
+
+.main {
+
+  .main-searchForm {
+    margin-top: vars.$gutter;
+    
+    @include md {
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+    @include lg {
+      width: 60%;
+    }
+  }
+
+  .main-home {
+
+  }
+
+  .main-eventsResults {
+
+  }
+}
