@@ -7,7 +7,7 @@ const initialState = {
 
   userReviews: [],
 
-  loading: false,
+  loading: true,
 };
 
 function reviewsReducer(state = initialState, action = {}) {

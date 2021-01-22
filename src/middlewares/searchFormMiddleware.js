@@ -7,6 +7,9 @@ import {
   updateBands,
   updateCountries,
   SUBMIT_EVENTS_SEARCH,
+  updatedLoadingBands,
+  updatedLoadingCountries,
+
 } from 'src/actions/searchForm';
 
 import { saveEventsResults } from 'src/actions/events'
@@ -19,25 +22,27 @@ const searchFormMiddleware = (store) => (next) => (action) => {
         headers: { 'Access-Control-Allow-Origin': '*' },
       })
         .then((response) => {
-          // console.log(response.data);
           store.dispatch(updateBands(response.data));
         })
         .catch((error) => {
           console.log(error);
+        })
+        .finally(() => {
+          store.dispatch(updatedLoadingBands());
         });
       next(action);
       break;
 
     case FETCH_COUNTRIES:
-      axios.get('https://cors-anywhere.herokuapp.com/http://ec2-54-162-156-51.compute-1.amazonaws.com/Share-O-Metal/public/api/country', {
-        headers: { 'Access-Control-Allow-Origin': '*' },
-      })
+      axios.get('http://ec2-54-162-156-51.compute-1.amazonaws.com/Share-O-Metal/public/api/country')
         .then((response) => {
-          // console.log(response.data);
           store.dispatch(updateCountries(response.data));
         })
         .catch((error) => {
           console.log(error);
+        })
+        .finally(() => {
+          store.dispatch(updatedLoadingCountries());
         });
       next(action);
       break;
@@ -51,8 +56,7 @@ const searchFormMiddleware = (store) => (next) => (action) => {
         year,
       } = store.getState().searchForm;
 
-      axios.get(`https://cors-anywhere.herokuapp.com/http://ec2-54-162-156-51.compute-1.amazonaws.com/Share-O-Metal/public/api/search/${band.id}`, {
-        headers: { 'Access-Control-Allow-Origin': '*' },
+      axios.get(`http://ec2-54-162-156-51.compute-1.amazonaws.com/Share-O-Metal/public/api/search/${band.id}`, {
         params: {
           city,
           venueName: venue,
@@ -62,7 +66,7 @@ const searchFormMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           store.dispatch(saveEventsResults(response.data));
           history.push('/evenements');
         })

@@ -10,13 +10,11 @@ const reviewsMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
   switch (action.type) {
     case FETCH_LAST_REVIEWS:
-      store.dispatch(showLoader());
-      axios.get('https://cors-anywhere.herokuapp.com/http://ec2-54-162-156-51.compute-1.amazonaws.com/Share-O-Metal/public/api/review?limit=6&order=ASC', {
-        headers: { 'Access-Control-Allow-Origin': '*' },
-      })
+      // store.dispatch(showLoader());
+      axios.get('http://ec2-54-162-156-51.compute-1.amazonaws.com/Share-O-Metal/public/api/review?limit=6&order=ASC')
         .then((response) => {
-          console.log(response);
-          // store.dispatch(saveLastReviews(response.data));
+          // console.log(response);
+          store.dispatch(saveLastReviews(response.data));
         })
         .catch((error) => {
           console.log(error);
