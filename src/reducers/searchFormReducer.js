@@ -6,6 +6,8 @@ import {
   UPDATE_CITY,
   UPDATE_YEAR,
   UPDATE_EVENTPLACE,
+  UPDATE_LOADING_BANDS,
+  UPDATE_LOADING_COUNTRIES,
 } from 'src/actions/searchForm';
 
 const initialState = {
@@ -35,14 +37,12 @@ function searchFormReducer(state = initialState, action = {}) {
       return {
         ...state,
         bands: action.bands,
-        loadingBands: false,
       };
 
     case UPDATE_COUNTRIES:
       return {
         ...state,
         countries: action.countries,
-        loadingCountries: false,
       };
 
     case UPDATE_BAND:
@@ -73,6 +73,18 @@ function searchFormReducer(state = initialState, action = {}) {
       return {
         ...state,
         venue: action.value,
+      };
+
+    case UPDATE_LOADING_BANDS:
+      return {
+        ...state,
+        loadingBands: false,
+      };
+
+    case UPDATE_LOADING_COUNTRIES:
+      return {
+        ...state,
+        loadingCountries: false,
       };
 
     default:

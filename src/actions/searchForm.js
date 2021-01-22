@@ -8,6 +8,8 @@ export const UPDATE_CITY = 'UPDATE_CITY';
 export const UPDATE_YEAR = 'UPDATE_YEAR';
 export const UPDATE_EVENTPLACE = 'UPDATE_EVENTPLACE';
 export const SUBMIT_EVENTS_SEARCH = 'SUBMIT_EVENTS_SEARCH';
+export const UPDATE_LOADING_BANDS = 'UPDATE_LOADING_BANDS';
+export const UPDATE_LOADING_COUNTRIES = 'UPDATE_LOADING_COUNTRIES';
 
 export const fetchBands = () => ({
   type: FETCH_BANDS,
@@ -54,4 +56,12 @@ export const updateEventPlace = (value) => ({
 
 export const submitEventsSearch = () => ({
   type: SUBMIT_EVENTS_SEARCH,
+});
+
+export const updatedLoadingBands = () => ({
+  type: UPDATE_LOADING_BANDS,
+});
+
+export const updatedLoadingCountries = () => ({
+  type: UPDATE_LOADING_COUNTRIES,
 });

@@ -6,6 +6,9 @@ import {
   updateBands,
   updateCountries,
   SUBMIT_EVENTS_SEARCH,
+  updatedLoadingBands,
+  updatedLoadingCountries,
+
 } from 'src/actions/searchForm';
 
 import { saveEventsResults } from 'src/actions/events';
@@ -16,11 +19,13 @@ const searchFormMiddleware = (store) => (next) => (action) => {
     case FETCH_BANDS:
       axios.get('/band')
         .then((response) => {
-          // console.log(response.data);
           store.dispatch(updateBands(response.data));
         })
         .catch((error) => {
           console.log(error);
+        })
+        .finally(() => {
+          store.dispatch(updatedLoadingBands());
         });
       next(action);
       break;
@@ -28,11 +33,13 @@ const searchFormMiddleware = (store) => (next) => (action) => {
     case FETCH_COUNTRIES:
       axios.get('/country')
         .then((response) => {
-          // console.log(response.data);
           store.dispatch(updateCountries(response.data));
         })
         .catch((error) => {
           console.log(error);
+        })
+        .finally(() => {
+          store.dispatch(updatedLoadingCountries());
         });
       next(action);
       break;
