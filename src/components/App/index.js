@@ -5,7 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 
 // == Import
 import Page from 'src/components/Page';
-import Login from 'src/components/Login';
+import Login from 'src/containers/Login';
 import Register from 'src/components/Register';
 
 import './styles.scss';

@@ -36,7 +36,7 @@ const TextFieldInput = withStyles(styles)(({
     manageChange(evt.target.value);
   };
 
-  const id = `text-field-inut-${name}`;
+  const id = `text-field-input-${name}`;
 
   return (
     <TextField
