@@ -16,7 +16,7 @@ export const saveSetListApiMoreEvents = (events) => ({
   type: SAVE_SET_LIST_API_MORE_EVENTS,
   events,
 });
-  
+
 export const saveEventsResults = (events) => ({
   type: SAVE_EVENTS_RESULTS,
   events,

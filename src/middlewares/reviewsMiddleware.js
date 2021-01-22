@@ -15,8 +15,7 @@ const reviewsMiddleware = (store) => (next) => (action) => {
         headers: { 'Access-Control-Allow-Origin': '*' },
       })
         .then((response) => {
-          console.log(response);
-          // store.dispatch(saveLastReviews(response.data));
+          store.dispatch(saveLastReviews(response.data));
         })
         .catch((error) => {
           console.log(error);

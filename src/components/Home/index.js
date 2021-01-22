@@ -10,7 +10,6 @@ import firstPicture from 'src/images/concert5.jpg';
 import secondPicture from 'src/images/concert3.jpg';
 
 import Reviews from 'src/components/Reviews';
-import SearchForm from 'src/containers/SearchForm';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -20,26 +19,14 @@ AOS.init();
 const Home = ({
   reviews,
   loadingReviews,
-  loadingSearchForm,
-  loadSearchForm,
   loadReviews,
 }) => {
   useEffect(() => {
-    loadSearchForm();
-  }, []);
-
-  /*useEffect(() => {
     loadReviews();
-  }, [reviews]);*/
+  }, []);
 
   return (
     <div className="home">
-      {loadingSearchForm && <ScaleLoader />}
-      {!loadingSearchForm && (
-        <div className="form">
-          <SearchForm />
-        </div>
-      )}
       <div className="introduction">
         <p data-aos="fade-right">Welcome !! Prepare to share your reviews and pictures of your best concerts</p>
       </div>
@@ -66,8 +53,6 @@ const Home = ({
 Home.propTypes = {
   reviews: PropTypes.array.isRequired,
   loadingReviews: PropTypes.bool.isRequired,
-  loadingSearchForm: PropTypes.bool.isRequired,
-  loadSearchForm: PropTypes.func.isRequired,
   loadReviews: PropTypes.func.isRequired,
 };
 

@@ -2,6 +2,10 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+
+  .searchForm-loader {
+    align-self: center;
+  }
   
   .searchForm-container {
     width: 100%;

@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { ScaleLoader } from 'react-spinners';
 import { ChevronsDown, ChevronsUp } from 'react-feather';
 
 // == Import
@@ -9,12 +10,13 @@ import AutocompleteInput from 'src/components/AutocompleteInput';
 import TextFieldInput from 'src/components/TextFieldInput';
 import Button from 'src/components/Button';
 
-import { sortByName, createYearArray, isObjectValid } from 'src/utils';
+import { createYearArray, isObjectValid } from 'src/utils';
 
 import './searchForm.scss';
 
 // == Composant
 const SearchForm = ({
+  loading,
   bands,
   countries,
   showOpenButton,
@@ -23,6 +25,8 @@ const SearchForm = ({
   city,
   year,
   eventPlace,
+  loadBands,
+  loadCountries,
   setBand,
   setCountry,
   setCity,
@@ -34,8 +38,8 @@ const SearchForm = ({
   const [open, setOpen] = useState(true);
 
   useEffect(() => {
-    sortByName(bands);
-    sortByName(countries);
+    loadBands();
+    loadCountries();
     setYears(createYearArray());
   }, []);
 
@@ -62,36 +66,49 @@ const SearchForm = ({
 
   return (
     <form className="searchForm" onSubmit={handleSubmit}>
-      <div className={classNames('searchForm-container', { 'searchForm-container--close': !open })}>
-        <div className="searchForm-input">
-          <AutocompleteInput name="band" label="Nom du groupe" options={bands} required value={band} manageChange={setBand} />
-        </div>
-        <div className="searchForm-input">
-          <AutocompleteInput name="country" label="Pays" options={countries} value={country} manageChange={setCountry} />
-        </div>
-        <div className="searchForm-input">
-          <TextFieldInput name="city" label="Ville" value={city} manageChange={setCity} />
-        </div>
-        <div className="searchForm-input">
-          <AutocompleteInput name="year" label="Année" options={years} value={year} manageChange={setYear} />
-        </div>
-        <div className="searchForm-input">
-          <TextFieldInput name="event-place" label="Lieu de l'événement" value={eventPlace} manageChange={setEventPlace} />
-        </div>
-        <div className="searchForm-button">
-          <Button label="Rechercher" />
-        </div>
-      </div>
       {
-        showOpenButton && (
-          <div className="searchForm-open-btn">
-            {
-              open && <ChevronsUp onClick={onOpenBtnClick} />
-            }
-            {
-              !open && <ChevronsDown onClick={onOpenBtnClick} />
-            }
+        loading && (
+          <div className="searchForm-loader">
+            <ScaleLoader />
           </div>
+        )
+      }
+      {
+        !loading && (
+          <>
+            <div className={classNames('searchForm-container', { 'searchForm-container--close': !open })}>
+              <div className="searchForm-input">
+                <AutocompleteInput name="band" label="Nom du groupe" options={bands} required value={band} manageChange={setBand} />
+              </div>
+              <div className="searchForm-input">
+                <AutocompleteInput name="country" label="Pays" options={countries} value={country} manageChange={setCountry} />
+              </div>
+              <div className="searchForm-input">
+                <TextFieldInput name="city" label="Ville" value={city} manageChange={setCity} />
+              </div>
+              <div className="searchForm-input">
+                <AutocompleteInput name="year" label="Année" options={years} value={year} manageChange={setYear} />
+              </div>
+              <div className="searchForm-input">
+                <TextFieldInput name="event-place" label="Lieu de l'événement" value={eventPlace} manageChange={setEventPlace} />
+              </div>
+              <div className="searchForm-button">
+                <Button label="Rechercher" />
+              </div>
+            </div>
+            {
+              showOpenButton && (
+                <div className="searchForm-open-btn">
+                  {
+                    open && <ChevronsUp onClick={onOpenBtnClick} />
+                  }
+                  {
+                    !open && <ChevronsDown onClick={onOpenBtnClick} />
+                  }
+                </div>
+              )
+            }
+          </>
         )
       }
     </form>
@@ -99,6 +116,7 @@ const SearchForm = ({
 };
 
 SearchForm.propTypes = {
+  loading: PropTypes.bool.isRequired,
   bands: PropTypes.arrayOf(PropTypes.object).isRequired,
   countries: PropTypes.arrayOf(PropTypes.object).isRequired,
   showOpenButton: PropTypes.bool,
@@ -107,6 +125,8 @@ SearchForm.propTypes = {
   city: PropTypes.string.isRequired,
   year: PropTypes.object,
   eventPlace: PropTypes.string.isRequired,
+  loadBands: PropTypes.func.isRequired,
+  loadCountries: PropTypes.func.isRequired,
   setBand: PropTypes.func.isRequired,
   setCountry: PropTypes.func.isRequired,
   setCity: PropTypes.func.isRequired,

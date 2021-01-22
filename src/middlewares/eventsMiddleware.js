@@ -21,19 +21,16 @@ const eventsMiddleware = (store) => (next) => (action) => {
       const { searchEvents } = store.getState().events;
 
       setLoading(true);
-      axios.defaults.baseURL = 'https://cors-anywhere.herokuapp.com/http://ec2-54-162-156-51.compute-1.amazonaws.com/Share-O-Metal/public/api';
-      // axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
       axios.get(`/search/${band.id}`, {
         params: {
-          countryId: country === null ? '' : country.id,
           city,
-          year: year === null ? '' : year.id,
           venueName: venue,
+          country: country === null ? '' : country.id,
+          year: year === null ? '' : year.id,
           p: searchEvents.page + 1,
         },
       })
         .then((response) => {
-          console.log(response.data);
           store.dispatch(saveSetListApiMoreEvents(response.data));
         })
         .catch((error) => {

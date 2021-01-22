@@ -3,9 +3,9 @@ import React from 'react';
 import './register.scss';
 
 const Register = () => (
-  <register className="register">
+  <Register className="register">
     register
-  </register>
+  </Register>
 );
 
 export default Register;

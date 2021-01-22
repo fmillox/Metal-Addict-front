@@ -1,7 +1,3 @@
-export const sortByName = (array) => {
-  array.sort((a, b) => a.name.localeCompare(b.name));
-};
-
 export const createYearArray = () => {
   const currentYear = (new Date(Date.now())).getFullYear();
   const yearArray = [];
