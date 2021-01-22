@@ -30,7 +30,7 @@ const Home = ({
 
   useEffect(() => {
     loadReviews();
-  }, [reviews]);
+  }, []);
 
   return (
     <div className="home">

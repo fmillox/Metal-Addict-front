@@ -22,7 +22,6 @@ const searchFormMiddleware = (store) => (next) => (action) => {
         headers: { 'Access-Control-Allow-Origin': '*' },
       })
         .then((response) => {
-          console.log(response.data);
           store.dispatch(updateBands(response.data));
         })
         .catch((error) => {
@@ -37,7 +36,6 @@ const searchFormMiddleware = (store) => (next) => (action) => {
     case FETCH_COUNTRIES:
       axios.get('http://ec2-54-162-156-51.compute-1.amazonaws.com/Share-O-Metal/public/api/country')
         .then((response) => {
-          console.log(response.data);
           store.dispatch(updateCountries(response.data));
         })
         .catch((error) => {
@@ -68,7 +66,7 @@ const searchFormMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           store.dispatch(saveEventsResults(response.data));
           history.push('/evenements');
         })
