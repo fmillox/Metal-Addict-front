@@ -1,6 +1,6 @@
 export const FETCH_LAST_REVIEWS = 'FETCH_LAST_REVIEWS';
 export const SAVE_LAST_REVIEWS = 'SAVE_LAST_REVIEWS';
-export const SHOW_LOADER = 'SHOW_LOADER';
+export const SET_LOADING = 'SET_LOADING';
 
 export const fetchLastReviews = () => ({
   type: FETCH_LAST_REVIEWS,
@@ -11,6 +11,7 @@ export const saveLastReviews = (reviews) => ({
   reviews,
 });
 
-export const showLoader = () => ({
-  type: SHOW_LOADER,
+export const setLoading = (value) => ({
+  type: SET_LOADING,
+  value,
 });

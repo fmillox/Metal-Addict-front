@@ -31,3 +31,20 @@ export const checkMoreEventsInSetListApi = (object) => {
 
   return total > itemsPerPage * page;
 };
+
+export const getUnifiedSetList = (set) => {
+  const setList = [];
+  let numb = 1;
+
+  set.forEach((setElt) => {
+    setElt.song.forEach((setSong) => {
+      setList.push({
+        numb,
+        name: setSong.name,
+      });
+      numb += 1;
+    });
+  });
+
+  return setList;
+};

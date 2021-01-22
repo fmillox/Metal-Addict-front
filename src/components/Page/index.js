@@ -10,6 +10,9 @@ import Review from 'src/components/Review';
 import Profile from 'src/components/Profile';
 import NotFound from 'src/components/NotFound';
 
+import events from 'src/datas/events';
+import reviews from 'src/datas/reviews';
+
 import './page.scss';
 
 const Page = () => (
@@ -20,7 +23,7 @@ const Page = () => (
         <Main />
       </Route>
       <Route path="/evenement/:slug">
-        <Event />
+        <Event {...events.setlist[0]} loadingReviews={false} reviews={reviews} />
       </Route>
       <Route path="/chronique/ajouter/:slug">
         <CreateReview />
