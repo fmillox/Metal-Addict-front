@@ -1,4 +1,4 @@
-import { UPDATE_EMAIL, UPDATE_PASSWORD } from 'src/actions/auth';
+import { UPDATE_EMAIL, UPDATE_PASSWORD, SAVE_USER } from 'src/actions/auth';
 
 const initialState = {
   /* contenu du champ email du formulaire de login */
@@ -16,6 +16,8 @@ const initialState = {
 
   userId: null,
 
+  isLogged: false,
+
 };
 
 function authReducer(state = initialState, action = {}) {
@@ -30,6 +32,14 @@ function authReducer(state = initialState, action = {}) {
       return {
         ...state,
         password: action.newValue,
+      };
+
+    case SAVE_USER:
+      return {
+        ...state,
+        isLogged: action.isLogged,
+        email: '',
+        password: '',
       };
 
     default:

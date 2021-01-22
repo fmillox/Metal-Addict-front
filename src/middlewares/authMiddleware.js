@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { LOG_IN } from 'src/actions/auth';
+import { LOG_IN, saveUser } from 'src/actions/auth';
 
 const authMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
