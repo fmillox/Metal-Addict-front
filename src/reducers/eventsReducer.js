@@ -4,8 +4,6 @@ import {
   SAVE_SET_LIST_API_MORE_EVENTS,
 } from 'src/actions/events';
 
-import data from 'src/datas/events';
-
 const initialState = {
   searchEvents: null,
 
