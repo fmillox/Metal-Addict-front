@@ -3,6 +3,8 @@
 
 
 .pictures {
+  position: relative;
+  height: 535px;
   display: grid;
     grid-template-columns: 1fr;
     column-gap: 1em;
@@ -14,15 +16,19 @@
     @include lg {
       grid-template-columns: 1fr 1fr 1fr 1fr;
     }
-  background-color: lightgrey;
+
   text-align: center;
   overflow: hidden;
+
+  &.pictures--all {
+    height: 100%;
+  }
 
   .smallPicture {
     .picture {
       width: 210px;
       height: 210px;
-      margin-bottom: 40px;
+      margin-bottom: 55px;
       object-fit: cover; // choix à faire entre cover et contain
       border: gray 6px double;
       border-radius: 5px;
@@ -37,4 +43,11 @@
       max-width: 100%;
   }
 }
+  .pictures-button {
+    position: absolute;
+    bottom: 0px;
+    width: 150px; 
+    left:50%; 
+    transform:translate(-50%); 
+  }
 }

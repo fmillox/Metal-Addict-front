@@ -17,12 +17,10 @@ const useStyles = makeStyles((theme) => ({
 const SmallPicture = ({ picture }) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
-  const [pictureUrl, setPicture] = useState('');
   const handleClose = () => {
     setOpen(false);
   };
-  const handleToggle = (event) => {
-    console.log(event.target);
+  const handleToggle = () => {
     setOpen(!open);
   };
 
