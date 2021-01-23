@@ -17,7 +17,7 @@ const Pictures = ({ pictures, buttonClick, allPictures }) => {
       ))}
       <button type="button" className="pictures-button" onClick={buttonClick}>Voir/cacher toutes les photos</button>
     </div>
-);
+  );
 };
 Pictures.propTypes = {
   pictures: PropTypes.arrayOf(

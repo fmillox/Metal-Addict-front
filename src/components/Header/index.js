@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import Menu from '@material-ui/core/Menu';
@@ -28,7 +29,7 @@ const StyledMenu = withStyles({
   />
 ));
 
-const Header = () => {
+const Header = ({ isLogged }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -46,18 +47,34 @@ const Header = () => {
       >
         <h1>Share O Metal</h1>
       </NavLink>
-      <div className="image" aria-controls="customized-menu" aria-haspopup="true" onClick={handleClick}><img src={dave} className="image-content" alt="" /></div>
-      <StyledMenu
-        id="customized-menu"
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-      >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>Déconnexion</MenuItem>
-      </StyledMenu>
+      {isLogged && (
+        <>
+          <div className="image" aria-controls="customized-menu" aria-haspopup="true" onClick={handleClick}><img src={dave} className="image-content" alt="" /></div>
+          <StyledMenu
+            id="customized-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+          >
+            <MenuItem onClick={handleClose}>Profile</MenuItem>
+            <MenuItem onClick={handleClose}>Déconnexion</MenuItem>
+          </StyledMenu>
+        </>
+      )}
+      {!isLogged && (
+        <NavLink
+          to="/connexion"
+          className="connexionLink"
+        >Se connecter
+        </NavLink>
+      )}
     </header>
   );
 };
+
+Header.propTypes = {
+  isLogged: PropTypes.bool.isRequired,
+};
+
 export default Header;

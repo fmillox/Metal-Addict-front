@@ -16,7 +16,7 @@ const initialState = {
 
   userId: null,
 
-  isLogged: false,
+  isLogged: true, // TODO a passer en false
 
 };
 
