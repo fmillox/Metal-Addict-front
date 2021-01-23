@@ -8,7 +8,7 @@ import Event from 'src/components/Event';
 import CreateReview from 'src/components/CreateReview';
 import Review from 'src/components/Review';
 import Profile from 'src/components/Profile';
-import NotFound from 'src/components/NotFound';
+import NotFound from 'src/containers/NotFound';
 
 import './page.scss';
 

@@ -55,7 +55,7 @@ const Header = () => {
         onClose={handleClose}
       >
         <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>Deconnexion</MenuItem>
+        <MenuItem onClick={handleClose}>Déconnexion</MenuItem>
       </StyledMenu>
     </header>
   );

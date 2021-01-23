@@ -1,16 +1,40 @@
+@use 'src/styles/vars'; 
+@import "src/styles/media";
+
+
 .pictures {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 1em;
+  
+    @include md {
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    @include lg {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
   background-color: lightgrey;
+  text-align: center;
+  overflow: hidden;
 
   .smallPicture {
     .picture {
-      width: 160px;
-      height: 160px;
+      width: 210px;
+      height: 210px;
       margin-bottom: 40px;
       object-fit: cover; // choix à faire entre cover et contain
       border: gray 6px double;
+      border-radius: 5px;
+
+      &:hover {
+        border: hotpink 3px solid;
+      }
     }
+
+    .pictureBig {
+      max-height: 95vh;
+      max-width: 100%;
   }
+}
 }
