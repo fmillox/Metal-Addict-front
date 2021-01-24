@@ -1,12 +1,17 @@
 .header {
   width: 100%;
-  background: linear-gradient(to right, #403b4a, #e7e9bb);
+  background-color: #186172;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
   font-size: 1.9em;
   height: 130px;
+
+  .logo {
+    max-height: 100%;
+    color: hotpink;
+  }
 
   .title {
     .main-title {
@@ -22,8 +27,8 @@
 
   .image {
     border-radius: 50%;
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     display: inline-block;
     border: gray 1px solid;
     
