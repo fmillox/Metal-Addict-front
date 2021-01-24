@@ -7,7 +7,6 @@ import SmallReview from 'src/components/Reviews/SmallReview';
 
 const Reviews = ({ reviews }) => (
   <div className="reviews">
-    {console.log(reviews)};
     {reviews.map((review) => (
       <SmallReview key={review.id} {...review} />
     ))}
