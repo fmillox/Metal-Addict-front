@@ -11,7 +11,7 @@ import {
 
 } from 'src/actions/searchForm';
 
-import { setLoading, saveEventsResults } from 'src/actions/events';
+import { setLoadingEvents, saveEventsResults } from 'src/actions/events';
 
 const searchFormMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
@@ -53,7 +53,7 @@ const searchFormMiddleware = (store) => (next) => (action) => {
         year,
       } = store.getState().searchForm;
 
-      store.dispatch(setLoading(true));
+      store.dispatch(setLoadingEvents(true));
       axios.get(`/search/${band.id}`, {
         params: {
           city,
@@ -71,7 +71,7 @@ const searchFormMiddleware = (store) => (next) => (action) => {
           console.log(error);
         })
         .finally(() => {
-          store.dispatch(setLoading(false));
+          store.dispatch(setLoadingEvents(false));
         });
       next(action);
       break;

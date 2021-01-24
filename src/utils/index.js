@@ -1,3 +1,20 @@
+import slugify from 'slugify';
+
+/**
+ * Get the slug
+ * @param {String} text The text to get the slug for
+ * @return the slug for the text
+ */
+export const slugifyText = (text) => slugify(text, {
+  lower: true,
+});
+
+export const extractSetlistIdFromSlug = (slug) => {
+  const index = slug.lastIndexOf('-');
+
+  return (index === -1 ? '' : slug.substring(index + 1));
+};
+
 export const createYearArray = () => {
   const currentYear = (new Date(Date.now())).getFullYear();
   const yearArray = [];
@@ -30,4 +47,21 @@ export const checkMoreEventsInSetListApi = (object) => {
   const page = Number(object.page);
 
   return total > itemsPerPage * page;
+};
+
+export const getUnifiedSetList = (set) => {
+  const setList = [];
+  let numb = 1;
+
+  set.forEach((setElt) => {
+    setElt.song.forEach((setSong) => {
+      setList.push({
+        numb,
+        name: setSong.name,
+      });
+      numb += 1;
+    });
+  });
+
+  return setList;
 };

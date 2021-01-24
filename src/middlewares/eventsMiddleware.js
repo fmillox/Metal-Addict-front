@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import {
   FETCH_SET_LIST_API_MORE_EVENTS,
-  setLoading,
+  setLoadingEvents,
   saveSetListApiMoreEvents,
 } from 'src/actions/events';
 
@@ -20,7 +20,7 @@ const eventsMiddleware = (store) => (next) => (action) => {
 
       const { searchEvents } = store.getState().events;
 
-      setLoading(true);
+      store.dispatch(setLoadingEvents(true));
       axios.get(`/search/${band.id}`, {
         params: {
           city,
@@ -37,7 +37,7 @@ const eventsMiddleware = (store) => (next) => (action) => {
           console.log(error);
         })
         .finally(() => {
-          setLoading(false);
+          store.dispatch(setLoadingEvents(false));
         });
       next(action);
       break;
