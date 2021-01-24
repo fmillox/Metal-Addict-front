@@ -5,64 +5,118 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  
-
-  .introduction {
-    width: 100%;
-    height: 80px;
-    background: linear-gradient(to right, #e6dada, #274046);
-    margin-top: 35px;
-    font-size: 1.2em;
-  }
 
   .news {
     width: 100%;
-    height: 150px;
+    height: 250px;
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
     margin-top: 35px;
-    background: linear-gradient(to right, #005aa7, #fffde4);
+    background-color: #9E9E9E;
 
     .news-content {
-      width: 70%;
       font-size: 1em;
       font-style: italic;
     }
   }
 
-  .firstImage {
+  .firstBlock {
     width: 100%;
-    margin-top: 35px;
 
-    .image{
+    @include md {
+      position: relative;
+    }
+
+    .introduction {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: 80px;
+      background: linear-gradient(to right, #e6dada, #274046);
+      margin-top: 35px;
+      font-size: 1.2em;
+
+      @include md {
+        width: 63%;
+        height: 300px;
+        margin-top: 150px;
+        padding-right: 130px;
+      }
+    }
+  
+    .firstImage {
+      width: 100%;
+      margin-top: 35px;
+  
+      .image{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      @include md {
+        width: 50%;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
     }
   }
+  
 
   .description {
     width: 100%;
-    height: 150px;
+    height: 300px;
     margin-top: 35px;
-    background: linear-gradient(to right, #5d4157, #a8caba);
+    background-color: #9E9E9E;
     font-size: 1.5em;
   }
 
   .lastReviews {
     text-align: center;
     margin-top: 35px;
-    color: white;
+    color: black;
+    font-size: 1.5em;
+    margin-bottom: 15px;
   }
 
-  .about {
+  .secondBlock {
     width: 100%;
     margin-top: 35px;
-    height: 150px;
-    background: linear-gradient(to right, #232526, #414345);
-    text-align: center;
-    font-size: 1.6em;
+
+    @include md {
+      position: relative;
+    }
+
+    .secondImage {
+      width: 100%;
+      margin-top: 35px;
+  
+      .image{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      @include md {
+        width: 50%;
+      }
+  }
+    .about {
+      color: #ECECEC;
+      width: 100%;
+      height: 185px;
+      background: linear-gradient(to right, #232526, #414345);
+      text-align: center;
+      font-size: 1.6em;
+
+      @include md {
+        width: 50%;
+        position: absolute;
+        right: 0;
+        top: 35%;
+        transform:translate(0, -40%);
+      }
+  }
   }
 }

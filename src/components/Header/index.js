@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-
+import logoOk from 'src/images/logoOk.svg';
 import './header.scss';
 
 import dave from 'src/images/dave.jpg';
@@ -47,6 +47,7 @@ const Header = ({ resetHomePage, isLogged }) => {
   };
   return (
     <header className="header">
+      <img src={logoOk} alt="logo" className="logo" />
       <a
         className="title"
         onClick={handleOnClickHome}

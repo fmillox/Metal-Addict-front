@@ -1,6 +1,6 @@
 .header {
   width: 100%;
-  background: linear-gradient(to right, #403b4a, #e7e9bb);
+  background-color: #798081;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -8,24 +8,29 @@
   font-size: 1.9em;
   height: 130px;
 
+  .logo {
+    max-height: 100%;
+  }
+
   .title {
     cursor: pointer;
     
     .main-title {
       font-weight: 700;
-      font-size: 1.4em;
+      font-size: 1.2em;
+      margin-bottom: 10px;
     }
 
     .sub-title {
-      font-size: .7em;
+      font-size: .5em;
       font-style: italic;
     }
   }
 
   .image {
     border-radius: 50%;
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     display: inline-block;
     border: gray 1px solid;
     

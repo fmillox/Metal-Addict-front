@@ -27,24 +27,33 @@ const Home = ({
 
   return (
     <div className="home">
-      <div className="introduction">
-        <p data-aos="fade-right">Welcome !! Prepare to share your reviews and pictures of your best concerts</p>
-      </div>
       <div className="news">
         <ArrowLeft />
         <p className="news-content">Nouvelle fonctionnalité : ajouter vos photos!!</p>
         <ArrowRight />
       </div>
-      <div className="firstImage" data-aos="fade-up-left" data-aos-duration="1000">
-        <img src={firstPicture} className="image" alt="" />
+
+      <div className="firstBlock">
+        <div className="introduction" data-aos="fade-up-right">
+          <p>Revivez vos meilleurs concerts grâce aux photos et reviews postées.</p>
+          <p>Inscrivez-vous pour nous partarger vos meilleurs souvenirs.</p>
+        </div>
+        <div className="firstImage" data-aos="fade-up-left" data-aos-duration="1000">
+          <img src={firstPicture} className="image" alt="" />
+        </div>
       </div>
-      <div className="description"> <p data-aos="fade-left">Ecrivez vos reviews</p></div>
+
+      <div className="description"> <p data-aos="fade-left" data-aos-duration="500">Quis omnis cum ut veritatis sit iste architecto aut libero ipsum repellendus</p></div>
+
       <h2 className="lastReviews">Dernières reviews</h2>
       {loadingReviews && <ScaleLoader />}
       {!loadingReviews && <Reviews reviews={reviews} />}
-      <div className="about">About</div>
-      <div className="firstImage" data-aos="fade-up-left" data-aos-duration="1000">
-        <img src={secondPicture} className="image" alt="" />
+
+      <div className="secondBlock">
+        <div className="about" data-aos="fade-down-left" data-aos-duration="1000">About</div>
+        <div className="secondImage" data-aos="zoom-out-left" data-aos-duration="1500">
+          <img src={secondPicture} className="image" alt="" />
+        </div>
       </div>
     </div>
   );
