@@ -1,28 +1,33 @@
 import {
-  SET_LOADING,
+  SET_LOADING_EVENTS,
   SAVE_EVENTS_RESULTS,
   SAVE_SET_LIST_API_MORE_EVENTS,
 } from 'src/actions/events';
 
+import { RESET_HOME_PAGE } from 'src/actions/home';
+
 const initialState = {
   searchEvents: null,
+
+  showSearchEvents: false,
 
   userEvents: [],
 
   loading: false,
 };
 
-function eventReducer(state = initialState, action = {}) {
+function eventsReducer(state = initialState, action = {}) {
   switch (action.type) {
-    case SET_LOADING:
+    case SET_LOADING_EVENTS:
       return {
         ...state,
-        loading: action.loading,
+        loading: action.value,
       };
     case SAVE_EVENTS_RESULTS:
       return {
         ...state,
         searchEvents: action.events,
+        showSearchEvents: true,
       };
     case SAVE_SET_LIST_API_MORE_EVENTS: {
       const newSearchEvents = { ...state.searchEvents };
@@ -33,9 +38,16 @@ function eventReducer(state = initialState, action = {}) {
         searchEvents: newSearchEvents,
       };
     }
+    case RESET_HOME_PAGE:
+      return {
+        ...state,
+        searchEvents: null,
+        showSearchEvents: false,
+        loading: false,
+      };
     default:
       return state;
   }
 }
 
-export default eventReducer;
+export default eventsReducer;

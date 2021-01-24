@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -29,8 +29,14 @@ const StyledMenu = withStyles({
   />
 ));
 
-const Header = ({ isLogged }) => {
+const Header = ({ resetHomePage, isLogged }) => {
+  const history = useHistory();
   const [anchorEl, setAnchorEl] = React.useState(null);
+  
+  const handleOnClickHome = () => {
+    resetHomePage();
+    history.push('/');
+  };
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -42,15 +48,13 @@ const Header = ({ isLogged }) => {
   return (
     <header className="header">
       <img src={logoOk} alt="logo" className="logo" />
-      <NavLink
-        to="/"
-        exact
+      <a
+        className="title"
+        onClick={handleOnClickHome}
       >
-        <div className="title">
-          <h1 className="main-title">Metal Addict</h1>
-          <h2 className="sub-title">Images and Words</h2>
-        </div>
-      </NavLink>
+        <h1 className="main-title">Metal Addicts</h1>
+        <h2 className="sub-title">Images and Words</h2>
+      </a>
       {isLogged && (
         <>
           <div className="image" aria-controls="customized-menu" aria-haspopup="true" onClick={handleClick}><img src={dave} className="image-content" alt="" /></div>
@@ -78,6 +82,7 @@ const Header = ({ isLogged }) => {
 };
 
 Header.propTypes = {
+  resetHomePage: PropTypes.func.isRequired,
   isLogged: PropTypes.bool.isRequired,
 };
 

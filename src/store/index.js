@@ -7,6 +7,7 @@ import authMiddleware from 'src/middlewares/authMiddleware';
 import searchFormMiddleware from 'src/middlewares/searchFormMiddleware';
 import reviewsMiddleware from 'src/middlewares/reviewsMiddleware';
 import eventsMiddleware from 'src/middlewares/eventsMiddleware';
+import eventMiddleware from 'src/middlewares/eventMiddleware';
 
 const enhancers = composeWithDevTools(
   applyMiddleware(
@@ -14,6 +15,7 @@ const enhancers = composeWithDevTools(
     searchFormMiddleware,
     reviewsMiddleware,
     eventsMiddleware,
+    eventMiddleware,
   ),
 );
 

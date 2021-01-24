@@ -1,11 +1,11 @@
-export const SET_LOADING = 'SET_LOADING';
+export const SET_LOADING_EVENTS = 'SET_LOADING_EVENTS';
 export const SAVE_EVENTS_RESULTS = 'SAVE_EVENTS_RESULTS';
 export const FETCH_SET_LIST_API_MORE_EVENTS = 'FETCH_SET_LIST_API_MORE_EVENTS';
 export const SAVE_SET_LIST_API_MORE_EVENTS = 'SAVE_SET_LIST_API_MORE_EVENTS';
 
-export const setLoading = (loading) => ({
-  type: SET_LOADING,
-  loading,
+export const setLoadingEvents = (value) => ({
+  type: SET_LOADING_EVENTS,
+  value,
 });
 
 export const fetchSetListApiMoreEvents = () => ({

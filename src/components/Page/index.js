@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import Header from 'src/containers/Header';
 import Footer from 'src/components/Footer';
 import Main from 'src/containers/Main';
-import Event from 'src/components/Event';
+import Event from 'src/containers/Event';
 import CreateReview from 'src/components/CreateReview';
 import Review from 'src/components/Review';
 import Profile from 'src/components/Profile';
