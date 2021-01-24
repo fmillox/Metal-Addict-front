@@ -47,7 +47,7 @@ const Header = ({ isLogged }) => {
         exact
       >
         <div className="title">
-          <h1 className="main-title">Metal Addicts</h1>
+          <h1 className="main-title">Metal Addict</h1>
           <h2 className="sub-title">Images and Words</h2>
         </div>
       </NavLink>

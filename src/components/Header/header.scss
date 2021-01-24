@@ -1,6 +1,6 @@
 .header {
   width: 100%;
-  background-color: #186172;
+  background-color: #798081;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,17 +10,17 @@
 
   .logo {
     max-height: 100%;
-    color: hotpink;
   }
 
   .title {
     .main-title {
       font-weight: 700;
-      font-size: 1.4em;
+      font-size: 1.2em;
+      margin-bottom: 10px;
     }
 
     .sub-title {
-      font-size: .7em;
+      font-size: .5em;
       font-style: italic;
     }
   }

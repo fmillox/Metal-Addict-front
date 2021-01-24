@@ -17,9 +17,9 @@ const SmallReview = ({
 }) => (
   <article
     className="smallReview"
-    data-aos="zoom-in"
+    data-aos="flip-down"
     data-aos-easing="linear"
-    data-aos-duration="1000"
+    data-aos-duration="500"
   >
     <div className="avatar"><img src={dave} className="avatar-image" alt="" /></div>
     <div className="content">
