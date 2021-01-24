@@ -10,6 +10,8 @@ import {
   UPDATE_LOADING_COUNTRIES,
 } from 'src/actions/searchForm';
 
+import { RESET_HOME_PAGE } from 'src/actions/home';
+
 const initialState = {
   // contenu du champs nom du groupe
   band: null,
@@ -85,6 +87,16 @@ function searchFormReducer(state = initialState, action = {}) {
       return {
         ...state,
         loadingCountries: false,
+      };
+
+    case RESET_HOME_PAGE:
+      return {
+        ...state,
+        band: null,
+        country: null,
+        city: '',
+        year: null,
+        venue: '',
       };
 
     default:

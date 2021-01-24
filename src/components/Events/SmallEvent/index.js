@@ -1,39 +1,52 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 // == Import
+import { slugifyText } from 'src/utils';
+
 import './smallEvent.scss';
 
 // == Composant
 const SmallEvent = ({
+  id,
   artist,
   eventDate,
   venue,
   picture,
-}) => (
-  <div className="smallEvent">
-    <div className="smallEvent-picture-container">
-      <img className="smallEvent-picture" src={picture} alt={artist.name} />
+}) => {
+  // eslint-disable-next-line prefer-template
+  const location = '/evenement/' + slugifyText(artist.name + '-' + id);
+
+  return (
+    <div className="smallEvent">
+      <div className="smallEvent-picture-container">
+        <img className="smallEvent-picture" src={picture} alt={artist.name} />
+      </div>
+      <div className="smallEvent-content-container">
+        <NavLink
+          className="smallEvent-band"
+          to={location}
+        >
+          {artist.name}
+        </NavLink>
+        <div className="smallEvent-date">
+          {eventDate}
+        </div>
+        <div className="smallEvent-place">
+          {venue.name}
+        </div>
+        <div className="smallEvent-city-country">
+          {venue.city.name} - {venue.city.country.name}
+        </div>
+      </div>
     </div>
-    <div className="smallEvent-content-container">
-      <div className="smallEvent-band">
-        {artist.name}
-      </div>
-      <div className="smallEvent-date">
-        {eventDate}
-      </div>
-      <div className="smallEvent-place">
-        {venue.name}
-      </div>
-      <div className="smallEvent-city-country">
-        {venue.city.name} - {venue.city.country.name}
-      </div>
-    </div>
-  </div>
-);
+  );
+};
 
 SmallEvent.propTypes = {
+  id: PropTypes.string.isRequired,
   artist: PropTypes.shape({
     name: PropTypes.string.isRequired,
   }.isRequired).isRequired,

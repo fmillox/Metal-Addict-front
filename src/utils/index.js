@@ -1,3 +1,20 @@
+import slugify from 'slugify';
+
+/**
+ * Get the slug
+ * @param {String} text The text to get the slug for
+ * @return the slug for the text
+ */
+export const slugifyText = (text) => slugify(text, {
+  lower: true,
+});
+
+export const extractSetlistIdFromSlug = (slug) => {
+  const index = slug.lastIndexOf('-');
+
+  return (index === -1 ? '' : slug.substring(index + 1));
+};
+
 export const createYearArray = () => {
   const currentYear = (new Date(Date.now())).getFullYear();
   const yearArray = [];

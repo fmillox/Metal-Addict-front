@@ -1,100 +1,151 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import {
+  useParams,
+  useLocation,
+  Redirect,
+  Link,
+} from 'react-router-dom';
 import ScaleLoader from 'react-spinners/ScaleLoader';
 
 import Reviews from 'src/components/Reviews';
 
-import { getUnifiedSetList } from 'src/utils';
-
-import img from 'src/datas/band.jpg';
+import { getUnifiedSetList, extractSetlistIdFromSlug } from 'src/utils';
 
 import './event.scss';
 
 const Event = ({
-  artist,
-  eventDate,
-  venue,
-  sets,
+  redirectTo,
+  loadingEvent,
+  loadEvent,
+  event,
   picture,
   loadingReviews,
   reviews,
-}) => (
-  <div className="event">
-    <div className="event-band">
-      {artist.name}
+}) => {
+  const { slug } = useParams();
+  const setlistId = extractSetlistIdFromSlug(slug);
+  const { pathname } = useLocation();
+
+  /*
+  if (redirectTo !== undefined) {
+    return <Redirect to={redirectTo} />;
+  }
+  */
+
+  useEffect(() => {
+    loadEvent(setlistId, pathname);
+  }, []);
+
+  return (
+    <div className="event">
+      {
+        loadingEvent && <ScaleLoader />
+      }
+      {
+        !loadingEvent && (
+          <>
+            <Link
+              className="event-back-to-events-results"
+              to="/"
+            >
+              Retour aux résultats précédents
+            </Link>
+            <div className="event-band">
+              {event.artist.name}
+            </div>
+            <div className="event-band-img-container">
+              <img className="event-band-img" src={picture} alt={event.artist.name} />
+            </div>
+            <div className="event-data">
+              <div className="event-date">
+                {event.eventDate}
+              </div>
+              <div className="event-city-country">
+                {event.venue.city.name} - {event.venue.city.country.name}
+              </div>
+              <div className="event-venue">
+                {event.venue.name}
+              </div>
+            </div>
+            {
+              (event.sets.set.length > 0) && (
+                <div className="event-setlist-container">
+                  <div className="event-setlist-label">
+                    Liste des chansons
+                  </div>
+                  <ul className="event-setlist-list">
+                    {
+                      getUnifiedSetList(event.sets.set).map(({ numb, name }) => (
+                        <li className="event-setlist-list-item" key={numb}>
+                          {numb} - {name}
+                        </li>
+                      ))
+                    }
+                  </ul>
+                </div>
+              )
+            }
+            {
+              loadingReviews && <ScaleLoader />
+            }
+            {
+              !loadingReviews && (
+                <div className="event-reviews-container">
+                  <div className="event-reviews-label">
+                    Chroniques
+                  </div>
+                  <div className="event-reviews-list">
+                    <Reviews reviews={reviews} />
+                  </div>
+                </div>
+              )
+            }
+          </>
+        )
+      }
     </div>
-    <div className="event-band-img-container">
-      <img className="event-band-img" src={picture} alt={artist.name} />
-    </div>
-    <div className="event-date">
-      {eventDate}
-    </div>
-    <div className="event-venue">
-      {venue.name}
-    </div>
-    <div className="event-city-country">
-      {venue.city.name} - {venue.city.country.name}
-    </div>
-    <div className="event-setlist-container">
-      <div className="event-setlist-label">
-        Liste des chansons
-      </div>
-      <ul className="event-setlist-list">
-        {
-          getUnifiedSetList(sets.set).map(({ numb, name }) => <li className="event-setlist-list-item" key={numb}>{numb} - {name}</li>)
-        }
-      </ul>
-    </div>
-    {
-      loadingReviews && <ScaleLoader />
-    }
-    {
-      !loadingReviews && (
-        <div className="event-reviews-container">
-          <div className="event-reviews-label">
-            Chroniques
-          </div>
-          <div className="event-reviews-list">
-            <Reviews reviews={reviews} />
-          </div>
-        </div>
-      )
-    }
-  </div>
-);
+  );
+};
 
 Event.propTypes = {
-  artist: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-  }.isRequired).isRequired,
-  eventDate: PropTypes.string.isRequired,
-  venue: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    city: PropTypes.shape({
+  redirectTo: PropTypes.string,
+  loadingEvent: PropTypes.bool.isRequired,
+  loadEvent: PropTypes.func.isRequired,
+  event: PropTypes.shape({
+    artist: PropTypes.shape({
       name: PropTypes.string.isRequired,
-      country: PropTypes.shape({
+    }.isRequired).isRequired,
+    eventDate: PropTypes.string.isRequired,
+    venue: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      city: PropTypes.shape({
         name: PropTypes.string.isRequired,
+        country: PropTypes.shape({
+          name: PropTypes.string.isRequired,
+        }.isRequired).isRequired,
       }.isRequired).isRequired,
     }.isRequired).isRequired,
-  }.isRequired).isRequired,
-  sets: PropTypes.shape({
-    set: PropTypes.arrayOf(
-      PropTypes.shape({
-        song: PropTypes.arrayOf(
-          PropTypes.shape({
-            name: PropTypes.string.isRequired,
-          }.isRequired).isRequired,
-        ).isRequired,
-      }.isRequired).isRequired,
-    ).isRequired,
-  }.isRequired).isRequired,
-  picture: PropTypes.string,
+    sets: PropTypes.shape({
+      set: PropTypes.arrayOf(
+        PropTypes.shape({
+          song: PropTypes.arrayOf(
+            PropTypes.shape({
+              name: PropTypes.string.isRequired,
+            }.isRequired).isRequired,
+          ).isRequired,
+        }.isRequired).isRequired,
+      ).isRequired,
+    }.isRequired).isRequired,
+  }.isRequired),
+  picture: PropTypes.string.isRequired,
   loadingReviews: PropTypes.bool.isRequired,
   reviews: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 Event.defaultProps = {
-  picture: img,
+  redirectTo: undefined,
+  event: null,
 };
 
 export default Event;

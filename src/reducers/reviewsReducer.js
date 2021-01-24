@@ -1,4 +1,4 @@
-import { SET_LOADING, SAVE_LAST_REVIEWS } from 'src/actions/reviews';
+import { SET_LOADING_REVIEWS, SAVE_LAST_REVIEWS } from 'src/actions/reviews';
 
 const initialState = {
   lastReviews: [],
@@ -12,7 +12,7 @@ const initialState = {
 
 function reviewsReducer(state = initialState, action = {}) {
   switch (action.type) {
-    case SET_LOADING:
+    case SET_LOADING_REVIEWS:
       return {
         ...state,
         loading: action.value,
@@ -22,7 +22,6 @@ function reviewsReducer(state = initialState, action = {}) {
       return {
         ...state,
         lastReviews: action.reviews,
-        loading: false,
       };
 
     default:

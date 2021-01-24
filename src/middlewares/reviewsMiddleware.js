@@ -3,14 +3,14 @@ import axios from 'axios';
 import {
   FETCH_LAST_REVIEWS,
   saveLastReviews,
-  setLoading,
+  setLoadingReviews,
 } from 'src/actions/reviews';
 
 const reviewsMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
   switch (action.type) {
     case FETCH_LAST_REVIEWS:
-      store.dispatch(setLoading(true));
+      store.dispatch(setLoadingReviews(true));
       axios.get('/review?limit=6&order=ASC')
         .then((response) => {
           // console.log(response);
@@ -20,7 +20,7 @@ const reviewsMiddleware = (store) => (next) => (action) => {
           console.log(error);
         })
         .finally(() => {
-          setLoading(false);
+          store.dispatch(setLoadingReviews(false));
         });
       next(action);
       break;

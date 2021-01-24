@@ -6,6 +6,16 @@
   flex-direction: column;
   align-items: center;
 
+  .event-back-to-events-results {
+    align-self: flex-start;
+    padding-top: 1em;
+    padding-left: 1em;
+
+    &:hover {
+      color: grey;
+    }
+  }
+
   .event-band {
     margin-top: vars.$gutter;
     text-transform: uppercase;
@@ -29,19 +39,31 @@
     }
   }
 
-  .event-date {
-    margin-top: vars.$gutter;
-    font-style: italic;
-  }
+  .event-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
 
-  .event-venue {
-    margin-top: vars.$gutter;
-  }
+    @include lg {
+      flex-direction: row;
+      justify-content: space-between;
+    }
 
-  .event-city-country {
-    margin-top: vars.$gutter;
+    .event-date {
+      margin-top: vars.$gutter;
+      font-style: italic;
+    }
+  
+    .event-city-country {
+      margin-top: vars.$gutter;
+    }
+  
+    .event-venue {
+      margin-top: vars.$gutter;
+    }
   }
-
+  
   .event-setlist-container {
     margin: vars.$gutter;
     border: 1px solid lightgrey;
