@@ -9,6 +9,7 @@ import {
 import ScaleLoader from 'react-spinners/ScaleLoader';
 
 import Reviews from 'src/components/Reviews';
+import Pictures from 'src/components/Pictures';
 
 import { getUnifiedSetList, extractSetlistIdFromSlug } from 'src/utils';
 
@@ -22,6 +23,8 @@ const Event = ({
   picture,
   loadingReviews,
   reviews,
+  loadingPictures,
+  pictures,
 }) => {
   const { slug } = useParams();
   const setlistId = extractSetlistIdFromSlug(slug);
@@ -101,6 +104,21 @@ const Event = ({
                 </div>
               )
             }
+            {
+              loadingPictures && <ScaleLoader />
+            }
+            {
+              !loadingPictures && (
+                <div className="event-pictures-container">
+                  <div className="event-pictures-label">
+                    Photos
+                  </div>
+                  <div className="event-pictures-list">
+                    <Pictures pictures={pictures} />
+                  </div>
+                </div>
+              )
+            }
           </>
         )
       }
@@ -141,6 +159,8 @@ Event.propTypes = {
   picture: PropTypes.string.isRequired,
   loadingReviews: PropTypes.bool.isRequired,
   reviews: PropTypes.arrayOf(PropTypes.object).isRequired,
+  loadingPictures: PropTypes.bool.isRequired,
+  pictures: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 Event.defaultProps = {

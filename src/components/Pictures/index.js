@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
@@ -6,16 +6,23 @@ import './pictures.scss';
 
 import SmallPicture from 'src/components/Pictures/SmallPicture';
 
-const Pictures = ({ pictures, buttonClick, allPictures }) => {
+const Pictures = ({ pictures }) => {
+  const [seeAllPictures, setSeeAllPictures] = useState(false);
+
+  const handleOnClick = () => {
+    setSeeAllPictures(!seeAllPictures);
+  };
+
   const cssClass = classNames('pictures', {
-    'pictures--all': allPictures,
+    'pictures--all': seeAllPictures,
   });
+
   return (
     <div className={cssClass}>
       {pictures.map((picture) => (
         <SmallPicture key={picture.id} picture={picture} />
       ))}
-      <button type="button" className="pictures-button" onClick={buttonClick}>Voir/cacher toutes les photos</button>
+      <button type="button" className="pictures-button" onClick={handleOnClick}>Voir/cacher toutes les photos</button>
     </div>
   );
 };
@@ -25,8 +32,6 @@ Pictures.propTypes = {
       id: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
-  buttonClick: PropTypes.func.isRequired,
-  allPictures: PropTypes.bool.isRequired,
 };
 
 export default Pictures;

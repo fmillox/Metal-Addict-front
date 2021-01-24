@@ -7,6 +7,7 @@ import { fetchEvent } from 'src/actions/event';
 
 import img from 'src/datas/band.jpg';
 import data from 'src/datas/reviews';
+import pictures from 'src/datas/pictures';
 
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
@@ -18,6 +19,8 @@ const mapStateToProps = (state) => ({
   picture: img, // TODO : THE API RETURNS THE PICTURE !!! picture: state.event.something
   loadingReviews: state.reviews.loading,
   reviews: data, // TODO reviews: state.reviews.eventReviews,
+  loadingPictures: state.pictures.loading,
+  pictures,
 });
 
 // === mapDispatchToProps

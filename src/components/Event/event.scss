@@ -106,4 +106,18 @@
       margin: vars.$gutter;
     }
   }
+
+  .event-pictures-container {
+    margin: 2 * vars.$gutter;
+
+    .event-pictures-label {
+      font-size: 1.7em;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .event-pictures-list {
+      margin: vars.$gutter;
+    }
+  }
 }
