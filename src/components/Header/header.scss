@@ -6,8 +6,19 @@
   align-items: center;
   padding: 10px;
   font-size: 1.9em;
-  font-weight: 700;
   height: 130px;
+
+  .title {
+    .main-title {
+      font-weight: 700;
+      font-size: 1.4em;
+    }
+
+    .sub-title {
+      font-size: .7em;
+      font-style: italic;
+    }
+  }
 
   .image {
     border-radius: 50%;

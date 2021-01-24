@@ -4,7 +4,7 @@
 
 .pictures {
   position: relative;
-  height: 535px;
+  height: 570px;
   display: grid;
     grid-template-columns: 1fr;
     column-gap: 1em;
@@ -25,10 +25,11 @@
   }
 
   .smallPicture {
+    margin-bottom: 60px;
+
     .picture {
       width: 210px;
       height: 210px;
-      margin-bottom: 55px;
       object-fit: cover; // choix à faire entre cover et contain
       border: gray 6px double;
       border-radius: 5px;

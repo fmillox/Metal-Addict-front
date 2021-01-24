@@ -32,6 +32,7 @@ const SmallPicture = ({ picture }) => {
         className="picture"
         onClick={handleToggle}
       />
+      <p>Postée par Jojo le bargeot</p>
       <Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
         <img src={picture.src} alt="" className="pictureBig" />
       </Backdrop>

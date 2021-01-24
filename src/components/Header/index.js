@@ -45,7 +45,10 @@ const Header = ({ isLogged }) => {
         to="/"
         exact
       >
-        <h1>Share O Metal</h1>
+        <div className="title">
+          <h1 className="main-title">Metal Addicts</h1>
+          <h2 className="sub-title">Images and Words</h2>
+        </div>
       </NavLink>
       {isLogged && (
         <>
