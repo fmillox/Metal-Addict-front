@@ -4,7 +4,7 @@ import './notFound.scss';
 
 const NotFound = () => (
   <div className="notFound">
-    notFound
+    Not Found
   </div>
 );
 

@@ -1,0 +1,63 @@
+@use 'src/styles/vars'; 
+@import "src/styles/media";
+
+
+.pictures {
+  position: relative;
+  height: 570px;
+  display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 1em;
+  
+    @include md {
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    @include lg {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+  text-align: center;
+  overflow: hidden;
+
+  &.pictures--all {
+    height: 100%;
+  }
+
+  .smallPicture {
+    margin-bottom: 60px;
+
+    .picture {
+      width: 210px;
+      height: 210px;
+      object-fit: cover; // choix à faire entre cover et contain
+      border: gray 6px double;
+      border-radius: 5px;
+
+      &:hover {
+        border: hotpink 3px solid;
+      }
+    }
+
+    .pictureBig {
+      max-height: 95vh;
+      max-width: 100%;
+  }
+}
+  .pictures-button {
+    position: absolute;
+    bottom: 0px;
+    width: 150px; 
+    left:50%; 
+    transform:translate(-50%);
+    background-color: blue;
+    border: none;
+    border-radius: 0.5em;
+    padding: .3em;
+    color: white;
+
+    &:hover {
+      background-color: green;
+  }
+  }
+}

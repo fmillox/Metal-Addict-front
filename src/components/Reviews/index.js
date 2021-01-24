@@ -16,7 +16,7 @@ const Reviews = ({ reviews }) => (
 Reviews.propTypes = {
   reviews: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
     }.isRequired).isRequired,
   ).isRequired,
 };
