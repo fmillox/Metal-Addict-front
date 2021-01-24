@@ -2,17 +2,26 @@
   width: 100%;
   background: linear-gradient(to right, #403b4a, #e7e9bb);
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 10px;
   font-size: 1.9em;
-  font-weight: 700;
-  position: relative;
   height: 130px;
+
+  .title {
+    .main-title {
+      font-weight: 700;
+      font-size: 1.4em;
+    }
+
+    .sub-title {
+      font-size: .7em;
+      font-style: italic;
+    }
+  }
 
   .image {
     border-radius: 50%;
-    position: absolute;
-    right: 5px;
     width: 80px;
     height: 80px;
     display: inline-block;

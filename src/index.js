@@ -1,11 +1,10 @@
 // == Import : npm
 import React from 'react';
 import { render } from 'react-dom';
-import { Router } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import store from 'src/store';
-import history from 'src/router/history';
 
 // == Import : local
 // Composants
@@ -16,7 +15,7 @@ import App from 'src/components/App';
 //    => crée une structure d'objets imbriqués (DOM virtuel)
 const rootReactElement = (
   <Provider store={store}>
-    <Router history={history}>
+    <Router>
       <App />
     </Router>
   </Provider>

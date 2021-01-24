@@ -7,7 +7,6 @@ import SmallReview from 'src/components/Reviews/SmallReview';
 
 const Reviews = ({ reviews }) => (
   <div className="reviews">
-    {console.log(reviews)};
     {reviews.map((review) => (
       <SmallReview key={review.id} {...review} />
     ))}
@@ -15,7 +14,11 @@ const Reviews = ({ reviews }) => (
 );
 
 Reviews.propTypes = {
-  reviews: PropTypes.array.isRequired,
+  reviews: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    }).isRequired,
+  ).isRequired,
 };
 
 export default Reviews;

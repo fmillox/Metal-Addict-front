@@ -1,6 +1,22 @@
+@use 'src/styles/vars'; 
+@import "src/styles/media";
+
 .reviews {
+  width: 100%;
+  display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 1em;
+  
+    @include md {
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    @include lg {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
   .smallReview {
-    width: 325px;
+    width: 310px;
     margin: 20px auto;
     background-color: rgba(128, 128, 128, 0.4);
     position: relative;
@@ -24,6 +40,7 @@
     }
   
     .content {
+      width: 80%;
       text-align: left;
       color: ivory;
       margin-left: 65px;

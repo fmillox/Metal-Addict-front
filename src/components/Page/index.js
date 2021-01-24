@@ -1,14 +1,14 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Header from 'src/components/Header';
+import Header from 'src/containers/Header';
 import Footer from 'src/components/Footer';
 import Main from 'src/containers/Main';
 import Event from 'src/components/Event';
 import CreateReview from 'src/components/CreateReview';
 import Review from 'src/components/Review';
 import Profile from 'src/components/Profile';
-import NotFound from 'src/components/NotFound';
+import NotFound from 'src/containers/NotFound';
 
 import './page.scss';
 
