@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import {
   useParams,
-  Link,
+  useHistory,
 } from 'react-router-dom';
 
 import Pictures from 'src/components/Pictures';
@@ -27,6 +27,7 @@ const Review = ({
   const { slug } = useParams();
   const id = getIdFromSlug(slug);
   const refReview = useRef(null);
+  const history = useHistory();
 
   useEffect(() => {
     loadReview(id);
@@ -35,6 +36,10 @@ const Review = ({
       left: 0,
     });
   }, []);
+
+  const handleOnClick = () => {
+    history.goBack();
+  };
 
   return (
     <div className="review" ref={refReview}>
@@ -45,12 +50,12 @@ const Review = ({
       {
       !loadingReview && (
         <>
-          <Link
+          <a
             className="review-back-to-reviews-results"
-            to="/"
+            onClick={handleOnClick}
           >
             Retour à la page précédente
-          </Link>
+          </a>
           <div className="review-title">
             {review.title}
           </div>

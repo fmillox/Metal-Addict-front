@@ -1,13 +1,11 @@
 import {
   SET_LOADING_REVIEW,
   SAVE_REVIEW,
-  SET_REVIEW_BACKLINK,
 } from 'src/actions/review';
 
 const initialState = {
   loading: false,
   data: null,
-  backLocation: '',
 };
 
 function reviewReducer(state = initialState, action = {}) {
@@ -21,11 +19,6 @@ function reviewReducer(state = initialState, action = {}) {
       return {
         ...state,
         data: action.review,
-      };
-    case SET_REVIEW_BACKLINK:
-      return {
-        ...state,
-        backLocation: action.location,
       };
     default:
       return state;

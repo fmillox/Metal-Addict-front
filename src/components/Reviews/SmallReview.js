@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useHistory, useLocation } from 'react-router-dom';
 
 import './reviews.scss';
 
@@ -10,6 +9,7 @@ import dave from 'src/images/dave.jpg';
 import Moment from 'moment';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Link } from 'react-router-dom';
 
 AOS.init();
 
@@ -18,18 +18,9 @@ const SmallReview = ({
   title,
   createdAt,
   event,
-  setBackLink,
 }) => {
   // eslint-disable-next-line prefer-template
-  const nextLocation = '/chronique/' + getSlug(event.band.name, id);
-  const history = useHistory();
-  const currentLocation = useLocation();
-
-  const handleOnClick = () => {
-    setBackLink(currentLocation);
-    // console.log(currentLocation);
-    history.push(nextLocation);
-  };
+  const location = '/chronique/' + getSlug(event.band.name, id);
 
   return (
     <article
@@ -39,9 +30,9 @@ const SmallReview = ({
       data-aos-duration="500"
     >
       <div className="avatar"><img src={dave} className="avatar-image" alt="" /></div>
-      <a
+      <Link
         className="title"
-        onClick={handleOnClick}
+        to={location}
       >
         <div className="content">
           <h3 className="title">{title} </h3>
@@ -50,7 +41,7 @@ const SmallReview = ({
           <p className="name">{event.band.name}</p>
           <p className="venue">{event.venue} - {event.city} - {event.country.name}</p>
         </div>
-      </a>
+      </Link>
     </article>
   );
 };
@@ -67,7 +58,6 @@ SmallReview.propTypes = {
       name: PropTypes.string.isRequired,
     }.isRequired).isRequired,
   }.isRequired).isRequired,
-  setBackLink: PropTypes.func.isRequired,
 };
 
 export default SmallReview;
