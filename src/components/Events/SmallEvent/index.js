@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 // == Import
-import { slugifyText } from 'src/utils';
+import { getSlug } from 'src/utils';
 
 import './smallEvent.scss';
 
@@ -17,7 +17,7 @@ const SmallEvent = ({
   picture,
 }) => {
   // eslint-disable-next-line prefer-template
-  const location = '/evenement/' + slugifyText(artist.name + '-' + id);
+  const location = '/evenement/' + getSlug(artist.name, id);
 
   return (
     <div className="smallEvent">

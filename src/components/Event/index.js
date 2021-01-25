@@ -3,16 +3,18 @@ import PropTypes from 'prop-types';
 import {
   useParams,
   useLocation,
-  Redirect,
   Link,
 } from 'react-router-dom';
+
 import ScaleLoader from 'react-spinners/ScaleLoader';
 import Reviews from 'src/components/Reviews';
 import Pictures from 'src/components/Pictures';
-import { getUnifiedSetList, extractSetlistIdFromSlug } from 'src/utils';
+
+import { getUnifiedSetList, getIdFromSlug } from 'src/utils';
+
 import './event.scss';
+
 const Event = ({
-  redirectTo,
   loadingEvent,
   loadEvent,
   event,
@@ -23,15 +25,10 @@ const Event = ({
   pictures,
 }) => {
   const { slug } = useParams();
-  const setlistId = extractSetlistIdFromSlug(slug);
+  const setlistId = getIdFromSlug(slug);
   const { pathname } = useLocation();
   const refEvent = useRef(null);
-  
-  /*
-  if (redirectTo !== undefined) {
-    return <Redirect to={redirectTo} />;
-  }
-  */
+
   useEffect(() => {
     loadEvent(setlistId, pathname);
     refEvent.current.scrollTo({
@@ -39,6 +36,7 @@ const Event = ({
       left: 0,
     });
   }, []);
+
   return (
     <div className="event" ref={refEvent}>
       {
@@ -125,7 +123,6 @@ const Event = ({
   );
 };
 Event.propTypes = {
-  redirectTo: PropTypes.string,
   loadingEvent: PropTypes.bool.isRequired,
   loadEvent: PropTypes.func.isRequired,
   event: PropTypes.shape({

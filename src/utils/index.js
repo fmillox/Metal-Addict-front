@@ -5,11 +5,16 @@ import slugify from 'slugify';
  * @param {String} text The text to get the slug for
  * @return the slug for the text
  */
-export const slugifyText = (text) => slugify(text, {
-  lower: true,
-});
+export const getSlug = (text, id) => {
+  // eslint-disable-next-line prefer-template
+  const textToSlugify = text + '-' + id;
 
-export const extractSetlistIdFromSlug = (slug) => {
+  return slugify(textToSlugify, {
+    lower: true,
+  });
+};
+
+export const getIdFromSlug = (slug) => {
   const index = slug.lastIndexOf('-');
 
   return (index === -1 ? '' : slug.substring(index + 1));
