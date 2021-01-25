@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import {
   useParams,
@@ -7,14 +7,10 @@ import {
   Link,
 } from 'react-router-dom';
 import ScaleLoader from 'react-spinners/ScaleLoader';
-
 import Reviews from 'src/components/Reviews';
 import Pictures from 'src/components/Pictures';
-
 import { getUnifiedSetList, extractSetlistIdFromSlug } from 'src/utils';
-
 import './event.scss';
-
 const Event = ({
   redirectTo,
   loadingEvent,
@@ -29,19 +25,21 @@ const Event = ({
   const { slug } = useParams();
   const setlistId = extractSetlistIdFromSlug(slug);
   const { pathname } = useLocation();
-
+  const refEvent = useRef(null);
   /*
   if (redirectTo !== undefined) {
     return <Redirect to={redirectTo} />;
   }
   */
-
   useEffect(() => {
     loadEvent(setlistId, pathname);
+    refEvent.current.scrollTo({
+      top: 0,
+      left: 0,
+    });
   }, []);
-
   return (
-    <div className="event">
+    <div className="event" ref={refEvent}>
       {
         loadingEvent && <ScaleLoader />
       }
@@ -125,7 +123,6 @@ const Event = ({
     </div>
   );
 };
-
 Event.propTypes = {
   redirectTo: PropTypes.string,
   loadingEvent: PropTypes.bool.isRequired,
@@ -162,10 +159,8 @@ Event.propTypes = {
   loadingPictures: PropTypes.bool.isRequired,
   pictures: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
-
 Event.defaultProps = {
   redirectTo: undefined,
   event: null,
 };
-
 export default Event;

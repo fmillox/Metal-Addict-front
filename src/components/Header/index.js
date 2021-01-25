@@ -32,7 +32,7 @@ const StyledMenu = withStyles({
 const Header = ({ resetHomePage, isLogged }) => {
   const history = useHistory();
   const [anchorEl, setAnchorEl] = React.useState(null);
-  
+
   const handleOnClickHome = () => {
     resetHomePage();
     history.push('/');
@@ -52,7 +52,7 @@ const Header = ({ resetHomePage, isLogged }) => {
         className="title"
         onClick={handleOnClickHome}
       >
-        <h1 className="main-title">Metal Addicts</h1>
+        <h1 className="main-title">Metal Addict</h1>
         <h2 className="sub-title">Images and Words</h2>
       </a>
       {isLogged && (
@@ -64,8 +64,9 @@ const Header = ({ resetHomePage, isLogged }) => {
             keepMounted
             open={Boolean(anchorEl)}
             onClose={handleClose}
+            className="window"
           >
-            <MenuItem onClick={handleClose}>Profile</MenuItem>
+            <MenuItem onClick={handleClose}>Profil</MenuItem>
             <MenuItem onClick={handleClose}>Déconnexion</MenuItem>
           </StyledMenu>
         </>
