@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import SmallReview from 'src/components/Reviews/SmallReview';
+import SmallReview from 'src/containers/SmallReview';
 
 import './reviews.scss';
 

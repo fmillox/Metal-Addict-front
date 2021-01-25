@@ -6,7 +6,7 @@ import Footer from 'src/components/Footer';
 import Main from 'src/containers/Main';
 import Event from 'src/containers/Event';
 import CreateReview from 'src/components/CreateReview';
-import Review from 'src/components/Review';
+import Review from 'src/containers/Review';
 import Profile from 'src/components/Profile';
 import NotFound from 'src/containers/NotFound';
 

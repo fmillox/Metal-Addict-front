@@ -6,6 +6,7 @@ import reviewsReducer from './reviewsReducer';
 import searchFormReducer from './searchFormReducer';
 import eventReducer from './eventReducer';
 import picturesReducer from './picturesReducer';
+import reviewReducer from './reviewReducer';
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -14,5 +15,6 @@ const rootReducer = combineReducers({
   searchForm: searchFormReducer,
   event: eventReducer,
   pictures: picturesReducer,
+  review: reviewReducer,
 });
 export default rootReducer;
