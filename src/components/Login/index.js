@@ -6,15 +6,20 @@ import TextFieldInput from 'src/components/TextFieldInput';
 import Button from 'src/components/Button';
 
 const Login = ({
-  manageSubmit,
   email,
   password,
   setEmail,
   setPassword,
+  manageSubmit,
+  manageTest,
 }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     manageSubmit();
+  };
+  const handleTest = (event) => {
+    event.preventDefault();
+    manageTest();
   };
   return (
     <div className="login">
@@ -26,6 +31,7 @@ const Login = ({
           <TextFieldInput name="password" label="Password" value={password} manageChange={setPassword} />
         </div>
         <Button label="valider" />
+        <input type="submit" label="tester" onClick={handleTest} />
       </form>
     </div>
   );
@@ -36,7 +42,8 @@ Login.propTypes = {
   password: PropTypes.string.isRequired,
   setEmail: PropTypes.func.isRequired,
   setPassword: PropTypes.func.isRequired,
-  manageSubmit: PropTypes.func,
+  manageSubmit: PropTypes.func.isRequired,
+  manageTest: PropTypes.func.isRequired,
 };
 
 export default Login;

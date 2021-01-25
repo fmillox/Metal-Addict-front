@@ -44,7 +44,7 @@
     flex-direction: column;
     align-items: center;
     width: 50%;
-
+    
     @include lg {
       flex-direction: row;
       justify-content: space-between;

@@ -26,6 +26,7 @@ const Event = ({
   const setlistId = extractSetlistIdFromSlug(slug);
   const { pathname } = useLocation();
   const refEvent = useRef(null);
+  
   /*
   if (redirectTo !== undefined) {
     return <Redirect to={redirectTo} />;
