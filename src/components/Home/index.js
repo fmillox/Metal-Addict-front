@@ -34,11 +34,11 @@ const Home = ({
       </div>
 
       <div className="firstBlock">
-        <div className="introduction" data-aos="fade-up-right">
+        <div className="introduction" data-aos="fade-up-bottom">
           <p>Revivez vos meilleurs concerts grâce aux photos et reviews postées.</p>
           <p>Inscrivez-vous pour nous partarger vos meilleurs souvenirs.</p>
         </div>
-        <div className="firstImage" data-aos="fade-up-left" data-aos-duration="1000">
+        <div className="firstImage" data-aos="fade-up-top" data-aos-duration="1000">
           <img src={firstPicture} className="image" alt="" />
         </div>
       </div>
@@ -50,8 +50,8 @@ const Home = ({
       {!loadingReviews && <Reviews reviews={reviews} />}
 
       <div className="secondBlock">
-        <div className="about" data-aos="fade-down-left" data-aos-duration="1000">About</div>
-        <div className="secondImage" data-aos="zoom-out-left" data-aos-duration="1500">
+        <div className="about" data-aos="fade-down-top" data-aos-duration="1000">About</div>
+        <div className="secondImage" data-aos="zoom-out-bottom" data-aos-duration="1500">
           <img src={secondPicture} className="image" alt="" />
         </div>
       </div>

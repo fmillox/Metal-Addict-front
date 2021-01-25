@@ -7,14 +7,10 @@ import {
   Link,
 } from 'react-router-dom';
 import ScaleLoader from 'react-spinners/ScaleLoader';
-
 import Reviews from 'src/components/Reviews';
 import Pictures from 'src/components/Pictures';
-
 import { getUnifiedSetList, extractSetlistIdFromSlug } from 'src/utils';
-
 import './event.scss';
-
 const Event = ({
   redirectTo,
   loadingEvent,
@@ -30,13 +26,12 @@ const Event = ({
   const setlistId = extractSetlistIdFromSlug(slug);
   const { pathname } = useLocation();
   const refEvent = useRef(null);
-
+  
   /*
   if (redirectTo !== undefined) {
     return <Redirect to={redirectTo} />;
   }
   */
-
   useEffect(() => {
     loadEvent(setlistId, pathname);
     refEvent.current.scrollTo({
@@ -44,7 +39,6 @@ const Event = ({
       left: 0,
     });
   }, []);
-
   return (
     <div className="event" ref={refEvent}>
       {
@@ -130,7 +124,6 @@ const Event = ({
     </div>
   );
 };
-
 Event.propTypes = {
   redirectTo: PropTypes.string,
   loadingEvent: PropTypes.bool.isRequired,
@@ -167,10 +160,8 @@ Event.propTypes = {
   loadingPictures: PropTypes.bool.isRequired,
   pictures: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
-
 Event.defaultProps = {
   redirectTo: undefined,
   event: null,
 };
-
 export default Event;
