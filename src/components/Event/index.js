@@ -1,9 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import {
-  useParams,
-  Link,
-} from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 
 import ScaleLoader from 'react-spinners/ScaleLoader';
 import Reviews from 'src/components/Reviews';
@@ -26,6 +23,7 @@ const Event = ({
   const { slug } = useParams();
   const setlistId = getIdFromSlug(slug);
   const refEvent = useRef(null);
+  const history = useHistory();
 
   useEffect(() => {
     loadEvent(setlistId);
@@ -43,12 +41,12 @@ const Event = ({
       {
         !loadingEvent && (
           <>
-            <Link
+            <a
               className="event-back-to-events-results"
-              to="/"
+              onClick={() => history.goBack()}
             >
               Retour aux résultats précédents
-            </Link>
+            </a>
             <div className="event-band">
               {event.artist.name}
             </div>
@@ -120,6 +118,7 @@ const Event = ({
     </div>
   );
 };
+
 Event.propTypes = {
   loadingEvent: PropTypes.bool.isRequired,
   loadEvent: PropTypes.func.isRequired,
@@ -155,7 +154,9 @@ Event.propTypes = {
   loadingPictures: PropTypes.bool.isRequired,
   pictures: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
+
 Event.defaultProps = {
   event: null,
 };
+
 export default Event;

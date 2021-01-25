@@ -27,7 +27,6 @@ const TextFieldInput = withStyles(styles)(({
   name,
   label,
   width,
-  multiline,
   value,
   manageChange,
   classes,
@@ -45,7 +44,6 @@ const TextFieldInput = withStyles(styles)(({
       name={name}
       label={label}
       variant="outlined"
-      multiline={multiline}
       classes={classes}
       style={{ width }}
       value={value}

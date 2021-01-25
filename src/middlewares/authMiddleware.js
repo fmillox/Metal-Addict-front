@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { LOG_IN, TEST, saveUser } from 'src/actions/auth';
+import { LOG_IN, saveUser } from 'src/actions/auth';
 
 const authMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
@@ -22,21 +22,6 @@ const authMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     }
-    case TEST: {
-      console.log('TEST');
-      axios.get('/test')
-        .then((response) => {
-          console.log(response);
-          //store.dispatch(saveUser(true,));
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-
-      next(action);
-      break;
-    }
-
     default:
       // on passe l'action au suivant (middleware suivant ou reducer)
       next(action);

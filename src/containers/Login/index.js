@@ -4,7 +4,6 @@ import {
   updateEmail,
   updatePassword,
   logIn,
-  test,
 } from 'src/actions/auth';
 // on importe le composant de présentation
 import Login from 'src/components/Login';
@@ -34,10 +33,6 @@ const mapDispatchToProps = (dispatch) => ({
 
   manageSubmit: () => {
     dispatch(logIn());
-  },
-
-  manageTest: () => {
-    dispatch(test());
   },
 });
 
