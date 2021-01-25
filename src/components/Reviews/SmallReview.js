@@ -3,36 +3,51 @@ import PropTypes from 'prop-types';
 
 import './reviews.scss';
 
+import { getSlug } from 'src/utils';
+
 import dave from 'src/images/dave.jpg';
 import Moment from 'moment';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Link } from 'react-router-dom';
 
 AOS.init();
 
 const SmallReview = ({
+  id,
   title,
   createdAt,
   event,
-}) => (
-  <article
-    className="smallReview"
-    data-aos="flip-down"
-    data-aos-easing="linear"
-    data-aos-duration="500"
-  >
-    <div className="avatar"><img src={dave} className="avatar-image" alt="" /></div>
-    <div className="content">
-      <h3 className="title">{title} </h3>
-      <p className="date">posté le {Moment(createdAt).locale('fr').format('L')}
-      </p>
-      <p className="name">{event.band.name}</p>
-      <p className="venue">{event.venue} - {event.city} - {event.country.name}</p>
-    </div>
-  </article>
-);
+}) => {
+  // eslint-disable-next-line prefer-template
+  const location = '/chronique/' + getSlug(event.band.name, id);
+
+  return (
+    <article
+      className="smallReview"
+      data-aos="flip-down"
+      data-aos-easing="linear"
+      data-aos-duration="500"
+    >
+      <div className="avatar"><img src={dave} className="avatar-image" alt="" /></div>
+      <Link
+        className="title"
+        to={location}
+      >
+        <div className="content">
+          <h3 className="title">{title} </h3>
+          <p className="date">posté le {Moment(createdAt).locale('fr').format('L')}
+          </p>
+          <p className="name">{event.band.name}</p>
+          <p className="venue">{event.venue} - {event.city} - {event.country.name}</p>
+        </div>
+      </Link>
+    </article>
+  );
+};
 
 SmallReview.propTypes = {
+  id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   createdAt: PropTypes.string.isRequired,
   event: PropTypes.shape({
