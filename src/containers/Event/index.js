@@ -13,7 +13,6 @@ import pictures from 'src/datas/pictures';
 // si j'ai besoin de lire des informations dans le state
 const mapStateToProps = (state) => ({
   // nom de la prop à remplir: élément à récupérer dans le state
-  // TODO : redirectTo: state.event.redirectTo,
   loadingEvent: state.event.loading || state.event.data === null,
   event: state.event.data,
   picture: img, // TODO : THE API RETURNS THE PICTURE !!! picture: state.event.something
@@ -27,7 +26,7 @@ const mapStateToProps = (state) => ({
 // si j'ai besoin de dispatcher des actions vers le store (mettre à jour le state)
 const mapDispatchToProps = (dispatch) => ({
   // nom de la prop à remplir: fonction qui dispatch l'action
-  loadEvent: (setlistId, pathname) => {
+  loadEvent: (setlistId) => {
     dispatch(fetchEvent(setlistId));
   },
 });

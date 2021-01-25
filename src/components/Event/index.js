@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import {
   useParams,
-  useLocation,
   Link,
 } from 'react-router-dom';
 
@@ -26,11 +25,10 @@ const Event = ({
 }) => {
   const { slug } = useParams();
   const setlistId = getIdFromSlug(slug);
-  const { pathname } = useLocation();
   const refEvent = useRef(null);
 
   useEffect(() => {
-    loadEvent(setlistId, pathname);
+    loadEvent(setlistId);
     refEvent.current.scrollTo({
       top: 0,
       left: 0,
@@ -158,7 +156,6 @@ Event.propTypes = {
   pictures: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 Event.defaultProps = {
-  redirectTo: undefined,
   event: null,
 };
 export default Event;
