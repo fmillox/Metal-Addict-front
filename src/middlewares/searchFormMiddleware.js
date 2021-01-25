@@ -56,9 +56,9 @@ const searchFormMiddleware = (store) => (next) => (action) => {
       store.dispatch(setLoadingEvents(true));
       axios.get(`/search/${band.id}`, {
         params: {
-          city,
+          cityName: city,
           venueName: venue,
-          country: country === null ? '' : country.id,
+          countryId: country === null ? '' : country.id,
           year: year === null ? '' : year.id,
           p: 1,
         },
