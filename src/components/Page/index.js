@@ -5,12 +5,18 @@ import Header from 'src/containers/Header';
 import Footer from 'src/components/Footer';
 import Main from 'src/containers/Main';
 import Event from 'src/containers/Event';
-import CreateReview from 'src/components/CreateReview';
+// import ReviewAdd from 'src/components/ReviewAdd';
 import Review from 'src/components/Review';
 import Profile from 'src/components/Profile';
 import NotFound from 'src/containers/NotFound';
 
 import './page.scss';
+
+/*
+<Route path="/chronique/ajouter/:slug">
+<ReviewAdd />
+</Route>
+*/
 
 const Page = () => (
   <div className="page">
@@ -21,9 +27,6 @@ const Page = () => (
       </Route>
       <Route path="/evenement/:slug">
         <Event />
-      </Route>
-      <Route path="/chronique/ajouter/:slug">
-        <CreateReview />
       </Route>
       <Route path="/chronique/:slug">
         <Review />

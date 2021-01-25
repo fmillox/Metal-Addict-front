@@ -1,0 +1,18 @@
+.reviewAdd {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .reviewAdd-title {
+    margin: 0.5em;
+  }
+
+  .reviewAdd-content {
+    margin: 0.5em;
+  }
+
+  .reviewAdd-button {
+    margin-top: 1em;
+      text-align: center;
+  }
+}

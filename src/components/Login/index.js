@@ -11,15 +11,10 @@ const Login = ({
   setEmail,
   setPassword,
   manageSubmit,
-  manageTest,
 }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     manageSubmit();
-  };
-  const handleTest = (event) => {
-    event.preventDefault();
-    manageTest();
   };
   return (
     <div className="login">
@@ -31,7 +26,6 @@ const Login = ({
           <TextFieldInput name="password" label="Password" value={password} manageChange={setPassword} />
         </div>
         <Button label="valider" />
-        <input type="submit" label="tester" onClick={handleTest} />
       </form>
     </div>
   );
@@ -43,7 +37,6 @@ Login.propTypes = {
   setEmail: PropTypes.func.isRequired,
   setPassword: PropTypes.func.isRequired,
   manageSubmit: PropTypes.func.isRequired,
-  manageTest: PropTypes.func.isRequired,
 };
 
 export default Login;
