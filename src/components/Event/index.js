@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import {
   useParams,
@@ -29,6 +29,7 @@ const Event = ({
   const { slug } = useParams();
   const setlistId = extractSetlistIdFromSlug(slug);
   const { pathname } = useLocation();
+  const refEvent = useRef(null);
 
   /*
   if (redirectTo !== undefined) {
@@ -38,10 +39,14 @@ const Event = ({
 
   useEffect(() => {
     loadEvent(setlistId, pathname);
+    refEvent.current.scrollTo({
+      top: 0,
+      left: 0,
+    });
   }, []);
 
   return (
-    <div className="event">
+    <div className="event" ref={refEvent}>
       {
         loadingEvent && <ScaleLoader />
       }
