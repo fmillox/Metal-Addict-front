@@ -3,14 +3,13 @@ import { connect } from 'react-redux';
 // on importe le composant de présentation
 import ReviewEdit from 'src/components/ReviewEdit';
 
-import { fetchReview, editReview } from 'src/actions/review';
+import { fetchReviewManage, editReviewManage } from 'src/actions/reviewManage';
 
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
 const mapStateToProps = (state) => ({
   // nom de la prop à remplir: élément à récupérer dans le state
-  loadingReview: state.review.loading || state.review.data === null,
-  review: state.review.data,
+  loadingReview: state.reviewManage.loading,
 });
 
 // === mapDispatchToProps
@@ -18,10 +17,10 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   // nom de la prop à remplir: fonction qui dispatch l'action
   loadReview: (id) => {
-    dispatch(fetchReview(id));
+    dispatch(fetchReviewManage(id));
   },
   manageEdit: (id, history) => {
-    dispatch(editReview(id, history));
+    dispatch(editReviewManage(id, history));
   },
 });
 

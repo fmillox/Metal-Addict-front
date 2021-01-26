@@ -2,6 +2,7 @@ import axios from 'axios';
 
 import {
   FETCH_EVENT,
+  USER_PARTICIPATE_IN_EVENT,
   setLoadingEvent,
   saveEvent,
 } from 'src/actions/event';
@@ -21,6 +22,24 @@ const eventMiddleware = (store) => (next) => (action) => {
         })
         .finally(() => {
           store.dispatch(setLoadingEvent(false));
+        });
+      next(action);
+      break;
+    }
+    case USER_PARTICIPATE_IN_EVENT: {
+      const { token } = store.getState().auth;
+
+      axios.post(`/event/${action.setlistId}`, {}, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+          // TODO : action.history.push('...');
         });
       next(action);
       break;

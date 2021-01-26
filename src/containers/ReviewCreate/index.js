@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 // on importe le composant de présentation
 import ReviewCreate from 'src/components/ReviewCreate';
 
-import { createReview } from 'src/actions/review';
+import { createReviewManage } from 'src/actions/reviewManage';
 
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
@@ -16,7 +16,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   // nom de la prop à remplir: fonction qui dispatch l'action
   manageCreate: (setlistId, history) => {
-    dispatch(createReview(setlistId, history));
+    dispatch(createReviewManage(setlistId, history));
   },
 });
 
