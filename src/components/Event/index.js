@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { useParams, useHistory } from 'react-router-dom';
-
 import ScaleLoader from 'react-spinners/ScaleLoader';
+
 import Reviews from 'src/components/Reviews';
 import Pictures from 'src/components/Pictures';
 
@@ -26,7 +26,7 @@ const Event = ({
   const history = useHistory();
 
   useEffect(() => {
-    loadEvent(setlistId);
+    loadEvent(setlistId, history);
     refEvent.current.scrollTo({
       top: 0,
       left: 0,

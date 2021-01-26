@@ -17,6 +17,7 @@ const eventMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log(error);
+          action.history.push('/page_non_trouvee');
         })
         .finally(() => {
           store.dispatch(setLoadingEvent(false));

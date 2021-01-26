@@ -26,8 +26,8 @@ const mapStateToProps = (state) => ({
 // si j'ai besoin de dispatcher des actions vers le store (mettre à jour le state)
 const mapDispatchToProps = (dispatch) => ({
   // nom de la prop à remplir: fonction qui dispatch l'action
-  loadEvent: (setlistId) => {
-    dispatch(fetchEvent(setlistId));
+  loadEvent: (setlistId, history) => {
+    dispatch(fetchEvent(setlistId, history));
   },
 });
 
