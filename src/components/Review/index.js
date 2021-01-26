@@ -9,7 +9,7 @@ import Pictures from 'src/components/Pictures';
 
 import ScaleLoader from 'react-spinners/ScaleLoader';
 
-import { getIdFromSlug } from 'src/utils';
+import { getIdFromSlug, createMarkup } from 'src/utils';
 
 import dave from 'src/images/dave.jpg';
 import Moment from 'moment';
@@ -73,7 +73,7 @@ const Review = ({
             </div>
           )}
 
-          <div className="review-content">{review.content}</div>
+          <div className="review-content" dangerouslySetInnerHTML={createMarkup(review.content)} />
 
           {
             loadingPictures && <ScaleLoader />

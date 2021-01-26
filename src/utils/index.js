@@ -1,5 +1,5 @@
 import slugify from 'slugify';
-
+import DOMPurify from 'dompurify';
 /**
  * Get the slug
  * @param {String} text The text to get the slug for
@@ -70,3 +70,7 @@ export const getUnifiedSetList = (set) => {
 
   return setList;
 };
+
+export const createMarkup = (htmlContent) => (
+  { __html: DOMPurify.sanitize(htmlContent) }
+);
