@@ -7,9 +7,10 @@ export const setLoadingEvent = (value) => ({
   value,
 });
 
-export const fetchEvent = (setlistId) => ({
+export const fetchEvent = (setlistId, history) => ({
   type: FETCH_EVENT,
   setlistId,
+  history,
 });
 
 export const saveEvent = (event) => ({
