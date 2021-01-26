@@ -21,6 +21,7 @@ const reviewMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log(error);
+          action.history.push('/page_non_trouvee');
         })
         .finally(() => {
           store.dispatch(setLoadingReview(false));

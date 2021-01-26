@@ -29,7 +29,7 @@ const Review = ({
   const history = useHistory();
 
   useEffect(() => {
-    loadReview(id);
+    loadReview(id, history);
     refReview.current.scrollTo({
       top: 0,
       left: 0,
