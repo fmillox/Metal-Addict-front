@@ -1,4 +1,10 @@
-import { UPDATE_EMAIL, UPDATE_PASSWORD, SAVE_USER, LOG_OUT } from 'src/actions/auth';
+import {
+  UPDATE_EMAIL,
+  UPDATE_PASSWORD,
+  SAVE_USER,
+  LOG_OUT,
+  SET_LOADING,
+} from 'src/actions/auth';
 
 const initialState = {
   /* contenu du champ email du formulaire de login */
@@ -17,6 +23,8 @@ const initialState = {
   biography: '',
 
   userId: null,
+
+  loading: false,
 };
 
 function authReducer(state = initialState, action = {}) {
@@ -47,6 +55,12 @@ function authReducer(state = initialState, action = {}) {
         ...state,
         isLogged: false,
         token: null,
+      };
+
+    case SET_LOADING:
+      return {
+        ...state,
+        loading: action.value,
       };
 
     default:
