@@ -6,7 +6,7 @@ import './pictures.scss';
 
 import SmallPicture from 'src/components/Pictures/SmallPicture';
 
-const Pictures = ({ pictures }) => {
+const Pictures = ({ pictures, picturesOnScreen }) => {
   const [seeAllPictures, setSeeAllPictures] = useState(false);
 
   const handleOnClick = () => {
@@ -22,7 +22,9 @@ const Pictures = ({ pictures }) => {
       {pictures.map((picture) => (
         <SmallPicture key={picture.id} picture={picture} />
       ))}
+      {(pictures.length > picturesOnScreen) && (
       <button type="button" className="pictures-button" onClick={handleOnClick}>Voir/cacher toutes les photos</button>
+      )}
     </div>
   );
 };
@@ -32,6 +34,7 @@ Pictures.propTypes = {
       id: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
+  picturesOnScreen: PropTypes.number.isRequired,
 };
 
 export default Pictures;

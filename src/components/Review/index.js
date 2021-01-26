@@ -79,13 +79,13 @@ const Review = ({
             loadingPictures && <ScaleLoader />
           }
           {
-            (!loadingPictures && pictures.length > 0) && (
+            (!loadingPictures && pictures.length > 1) && (
               <div className="review-pictures-container">
                 <div className="review-pictures-label">
                   Photos
                 </div>
                 <div className="review-pictures-list">
-                  <Pictures pictures={galleryPictures} />
+                  <Pictures pictures={galleryPictures} picturesOnScreen={9} />
                 </div>
               </div>
             )
