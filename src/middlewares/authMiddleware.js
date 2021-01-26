@@ -8,12 +8,12 @@ const authMiddleware = (store) => (next) => (action) => {
     case LOG_IN: {
       const { email, password } = store.getState().auth;
       axios.post('/login', {
-        email,
+        username: email,
         password,
       })
         .then((response) => {
           console.log(response);
-          //store.dispatch(saveUser(true,));
+          store.dispatch(saveUser(true, response.data.token));
         })
         .catch((error) => {
           console.log(error);

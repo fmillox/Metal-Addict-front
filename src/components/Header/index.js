@@ -30,7 +30,7 @@ const StyledMenu = withStyles({
   />
 ));
 
-const Header = ({ resetHomePage, isLogged }) => {
+const Header = ({ resetHomePage, isLogged, handleLogout }) => {
   const history = useHistory();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -45,6 +45,11 @@ const Header = ({ resetHomePage, isLogged }) => {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleCloseLogout = () => {
+    setAnchorEl(null);
+    handleLogout();
   };
   return (
     <header className="header">
@@ -68,7 +73,7 @@ const Header = ({ resetHomePage, isLogged }) => {
             className="window"
           >
             <MenuItem onClick={handleClose}>Profil</MenuItem>
-            <MenuItem onClick={handleClose}>Déconnexion</MenuItem>
+            <MenuItem onClick={handleCloseLogout}>Déconnexion</MenuItem>
           </StyledMenu>
         </>
       )}
@@ -86,6 +91,7 @@ const Header = ({ resetHomePage, isLogged }) => {
 Header.propTypes = {
   resetHomePage: PropTypes.func.isRequired,
   isLogged: PropTypes.bool.isRequired,
+  handleLogout: PropTypes.func.isRequired,
 };
 
 export default Header;

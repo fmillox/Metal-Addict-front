@@ -5,6 +5,8 @@ import './login.scss';
 import TextFieldInput from 'src/components/TextFieldInput';
 import Button from 'src/components/Button';
 
+import Header from 'src/containers/Header';
+
 const Login = ({
   email,
   password,
@@ -18,6 +20,7 @@ const Login = ({
   };
   return (
     <div className="login">
+    <Header />
       <form className="loginForm" onSubmit={handleSubmit}>
         <div className="searchForm-input">
           <TextFieldInput name="email" label="Adresse Email" value={email} manageChange={setEmail} />
