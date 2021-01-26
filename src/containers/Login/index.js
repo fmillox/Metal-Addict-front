@@ -31,7 +31,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(updatePassword(newValue));
   },
 
-  manageSubmit: () => {
+  handleLogin: () => {
     dispatch(logIn());
   },
 });

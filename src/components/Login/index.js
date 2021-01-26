@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
+
 import './login.scss';
 
 import TextFieldInput from 'src/components/TextFieldInput';
@@ -10,12 +12,16 @@ const Login = ({
   password,
   setEmail,
   setPassword,
-  manageSubmit,
+  handleLogin,
 }) => {
+  const history = useHistory();
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    manageSubmit();
+    handleLogin();
+    history.goBack();
   };
+
   return (
     <div className="login">
       <form className="loginForm" onSubmit={handleSubmit}>
@@ -36,7 +42,7 @@ Login.propTypes = {
   password: PropTypes.string.isRequired,
   setEmail: PropTypes.func.isRequired,
   setPassword: PropTypes.func.isRequired,
-  manageSubmit: PropTypes.func.isRequired,
+  handleLogin: PropTypes.func.isRequired,
 };
 
 export default Login;

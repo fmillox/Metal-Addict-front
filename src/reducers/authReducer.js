@@ -1,4 +1,10 @@
-import { UPDATE_EMAIL, UPDATE_PASSWORD, SAVE_USER } from 'src/actions/auth';
+import {
+  UPDATE_EMAIL,
+  UPDATE_PASSWORD,
+  SAVE_USER,
+  LOG_OUT,
+  SET_LOADING,
+} from 'src/actions/auth';
 
 const initialState = {
   /* contenu du champ email du formulaire de login */
@@ -8,6 +14,8 @@ const initialState = {
   /* token JWT */
   token: null,
 
+  isLogged: false,
+
   nickname: null,
 
   avatar: '',
@@ -16,8 +24,7 @@ const initialState = {
 
   userId: null,
 
-  isLogged: true, // TODO a passer en false
-
+  loading: false,
 };
 
 function authReducer(state = initialState, action = {}) {
@@ -38,8 +45,22 @@ function authReducer(state = initialState, action = {}) {
       return {
         ...state,
         isLogged: action.isLogged,
+        token: action.token,
         email: '',
         password: '',
+      };
+
+    case LOG_OUT:
+      return {
+        ...state,
+        isLogged: false,
+        token: null,
+      };
+
+    case SET_LOADING:
+      return {
+        ...state,
+        loading: action.value,
       };
 
     default:
