@@ -24,7 +24,7 @@ const ReviewAdd = ({
         <TextFieldInput name="title" label="Titre" value={title} manageChange={setTitle} />
       </div>
       <div className="reviewAdd-content">
-        <TextFieldInput name="content" label="Texte" value={content} manageChange={setContent} />
+        <TextFieldInput name="content" label="Texte" multiline value={content} manageChange={setContent} />
       </div>
       <div className="reviewAdd-button">
         <Button label="Créer la chronique" />

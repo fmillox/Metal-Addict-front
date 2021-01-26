@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import ScaleLoader from 'react-spinners/ScaleLoader';
 
 // == Import
-import Events from 'src/components/Events';
+import Events from 'src/containers/Events';
 
 import './eventsResults.scss';
 

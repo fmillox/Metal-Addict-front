@@ -1,6 +1,7 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
+import ScaleLoader from 'react-spinners/ScaleLoader';
 
 // == Import
 // eslint-disable-next-line import/order
@@ -13,6 +14,7 @@ import './events.scss';
 
 // == Composant
 const Events = ({
+  loadingEvents,
   events,
   picture,
   moreEvents,
@@ -37,7 +39,14 @@ const Events = ({
       {
         moreEvents && (
           <form className="events-more-results" onSubmit={onSubmit}>
-            <Button label="Plus de résultats" />
+            {
+              loadingEvents && <ScaleLoader />
+            }
+            {
+              !loadingEvents && (
+                <Button label="Plus de résultats" />
+              )
+            }
           </form>
         )
       }
@@ -46,6 +55,7 @@ const Events = ({
 };
 
 Events.propTypes = {
+  loadingEvents: PropTypes.bool,
   events: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -57,6 +67,7 @@ Events.propTypes = {
 };
 
 Events.defaultProps = {
+  loadingEvents: false,
   picture: img,
 };
 
