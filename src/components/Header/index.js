@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useHistory } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -12,6 +12,7 @@ import dave from 'src/images/dave.jpg';
 const StyledMenu = withStyles({
   paper: {
     border: '1px solid #d3d4d5',
+    borderRadius: 10,
   },
 })((props) => (
   <Menu

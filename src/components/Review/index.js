@@ -20,7 +20,6 @@ const Review = ({
   loadReview,
   loadingReview,
   review,
-  picture,
   pictures,
   loadingPictures,
 }) => {
@@ -41,6 +40,8 @@ const Review = ({
     history.goBack();
   };
 
+  const galleryPictures = pictures.filter((picture, index) => index !== 0);
+
   return (
     <div className="review" ref={refReview}>
       {
@@ -56,24 +57,35 @@ const Review = ({
           >
             Retour à la page précédente
           </a>
-          <div className="review-title">
-            {review.title}
+          <h2 className="review-title">{review.title}</h2>
+
+          <div className="review-user">
+            <img src={dave} alt="" className="review-user-image" />
+            <div className="user-information">
+              <p className="name">par {review.user.nickname}</p>
+              <p className="date">postée le {Moment(review.createdAt).locale('fr').format('L')}</p>
+            </div>
           </div>
-          <img src={dave} alt="" className="image" />
-          <div>{review.user.nickname}{Moment(review.createdAt).locale('fr').format('L')}</div>
-          <img src={picture} alt="" className="image2" />
-          <div>{review.content}</div>
+
+          {(pictures.length > 0) && (
+            <div className="first-image-container">
+              <img src={pictures[0].src} alt="" className="first-image" />
+            </div>
+          )}
+
+          <div className="review-content">{review.content}</div>
+
           {
             loadingPictures && <ScaleLoader />
           }
           {
-            !loadingPictures && (
-              <div className="event-pictures-container">
-                <div className="event-pictures-label">
+            (!loadingPictures && pictures.length > 1) && (
+              <div className="review-pictures-container">
+                <div className="review-pictures-label">
                   Photos
                 </div>
-                <div className="event-pictures-list">
-                  <Pictures pictures={pictures} />
+                <div className="review-pictures-list">
+                  <Pictures pictures={galleryPictures} picturesOnScreen={9} />
                 </div>
               </div>
             )
@@ -88,7 +100,6 @@ const Review = ({
 Review.propTypes = {
   loadingReview: PropTypes.bool.isRequired,
   loadReview: PropTypes.func.isRequired,
-  picture: PropTypes.string.isRequired,
   loadingPictures: PropTypes.bool.isRequired,
   pictures: PropTypes.arrayOf(PropTypes.object).isRequired,
   review: PropTypes.shape({

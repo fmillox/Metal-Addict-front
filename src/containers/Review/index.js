@@ -5,7 +5,6 @@ import Review from 'src/components/Review';
 
 import { fetchReview } from 'src/actions/review';
 
-import img from 'src/datas/band.jpg';
 import pictures from 'src/datas/pictures';
 
 // === mapStateToProps
@@ -14,7 +13,6 @@ const mapStateToProps = (state) => ({
   // nom de la prop à remplir: élément à récupérer dans le state
   loadingReview: state.review.loading || state.review.data === null,
   review: state.review.data,
-  picture: img, // TODO : THE API RETURNS THE PICTURE !!! picture: state.event.something
   loadingPictures: state.pictures.loading,
   pictures,
 });

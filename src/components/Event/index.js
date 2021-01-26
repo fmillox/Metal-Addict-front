@@ -107,7 +107,7 @@ const Event = ({
                     Photos
                   </div>
                   <div className="event-pictures-list">
-                    <Pictures pictures={pictures} />
+                    <Pictures pictures={pictures} picturesOnScreen={8} />
                   </div>
                 </div>
               )
