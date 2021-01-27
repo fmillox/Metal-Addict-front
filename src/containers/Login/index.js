@@ -31,8 +31,8 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(updatePassword(newValue));
   },
 
-  handleLogin: () => {
-    dispatch(logIn());
+  handleLogin: (history) => {
+    dispatch(logIn(history));
   },
 });
 

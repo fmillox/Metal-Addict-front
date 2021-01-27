@@ -1,3 +1,5 @@
+import jwt_decode from "jwt-decode";
+
 import {
   UPDATE_EMAIL,
   UPDATE_PASSWORD,

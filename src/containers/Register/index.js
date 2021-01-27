@@ -1,30 +1,24 @@
 import { connect } from 'react-redux';
 
+import register from 'src/actions/auth';
+
 // on importe le composant de présentation
-import Review from 'src/components/Review';
-
-import { fetchReview } from 'src/actions/review';
-
-import pictures from 'src/datas/pictures';
+import Register from 'src/components/Register';
 
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
 const mapStateToProps = (state) => ({
   // nom de la prop à remplir: élément à récupérer dans le state
-  loadingReview: state.review.loading || state.review.data === null,
-  review: state.review.data,
-  loadingPictures: state.pictures.loading,
-  pictures,
 });
 
 // === mapDispatchToProps
 // si j'ai besoin de dispatcher des actions vers le store (mettre à jour le state)
 const mapDispatchToProps = (dispatch) => ({
   // nom de la prop à remplir: fonction qui dispatch l'action
-  loadReview: (id, history) => {
-    dispatch(fetchReview(id, history));
+  register: (email, password, nickname) => {
+    dispatch(register(email, password, nickname));
   },
 });
 
 // === création de l'assistant
-export default connect(mapStateToProps, mapDispatchToProps)(Review);
+export default connect(mapStateToProps, mapDispatchToProps)(Register);

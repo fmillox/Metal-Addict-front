@@ -4,9 +4,11 @@ export const UPDATE_PASSWORD = 'UPDATE_PASSWORD';
 export const SAVE_USER = 'SAVE_USER';
 export const LOG_OUT = 'LOG_OUT';
 export const SET_LOADING = 'SET_LOADING';
+export const REGISTER = 'REGISTER';
 
-export const logIn = () => ({
+export const logIn = (history) => ({
   type: LOG_IN,
+  history,
 });
 
 export const updateEmail = (newValue) => ({
@@ -32,4 +34,11 @@ export const logOut = () => ({
 export const setLoading = (value) => ({
   type: SET_LOADING,
   value,
+});
+
+export const register = (email, password, nickname) => ({
+  type: REGISTER,
+  email,
+  password,
+  nickname,
 });

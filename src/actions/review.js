@@ -7,9 +7,10 @@ export const setLoadingReview = (value) => ({
   value,
 });
 
-export const fetchReview = (id) => ({
+export const fetchReview = (id, history) => ({
   type: FETCH_REVIEW,
   id,
+  history,
 });
 
 export const saveReview = (review) => ({
