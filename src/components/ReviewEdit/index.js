@@ -14,7 +14,6 @@ import './reviewEdit.scss';
 // == Composant
 const ReviewEdit = ({
   loadingReview,
-  review,
   loadReview,
   manageEdit,
 }) => {
@@ -34,8 +33,6 @@ const ReviewEdit = ({
       {
         !loadingReview && (
           <ReviewManage
-            title={review.title}
-            content={review.content}
             buttonLabel="Modifier la chronique"
             manageSubmit={() => manageEdit(id, history)}
           />
@@ -47,16 +44,8 @@ const ReviewEdit = ({
 
 ReviewEdit.propTypes = {
   loadingReview: PropTypes.bool.isRequired,
-  review: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
-  }.isRequired),
   loadReview: PropTypes.func.isRequired,
   manageEdit: PropTypes.func.isRequired,
-};
-
-ReviewEdit.defaultProps = {
-  review: null,
 };
 
 // == Export

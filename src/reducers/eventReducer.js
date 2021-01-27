@@ -1,12 +1,15 @@
 import {
   SET_LOADING_EVENT,
   SAVE_EVENT,
+  SET_LOADING_UPLOAD_PICTURE,
 } from 'src/actions/event';
 
 const initialState = {
   loading: false,
 
   data: null,
+
+  loadingUploadPicture: false,
 };
 
 function eventReducer(state = initialState, action = {}) {
@@ -20,6 +23,11 @@ function eventReducer(state = initialState, action = {}) {
       return {
         ...state,
         data: action.event,
+      };
+    case SET_LOADING_UPLOAD_PICTURE:
+      return {
+        ...state,
+        loadingUploadPicture: action.value,
       };
     default:
       return state;

@@ -6,17 +6,63 @@
   flex-direction: column;
   align-items: center;
 
-  .event-back-to-events-results {
-    cursor: pointer;
-    align-self: flex-start;
-    padding-top: 1em;
-    padding-left: 1em;
+  .event-header {
+    padding: 1em 1em 0 1em;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 
-    &:hover {
-      color: grey;
+    .event-back-to-events-results {
+      cursor: pointer;
+
+      &:hover {
+        color: grey;
+      }
+    }
+
+    .event-user-not-checked-info {
+      text-decoration: none;
+      position: relative;
+
+      span {
+        display: none;
+        -moz-border-radius: 6px;
+        -webkit-border-radius: 6px;
+        border-radius: 6px;
+        color: black;
+        background-color: #eff1f3;
+        font-size: 10px;
+        font-style: italic;
+      }
+
+      &:hover span
+      {
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: -100px;
+        z-index: 1000;
+        width: 100px;
+        min-height: 20px;
+        border: 1px solid black;
+        margin-top: 12px;
+        margin-left: 32px;
+        overflow: hidden;
+        padding: 8px;
+      }
+
+      .event-user-not-checked {
+        cursor: pointer;
+        color: red;
+      }
+    }
+    
+
+    .event-user-checked {
+      color: green;
     }
   }
-
+  
   .event-band {
     margin-top: vars.$gutter;
     text-transform: uppercase;
@@ -73,6 +119,10 @@
     .event-setlist-label {
       font-weight: 700;
       text-align: center;
+
+      .event-reviews-create {
+        cursor: pointer;
+      }
     }
 
     .event-setlist-list {
@@ -114,7 +164,8 @@
     .event-pictures-label {
       font-size: 1.7em;
       font-weight: 700;
-      text-align: center;
+      display: flex;
+      justify-content: center;
     }
 
     .event-pictures-list {

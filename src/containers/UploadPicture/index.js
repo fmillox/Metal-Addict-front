@@ -1,24 +1,25 @@
 import { connect } from 'react-redux';
 
 // on importe le composant de présentation
-import ReviewCreate from 'src/components/ReviewCreate';
+import UploadPicture from 'src/components/UploadPicture';
 
-import { createReviewManage } from 'src/actions/reviewManage';
+import { uploadPicture } from 'src/actions/event';
 
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
 const mapStateToProps = (state) => ({
   // nom de la prop à remplir: élément à récupérer dans le state
+  loading: state.event.loadingUploadPicture,
 });
 
 // === mapDispatchToProps
 // si j'ai besoin de dispatcher des actions vers le store (mettre à jour le state)
 const mapDispatchToProps = (dispatch) => ({
   // nom de la prop à remplir: fonction qui dispatch l'action
-  manageCreate: (setlistId, history) => {
-    dispatch(createReviewManage(setlistId, history));
+  manageSubmit: (formData) => {
+    dispatch(uploadPicture(formData));
   },
 });
 
 // === création de l'assistant
-export default connect(mapStateToProps, mapDispatchToProps)(ReviewCreate);
+export default connect(mapStateToProps, mapDispatchToProps)(UploadPicture);
