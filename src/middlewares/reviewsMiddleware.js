@@ -6,15 +6,33 @@ import {
   setLoadingReviews,
 } from 'src/actions/reviews';
 
+import { FETCH_USER_REVIEWS, saveUserReviews } from 'src/actions/users';
+
 const reviewsMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
   switch (action.type) {
     case FETCH_LAST_REVIEWS:
       store.dispatch(setLoadingReviews(true));
-      axios.get('/review?limit=6&order=ASC')
+      axios.get('/review?limit=6&order=DESC')
         .then((response) => {
           // console.log(response);
           store.dispatch(saveLastReviews(response.data));
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(() => {
+          store.dispatch(setLoadingReviews(false));
+        });
+      next(action);
+      break;
+
+    case FETCH_USER_REVIEWS:
+      store.dispatch(setLoadingReviews(true));
+      axios.get(`/review?userId=${action.userId}&order=DESC`)
+        .then((response) => {
+          console.log(response);
+          store.dispatch(saveUserReviews(response.data));
         })
         .catch((error) => {
           console.log(error);

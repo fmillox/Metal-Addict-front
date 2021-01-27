@@ -10,6 +10,8 @@ import eventsMiddleware from 'src/middlewares/eventsMiddleware';
 import eventMiddleware from 'src/middlewares/eventMiddleware';
 import reviewMiddleware from 'src/middlewares/reviewMiddleware';
 import reviewManageMiddleware from 'src/middlewares/reviewManageMiddleware';
+import picturesMiddleware from 'src/middlewares/picturesMiddleware';
+import userMiddleware from 'src/middlewares/userMiddleware';
 
 const enhancers = composeWithDevTools(
   applyMiddleware(
@@ -20,6 +22,8 @@ const enhancers = composeWithDevTools(
     eventsMiddleware,
     eventMiddleware,
     reviewManageMiddleware,
+    picturesMiddleware,
+    userMiddleware,
   ),
 );
 

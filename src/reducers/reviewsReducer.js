@@ -1,5 +1,7 @@
 import { SET_LOADING_REVIEWS, SAVE_LAST_REVIEWS } from 'src/actions/reviews';
 
+import { SAVE_USER_REVIEWS } from 'src/actions/users';
+
 const initialState = {
   lastReviews: [],
 
@@ -22,6 +24,12 @@ function reviewsReducer(state = initialState, action = {}) {
       return {
         ...state,
         lastReviews: action.reviews,
+      };
+
+    case SAVE_USER_REVIEWS:
+      return {
+        ...state,
+        userReviews: action.reviews,
       };
 
     default:

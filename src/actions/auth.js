@@ -21,9 +21,8 @@ export const updatePassword = (newValue) => ({
   newValue,
 });
 
-export const saveUser = (isLogged, token) => ({
+export const saveUser = (token) => ({
   type: SAVE_USER,
-  isLogged,
   token,
 });
 
