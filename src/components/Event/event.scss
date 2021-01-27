@@ -164,7 +164,8 @@
     .event-pictures-label {
       font-size: 1.7em;
       font-weight: 700;
-      text-align: center;
+      display: flex;
+      justify-content: center;
     }
 
     .event-pictures-list {

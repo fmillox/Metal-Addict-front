@@ -3,8 +3,10 @@ import axios from 'axios';
 import {
   FETCH_EVENT,
   USER_PARTICIPATE_IN_EVENT,
+  UPLOAD_PICTURE,
   setLoadingEvent,
   saveEvent,
+  setLoadingUploadPicture,
 } from 'src/actions/event';
 
 const eventMiddleware = (store) => (next) => (action) => {
@@ -40,6 +42,30 @@ const eventMiddleware = (store) => (next) => (action) => {
         .catch((error) => {
           console.log(error);
           // TODO : action.history.push('...');
+        });
+      next(action);
+      break;
+    }
+    case UPLOAD_PICTURE: {
+      const { id } = store.getState().event.data;
+      const { token } = store.getState().auth;
+
+      store.dispatch(setLoadingUploadPicture(true));
+      axios.post(`/picture/${id}`, action.formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'multipart/form-data',
+        },
+      })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+          // TODO : action.history.push('...');
+        })
+        .finally(() => {
+          store.dispatch(setLoadingUploadPicture(false));
         });
       next(action);
       break;

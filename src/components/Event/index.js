@@ -6,6 +6,7 @@ import { UserPlus, UserCheck, Plus } from 'react-feather';
 
 import Reviews from 'src/components/Reviews';
 import Pictures from 'src/components/Pictures';
+import UploadPicture from 'src/containers/UploadPicture';
 
 import { getUnifiedSetList, getIdFromSlug, getSlug } from 'src/utils';
 
@@ -131,7 +132,8 @@ const Event = ({
               !loadingPictures && (
                 <div className="event-pictures-container">
                   <div className="event-pictures-label">
-                    Photos
+                    <span>Photos</span>
+                    <UploadPicture />
                   </div>
                   <div className="event-pictures-list">
                     <Pictures pictures={pictures} picturesOnScreen={8} />
