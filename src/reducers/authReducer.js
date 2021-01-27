@@ -9,21 +9,13 @@ import {
 } from 'src/actions/auth';
 
 const initialState = {
-  user: {},
+  user: null,
   /* token JWT */
-  token: null,
+  token: '',
 
   email: '',
 
   password: '',
-
-  isLogged: false,
-
-  nickname: null,
-
-  biography: '',
-
-  userId: null,
 
   loading: false,
 };
@@ -47,7 +39,6 @@ function authReducer(state = initialState, action = {}) {
 
       return {
         ...state,
-        isLogged: action.isLogged,
         token: action.token,
         user: {
           id: user.id,
@@ -62,8 +53,8 @@ function authReducer(state = initialState, action = {}) {
     case LOG_OUT:
       return {
         ...state,
-        isLogged: false,
-        token: null,
+        token: '',
+        user: null,
       };
 
     case SET_LOADING:

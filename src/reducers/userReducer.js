@@ -5,7 +5,7 @@ import { SET_LOADING_USER, SAVE_USER_DATAS } from 'src/actions/users';
 const initialState = {
   user: {},
 
-  avatar, //TODO avatar par défaut, à traiter
+  avatar, //TODO avatar par défaut, à supprimer quand communication avec back sera ok
 
   loading: false,
 };

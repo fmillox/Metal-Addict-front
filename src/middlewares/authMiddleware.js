@@ -21,7 +21,7 @@ const authMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           console.log(response);
-          store.dispatch(saveUser(true, response.data.token));
+          store.dispatch(saveUser(response.data.token));
           action.history.goBack();
         })
         .catch((error) => {
