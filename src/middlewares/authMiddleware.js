@@ -1,6 +1,11 @@
 import axios from 'axios';
 
-import { LOG_IN, saveUser, setLoading } from 'src/actions/auth';
+import {
+  LOG_IN,
+  saveUser,
+  setLoading,
+  REGISTER,
+} from 'src/actions/auth';
 
 const authMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
@@ -15,6 +20,7 @@ const authMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           console.log(response);
           store.dispatch(saveUser(true, response.data.token));
+          action.history.goBack();
         })
         .catch((error) => {
           console.log(error);
@@ -25,6 +31,23 @@ const authMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     }
+
+    case REGISTER: {
+      axios.post('/user', {
+        username: action.email,
+        password: action.password,
+        nickname: action.nickname,
+      })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      next(action);
+      break;
+    }
+
     default:
       // on passe l'action au suivant (middleware suivant ou reducer)
       next(action);

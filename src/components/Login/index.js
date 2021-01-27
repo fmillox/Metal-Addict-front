@@ -18,8 +18,7 @@ const Login = ({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    handleLogin();
-    history.goBack();
+    handleLogin(history);
   };
 
   return (
