@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 // on importe le composant de présentation
 import Event from 'src/components/Event';
 
-import { fetchEvent } from 'src/actions/event';
+import { fetchEvent, userParticipateInEvent } from 'src/actions/event';
 
 import img from 'src/datas/band.jpg';
 import data from 'src/datas/reviews';
@@ -15,6 +15,7 @@ const mapStateToProps = (state) => ({
   // nom de la prop à remplir: élément à récupérer dans le state
   loadingEvent: state.event.loading || state.event.data === null,
   event: state.event.data,
+  isUserParticipatedInEvent: false,
   picture: img, // TODO : THE API RETURNS THE PICTURE !!! picture: state.event.something
   loadingReviews: state.reviews.loading,
   reviews: data, // TODO reviews: state.reviews.eventReviews,
@@ -28,6 +29,9 @@ const mapDispatchToProps = (dispatch) => ({
   // nom de la prop à remplir: fonction qui dispatch l'action
   loadEvent: (setlistId, history) => {
     dispatch(fetchEvent(setlistId, history));
+  },
+  userParticipateInEvent: (setlistId) => {
+    dispatch(userParticipateInEvent(setlistId));
   },
 });
 

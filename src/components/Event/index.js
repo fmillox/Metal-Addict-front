@@ -1,12 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { useParams, useHistory } from 'react-router-dom';
+import { NavLink, useParams, useHistory } from 'react-router-dom';
 import ScaleLoader from 'react-spinners/ScaleLoader';
+import { UserPlus, UserCheck, Plus } from 'react-feather';
 
 import Reviews from 'src/components/Reviews';
 import Pictures from 'src/components/Pictures';
+import UploadPicture from 'src/containers/UploadPicture';
 
-import { getUnifiedSetList, getIdFromSlug } from 'src/utils';
+import { getUnifiedSetList, getIdFromSlug, getSlug } from 'src/utils';
 
 import './event.scss';
 
@@ -14,6 +16,8 @@ const Event = ({
   loadingEvent,
   loadEvent,
   event,
+  isUserParticipatedInEvent,
+  userParticipateInEvent,
   picture,
   loadingReviews,
   reviews,
@@ -41,12 +45,30 @@ const Event = ({
       {
         !loadingEvent && (
           <>
-            <a
-              className="event-back-to-events-results"
-              onClick={() => history.goBack()}
-            >
-              Retour aux résultats précédents
-            </a>
+            <div className="event-header">
+              <a
+                className="event-back-to-events-results"
+                onClick={() => history.goBack()}
+              >
+                Retour aux résultats précédents
+              </a>
+              {
+                !isUserParticipatedInEvent && (
+                  <div className="event-user-not-checked-info">
+                    <UserPlus
+                      className="event-user-not-checked"
+                      onClick={() => userParticipateInEvent(setlistId)}
+                    />
+                    <span>Cliquez ici si vous y avez participé </span>
+                  </div>
+                )
+              }
+              {
+                isUserParticipatedInEvent && (
+                  <UserCheck className="event-user-checked" />
+                )
+              }
+            </div>
             <div className="event-band">
               {event.artist.name}
             </div>
@@ -90,6 +112,12 @@ const Event = ({
                 <div className="event-reviews-container">
                   <div className="event-reviews-label">
                     Chroniques
+                    <NavLink
+                      className="event-reviews-create"
+                      to={'/chronique/creer/' + getSlug(event.artist.name, setlistId)}
+                    >
+                      <Plus />
+                    </NavLink>
                   </div>
                   <div className="event-reviews-list">
                     <Reviews reviews={reviews} />
@@ -104,7 +132,8 @@ const Event = ({
               !loadingPictures && (
                 <div className="event-pictures-container">
                   <div className="event-pictures-label">
-                    Photos
+                    <span>Photos</span>
+                    <UploadPicture />
                   </div>
                   <div className="event-pictures-list">
                     <Pictures pictures={pictures} picturesOnScreen={8} />
@@ -148,6 +177,8 @@ Event.propTypes = {
       ).isRequired,
     }.isRequired).isRequired,
   }.isRequired),
+  isUserParticipatedInEvent: PropTypes.bool.isRequired,
+  userParticipateInEvent: PropTypes.func.isRequired,
   picture: PropTypes.string.isRequired,
   loadingReviews: PropTypes.bool.isRequired,
   reviews: PropTypes.arrayOf(PropTypes.object).isRequired,
