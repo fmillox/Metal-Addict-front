@@ -8,7 +8,7 @@ import Event from 'src/containers/Event';
 import ReviewCreate from 'src/containers/ReviewCreate';
 import ReviewEdit from 'src/containers/ReviewEdit';
 import Review from 'src/containers/Review';
-import Profile from 'src/components/Profile';
+import Profile from 'src/containers/Profile';
 import NotFound from 'src/containers/NotFound';
 
 import './page.scss';
