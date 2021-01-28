@@ -72,7 +72,7 @@ const Header = ({ resetHomePage, isLogged, handleLogout }) => {
             onClose={handleClose}
             className="window"
           >
-            <MenuItem onClick={handleClose}>Profil</MenuItem>
+            <MenuItem onClick={handleClose}>Voir/modifier mon profil</MenuItem>
             <MenuItem onClick={handleCloseLogout}>Déconnexion</MenuItem>
           </StyledMenu>
         </>
