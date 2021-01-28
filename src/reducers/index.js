@@ -8,6 +8,7 @@ import eventReducer from './eventReducer';
 import picturesReducer from './picturesReducer';
 import reviewReducer from './reviewReducer';
 import reviewManageReducer from './reviewManageReducer';
+import userReducer from './userReducer';
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -18,5 +19,6 @@ const rootReducer = combineReducers({
   pictures: picturesReducer,
   review: reviewReducer,
   reviewManage: reviewManageReducer,
+  user: userReducer,
 });
 export default rootReducer;

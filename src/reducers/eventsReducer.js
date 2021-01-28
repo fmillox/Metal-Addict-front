@@ -6,6 +6,8 @@ import {
 
 import { RESET_HOME_PAGE } from 'src/actions/home';
 
+import { SAVE_USER_EVENTS } from 'src/actions/users';
+
 const initialState = {
   searchEvents: null,
 
@@ -45,6 +47,13 @@ function eventsReducer(state = initialState, action = {}) {
         showSearchEvents: false,
         loading: false,
       };
+
+    case SAVE_USER_EVENTS:
+      return {
+        ...state,
+        userEvents: action.events,
+      };
+
     default:
       return state;
   }

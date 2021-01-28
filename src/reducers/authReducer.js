@@ -7,22 +7,13 @@ import {
 } from 'src/actions/auth';
 
 const initialState = {
-  /* contenu du champ email du formulaire de login */
-  email: '',
-  /* contenu du champ password du formulaire de login */
-  password: '',
+  user: null,
   /* token JWT */
-  token: null,
+  token: '',
 
-  isLogged: false,
+  email: '',
 
-  nickname: null,
-
-  avatar: '',
-
-  biography: '',
-
-  userId: null,
+  password: '',
 
   loading: false,
 };
@@ -41,20 +32,27 @@ function authReducer(state = initialState, action = {}) {
         password: action.newValue,
       };
 
-    case SAVE_USER:
+    case SAVE_USER: {
+      const user = jwt_decode(action.token);
+
       return {
         ...state,
-        isLogged: action.isLogged,
         token: action.token,
-        email: '',
-        password: '',
-      };
+        user: {
+          id: user.id,
+          roles: user.roles,
+          nickname: user.nickname,
+          biography: user.biography,
+          avatar: user.avatar,
+          username: user.username,
+        },
+      }; }
 
     case LOG_OUT:
       return {
         ...state,
-        isLogged: false,
-        token: null,
+        token: '',
+        user: null,
       };
 
     case SET_LOADING:
