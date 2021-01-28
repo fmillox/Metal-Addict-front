@@ -34,6 +34,7 @@ function reviewsReducer(state = initialState, action = {}) {
       return {
         ...state,
         eventReviews: action.reviews,
+      };
 
     case SAVE_USER_REVIEWS:
       return {
