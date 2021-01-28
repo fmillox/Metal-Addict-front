@@ -57,9 +57,11 @@ const Register = () => {
         register={register}
         validations={emailValidations}
       />
-      {
-        errors.email && <span>{errors.email.message}</span>
-      }
+      <div className="register-error">
+        {
+          errors.email && <span>{errors.email.message}</span>
+        }
+      </div>
       <FieldInput
         className="register-password"
         name="password"
@@ -69,21 +71,25 @@ const Register = () => {
         register={register}
         validations={passwordValidations}
       />
-      {
-        errors.password && <span>{errors.password.message}</span>
-      }
+      <div className="register-error">
+        {
+          errors.password && <span>{errors.password.message}</span>
+        }
+      </div>
       <FieldInput
         className="register-password"
         name="confirmPassword"
-        label="Mot de passe de nouveau *"
+        label="Mot de passe (confirmation) *"
         placeholder="Retapez votre mot de passe"
         type="password"
         register={register}
         validations={confirmPasswordValidations}
       />
-      {
-        errors.confirmPassword && <span>{errors.confirmPassword.message}</span>
-      }
+      <div className="register-error">
+        {
+          errors.confirmPassword && <span>{errors.confirmPassword.message}</span>
+        }
+      </div>
       <FieldInput
         className="register-nickname"
         name="nickname"
@@ -93,9 +99,11 @@ const Register = () => {
         register={register}
         validations={nicknameValidations}
       />
-      {
-        errors.nickname && <span>{errors.nickname.message}</span>
-      }
+      <div className="register-error">
+        {
+          errors.nickname && <span>{errors.nickname.message}</span>
+        }
+      </div>
       <Button label="Créer le compte" />
     </form>
   );

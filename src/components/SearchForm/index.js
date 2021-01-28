@@ -88,7 +88,7 @@ const SearchForm = ({
                   name="band"
                   label="Nom du groupe"
                   options={bands}
-                  nbCarsToFilter={3}
+                  nbCarsToFilter={2}
                   required
                   value={band}
                   manageChange={setBand}
