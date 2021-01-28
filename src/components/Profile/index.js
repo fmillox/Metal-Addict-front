@@ -1,16 +1,25 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ScaleLoader from 'react-spinners/ScaleLoader';
 import classNames from 'classnames';
+import Backdrop from '@material-ui/core/Backdrop';
+import { makeStyles } from '@material-ui/core/styles';
 
 import { getIdFromSlug } from 'src/utils';
 
 import Events from 'src/containers/Events';
 import Reviews from 'src/components/Reviews';
 import Pictures from 'src/components/Pictures';
+import ModifyProfile from 'src/components/Profile/ModifyProfile/ModifyProfile';
 
 import './profile.scss';
+
+const useStyles = makeStyles((theme) => ({
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1,
+  },
+}));
 
 const Profile = ({
   avatar,
@@ -37,6 +46,15 @@ const Profile = ({
     loadUserDatas(userId);
   }, []);*/
 
+  const classes = useStyles();
+  const [open, setOpen] = useState(false);
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleToggle = () => {
+    setOpen(!open);
+  };
+
   const handleOnClick = () => {
     history.goBack();
   };
@@ -58,6 +76,7 @@ const Profile = ({
       <a className="review-back-to-reviews-results" onClick={handleOnClick}>
         Retour à la page précédente
       </a>
+      <p onClick={handleToggle}>Modifier mon profil</p>
       {userLoading && <ScaleLoader />}
       {!userLoading && (
         <div className="user">
@@ -76,18 +95,25 @@ const Profile = ({
         <div className={EventsCssClass}>
           {eventsLoading && <ScaleLoader />}
           {eventsLoading && <Events events={userEvents} />}
+          {(userEvents.length === 0) && <p>Aucun événement ajouté</p>}
         </div>
         <div onClick={seeReviews}>Voir les chroniques</div>
         <div className={ReviewsCssClass}>
           {reviewsLoading && <ScaleLoader />}
           {!reviewsLoading && <Reviews reviews={userReviews} />}
+          {(userReviews.length === 0) && <p>Aucune chronique ajoutée</p>}
         </div>
         <div onClick={seePictures}>Voir les photos</div>
         <div className={PicturesCssClass}>
           {picturesLoading && <ScaleLoader />}
           {!picturesLoading && <Pictures pictures={userPictures} picturesOnScreen={8} />}
+          {(userPictures.length === 0) && <p>Aucune photo ajoutée</p>}
         </div>
       </div>
+
+      <Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
+        <ModifyProfile />
+      </Backdrop>
     </div>
   );
 };
