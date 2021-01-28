@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ScaleLoader from 'react-spinners/ScaleLoader';
 
@@ -17,6 +18,8 @@ const ReviewManage = ({
   setContent,
   manageSubmit,
 }) => {
+  const history = useHistory();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     manageSubmit();
@@ -24,6 +27,12 @@ const ReviewManage = ({
 
   return (
     <form className="reviewManage" onSubmit={handleSubmit}>
+      <a
+        className="reviewManage-go-back"
+        onClick={() => history.goBack()}
+      >
+        Retour à la précédente
+      </a>
       <div className="reviewManage-title">
         <TextFieldInput name="title" label="Titre" value={title} manageChange={setTitle} />
       </div>

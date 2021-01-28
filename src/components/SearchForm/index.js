@@ -34,6 +34,9 @@ const SearchForm = ({
   setEventPlace,
   manageSubmit,
 }) => {
+  const [bandInputValue, setBandInputValue] = useState('');
+  const [countryInputValue, setCountryInputValue] = useState('');
+  const [yearInputValue, setYearInputValue] = useState('');
   const [years, setYears] = useState([]);
   const [open, setOpen] = useState(true);
 
@@ -51,12 +54,15 @@ const SearchForm = ({
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!isObjectValid(band)) {
+      setBandInputValue('');
       setBand(null);
     }
     else if (!isObjectValid(country)) {
+      setCountryInputValue('');
       setCountry(null);
     }
     else if (!isObjectValid(year)) {
+      setYearInputValue('');
       setYear(null);
     }
     else {
@@ -78,19 +84,56 @@ const SearchForm = ({
           <>
             <div className={classNames('searchForm-container', { 'searchForm-container--close': !open })}>
               <div className="searchForm-input">
-                <AutocompleteInput name="band" label="Nom du groupe" options={bands} required value={band} manageChange={setBand} />
+                <AutocompleteInput
+                  name="band"
+                  label="Nom du groupe"
+                  options={bands}
+                  nbCarsToFilter={3}
+                  required
+                  value={band}
+                  manageChange={setBand}
+                  inputValue={bandInputValue}
+                  setInputValue={setBandInputValue}
+                />
               </div>
               <div className="searchForm-input">
-                <AutocompleteInput name="country" label="Pays" options={countries} value={country} manageChange={setCountry} />
+                <AutocompleteInput
+                  name="country"
+                  label="Pays"
+                  options={countries}
+                  nbCarsToFilter={1}
+                  value={country}
+                  manageChange={setCountry}
+                  inputValue={countryInputValue}
+                  setInputValue={setCountryInputValue}
+                />
               </div>
               <div className="searchForm-input">
-                <TextFieldInput name="city" label="Ville" value={city} manageChange={setCity} />
+                <TextFieldInput
+                  name="city"
+                  label="Ville"
+                  value={city}
+                  manageChange={setCity}
+                />
               </div>
               <div className="searchForm-input">
-                <AutocompleteInput name="year" label="Année" options={years} value={year} manageChange={setYear} />
+                <AutocompleteInput
+                  name="year"
+                  label="Année"
+                  options={years}
+                  value={year}
+                  manageChange={setYear}
+                  inputValue={yearInputValue}
+                  setInputValue={setYearInputValue}
+                />
               </div>
               <div className="searchForm-input">
-                <TextFieldInput name="event-place" label="Lieu de l'événement" value={eventPlace} manageChange={setEventPlace} />
+                <TextFieldInput
+                  name="event-place"
+                  label="Lieu de l'événement"
+                  value={eventPlace}
+                  manageChange={setEventPlace}
+                />
               </div>
               <div className="searchForm-button">
                 <Button label="Rechercher" />

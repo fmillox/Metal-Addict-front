@@ -13,11 +13,12 @@ import { getUnifiedSetList, getIdFromSlug, getSlug } from 'src/utils';
 import './event.scss';
 
 const Event = ({
+  loadEventDatas,
   loadingEvent,
-  loadEvent,
   event,
   isUserParticipatedInEvent,
   userParticipateInEvent,
+  isUserPublishedAnEventReview,
   picture,
   loadingReviews,
   reviews,
@@ -30,7 +31,7 @@ const Event = ({
   const history = useHistory();
 
   useEffect(() => {
-    loadEvent(setlistId, history);
+    loadEventDatas(setlistId, history);
     refEvent.current.scrollTo({
       top: 0,
       left: 0,
@@ -57,7 +58,7 @@ const Event = ({
                   <div className="event-user-not-checked-info">
                     <UserPlus
                       className="event-user-not-checked"
-                      onClick={() => userParticipateInEvent(setlistId)}
+                      onClick={() => userParticipateInEvent(setlistId, history)}
                     />
                     <span>Cliquez ici si vous y avez participé </span>
                   </div>
@@ -112,12 +113,17 @@ const Event = ({
                 <div className="event-reviews-container">
                   <div className="event-reviews-label">
                     Chroniques
-                    <NavLink
-                      className="event-reviews-create"
-                      to={'/chronique/creer/' + getSlug(event.artist.name, setlistId)}
-                    >
-                      <Plus />
-                    </NavLink>
+                    {
+                      isUserParticipatedInEvent && !isUserPublishedAnEventReview && (
+                        <NavLink
+                          className="event-reviews-create"
+                          // eslint-disable-next-line prefer-template
+                          to={'/chronique/creer/' + getSlug(event.artist.name, setlistId)}
+                        >
+                          <Plus />
+                        </NavLink>
+                      )
+                    }
                   </div>
                   <div className="event-reviews-list">
                     <Reviews reviews={reviews} />
@@ -133,7 +139,9 @@ const Event = ({
                 <div className="event-pictures-container">
                   <div className="event-pictures-label">
                     <span>Photos</span>
-                    <UploadPicture />
+                    {
+                      isUserParticipatedInEvent && <UploadPicture />
+                    }
                   </div>
                   <div className="event-pictures-list">
                     <Pictures pictures={pictures} picturesOnScreen={8} />
@@ -149,8 +157,8 @@ const Event = ({
 };
 
 Event.propTypes = {
+  loadEventDatas: PropTypes.func.isRequired,
   loadingEvent: PropTypes.bool.isRequired,
-  loadEvent: PropTypes.func.isRequired,
   event: PropTypes.shape({
     artist: PropTypes.shape({
       name: PropTypes.string.isRequired,
@@ -179,6 +187,7 @@ Event.propTypes = {
   }.isRequired),
   isUserParticipatedInEvent: PropTypes.bool.isRequired,
   userParticipateInEvent: PropTypes.func.isRequired,
+  isUserPublishedAnEventReview: PropTypes.bool.isRequired,
   picture: PropTypes.string.isRequired,
   loadingReviews: PropTypes.bool.isRequired,
   reviews: PropTypes.arrayOf(PropTypes.object).isRequired,

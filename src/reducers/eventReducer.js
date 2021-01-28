@@ -1,6 +1,7 @@
 import {
   SET_LOADING_EVENT,
   SAVE_EVENT,
+  SAVE_USERS_PARTICIPATE_IN_EVENT,
   SET_LOADING_UPLOAD_PICTURE,
 } from 'src/actions/event';
 
@@ -8,6 +9,8 @@ const initialState = {
   loading: false,
 
   data: null,
+
+  users: [],
 
   loadingUploadPicture: false,
 };
@@ -23,6 +26,11 @@ function eventReducer(state = initialState, action = {}) {
       return {
         ...state,
         data: action.event,
+      };
+    case SAVE_USERS_PARTICIPATE_IN_EVENT:
+      return {
+        ...state,
+        users: action.users,
       };
     case SET_LOADING_UPLOAD_PICTURE:
       return {
