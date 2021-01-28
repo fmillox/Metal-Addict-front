@@ -88,3 +88,11 @@ export const checkUserPublishedAnEventReview = (eventReviews, user) => {
   }
   return eventReviews.find((eventReview) => eventReview.user.id === user.id) !== undefined;
 };
+
+export const getFilteredAutocompletInputOptions = (options, inputValue) => (
+  options.filter((option) => {
+    const firstLetter = option.name.substring(0, 1);
+    // eslint-disable-next-line max-len
+    return option.name.toLowerCase().startsWith(inputValue.toLowerCase()) && firstLetter === firstLetter.toUpperCase();
+  })
+);

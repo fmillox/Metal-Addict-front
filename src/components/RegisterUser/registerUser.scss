@@ -1,0 +1,81 @@
+@import "src/styles/media";
+
+.register-user {
+  padding: 0.5rem;
+
+  @include md {
+    padding: 1rem;
+  }
+
+  .register-user-sigle-link {
+    text-align: center;
+    height: 100px;
+
+    @include md {
+      height: 170px;
+    }
+
+    .register-user-sigle{
+      max-height: 100%;
+    }
+  }
+
+  .register-user-title {
+    margin: 1em 0 2em;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+  
+  .register-user-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    @include md {
+      width: 80%;
+      margin: 0 auto;
+    }
+  
+    @include lg {
+      width: 60%;
+    }
+    
+    .register-user-email {
+  
+    }
+  
+    .register-user-password {
+      margin: 30px;
+    }
+  
+    .register-user-nickname {
+      margin-bottom: 30px;
+    }
+  
+    .register-user-error {
+      height: 30px;
+      padding-top: 0.25em;
+      color: red;
+      font-size: 0.8rem;
+    }
+  
+    .register-user-password-rules-label {
+  
+    }
+  
+    .register-user-password-rules-list {
+      margin: 1em 0 1em;
+  
+      .register-user-password-rules-item {
+  
+      }
+    }
+  
+    .register-user-button {
+      margin: 1em 0;
+      align-self: center;
+    }
+  }
+}
+

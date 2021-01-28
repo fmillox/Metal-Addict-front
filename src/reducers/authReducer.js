@@ -1,37 +1,16 @@
-import {
-  UPDATE_EMAIL,
-  UPDATE_PASSWORD,
-  SAVE_USER,
-  LOG_OUT,
-  SET_LOADING,
-} from 'src/actions/auth';
+// eslint-disable-next-line camelcase
+import jwt_decode from 'jwt-decode';
+
+import { SAVE_USER, LOG_OUT } from 'src/actions/auth';
 
 const initialState = {
   user: null,
   /* token JWT */
   token: '',
-
-  email: '',
-
-  password: '',
-
-  loading: false,
 };
 
 function authReducer(state = initialState, action = {}) {
   switch (action.type) {
-    case UPDATE_EMAIL:
-      return {
-        ...state,
-        email: action.newValue,
-      };
-
-    case UPDATE_PASSWORD:
-      return {
-        ...state,
-        password: action.newValue,
-      };
-
     case SAVE_USER: {
       const user = jwt_decode(action.token);
 
@@ -53,12 +32,6 @@ function authReducer(state = initialState, action = {}) {
         ...state,
         token: '',
         user: null,
-      };
-
-    case SET_LOADING:
-      return {
-        ...state,
-        loading: action.value,
       };
 
     default:

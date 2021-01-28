@@ -4,12 +4,13 @@
   width: 100%;
 
   .inputField-label {
-
-  
+    margin-bottom: 0.5em;
   }
 
   .inputField-input {
-    height: 2em;
-    border-radius: 5%;
+    height: 2rem;
+    padding: 0.25em;
+    border: none;
+    border-radius: 0.25rem;
   }
 }

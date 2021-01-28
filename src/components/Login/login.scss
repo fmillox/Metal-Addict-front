@@ -1,8 +1,94 @@
-.login {
-  padding-top: 20px;
+@import "src/styles/media";
 
-  .searchForm-input {
-    margin-top: 25px;
-    margin-bottom: 20px;
+.login {
+  padding: 0.5rem;
+
+  @include md {
+    padding: 1rem;
   }
+
+  .login-sigle-link {
+    text-align: center;
+    height: 100px;
+
+    @include md {
+      height: 170px;
+    }
+
+    .login-sigle{
+      max-height: 100%;
+    }
+  }
+
+  .login-title {
+    margin: 1em 0 2em;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+
+  .login-container {
+    width: 100%;
+
+    @include md {
+      width: 60%;
+      margin: 0 auto;
+    }
+  
+    @include lg {
+      width: 40%;
+    }
+
+    .login-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      
+      .login-email {
+    
+      }
+    
+      .login-password {
+        margin: 30px;
+      }
+    
+      .login-error {
+        height: 30px;
+        padding-top: 0.25em;
+        color: red;
+        font-size: 0.8rem;
+      }
+    
+      .login-validate-button {
+        margin: 1em 0;
+        align-self: center;
+      }
+    }
+  
+    .login-create-account {
+      border-top: 1px solid grey;
+      margin-top: 3rem;
+      text-align: center;
+  
+      .login-create-account-text {
+        margin-top: 3rem;
+      }
+  
+      .login-create-account-button {
+        margin: 1em 0;
+        background-color: blue;
+        border: none;
+        border-radius: 0.5em;
+        padding: 1em;
+        color: white;
+
+        &:hover {
+          background-color: green;
+        }
+      }
+    }
+  }
+  
+  
 }
+

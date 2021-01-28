@@ -8,8 +8,7 @@ const FieldInput = ({
   label,
   placeholder,
   type,
-  register,
-  validations,
+  reference,
 }) => {
   const id = `input-field${name}`;
 
@@ -22,12 +21,12 @@ const FieldInput = ({
         {label}
       </label>
       <input
+        className="inputField-input"
         id={id}
         name={name}
-        type={type}
-        className="inputField-input"
         placeholder={placeholder}
-        ref={register(validations)}
+        type={type}
+        ref={reference}
       />
     </div>
   );
@@ -38,8 +37,14 @@ FieldInput.propTypes = {
   label: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
-  register: PropTypes.func.isRequired,
-  validations: PropTypes.object.isRequired,
+  reference: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.elementType }),
+  ]),
+};
+
+FieldInput.defaultProps = {
+  reference: null,
 };
 
 export default FieldInput;

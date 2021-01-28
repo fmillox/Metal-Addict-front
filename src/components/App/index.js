@@ -6,7 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 // == Import
 import Page from 'src/components/Page';
 import Login from 'src/containers/Login';
-import Register from 'src/components/Register';
+import RegisterUser from 'src/containers/RegisterUser';
 
 import './styles.scss';
 
@@ -22,7 +22,7 @@ const App = () => {
           <Login />
         </Route>
         <Route exact path="/inscription">
-          <Register />
+          <RegisterUser />
         </Route>
         <Route>
           <Page />

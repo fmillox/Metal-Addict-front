@@ -24,6 +24,7 @@ const Event = ({
   reviews,
   loadingPictures,
   pictures,
+  manageUploadPicture,
 }) => {
   const { slug } = useParams();
   const setlistId = getIdFromSlug(slug);
@@ -140,7 +141,9 @@ const Event = ({
                   <div className="event-pictures-label">
                     <span>Photos</span>
                     {
-                      isUserParticipatedInEvent && <UploadPicture />
+                      isUserParticipatedInEvent && (
+                        <UploadPicture manageSubmit={manageUploadPicture} />
+                      )
                     }
                   </div>
                   <div className="event-pictures-list">
@@ -193,6 +196,7 @@ Event.propTypes = {
   reviews: PropTypes.arrayOf(PropTypes.object).isRequired,
   loadingPictures: PropTypes.bool.isRequired,
   pictures: PropTypes.arrayOf(PropTypes.object).isRequired,
+  manageUploadPicture: PropTypes.func.isRequired,
 };
 
 Event.defaultProps = {
