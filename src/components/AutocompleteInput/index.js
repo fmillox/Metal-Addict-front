@@ -30,11 +30,22 @@ const AutocompleteInput = withStyles(styles)(({
   label,
   width,
   options,
+  nbCarsToFilter,
   required,
   value,
   manageChange,
+  inputValue,
+  setInputValue,
   classes,
 }) => {
+  let optionsFiltered = [];
+
+  if (inputValue.length >= nbCarsToFilter) {
+    optionsFiltered = options.filter((option) => (
+      option.name.toLowerCase().startsWith(inputValue.toLowerCase())
+    ));
+  }
+
   const id = `autocomplete-input-${name}`;
 
   return (
@@ -61,11 +72,15 @@ const AutocompleteInput = withStyles(styles)(({
           manageChange(newValue);
         }
       }}
+      inputValue={inputValue}
+      onInputChange={(event, newInputValue) => {
+        setInputValue(newInputValue);
+      }}
       selectOnFocus
       clearOnBlur
       handleHomeEndKeys
       id={id}
-      options={options}
+      options={optionsFiltered}
       getOptionLabel={(option) => {
         if (typeof option === 'string') {
           return option;
@@ -100,13 +115,17 @@ AutocompleteInput.propTypes = {
       name: PropTypes.string.isRequired,
     }.isRequired).isRequired,
   ).isRequired,
+  nbCarsToFilter: PropTypes.number,
   required: PropTypes.bool,
   value: PropTypes.object,
   manageChange: PropTypes.func.isRequired,
+  inputValue: PropTypes.string.isRequired,
+  setInputValue: PropTypes.func.isRequired,
 };
 
 AutocompleteInput.defaultProps = {
   width: '100%',
+  nbCarsToFilter: 0,
   required: false,
 };
 

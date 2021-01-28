@@ -3,6 +3,15 @@
   flex-direction: column;
   width: 100%;
 
+  .reviewManage-go-back {
+    padding: 1em;
+    cursor: pointer;
+
+    &:hover {
+      color: grey;
+    }
+  }
+
   .reviewManage-title {
     margin: 0.5em;
   }

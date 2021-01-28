@@ -74,3 +74,17 @@ export const getUnifiedSetList = (set) => {
 export const createMarkup = (htmlContent) => (
   { __html: DOMPurify.sanitize(htmlContent) }
 );
+
+export const checkUserParticipatedInEvent = (eventUsers, user) => {
+  if (user === null) {
+    return false;
+  }
+  return eventUsers.find((eventUser) => eventUser.id === user.id) !== undefined;
+};
+
+export const checkUserPublishedAnEventReview = (eventReviews, user) => {
+  if (user === null) {
+    return false;
+  }
+  return eventReviews.find((eventReview) => eventReview.user.id === user.id) !== undefined;
+};

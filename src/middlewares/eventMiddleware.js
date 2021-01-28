@@ -2,10 +2,12 @@ import axios from 'axios';
 
 import {
   FETCH_EVENT,
+  FETCH_USERS_PARTICIPATE_IN_EVENT,
   USER_PARTICIPATE_IN_EVENT,
   UPLOAD_PICTURE,
   setLoadingEvent,
   saveEvent,
+  saveUsersParticipateInEvent,
   setLoadingUploadPicture,
 } from 'src/actions/event';
 
@@ -20,10 +22,26 @@ const eventMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log(error);
-          action.history.push('/page_non_trouvee');
+          if (error.response.status === 404) {
+            action.history.push('/page_non_trouvee');
+          }
         })
         .finally(() => {
           store.dispatch(setLoadingEvent(false));
+        });
+      next(action);
+      break;
+    }
+    case FETCH_USERS_PARTICIPATE_IN_EVENT: {
+      axios.get(`user?setlistId=${action.setlistId}`)
+        .then((response) => {
+          store.dispatch(saveUsersParticipateInEvent(response.data));
+        })
+        .catch((error) => {
+          // console.log(error);
+          if (error.response.status === 404) {
+            store.dispatch(saveUsersParticipateInEvent([])); // TODO : always
+          }
         });
       next(action);
       break;
@@ -40,7 +58,12 @@ const eventMiddleware = (store) => (next) => (action) => {
           console.log(response);
         })
         .catch((error) => {
-          console.log(error);
+          if (error.response.status === 401) {
+            action.history.push('/connexion');
+          }
+          else {
+            console.log(error);
+          }
           // TODO : action.history.push('...');
         });
       next(action);

@@ -1,0 +1,15 @@
+.inputField {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .inputField-label {
+
+  
+  }
+
+  .inputField-input {
+    height: 2em;
+    border-radius: 5%;
+  }
+}

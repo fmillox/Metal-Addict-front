@@ -23,7 +23,7 @@ const DraftEditor = ({ htmlContent, setHtmlContent }) => {
         editorState={editor}
         onEditorStateChange={handleEditorStateChange}
         toolbar={{
-          options: ['inline', 'link', 'emoji'],
+          options: ['inline', 'emoji'], // , 'link'
           inline: {
             options: ['bold', 'italic', 'underline'],
           },

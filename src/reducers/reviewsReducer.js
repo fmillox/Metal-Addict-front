@@ -1,4 +1,8 @@
-import { SET_LOADING_REVIEWS, SAVE_LAST_REVIEWS } from 'src/actions/reviews';
+import {
+  SET_LOADING_REVIEWS,
+  SAVE_LAST_REVIEWS,
+  SAVE_EVENT_REVIEWS,
+} from 'src/actions/reviews';
 
 import { SAVE_USER_REVIEWS } from 'src/actions/users';
 
@@ -25,6 +29,11 @@ function reviewsReducer(state = initialState, action = {}) {
         ...state,
         lastReviews: action.reviews,
       };
+
+    case SAVE_EVENT_REVIEWS:
+      return {
+        ...state,
+        eventReviews: action.reviews,
 
     case SAVE_USER_REVIEWS:
       return {

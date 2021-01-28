@@ -48,6 +48,18 @@
   .review-content {
     width: 75%;
     margin: auto;
+
+    strong {
+      font-weight: 700;
+    }
+
+    em {
+      font-style: italic;
+    }
+
+    p {
+      margin-bottom: 1em;
+    }
   }
 
   .review-pictures-container {

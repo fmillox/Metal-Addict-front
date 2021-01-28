@@ -8,7 +8,7 @@ import ScaleLoader from 'react-spinners/ScaleLoader';
 import SmallEvent from './SmallEvent';
 import Button from 'src/components/Button';
 
-import img from 'src/datas/band.jpg';
+import img from 'src/assets/images/band.jpg';
 
 import './events.scss';
 
