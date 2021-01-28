@@ -44,27 +44,34 @@
   }
 }
 
-  .eventsNoShow {
-    display: none;
-  }
+  .user-main-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
 
-  .eventsShow {
-    display: initial;
-  }
-
-  .reviewsNoShow {
-    display: none;
-  }
-
-  .reviewsShow {
-    display: initial;
-  }
-
-  .picturesNoShow {
-    display: none;
-  }
-
-  .picturesShow {
-    display: initial;
+    .eventsNoShow {
+      display: none;
+    }
+  
+    .eventsShow {
+      display: initial;
+    }
+  
+    .reviewsNoShow {
+      display: none;
+    }
+  
+    .reviewsShow {
+      display: initial;
+    }
+  
+    .picturesNoShow {
+      display: none;
+    }
+  
+    .picturesShow {
+      display: initial;
+    }
   }
 }

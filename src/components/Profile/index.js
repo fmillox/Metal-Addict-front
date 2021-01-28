@@ -70,20 +70,23 @@ const Profile = ({
           <div className="user-description">Je suis jojo le bargeot La journée fut longue, le lendemain! Elle se plaignit avec amertume d'un tel bonheur, elle y pleura comme un roi! Ah! n'importe, vieux farceur! tu ne me servirai! Tout a son importance dans les.</div>
         </div>
       )}
-      <div onClick={seeEvents}>Voir les concerts</div>
-      <div className={EventsCssClass}>
-        {eventsLoading && <ScaleLoader />}
-        {eventsLoading && <Events events={userEvents} />}
-      </div>
-      <div onClick={seeReviews}>Voir les chroniques</div>
-      <div className={ReviewsCssClass}>
-        {reviewsLoading && <ScaleLoader />}
-        {!reviewsLoading && <Reviews reviews={userReviews} />}
-      </div>
-      <div onClick={seePictures}>Voir les photos</div>
-      <div className={PicturesCssClass}>
-        {picturesLoading && <ScaleLoader />}
-        {!picturesLoading && <Pictures pictures={userPictures} picturesOnScreen={8} />}
+
+      <div className="user-main-content">
+        <div onClick={seeEvents}>Voir les concerts</div>
+        <div className={EventsCssClass}>
+          {eventsLoading && <ScaleLoader />}
+          {eventsLoading && <Events events={userEvents} />}
+        </div>
+        <div onClick={seeReviews}>Voir les chroniques</div>
+        <div className={ReviewsCssClass}>
+          {reviewsLoading && <ScaleLoader />}
+          {!reviewsLoading && <Reviews reviews={userReviews} />}
+        </div>
+        <div onClick={seePictures}>Voir les photos</div>
+        <div className={PicturesCssClass}>
+          {picturesLoading && <ScaleLoader />}
+          {!picturesLoading && <Pictures pictures={userPictures} picturesOnScreen={8} />}
+        </div>
       </div>
     </div>
   );
