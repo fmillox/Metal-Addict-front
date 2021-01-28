@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { withStyles } from '@material-ui/core/styles';
 
-import { getObjectByName } from 'src/utils';
+import { getFilteredAutocompletInputOptions, getObjectByName } from 'src/utils';
 
 const styles = {
   root: {
@@ -41,11 +41,7 @@ const AutocompleteInput = withStyles(styles)(({
   let optionsFiltered = [];
 
   if (inputValue.length >= nbCarsToFilter) {
-    optionsFiltered = options.filter((option) => {
-      const firstLetter = option.name.substring(0, 1);
-      // eslint-disable-next-line max-len
-      return option.name.toLowerCase().startsWith(inputValue.toLowerCase()) && firstLetter === firstLetter.toUpperCase();
-    });
+    optionsFiltered = getFilteredAutocompletInputOptions(options, inputValue);
   }
 
   const id = `autocomplete-input-${name}`;
