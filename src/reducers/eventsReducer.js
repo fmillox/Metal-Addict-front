@@ -13,7 +13,7 @@ const initialState = {
 
   showSearchEvents: false,
 
-  userEvents: [],
+  userEvents: null,
 
   loading: false,
 };

@@ -32,7 +32,7 @@ const Page = () => (
       <Route path="/chronique/:slug">
         <Review />
       </Route>
-      <Route exact path="/utilisateur">
+      <Route exact path="/utilisateur/:slug">
         <Profile />
       </Route>
       <Route>

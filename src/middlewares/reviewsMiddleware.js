@@ -47,7 +47,7 @@ const reviewsMiddleware = (store) => (next) => (action) => {
 
     case FETCH_USER_REVIEWS:
       store.dispatch(setLoadingReviews(true));
-      axios.get(`/review?userId=${action.userId}&order=DESC`)
+      axios.get(`/review?user=${action.userId}&order=DESC`)
         .then((response) => {
           console.log(response);
           store.dispatch(saveUserReviews(response.data));

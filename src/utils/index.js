@@ -96,3 +96,47 @@ export const getFilteredAutocompletInputOptions = (options, inputValue) => (
     return option.name.toLowerCase().startsWith(inputValue.toLowerCase()) && firstLetter === firstLetter.toUpperCase();
   })
 );
+
+export const pad = (number) => {
+  if (number < 10) {
+    // eslint-disable-next-line prefer-template
+    return '0' + number;
+  }
+  return number;
+};
+
+export const convertEventsIntoSetlistEvents = (events) => {
+  const setlistApiEvents = {
+    type: 'setlists',
+    itemsPerPage: 20,
+    page: 1,
+    total: events.length,
+    setlist: [],
+  };
+  events.forEach((event) => {
+    const date = new Date(event.date);
+    // eslint-disable-next-line prefer-template
+    const eventDate = pad(date.getDate()) + '-' + pad(date.getMonth() + 1) + '-' + date.getFullYear();
+    setlistApiEvents.setlist.push({
+      id: event.setlistId,
+      eventDate,
+      artist: {
+        name: event.band.name,
+      },
+      venue: {
+        name: event.venue,
+        city: {
+          name: event.city,
+          country: {
+            name: event.country.name,
+          },
+        },
+      },
+    });
+  });
+  return setlistApiEvents;
+};
+
+export const isUserOwnerReview = (user, review) => (
+  user !== null && review !== null && (review.user.id === user.id)
+);

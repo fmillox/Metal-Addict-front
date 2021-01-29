@@ -4,7 +4,11 @@ import {
   FETCH_REVIEW,
   setLoadingReview,
   saveReview,
+  FETCH_PICTURES,
+  saveReviewPictures,
 } from 'src/actions/review';
+
+import { setLoadingPictures } from 'src/actions/pictures';
 
 const reviewMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
@@ -27,6 +31,23 @@ const reviewMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     }
+
+    case FETCH_PICTURES: {
+      store.dispatch(setLoadingPictures(true));
+      axios.get(`/pictures/${action.id}`)
+        .then((response) => {
+          store.dispatch(saveReviewPictures(response.data));
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(() => {
+          store.dispatch(setLoadingPictures(false));
+        });
+      next(action);
+      break;
+    }
+
     default:
       // on passe l'action au suivant (middleware suivant ou reducer)
       next(action);

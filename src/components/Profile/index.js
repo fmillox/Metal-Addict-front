@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
 const Profile = ({
   avatar,
   user,
+  isConnectedUser,
   userEvents,
   userReviews,
   userPictures,
@@ -39,12 +40,12 @@ const Profile = ({
   showReviews,
   showPictures,
 }) => {
-  // const { slug } = useParams();
-  // const userId = getIdFromSlug(slug);
+  const { slug } = useParams();
+  const userId = getIdFromSlug(slug);
   const history = useHistory();
-  /*useEffect(() => {
+  useEffect(() => {
     loadUserDatas(userId);
-  }, []);*/
+  }, []);
 
   const classes = useStyles();
   const [open, setOpen] = useState(false);
@@ -60,15 +61,15 @@ const Profile = ({
   };
 
   const EventsCssClass = classNames('eventsNoShow', {
-    'eventsShow': showEvents,
+    eventsShow: showEvents,
   });
 
   const ReviewsCssClass = classNames('reviewsNoShow', {
-    'reviewsShow': showReviews,
+    reviewsShow: showReviews,
   });
 
   const PicturesCssClass = classNames('picturesNoShow', {
-    'picturesShow': showPictures,
+    picturesShow: showPictures,
   });
 
   return (
@@ -76,7 +77,7 @@ const Profile = ({
       <a className="review-back-to-reviews-results" onClick={handleOnClick}>
         Retour à la page précédente
       </a>
-      <p onClick={handleToggle}>Modifier mon profil</p>
+      {isConnectedUser && <p onClick={handleToggle}>Modifier mon profil</p>}
       {userLoading && <ScaleLoader />}
       {!userLoading && (
         <div className="user">
@@ -84,9 +85,9 @@ const Profile = ({
             <div className="user-picture">
               <img src={avatar} alt="" className="picture-content" />
             </div>
-            <h2 className="user-nickname">Jojo le bargeot</h2>
+            <h2 className="user-nickname">{user.nickname}</h2>
           </div>
-          <div className="user-description">Je suis jojo le bargeot La journée fut longue, le lendemain! Elle se plaignit avec amertume d'un tel bonheur, elle y pleura comme un roi! Ah! n'importe, vieux farceur! tu ne me servirai! Tout a son importance dans les.</div>
+          <div className="user-description">{user.biography}</div>
         </div>
       )}
 
@@ -94,7 +95,7 @@ const Profile = ({
         <div onClick={seeEvents}>Voir les concerts</div>
         <div className={EventsCssClass}>
           {eventsLoading && <ScaleLoader />}
-          {eventsLoading && <Events events={userEvents} />}
+          {eventsLoading && <Events events={userEvents} moreEvents={false} />}
           {(userEvents.length === 0) && <p>Aucun événement ajouté</p>}
         </div>
         <div onClick={seeReviews}>Voir les chroniques</div>
@@ -135,6 +136,7 @@ Profile.propTypes = {
   showEvents: PropTypes.bool.isRequired,
   showReviews: PropTypes.bool.isRequired,
   showPictures: PropTypes.bool.isRequired,
+  isConnectedUser: PropTypes.bool.isRequired,
 };
 
 export default Profile;

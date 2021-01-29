@@ -11,7 +11,7 @@ import {
 const initialState = {
   user: {},
 
-  avatar, //TODO avatar par défaut, à supprimer quand communication avec back sera ok
+  avatar, //TODO avatar par défaut, à supprimer quand communication avec back sera ok,
 
   loading: false,
 
