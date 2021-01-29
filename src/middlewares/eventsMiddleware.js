@@ -8,6 +8,8 @@ import {
 
 import { FETCH_USER_EVENTS, saveUserEvents } from 'src/actions/users';
 
+import { convertEventsIntoSetlistEvents } from 'src/utils';
+
 const eventsMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
   switch (action.type) {
@@ -47,10 +49,11 @@ const eventsMiddleware = (store) => (next) => (action) => {
 
     case FETCH_USER_EVENTS:
       store.dispatch(setLoadingEvents(true));
-      axios.get(`/event?user=${action.userId}`)
+      axios.get(`/event?user=${action.userId}&order=DESC`)
         .then((response) => {
           console.log(response);
-          store.dispatch(saveUserEvents(response.data));
+          const setListEvents = convertEventsIntoSetlistEvents(response.data);
+          store.dispatch(saveUserEvents(setListEvents));
         })
         .catch((error) => {
           console.log(error);

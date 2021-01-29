@@ -39,8 +39,8 @@ const Profile = ({
   showReviews,
   showPictures,
 }) => {
-  // const { slug } = useParams();
-  // const userId = getIdFromSlug(slug);
+  const { slug } = useParams();
+  const userId = getIdFromSlug(slug);
   const history = useHistory();
   useEffect(() => {
     loadUserDatas(5);
@@ -84,9 +84,9 @@ const Profile = ({
             <div className="user-picture">
               <img src={avatar} alt="" className="picture-content" />
             </div>
-            <h2 className="user-nickname">Jojo le bargeot</h2>
+            <h2 className="user-nickname">{user.nickname}</h2>
           </div>
-          <div className="user-description">Je suis jojo le bargeot La journée fut longue, le lendemain! Elle se plaignit avec amertume d'un tel bonheur, elle y pleura comme un roi! Ah! n'importe, vieux farceur! tu ne me servirai! Tout a son importance dans les.</div>
+          <div className="user-description">{user.biography}</div>
         </div>
       )}
 

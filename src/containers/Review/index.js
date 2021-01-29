@@ -13,6 +13,7 @@ const mapStateToProps = (state) => ({
   review: state.review.data,
   loadingPictures: state.pictures.loading,
   pictures: state.pictures.reviewPictures,
+  modifyReview: state.auth.user !== null && (state.review.data.user.id === state.auth.user.id),
 });
 
 // === mapDispatchToProps

@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import {
   useParams,
   useHistory,
+  Link,
 } from 'react-router-dom';
 
 import Pictures from 'src/components/Pictures';
 
 import ScaleLoader from 'react-spinners/ScaleLoader';
 
-import { getIdFromSlug, createMarkup } from 'src/utils';
+import { getIdFromSlug, createMarkup, getSlug } from 'src/utils';
 
 import dave from 'src/images/dave.jpg';
 import Moment from 'moment';
@@ -23,6 +24,7 @@ const Review = ({
   pictures,
   loadPictures,
   loadingPictures,
+  modifyReview,
 }) => {
   const { slug } = useParams();
   const id = getIdFromSlug(slug);
@@ -61,11 +63,28 @@ const Review = ({
           </a>
           <h2 className="review-title">{review.title}</h2>
 
+          {modifyReview && (
+            <Link
+              className="review-modify"
+              // eslint-disable-next-line prefer-template
+              to={'/chronique/editer/' + getSlug(review.event.band.name, review.id)}
+            >
+              Modifier ma chronique
+            </Link>
+          )}
           <div className="review-user">
             <img src={dave} alt="" className="review-user-image" />
             <div className="user-information">
-              <p className="name">par {review.user.nickname}</p>
-              <p className="date">postée le {Moment(review.createdAt).locale('fr').format('L')}</p>
+              <Link
+                className="name"
+                // eslint-disable-next-line prefer-template
+                to={'/utilisateur/' + getSlug(review.user.nickname, review.user.id)}
+              >
+                par {review.user.nickname}
+              </Link>
+              <p className="date">
+                postée le {Moment(review.createdAt).locale('fr').format('L')}
+              </p>
             </div>
           </div>
 
@@ -113,6 +132,7 @@ Review.propTypes = {
       nickname: PropTypes.string.isRequired,
     }.isRequired),
   }.isRequired),
+  modifyReview: PropTypes.bool.isRequired,
 };
 Review.defaultProps = {
   review: null,
