@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 import FieldInput from 'src/components/FieldInput';
@@ -10,7 +10,7 @@ import sigle from 'src/assets/images/sigle.svg';
 
 import './registerUser.scss';
 
-const RegisterUser = ({ registerNewUser }) => {
+const RegisterUser = ({ resetHomePage, registerNewUser }) => {
   const history = useHistory();
 
   const {
@@ -21,6 +21,11 @@ const RegisterUser = ({ registerNewUser }) => {
   } = useForm();
   const password = useRef({});
   password.current = watch('password', '');
+
+  const handleOnClickHome = () => {
+    resetHomePage();
+    history.push('/');
+  };
 
   const onSubmit = (data) => {
     registerNewUser(data.email, data.password, data.passwordConfirmed, data.nickname, history);
@@ -48,6 +53,10 @@ const RegisterUser = ({ registerNewUser }) => {
 
   const nicknameValidations = {
     required: 'Champ obligatoire',
+    minLength: {
+      value: 3,
+      message: '3 caractères minimum',
+    },
     maxLength: {
       value: 10,
       message: '10 caractères maximum',
@@ -57,9 +66,11 @@ const RegisterUser = ({ registerNewUser }) => {
   return (
     <div className="register-user">
       <div className="register-user-sigle-link">
-        <Link to="/">
+        <a
+          onClick={handleOnClickHome}
+        >
           <img src={sigle} alt="sigle" className="register-user-sigle" />
-        </Link>
+        </a>
       </div>
       <h1 className="register-user-title">
         Création de compte
@@ -136,6 +147,7 @@ const RegisterUser = ({ registerNewUser }) => {
 };
 
 RegisterUser.propTypes = {
+  resetHomePage: PropTypes.func.isRequired,
   registerNewUser: PropTypes.func.isRequired,
 };
 

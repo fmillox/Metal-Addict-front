@@ -93,6 +93,49 @@ export const getFilteredAutocompletInputOptions = (options, inputValue) => (
   options.filter((option) => {
     const firstLetter = option.name.substring(0, 1);
     // eslint-disable-next-line max-len
-    return option.name.toLowerCase().startsWith(inputValue.toLowerCase()) && firstLetter === firstLetter.toUpperCase();
+    return slugify(option.name.toLowerCase()).startsWith(slugify(inputValue.toLowerCase())) && firstLetter === firstLetter.toUpperCase();
   })
 );
+
+export const pad = (number) => {
+  if (number < 10) {
+    // eslint-disable-next-line prefer-template
+    return '0' + number;
+  }
+  return number;
+};
+
+export const convertEventsIntoSetlistEvents = (events) => {
+  const setlistApiEvents = {
+    type: 'setlists',
+    itemsPerPage: 20,
+    page: 1,
+    total: events.length,
+    setlist: [],
+  };
+
+  events.forEach((event) => {
+    const date = new Date(event.date);
+    // eslint-disable-next-line prefer-template
+    const eventDate = pad(date.getDate()) + '-' + pad(date.getMonth() + 1) + '-' + date.getFullYear();
+
+    setlistApiEvents.setlist.push({
+      id: event.setlistId,
+      eventDate,
+      artist: {
+        name: event.band.name,
+      },
+      venue: {
+        name: event.venue,
+        city: {
+          name: event.city,
+          country: {
+            name: event.country.name,
+          },
+        },
+      },
+    });
+  });
+
+  return setlistApiEvents;
+};

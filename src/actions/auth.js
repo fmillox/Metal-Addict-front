@@ -2,6 +2,7 @@ export const LOG_IN = 'LOG_IN';
 export const SAVE_USER = 'SAVE_USER';
 export const LOG_OUT = 'LOG_OUT';
 export const REGISTER_NEW_USER = 'REGISTER_NEW_USER';
+export const REDIRECT_TO = 'REDIRECT_TO';
 
 export const logIn = (email, password, history) => ({
   type: LOG_IN,
@@ -26,4 +27,9 @@ export const registerNewUser = (email, password, passwordConfirmed, nickname, hi
   passwordConfirmed,
   nickname,
   history,
+});
+
+export const redirectTo = (location) => ({
+  type: REDIRECT_TO,
+  location,
 });

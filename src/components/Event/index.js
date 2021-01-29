@@ -28,19 +28,14 @@ const Event = ({
 }) => {
   const { slug } = useParams();
   const setlistId = getIdFromSlug(slug);
-  const refEvent = useRef(null);
   const history = useHistory();
 
   useEffect(() => {
     loadEventDatas(setlistId, history);
-    refEvent.current.scrollTo({
-      top: 0,
-      left: 0,
-    });
   }, []);
 
   return (
-    <div className="event" ref={refEvent}>
+    <div className="event">
       {
         loadingEvent && <ScaleLoader />
       }

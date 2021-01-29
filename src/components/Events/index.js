@@ -63,12 +63,13 @@ Events.propTypes = {
   ).isRequired,
   picture: PropTypes.string,
   moreEvents: PropTypes.bool.isRequired,
-  manageSubmit: PropTypes.func.isRequired,
+  manageSubmit: PropTypes.func,
 };
 
 Events.defaultProps = {
   loadingEvents: false,
   picture: img,
+  manageSubmit: null,
 };
 
 // == Export

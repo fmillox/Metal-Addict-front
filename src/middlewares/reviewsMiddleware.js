@@ -44,7 +44,6 @@ const reviewsMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     }
-
     case FETCH_USER_REVIEWS:
       store.dispatch(setLoadingReviews(true));
       axios.get(`/review?userId=${action.userId}&order=DESC`)
@@ -60,7 +59,6 @@ const reviewsMiddleware = (store) => (next) => (action) => {
         });
       next(action);
       break;
-
     default:
       // on passe l'action au suivant (middleware suivant ou reducer)
       next(action);
