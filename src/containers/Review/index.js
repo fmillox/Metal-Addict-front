@@ -5,6 +5,8 @@ import Review from 'src/components/Review';
 
 import { fetchReview, fetchPictures } from 'src/actions/review';
 
+import { isUserOwnerReview } from 'src/utils';
+
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
 const mapStateToProps = (state) => ({
@@ -13,7 +15,7 @@ const mapStateToProps = (state) => ({
   review: state.review.data,
   loadingPictures: state.pictures.loading,
   pictures: state.pictures.reviewPictures,
-  modifyReview: state.auth.user !== null && (state.review.data.user.id === state.auth.user.id),
+  modifyReview: isUserOwnerReview(state.auth.user, state.review.data),
 });
 
 // === mapDispatchToProps
