@@ -20,6 +20,7 @@ import Profile from 'src/components/Profile';
 const mapStateToProps = (state) => ({
   // nom de la prop à remplir: élément à récupérer dans le state
   avatar: state.user.avatar, // TODO à retirer quand on récupérera les infos de l'user avec le back
+  isConnectedUser: state.auth.user !== null && (state.user.user.id === state.auth.user.id),
   user: state.user.user,
   userEvents: state.events.userEvents !== null ? state.events.userEvents.setlist : [],
   userReviews: state.reviews.userReviews,

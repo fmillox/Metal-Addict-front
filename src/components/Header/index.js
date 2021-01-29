@@ -91,6 +91,7 @@ const Header = ({
             </MenuItem>
             <MenuItem onClick={handleCloseLogout}>Déconnexion</MenuItem>
           </StyledMenu>
+          <p className="welcome">Bienvenue {user.nickname}</p>
         </>
       )}
       {!isLogged && (

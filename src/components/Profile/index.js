@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
 const Profile = ({
   avatar,
   user,
+  isConnectedUser,
   userEvents,
   userReviews,
   userPictures,
@@ -60,15 +61,15 @@ const Profile = ({
   };
 
   const EventsCssClass = classNames('eventsNoShow', {
-    'eventsShow': showEvents,
+    eventsShow: showEvents,
   });
 
   const ReviewsCssClass = classNames('reviewsNoShow', {
-    'reviewsShow': showReviews,
+    reviewsShow: showReviews,
   });
 
   const PicturesCssClass = classNames('picturesNoShow', {
-    'picturesShow': showPictures,
+    picturesShow: showPictures,
   });
 
   return (
@@ -76,7 +77,7 @@ const Profile = ({
       <a className="review-back-to-reviews-results" onClick={handleOnClick}>
         Retour à la page précédente
       </a>
-      <p onClick={handleToggle}>Modifier mon profil</p>
+      {isConnectedUser && <p onClick={handleToggle}>Modifier mon profil</p>}
       {userLoading && <ScaleLoader />}
       {!userLoading && (
         <div className="user">
@@ -135,6 +136,7 @@ Profile.propTypes = {
   showEvents: PropTypes.bool.isRequired,
   showReviews: PropTypes.bool.isRequired,
   showPictures: PropTypes.bool.isRequired,
+  isConnectedUser: PropTypes.bool.isRequired,
 };
 
 export default Profile;
