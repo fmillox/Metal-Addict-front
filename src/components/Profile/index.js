@@ -43,7 +43,7 @@ const Profile = ({
   const userId = getIdFromSlug(slug);
   const history = useHistory();
   useEffect(() => {
-    loadUserDatas(5);
+    loadUserDatas(userId);
   }, []);
 
   const classes = useStyles();

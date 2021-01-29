@@ -7,6 +7,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import sigle from 'src/assets/images/sigle.svg';
 import './header.scss';
 
+import { getSlug } from 'src/utils';
+
 import dave from 'src/images/dave.jpg';
 
 const StyledMenu = withStyles({
@@ -30,7 +32,12 @@ const StyledMenu = withStyles({
   />
 ));
 
-const Header = ({ resetHomePage, isLogged, handleLogout }) => {
+const Header = ({
+  resetHomePage,
+  isLogged,
+  handleLogout,
+  user,
+}) => {
   const history = useHistory();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -72,7 +79,16 @@ const Header = ({ resetHomePage, isLogged, handleLogout }) => {
             onClose={handleClose}
             className="window"
           >
-            <MenuItem onClick={handleClose}>Voir/modifier mon profil</MenuItem>
+            <MenuItem
+              onClick={handleClose}
+            >
+              <NavLink
+                // eslint-disable-next-line prefer-template
+                to={'/utilisateur/' + getSlug(user.nickname, user.id)}
+                onClick={handleClose}
+              >Voir/modifier mon profil
+              </NavLink>
+            </MenuItem>
             <MenuItem onClick={handleCloseLogout}>Déconnexion</MenuItem>
           </StyledMenu>
         </>
@@ -92,6 +108,10 @@ Header.propTypes = {
   resetHomePage: PropTypes.func.isRequired,
   isLogged: PropTypes.bool.isRequired,
   handleLogout: PropTypes.func.isRequired,
+  user: PropTypes.object,
 };
 
+Header.defaultProps = {
+  user: null,
+};
 export default Header;
