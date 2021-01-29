@@ -12,8 +12,8 @@ import {
 // on importe le composant de présentation
 import Profile from 'src/components/Profile';
 
-import pictures from 'src/datas/pictures';
-import reviews from 'src/datas/reviews';
+// import pictures from 'src/datas/pictures';
+// import reviews from 'src/datas/reviews';
 
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
@@ -22,8 +22,8 @@ const mapStateToProps = (state) => ({
   avatar: state.user.avatar, // TODO à retirer quand on récupérera les infos de l'user avec le back
   user: state.user.user,
   userEvents: state.events.userEvents,
-  userReviews: reviews, // TODO : state.reviews.userReviews
-  userPictures: pictures, // TODO : state.pictures.userPictures
+  userReviews: state.reviews.userReviews,
+  userPictures: state.pictures.userPictures,
   eventsLoading: state.events.loading,
   reviewsLoading: state.reviews.loading,
   picturesLoading: state.pictures.loading,
@@ -37,12 +37,12 @@ const mapStateToProps = (state) => ({
 // si j'ai besoin de dispatcher des actions vers le store (mettre à jour le state)
 const mapDispatchToProps = (dispatch) => ({
   // nom de la prop à remplir: fonction qui dispatch l'action
-  loadUserDatas: (userId) => dispatch(
-    fetchUserDatas(userId),
-    fetchUserEvents(userId),
-    fetchUserReviews(userId),
-    fetchUserPictures(userId),
-  ),
+  loadUserDatas: (userId) => {
+    dispatch(fetchUserDatas(userId));
+    dispatch(fetchUserEvents(userId));
+    dispatch(fetchUserReviews(userId));
+    dispatch(fetchUserPictures(userId));
+  },
   seeEvents: () => dispatch(
     displayEvents(),
   ),

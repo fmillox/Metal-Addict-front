@@ -47,7 +47,7 @@ const eventsMiddleware = (store) => (next) => (action) => {
 
     case FETCH_USER_EVENTS:
       store.dispatch(setLoadingEvents(true));
-      axios.get(`/event?userId=${action.userId}`)
+      axios.get(`/event?user=${action.userId}`)
         .then((response) => {
           console.log(response);
           store.dispatch(saveUserEvents(response.data));

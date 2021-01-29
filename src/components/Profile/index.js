@@ -42,9 +42,9 @@ const Profile = ({
   // const { slug } = useParams();
   // const userId = getIdFromSlug(slug);
   const history = useHistory();
-  /*useEffect(() => {
-    loadUserDatas(userId);
-  }, []);*/
+  useEffect(() => {
+    loadUserDatas(5);
+  }, []);
 
   const classes = useStyles();
   const [open, setOpen] = useState(false);
@@ -94,7 +94,7 @@ const Profile = ({
         <div onClick={seeEvents}>Voir les concerts</div>
         <div className={EventsCssClass}>
           {eventsLoading && <ScaleLoader />}
-          {eventsLoading && <Events events={userEvents} />}
+          {eventsLoading && <Events events={userEvents} moreEvents={false} />}
           {(userEvents.length === 0) && <p>Aucun événement ajouté</p>}
         </div>
         <div onClick={seeReviews}>Voir les chroniques</div>

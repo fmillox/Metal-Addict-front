@@ -51,8 +51,9 @@ export const saveUserDatas = (datas) => ({
   datas,
 });
 
-export const setLoadingUser = () => ({
+export const setLoadingUser = (value) => ({
   type: SET_LOADING_USER,
+  value,
 });
 
 export const displayEvents = () => ({
