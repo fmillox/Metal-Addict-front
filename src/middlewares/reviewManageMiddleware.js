@@ -9,6 +9,8 @@ import {
   resetReviewManage,
 } from 'src/actions/reviewManage';
 
+import { redirectTo } from 'src/actions/auth';
+
 const reviewMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
   switch (action.type) {
@@ -44,8 +46,14 @@ const reviewMiddleware = (store) => (next) => (action) => {
           action.history.goBack();
         })
         .catch((error) => {
-          console.log(error);
-          // TODO : action.history.push('...');
+          if (error.response.status === 401) {
+            store.dispatch(redirectTo(action.history.location.pathname));
+            action.history.push('/connexion');
+          }
+          else {
+            console.log(error);
+            // TODO : action.history.push('...');
+          }
         })
         .finally(() => {
           store.dispatch(setLoadingReviewManage(false));
@@ -70,8 +78,14 @@ const reviewMiddleware = (store) => (next) => (action) => {
           action.history.goBack();
         })
         .catch((error) => {
-          console.log(error);
-          // TODO : action.history.push('...');
+          if (error.response.status === 401) {
+            store.dispatch(redirectTo(action.history.location.pathname));
+            action.history.push('/connexion');
+          }
+          else {
+            console.log(error);
+            // TODO : action.history.push('...');
+          }
         })
         .finally(() => {
           store.dispatch(setLoadingReviewManage(false));

@@ -10,11 +10,11 @@ import {
   uploadPicture,
 } from 'src/actions/event';
 import { fetchEventReviews } from 'src/actions/reviews';
+import { fetchEventPictures } from 'src/actions/pictures';
 
 import { checkUserParticipatedInEvent, checkUserPublishedAnEventReview } from 'src/utils';
 
 import img from 'src/assets/images/band.jpg';
-import pictures from 'src/datas/pictures';
 
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
@@ -29,7 +29,7 @@ const mapStateToProps = (state) => ({
   loadingReviews: state.reviews.loading,
   reviews: state.reviews.eventReviews,
   loadingPictures: state.pictures.loading,
-  pictures,
+  pictures: state.pictures.eventPictures,
 });
 
 // === mapDispatchToProps
@@ -40,6 +40,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(fetchEvent(setlistId, history));
     dispatch(fetchUsersParticipateInEvent(setlistId));
     dispatch(fetchEventReviews(setlistId));
+    dispatch(fetchEventPictures(setlistId));
   },
   userParticipateInEvent: (setlistId, history) => {
     dispatch(userParticipateInEvent(setlistId, history));

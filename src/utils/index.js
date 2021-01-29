@@ -93,7 +93,7 @@ export const getFilteredAutocompletInputOptions = (options, inputValue) => (
   options.filter((option) => {
     const firstLetter = option.name.substring(0, 1);
     // eslint-disable-next-line max-len
-    return option.name.toLowerCase().startsWith(inputValue.toLowerCase()) && firstLetter === firstLetter.toUpperCase();
+    return slugify(option.name.toLowerCase()).startsWith(slugify(inputValue.toLowerCase())) && firstLetter === firstLetter.toUpperCase();
   })
 );
 
@@ -113,10 +113,12 @@ export const convertEventsIntoSetlistEvents = (events) => {
     total: events.length,
     setlist: [],
   };
+
   events.forEach((event) => {
     const date = new Date(event.date);
     // eslint-disable-next-line prefer-template
     const eventDate = pad(date.getDate()) + '-' + pad(date.getMonth() + 1) + '-' + date.getFullYear();
+
     setlistApiEvents.setlist.push({
       id: event.setlistId,
       eventDate,
@@ -134,6 +136,7 @@ export const convertEventsIntoSetlistEvents = (events) => {
       },
     });
   });
+
   return setlistApiEvents;
 };
 

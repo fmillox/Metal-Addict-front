@@ -1,12 +1,22 @@
 // eslint-disable-next-line camelcase
 import jwt_decode from 'jwt-decode';
 
-import { SAVE_USER, LOG_OUT } from 'src/actions/auth';
+import {
+  SAVE_USER,
+  LOG_OUT,
+  REDIRECT_TO,
+} from 'src/actions/auth';
+
+import { RESET_HOME_PAGE } from 'src/actions/home';
+
+const INITIAL_REDIRECT = '/';
 
 const initialState = {
   user: null,
   /* token JWT */
   token: '',
+
+  redirect: INITIAL_REDIRECT,
 };
 
 function authReducer(state = initialState, action = {}) {
@@ -25,6 +35,7 @@ function authReducer(state = initialState, action = {}) {
           avatar: user.avatar,
           username: user.username,
         },
+        redirect: INITIAL_REDIRECT,
       }; }
 
     case LOG_OUT:
@@ -32,6 +43,18 @@ function authReducer(state = initialState, action = {}) {
         ...state,
         token: '',
         user: null,
+      };
+
+    case REDIRECT_TO:
+      return {
+        ...state,
+        redirect: action.location,
+      };
+
+    case RESET_HOME_PAGE:
+      return {
+        ...state,
+        redirect: INITIAL_REDIRECT,
       };
 
     default:

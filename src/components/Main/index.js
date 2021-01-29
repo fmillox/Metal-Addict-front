@@ -30,7 +30,7 @@ const Main = ({ showEventsResults }) => (
       )
     }
   </div>
-);
+)
 
 Main.propTypes = {
   showEventsResults: PropTypes.bool.isRequired,

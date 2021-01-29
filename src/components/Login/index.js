@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 import FieldInput from 'src/components/FieldInput';
@@ -10,9 +10,7 @@ import sigle from 'src/assets/images/sigle.svg';
 
 import './login.scss';
 
-const Login = ({
-  handleLogin,
-}) => {
+const Login = ({ resetHomePage, handleLogin }) => {
   const history = useHistory();
 
   const {
@@ -20,6 +18,11 @@ const Login = ({
     handleSubmit,
     errors,
   } = useForm();
+
+  const handleOnClickHome = () => {
+    resetHomePage();
+    history.push('/');
+  };
 
   const onSubmit = (data) => {
     handleLogin(data.email, data.password, history);
@@ -36,9 +39,11 @@ const Login = ({
   return (
     <div className="login">
       <div className="login-sigle-link">
-        <Link to="/">
+        <a
+          onClick={handleOnClickHome}
+        >
           <img src={sigle} alt="sigle" className="login-sigle" />
-        </Link>
+        </a>
       </div>
       <h1 className="login-title">
         Connexion
@@ -93,6 +98,7 @@ const Login = ({
 };
 
 Login.propTypes = {
+  resetHomePage: PropTypes.func.isRequired,
   handleLogin: PropTypes.func.isRequired,
 };
 
