@@ -7,7 +7,7 @@ const userMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_USER_DATAS:
       store.dispatch(setLoadingUser(true));
-      axios.get('')
+      axios.get(`/user/${action.userId}`)
         .then((response) => {
           console.log(response);
           store.dispatch(saveUserDatas(response.data));

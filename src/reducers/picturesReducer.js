@@ -4,6 +4,7 @@ import {
   ADD_EVENT_PICTURE,
 } from 'src/actions/pictures';
 import { SAVE_USER_PICTURES } from 'src/actions/users';
+import { SAVE_REVIEW_PICTURES } from 'src/actions/review';
 
 const initialState = {
   eventPictures: [],
@@ -39,6 +40,12 @@ function picturesReducer(state = initialState, action = {}) {
       return {
         ...state,
         userPictures: action.pictures,
+      };
+
+    case SAVE_REVIEW_PICTURES:
+      return {
+        ...state,
+        reviewPictures: action.pictures,
       };
 
     default:

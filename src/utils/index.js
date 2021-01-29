@@ -139,3 +139,7 @@ export const convertEventsIntoSetlistEvents = (events) => {
 
   return setlistApiEvents;
 };
+
+export const isUserOwnerReview = (user, review) => (
+  user !== null && review !== null && (review.user.id === user.id)
+);

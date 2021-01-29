@@ -29,7 +29,7 @@ const reviewsMiddleware = (store) => (next) => (action) => {
 
     case FETCH_USER_PICTURES:
       store.dispatch(setLoadingPictures(true));
-      axios.get(`/picture?userId=${action.userId}`)
+      axios.get(`/picture?user=${action.userId}&order=DESC`)
         .then((response) => {
           console.log(response);
           store.dispatch(saveUserPictures(response.data));
