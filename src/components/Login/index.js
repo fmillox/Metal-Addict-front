@@ -10,7 +10,7 @@ import sigle from 'src/assets/images/sigle.svg';
 
 import './login.scss';
 
-const Login = ({ resetHomePage, handleLogin }) => {
+const Login = ({ notAuthorized, resetHomePage, handleLogin }) => {
   const history = useHistory();
 
   const {
@@ -76,6 +76,11 @@ const Login = ({ resetHomePage, handleLogin }) => {
               errors.password && <span>{errors.password.message}</span>
             }
           </div>
+          <div className="login-error">
+            {
+              notAuthorized && <span>Combinaison adresse email / mot de passe invalide.</span>
+            }
+          </div>
           <div className="login-validate-button">
             <Button label="Valider" />
           </div>
@@ -98,6 +103,7 @@ const Login = ({ resetHomePage, handleLogin }) => {
 };
 
 Login.propTypes = {
+  notAuthorized: PropTypes.bool.isRequired,
   resetHomePage: PropTypes.func.isRequired,
   handleLogin: PropTypes.func.isRequired,
 };

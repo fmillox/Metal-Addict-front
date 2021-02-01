@@ -12,8 +12,6 @@ import {
 import { fetchEventReviews } from 'src/actions/reviews';
 import { fetchEventPictures } from 'src/actions/pictures';
 
-import { checkUserParticipatedInEvent, checkUserPublishedAnEventReview } from 'src/utils';
-
 import img from 'src/assets/images/band.jpg';
 
 // === mapStateToProps
@@ -22,14 +20,14 @@ const mapStateToProps = (state) => ({
   // nom de la prop à remplir: élément à récupérer dans le state
   loadingEvent: state.event.loading || state.event.data === null,
   event: state.event.data,
-  isUserParticipatedInEvent: checkUserParticipatedInEvent(state.event.users, state.auth.user),
-  // eslint-disable-next-line max-len
-  isUserPublishedAnEventReview: checkUserPublishedAnEventReview(state.reviews.eventReviews, state.auth.user),
+  currentUser: state.auth.user,
+  participatedUsers: state.event.users,
   picture: img, // TODO : V2 - THE API RETURNS THE PICTURE !!! picture: state.event.something
   loadingReviews: state.reviews.loading,
   reviews: state.reviews.eventReviews,
   loadingPictures: state.pictures.loading,
   pictures: state.pictures.eventPictures,
+  loadingUploadPicture: state.event.loadingUploadPicture,
 });
 
 // === mapDispatchToProps
@@ -45,8 +43,8 @@ const mapDispatchToProps = (dispatch) => ({
   userParticipateInEvent: (setlistId, history) => {
     dispatch(userParticipateInEvent(setlistId, history));
   },
-  manageUploadPicture: (formData) => {
-    dispatch(uploadPicture(formData));
+  manageUploadPicture: (formData, history) => {
+    dispatch(uploadPicture(formData, history));
   },
 });
 

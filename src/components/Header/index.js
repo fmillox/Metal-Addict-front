@@ -7,9 +7,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import sigle from 'src/assets/images/sigle.svg';
 import './header.scss';
 
-import { getSlug } from 'src/utils';
-
-import dave from 'src/images/dave.jpg';
+import { getSlug, getAbsoluteImagePath } from 'src/utils';
 
 const StyledMenu = withStyles({
   paper: {
@@ -70,7 +68,18 @@ const Header = ({
       </a>
       {isLogged && (
         <>
-          <div className="image" aria-controls="customized-menu" aria-haspopup="true" onClick={handleClick}><img src={dave} className="image-content" alt="" /></div>
+          <div
+            className="image"
+            aria-controls="customized-menu"
+            aria-haspopup="true"
+            onClick={handleClick}
+          >
+            <img
+              src={getAbsoluteImagePath(user.avatar)}
+              className="image-content"
+              alt=""
+            />
+          </div>
           <StyledMenu
             id="customized-menu"
             anchorEl={anchorEl}

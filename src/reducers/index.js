@@ -1,4 +1,7 @@
 import { combineReducers } from 'redux';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
 // on importe tous les reducers
 import authReducer from './authReducer';
 import eventsReducer from './eventsReducer';
@@ -10,8 +13,20 @@ import reviewReducer from './reviewReducer';
 import reviewManageReducer from './reviewManageReducer';
 import userReducer from './userReducer';
 
+const rootPersistConfig = {
+  key: 'root',
+  storage,
+  whitelist: ['auth'],
+};
+
+const authPersistConfig = {
+  key: 'auth',
+  storage,
+  whitelist: ['user', 'token'],
+};
+
 const rootReducer = combineReducers({
-  auth: authReducer,
+  auth: persistReducer(authPersistConfig, authReducer),
   events: eventsReducer,
   reviews: reviewsReducer,
   searchForm: searchFormReducer,
@@ -21,4 +36,5 @@ const rootReducer = combineReducers({
   reviewManage: reviewManageReducer,
   user: userReducer,
 });
-export default rootReducer;
+
+export default persistReducer(rootPersistConfig, rootReducer);

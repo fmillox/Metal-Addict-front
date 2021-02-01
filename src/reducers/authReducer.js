@@ -4,7 +4,10 @@ import jwt_decode from 'jwt-decode';
 import {
   SAVE_USER,
   LOG_OUT,
+  IS_NOT_AUTHORIZED,
   REDIRECT_TO,
+  SET_LOADING_AVATAR,
+  SAVE_AVATAR,
 } from 'src/actions/auth';
 
 import { RESET_HOME_PAGE } from 'src/actions/home';
@@ -15,6 +18,10 @@ const initialState = {
   user: null,
   /* token JWT */
   token: '',
+
+  notAuthorized: false,
+
+  loadingAvatar: false,
 
   redirect: INITIAL_REDIRECT,
 };
@@ -35,26 +42,52 @@ function authReducer(state = initialState, action = {}) {
           avatar: user.avatar,
           username: user.username,
         },
+        notAuthorized: false,
         redirect: INITIAL_REDIRECT,
-      }; }
+      };
+    }
 
     case LOG_OUT:
       return {
         ...state,
         token: '',
         user: null,
+        notAuthorized: false,
+        redirect: INITIAL_REDIRECT,
       };
 
     case REDIRECT_TO:
       return {
         ...state,
+        token: '',
+        user: null,
+        notAuthorized: false,
         redirect: action.location,
       };
 
     case RESET_HOME_PAGE:
       return {
         ...state,
+        notAuthorized: false,
         redirect: INITIAL_REDIRECT,
+      };
+
+    case IS_NOT_AUTHORIZED:
+      return {
+        ...state,
+        notAuthorized: true,
+      };
+
+    case SET_LOADING_AVATAR:
+      return {
+        ...state,
+        loadingAvatar: action.value,
+      };
+
+    case SAVE_AVATAR:
+      return {
+        ...state,
+        user: { ...state.user, avatar: action.path },
       };
 
     default:

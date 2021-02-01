@@ -50,7 +50,8 @@ export const setLoadingUploadPicture = (value) => ({
   value,
 });
 
-export const uploadPicture = (formData) => ({
+export const uploadPicture = (formData, history) => ({
   type: UPLOAD_PICTURE,
   formData,
+  history,
 });

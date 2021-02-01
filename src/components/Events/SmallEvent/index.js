@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 // == Import
-import { getSlug } from 'src/utils';
+import { getSlug, changeCityName } from 'src/utils';
 
 import './smallEvent.scss';
 
@@ -38,7 +38,7 @@ const SmallEvent = ({
           {venue.name}
         </div>
         <div className="smallEvent-city-country">
-          {venue.city.name} - {venue.city.country.name}
+          {changeCityName(venue.city.name)} - {venue.city.country.name}
         </div>
       </div>
     </div>

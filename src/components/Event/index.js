@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink, useParams, useHistory } from 'react-router-dom';
 import ScaleLoader from 'react-spinners/ScaleLoader';
@@ -6,9 +6,16 @@ import { UserPlus, UserCheck, Plus } from 'react-feather';
 
 import Reviews from 'src/components/Reviews';
 import Pictures from 'src/components/Pictures';
-import UploadPicture from 'src/containers/UploadPicture';
+import UploadPicture from 'src/components/UploadPicture';
 
-import { getUnifiedSetList, getIdFromSlug, getSlug } from 'src/utils';
+import {
+  getUnifiedSetList,
+  getIdFromSlug,
+  getSlug,
+  changeCityName,
+  checkUserParticipatedInEvent,
+  checkUserPublishedAnEventReview,
+} from 'src/utils';
 
 import './event.scss';
 
@@ -16,23 +23,28 @@ const Event = ({
   loadEventDatas,
   loadingEvent,
   event,
-  isUserParticipatedInEvent,
+  currentUser,
+  participatedUsers,
   userParticipateInEvent,
-  isUserPublishedAnEventReview,
   picture,
   loadingReviews,
   reviews,
   loadingPictures,
   pictures,
+  loadingUploadPicture,
   manageUploadPicture,
 }) => {
   const { slug } = useParams();
   const setlistId = getIdFromSlug(slug);
   const history = useHistory();
+  const unifiedSetlist = getUnifiedSetList(event);
 
   useEffect(() => {
     loadEventDatas(setlistId, history);
   }, []);
+
+  const isUserParticipatedInEvent = checkUserParticipatedInEvent(participatedUsers, currentUser);
+  const isUserPublishedAnEventReview = checkUserPublishedAnEventReview(reviews, currentUser);
 
   return (
     <div className="event">
@@ -49,22 +61,25 @@ const Event = ({
               >
                 Retour aux résultats précédents
               </a>
-              {
-                !isUserParticipatedInEvent && (
-                  <div className="event-user-not-checked-info">
-                    <UserPlus
-                      className="event-user-not-checked"
-                      onClick={() => userParticipateInEvent(setlistId, history)}
-                    />
-                    <span>Cliquez ici si vous y avez participé </span>
-                  </div>
-                )
-              }
-              {
-                isUserParticipatedInEvent && (
-                  <UserCheck className="event-user-checked" />
-                )
-              }
+              <div className="event-user">
+                <span>({participatedUsers.length})</span>
+                {
+                  !isUserParticipatedInEvent && (
+                    <div className="event-user-not-checked-info">
+                      <UserPlus
+                        className="event-user-not-checked"
+                        onClick={() => userParticipateInEvent(setlistId, history)}
+                      />
+                      <span>Cliquez ici si vous y avez participé </span>
+                    </div>
+                  )
+                }
+                {
+                  isUserParticipatedInEvent && (
+                    <UserCheck className="event-user-checked" />
+                  )
+                }
+              </div>
             </div>
             <div className="event-band">
               {event.artist.name}
@@ -77,21 +92,21 @@ const Event = ({
                 {event.eventDate}
               </div>
               <div className="event-city-country">
-                {event.venue.city.name} - {event.venue.city.country.name}
+                {changeCityName(event.venue.city.name)} - {event.venue.city.country.name}
               </div>
               <div className="event-venue">
                 {event.venue.name}
               </div>
             </div>
             {
-              (event.sets.set.length > 0) && (
+              (unifiedSetlist.length > 0) && (
                 <div className="event-setlist-container">
                   <div className="event-setlist-label">
                     Liste des chansons
                   </div>
                   <ul className="event-setlist-list">
                     {
-                      getUnifiedSetList(event.sets.set).map(({ numb, name }) => (
+                      unifiedSetlist.map(({ numb, name }) => (
                         <li className="event-setlist-list-item" key={numb}>
                           {numb} - {name}
                         </li>
@@ -108,11 +123,10 @@ const Event = ({
               !loadingReviews && (
                 <div className="event-reviews-container">
                   <div className="event-reviews-label">
-                    Chroniques
+                    <span>Chroniques ({reviews.length})</span>
                     {
                       isUserParticipatedInEvent && !isUserPublishedAnEventReview && (
                         <NavLink
-                          className="event-reviews-create"
                           // eslint-disable-next-line prefer-template
                           to={'/chronique/creer/' + getSlug(event.artist.name, setlistId)}
                         >
@@ -122,6 +136,9 @@ const Event = ({
                     }
                   </div>
                   <div className="event-reviews-list">
+                    {
+                      (reviews.length === 0) && <>Aucune chronique postée</>
+                    }
                     <Reviews reviews={reviews} />
                   </div>
                 </div>
@@ -134,15 +151,21 @@ const Event = ({
               !loadingPictures && (
                 <div className="event-pictures-container">
                   <div className="event-pictures-label">
-                    <span>Photos</span>
+                    <span>Photos ({pictures.length})</span>
                     {
                       isUserParticipatedInEvent && (
-                        <UploadPicture manageSubmit={manageUploadPicture} />
+                        <UploadPicture
+                          loading={loadingUploadPicture}
+                          manageSubmit={manageUploadPicture}
+                        />
                       )
                     }
                   </div>
                   <div className="event-pictures-list">
-                    <Pictures pictures={pictures} picturesOnScreen={8} />
+                    {
+                      (pictures.length === 0) && <>Aucune photo postée</>
+                    }
+                    <Pictures pictures={pictures} picturesOnScreen={8} showNickname />
                   </div>
                 </div>
               )
@@ -183,19 +206,27 @@ Event.propTypes = {
       ).isRequired,
     }.isRequired).isRequired,
   }.isRequired),
-  isUserParticipatedInEvent: PropTypes.bool.isRequired,
+  currentUser: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+  }.isRequired),
+  participatedUsers: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    }.isRequired).isRequired,
+  ).isRequired,
   userParticipateInEvent: PropTypes.func.isRequired,
-  isUserPublishedAnEventReview: PropTypes.bool.isRequired,
   picture: PropTypes.string.isRequired,
   loadingReviews: PropTypes.bool.isRequired,
   reviews: PropTypes.arrayOf(PropTypes.object).isRequired,
   loadingPictures: PropTypes.bool.isRequired,
   pictures: PropTypes.arrayOf(PropTypes.object).isRequired,
+  loadingUploadPicture: PropTypes.bool.isRequired,
   manageUploadPicture: PropTypes.func.isRequired,
 };
 
 Event.defaultProps = {
   event: null,
+  currentUser: null,
 };
 
 export default Event;

@@ -6,12 +6,13 @@ import classNames from 'classnames';
 import Backdrop from '@material-ui/core/Backdrop';
 import { makeStyles } from '@material-ui/core/styles';
 
-import { getIdFromSlug } from 'src/utils';
+import { getIdFromSlug, getAbsoluteImagePath } from 'src/utils';
 
 import Events from 'src/containers/Events';
 import Reviews from 'src/components/Reviews';
 import Pictures from 'src/components/Pictures';
 import ModifyProfile from 'src/components/Profile/ModifyProfile/ModifyProfile';
+import UploadPicture from 'src/components/UploadPicture';
 
 import './profile.scss';
 
@@ -22,7 +23,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Profile = ({
-  avatar,
+  loadingUploadAvatar,
+  manageUploadAvatar,
   user,
   isConnectedUser,
   userEvents,
@@ -52,9 +54,11 @@ const Profile = ({
   const handleClose = () => {
     setOpen(false);
   };
+  /*
   const handleToggle = () => {
     setOpen(!open);
   };
+  */
 
   const handleOnClick = () => {
     history.goBack();
@@ -77,13 +81,21 @@ const Profile = ({
       <a className="review-back-to-reviews-results" onClick={handleOnClick}>
         Retour à la page précédente
       </a>
-      {isConnectedUser && <p onClick={handleToggle}>Modifier mon profil</p>}
+      { /* isConnectedUser && <p onClick={handleToggle}>Modifier mon profil</p> */ }
+      {
+        isConnectedUser && (
+          <UploadPicture
+            loading={loadingUploadAvatar}
+            manageSubmit={manageUploadAvatar}
+          />
+        )
+      }
       {userLoading && <ScaleLoader />}
       {!userLoading && (
         <div className="user">
           <div className="user-identity">
             <div className="user-picture">
-              <img src={avatar} alt="" className="picture-content" />
+              <img src={getAbsoluteImagePath(user.avatar)} alt="" className="picture-content" />
             </div>
             <h2 className="user-nickname">{user.nickname}</h2>
           </div>
@@ -92,19 +104,19 @@ const Profile = ({
       )}
 
       <div className="user-main-content">
-        <div onClick={seeEvents}>Voir les concerts</div>
+        <div onClick={seeEvents}>Voir les concerts ({userEvents.length})</div>
         <div className={EventsCssClass}>
           {eventsLoading && <ScaleLoader />}
-          {eventsLoading && <Events events={userEvents} moreEvents={false} />}
+          {!eventsLoading && <Events events={userEvents} moreEvents={false} />}
           {(userEvents.length === 0) && <p>Aucun événement ajouté</p>}
         </div>
-        <div onClick={seeReviews}>Voir les chroniques</div>
+        <div onClick={seeReviews}>Voir les chroniques ({userReviews.length})</div>
         <div className={ReviewsCssClass}>
           {reviewsLoading && <ScaleLoader />}
           {!reviewsLoading && <Reviews reviews={userReviews} />}
           {(userReviews.length === 0) && <p>Aucune chronique ajoutée</p>}
         </div>
-        <div onClick={seePictures}>Voir les photos</div>
+        <div onClick={seePictures}>Voir les photos ({userPictures.length})</div>
         <div className={PicturesCssClass}>
           {picturesLoading && <ScaleLoader />}
           {!picturesLoading && <Pictures pictures={userPictures} picturesOnScreen={8} />}
@@ -121,6 +133,8 @@ const Profile = ({
 
 Profile.propTypes = {
   user: PropTypes.object.isRequired,
+  loadingUploadAvatar: PropTypes.bool.isRequired,
+  manageUploadAvatar: PropTypes.func.isRequired,
   userEvents: PropTypes.array.isRequired,
   userReviews: PropTypes.array.isRequired,
   userPictures: PropTypes.array.isRequired,
@@ -129,7 +143,6 @@ Profile.propTypes = {
   reviewsLoading: PropTypes.bool.isRequired,
   picturesLoading: PropTypes.bool.isRequired,
   userLoading: PropTypes.bool.isRequired,
-  avatar: PropTypes.string.isRequired,
   seeEvents: PropTypes.func.isRequired,
   seeReviews: PropTypes.func.isRequired,
   seePictures: PropTypes.func.isRequired,
