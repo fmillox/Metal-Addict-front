@@ -5,15 +5,16 @@ import {
   useHistory,
   Link,
 } from 'react-router-dom';
-
 import Pictures from 'src/components/Pictures';
-
 import ScaleLoader from 'react-spinners/ScaleLoader';
-
-import { getIdFromSlug, createMarkup, getSlug } from 'src/utils';
-
-import dave from 'src/images/dave.jpg';
 import Moment from 'moment';
+
+import {
+  getIdFromSlug,
+  createMarkup,
+  getSlug,
+  getAbsoluteImagePath,
+} from 'src/utils';
 
 import './review.scss';
 
@@ -24,7 +25,8 @@ const Review = ({
   pictures,
   loadPictures,
   loadingPictures,
-  modifyReview,
+  isUserOwnerReview,
+  deleteReview,
 }) => {
   const { slug } = useParams();
   const id = getIdFromSlug(slug);
@@ -33,7 +35,7 @@ const Review = ({
 
   useEffect(() => {
     loadReview(id, history);
-    // loadPictures(id);
+    loadPictures(id);
     refReview.current.scrollTo({
       top: 0,
       left: 0,
@@ -42,6 +44,10 @@ const Review = ({
 
   const handleOnClick = () => {
     history.goBack();
+  };
+
+  const handleDelete = () => {
+    deleteReview(review.id, history);
   };
 
   const galleryPictures = pictures.filter((picture, index) => index !== 0);
@@ -63,17 +69,25 @@ const Review = ({
           </a>
           <h2 className="review-title">{review.title}</h2>
 
-          {modifyReview && (
-            <Link
-              className="review-modify"
-              // eslint-disable-next-line prefer-template
-              to={'/chronique/editer/' + getSlug(review.event.band.name, review.id)}
-            >
-              Modifier ma chronique
-            </Link>
+          {isUserOwnerReview && (
+            <>
+              <Link
+                className="review-modify"
+                // eslint-disable-next-line prefer-template
+                to={'/chronique/editer/' + getSlug(review.event.band.name, review.id)}
+              >
+                Modifier ma chronique
+              </Link>
+              <a
+                className="review-delete"
+                onClick={handleDelete}
+              >
+                Supprimer ma chronique
+              </a>
+            </>
           )}
           <div className="review-user">
-            <img src={dave} alt="" className="review-user-image" />
+            <img src={getAbsoluteImagePath(review.user.avatar)} alt="" className="review-user-image" />
             <div className="user-information">
               <Link
                 className="name"
@@ -90,7 +104,7 @@ const Review = ({
 
           {(pictures.length > 0) && (
           <div className="first-image-container">
-            <img src={pictures[0].src} alt="" className="first-image" />
+            <img src={getAbsoluteImagePath(pictures[0].path)} alt="" className="first-image" />
           </div>
           )}
 
@@ -100,20 +114,20 @@ const Review = ({
             loadingPictures && <ScaleLoader />
           }
           {
-(!loadingPictures && pictures.length > 1) && (
-<div className="review-pictures-container">
-  <div className="review-pictures-label">
-    Photos
-  </div>
-  <div className="review-pictures-list">
-    <Pictures pictures={galleryPictures} picturesOnScreen={9} />
-  </div>
-</div>
-)
-}
+            (!loadingPictures && pictures.length > 1) && (
+            <div className="review-pictures-container">
+              <div className="review-pictures-label">
+                Photos
+              </div>
+              <div className="review-pictures-list">
+                <Pictures pictures={galleryPictures} picturesOnScreen={9} />
+              </div>
+            </div>
+            )
+          }
         </>
         )
-}
+      }
     </div>
   );
 };
@@ -132,7 +146,8 @@ Review.propTypes = {
       nickname: PropTypes.string.isRequired,
     }.isRequired),
   }.isRequired),
-  modifyReview: PropTypes.bool.isRequired,
+  isUserOwnerReview: PropTypes.bool.isRequired,
+  deleteReview: PropTypes.func.isRequired,
 };
 Review.defaultProps = {
   review: null,

@@ -1,5 +1,3 @@
-import avatar from 'src/datas/avatar.png';
-
 import {
   SET_LOADING_USER,
   SAVE_USER_DATAS,
@@ -8,10 +6,10 @@ import {
   DISPLAY_PICTURES,
 } from 'src/actions/users';
 
+import { SAVE_AVATAR } from 'src/actions/auth';
+
 const initialState = {
   user: {},
-
-  avatar, //TODO avatar par défaut, à supprimer quand communication avec back sera ok,
 
   loading: false,
 
@@ -52,6 +50,12 @@ function authReducer(state = initialState, action = {}) {
       return {
         ...state,
         showPictures: !state.showPictures,
+      };
+
+    case SAVE_AVATAR:
+      return {
+        ...state,
+        user: { ...state.user, avatar: action.path },
       };
 
     default:

@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Loader from 'react-loader-spinner';
 
@@ -9,13 +10,14 @@ import './uploadPicture.scss';
 
 function UploadPicture({ loading, manageSubmit }) {
   const { register, handleSubmit, reset } = useForm();
+  const history = useHistory();
   const inputFileRef = useRef(null);
 
   const onSubmit = (data) => {
     const formData = new FormData();
 
     formData.append('image', data.picture[0]);
-    manageSubmit(formData);
+    manageSubmit(formData, history);
     reset();
   };
 

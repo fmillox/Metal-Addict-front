@@ -13,7 +13,6 @@ import './styles.scss';
 // == Composant
 const App = () => {
   axios.defaults.baseURL = 'http://ec2-54-162-156-51.compute-1.amazonaws.com/Share-O-Metal/public/api';
-  // axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 
   const { pathname } = useLocation();
 

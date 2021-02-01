@@ -54,19 +54,26 @@ export const checkMoreEventsInSetListApi = (object) => {
   return total > itemsPerPage * page;
 };
 
-export const getUnifiedSetList = (set) => {
+export const getUnifiedSetList = (event) => {
   const setList = [];
-  let numb = 1;
 
-  set.forEach((setElt) => {
-    setElt.song.forEach((setSong) => {
-      setList.push({
-        numb,
-        name: setSong.name,
+  if (event !== null) {
+    let numb = 1;
+    let song = '';
+
+    event.sets.set.forEach((setElt) => {
+      setElt.song.forEach((setSong) => {
+        song = setSong.name.trim();
+        if (song.length > 0) {
+          setList.push({
+            numb,
+            name: setSong.name,
+          });
+          numb += 1;
+        }
       });
-      numb += 1;
     });
-  });
+  }
 
   return setList;
 };
@@ -142,4 +149,18 @@ export const convertEventsIntoSetlistEvents = (events) => {
 
 export const isUserOwnerReview = (user, review) => (
   user !== null && review !== null && (review.user.id === user.id)
+);
+
+export const changeCityName = (cityName) => {
+  switch (cityName) {
+    case 'Ville-Lumière':
+      return 'Paris';
+    default:
+      return cityName;
+  }
+};
+
+export const getAbsoluteImagePath = (path) => (
+  // eslint-disable-next-line prefer-template
+  'http://ec2-54-162-156-51.compute-1.amazonaws.com/Share-O-Metal/public' + path
 );

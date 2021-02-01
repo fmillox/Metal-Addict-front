@@ -9,9 +9,10 @@ import {
   saveEvent,
   saveUsersParticipateInEvent,
   addUserParticipateInEvent,
-  addEventPicture,
   setLoadingUploadPicture,
 } from 'src/actions/event';
+
+import { addEventPicture } from 'src/actions/pictures';
 
 import { redirectTo } from 'src/actions/auth';
 
@@ -88,7 +89,7 @@ const eventMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           console.log(response);
-          // store.dispatch(addEventPicture(response.data));
+          store.dispatch(addEventPicture(response.data));
         })
         .catch((error) => {
           if (error.response.status === 401) {

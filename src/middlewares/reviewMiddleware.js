@@ -6,9 +6,12 @@ import {
   saveReview,
   FETCH_PICTURES,
   saveReviewPictures,
+  DELETE_REVIEW,
 } from 'src/actions/review';
 
 import { setLoadingPictures } from 'src/actions/pictures';
+
+import { redirectTo } from 'src/actions/auth';
 
 const reviewMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
@@ -34,8 +37,9 @@ const reviewMiddleware = (store) => (next) => (action) => {
 
     case FETCH_PICTURES: {
       store.dispatch(setLoadingPictures(true));
-      axios.get(`/pictures/${action.id}`)
+      axios.get(`/picture?review=${action.reviewId}&order=DESC`)
         .then((response) => {
+          console.log(response.data);
           store.dispatch(saveReviewPictures(response.data));
         })
         .catch((error) => {
@@ -43,6 +47,32 @@ const reviewMiddleware = (store) => (next) => (action) => {
         })
         .finally(() => {
           store.dispatch(setLoadingPictures(false));
+        });
+      next(action);
+      break;
+    }
+
+    case DELETE_REVIEW: {
+      const { token } = store.getState().auth;
+
+      axios.delete(`/review/${action.id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((response) => {
+          console.log(response);
+          action.history.goBack();
+        })
+        .catch((error) => {
+          if (error.response.status === 401) {
+            store.dispatch(redirectTo(action.history.location.pathname));
+            action.history.push('/connexion');
+          }
+          else {
+            console.log(error);
+            // TODO : action.history.push('...');
+          }
         });
       next(action);
       break;

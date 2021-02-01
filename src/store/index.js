@@ -1,7 +1,8 @@
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import { persistStore } from 'redux-persist';
 
-import reducer from 'src/reducers';
+import persistRootReducer from 'src/reducers';
 
 import authMiddleware from 'src/middlewares/authMiddleware';
 import searchFormMiddleware from 'src/middlewares/searchFormMiddleware';
@@ -29,9 +30,11 @@ const enhancers = composeWithDevTools(
 
 const store = createStore(
   // reducer
-  reducer,
+  persistRootReducer,
   // enhancer
   enhancers,
 );
 
-export default store;
+const persistor = persistStore(store);
+
+export { store, persistor };
