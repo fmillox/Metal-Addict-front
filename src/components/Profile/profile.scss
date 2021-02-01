@@ -1,6 +1,8 @@
 @import "src/styles/media";
 
 .profile {
+  min-height: 100vh;
+
   .user {
       display: flex;
       flex-direction: column;

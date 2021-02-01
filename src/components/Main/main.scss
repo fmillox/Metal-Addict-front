@@ -2,6 +2,7 @@
 @import "src/styles/media";
 
 .main {
+  min-height: 100vh;
 
   .main-searchForm {
     margin-top: vars.$gutter;
