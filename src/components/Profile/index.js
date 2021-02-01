@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import Backdrop from '@material-ui/core/Backdrop';
 import { makeStyles } from '@material-ui/core/styles';
 
-import { getIdFromSlug, getAbsoluteImagePath } from 'src/utils';
+import { getIdFromSlug, getAbsoluteAvatarPath } from 'src/utils';
 
 import Events from 'src/containers/Events';
 import Reviews from 'src/components/Reviews';
@@ -95,7 +95,7 @@ const Profile = ({
         <div className="user">
           <div className="user-identity">
             <div className="user-picture">
-              <img src={getAbsoluteImagePath(user.avatar)} alt="" className="picture-content" />
+              <img src={getAbsoluteAvatarPath(user.avatar)} alt="" className="picture-content" />
             </div>
             <h2 className="user-nickname">{user.nickname}</h2>
           </div>

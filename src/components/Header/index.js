@@ -7,7 +7,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import sigle from 'src/assets/images/sigle.svg';
 import './header.scss';
 
-import { getSlug, getAbsoluteImagePath } from 'src/utils';
+import { getSlug, getAbsoluteAvatarPath } from 'src/utils';
 
 const StyledMenu = withStyles({
   paper: {
@@ -75,7 +75,7 @@ const Header = ({
             onClick={handleClick}
           >
             <img
-              src={getAbsoluteImagePath(user.avatar)}
+              src={getAbsoluteAvatarPath(user.avatar)}
               className="image-content"
               alt=""
             />

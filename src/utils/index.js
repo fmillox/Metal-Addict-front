@@ -1,5 +1,8 @@
 import slugify from 'slugify';
 import DOMPurify from 'dompurify';
+
+import img from 'src/assets/images/avatar.jpg';
+
 /**
  * Get the slug
  * @param {String} text The text to get the slug for
@@ -160,7 +163,15 @@ export const changeCityName = (cityName) => {
   }
 };
 
-export const getAbsoluteImagePath = (path) => (
+export const getAbsolutePicturePath = (path) => (
   // eslint-disable-next-line prefer-template
   'http://ec2-54-162-156-51.compute-1.amazonaws.com/Share-O-Metal/public' + path
 );
+
+export const getAbsoluteAvatarPath = (path) => {
+  if (path === null) {
+    return img;
+  }
+  // eslint-disable-next-line prefer-template
+  return 'http://ec2-54-162-156-51.compute-1.amazonaws.com/Share-O-Metal/public' + path;
+};

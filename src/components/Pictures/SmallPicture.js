@@ -5,7 +5,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import { makeStyles } from '@material-ui/core/styles';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
-import { getAbsoluteImagePath } from 'src/utils';
+import { getAbsolutePicturePath } from 'src/utils';
 
 import './pictures.scss';
 
@@ -26,7 +26,7 @@ const SmallPicture = ({ picture, showNickname }) => {
     setOpen(!open);
   };
 
-  const src = getAbsoluteImagePath(picture.path);
+  const src = getAbsolutePicturePath(picture.path);
 
   return (
     <div className="smallPicture">

@@ -13,7 +13,8 @@ import {
   getIdFromSlug,
   createMarkup,
   getSlug,
-  getAbsoluteImagePath,
+  getAbsoluteAvatarPath,
+  getAbsolutePicturePath,
 } from 'src/utils';
 
 import './review.scss';
@@ -87,7 +88,7 @@ const Review = ({
             </>
           )}
           <div className="review-user">
-            <img src={getAbsoluteImagePath(review.user.avatar)} alt="" className="review-user-image" />
+            <img src={getAbsoluteAvatarPath(review.user.avatar)} alt="" className="review-user-image" />
             <div className="user-information">
               <Link
                 className="name"
@@ -104,7 +105,7 @@ const Review = ({
 
           {(pictures.length > 0) && (
           <div className="first-image-container">
-            <img src={getAbsoluteImagePath(pictures[0].path)} alt="" className="first-image" />
+            <img src={getAbsolutePicturePath(pictures[0].path)} alt="" className="first-image" />
           </div>
           )}
 

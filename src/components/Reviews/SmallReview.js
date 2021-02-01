@@ -5,7 +5,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 
-import { getSlug, getAbsoluteImagePath } from 'src/utils';
+import { getSlug, getAbsoluteAvatarPath } from 'src/utils';
 
 import './reviews.scss';
 
@@ -28,7 +28,7 @@ const SmallReview = ({
       data-aos-easing="linear"
       data-aos-duration="500"
     >
-      <div className="avatar"><img src={getAbsoluteImagePath(user.avatar)} className="avatar-image" alt="" /></div>
+      <div className="avatar"><img src={getAbsoluteAvatarPath(user.avatar)} className="avatar-image" alt="" /></div>
       <Link
         className="title"
         to={location}
