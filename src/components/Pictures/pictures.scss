@@ -4,7 +4,6 @@
 
 .pictures {
   position: relative;
-  height: 570px;
   display: grid;
   grid-template-columns: 1fr;
   column-gap: 1em;
@@ -19,12 +18,16 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 
+  &.picture--few {
+    height: 570px;
+  }
+
   &.pictures--all {
     height: 100%;
   }
 
   .smallPicture {
-    margin-bottom: 60px;
+    margin-bottom: 90px;
     
     .picture {
       width: 210px;
@@ -45,7 +48,7 @@
   }
   .pictures-button {
     position: absolute;
-    bottom: 0px;
+    bottom: 3px;
     width: 150px; 
     left:50%; 
     transform:translate(-50%);

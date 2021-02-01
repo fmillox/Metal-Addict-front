@@ -15,7 +15,7 @@ const Pictures = ({ pictures, picturesOnScreen, showNickname }) => {
 
   const cssClass = classNames('pictures', {
     'pictures--all': seeAllPictures,
-  });
+  }, { 'picture--few': pictures.length > 8 });
 
   return (
     <div className={cssClass}>
