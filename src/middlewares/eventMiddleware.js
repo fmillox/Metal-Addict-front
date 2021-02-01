@@ -17,7 +17,6 @@ import { addEventPicture } from 'src/actions/pictures';
 import { redirectTo } from 'src/actions/auth';
 
 const eventMiddleware = (store) => (next) => (action) => {
-  // console.log('on a intercepté une action dans le middleware: ', action);
   switch (action.type) {
     case FETCH_EVENT: {
       store.dispatch(setLoadingEvent(true));
@@ -26,9 +25,12 @@ const eventMiddleware = (store) => (next) => (action) => {
           store.dispatch(saveEvent(response.data));
         })
         .catch((error) => {
-          console.log(error);
           if (error.response.status === 404) {
             action.history.push('/page_non_trouvee');
+          }
+          else {
+            console.log(error);
+            // TODO : action.history.push('...');
           }
         })
         .finally(() => {
@@ -37,20 +39,20 @@ const eventMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     }
+
     case FETCH_USERS_PARTICIPATE_IN_EVENT: {
       axios.get(`user?setlistId=${action.setlistId}`)
         .then((response) => {
           store.dispatch(saveUsersParticipateInEvent(response.data));
         })
         .catch((error) => {
-          // console.log(error);
-          if (error.response.status === 404) {
-            store.dispatch(saveUsersParticipateInEvent([])); // TODO : always
-          }
+          console.log(error);
+          // TODO : action.history.push('...');
         });
       next(action);
       break;
     }
+
     case USER_PARTICIPATE_IN_EVENT: {
       const { token, user } = store.getState().auth;
 
@@ -60,7 +62,6 @@ const eventMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          // console.log(response);
           store.dispatch(addUserParticipateInEvent(user));
         })
         .catch((error) => {
@@ -76,6 +77,7 @@ const eventMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     }
+
     case UPLOAD_PICTURE: {
       const { id } = store.getState().event.data;
       const { token } = store.getState().auth;
@@ -88,7 +90,6 @@ const eventMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response);
           store.dispatch(addEventPicture(response.data));
         })
         .catch((error) => {
@@ -107,8 +108,8 @@ const eventMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     }
+
     default:
-      // on passe l'action au suivant (middleware suivant ou reducer)
       next(action);
   }
 };

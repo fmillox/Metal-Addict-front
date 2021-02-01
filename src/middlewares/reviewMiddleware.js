@@ -14,7 +14,6 @@ import { setLoadingPictures } from 'src/actions/pictures';
 import { redirectTo } from 'src/actions/auth';
 
 const reviewMiddleware = (store) => (next) => (action) => {
-  // console.log('on a intercepté une action dans le middleware: ', action);
   switch (action.type) {
     case FETCH_REVIEW: {
       store.dispatch(setLoadingReview(true));
@@ -23,9 +22,12 @@ const reviewMiddleware = (store) => (next) => (action) => {
           store.dispatch(saveReview(response.data));
         })
         .catch((error) => {
-          console.log(error);
           if (error.response.status === 404) {
             action.history.push('/page_non_trouvee');
+          }
+          else {
+            console.log(error);
+            // TODO : action.history.push('...');
           }
         })
         .finally(() => {
@@ -39,11 +41,11 @@ const reviewMiddleware = (store) => (next) => (action) => {
       store.dispatch(setLoadingPictures(true));
       axios.get(`/picture?review=${action.reviewId}&order=DESC`)
         .then((response) => {
-          console.log(response.data);
           store.dispatch(saveReviewPictures(response.data));
         })
         .catch((error) => {
           console.log(error);
+          // TODO : action.history.push('...');
         })
         .finally(() => {
           store.dispatch(setLoadingPictures(false));
@@ -61,7 +63,6 @@ const reviewMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response);
           action.history.goBack();
         })
         .catch((error) => {
@@ -79,7 +80,6 @@ const reviewMiddleware = (store) => (next) => (action) => {
     }
 
     default:
-      // on passe l'action au suivant (middleware suivant ou reducer)
       next(action);
   }
 };

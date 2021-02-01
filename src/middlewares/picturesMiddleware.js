@@ -8,17 +8,16 @@ import {
 import { FETCH_USER_PICTURES, saveUserPictures } from 'src/actions/users';
 
 const reviewsMiddleware = (store) => (next) => (action) => {
-  // console.log('on a intercepté une action dans le middleware: ', action);
   switch (action.type) {
     case FETCH_EVENT_PICTURES: {
       store.dispatch(setLoadingPictures(true));
       axios.get(`/picture?setlistId=${action.setlistId}&order=DESC`)
         .then((response) => {
-          // console.log(response);
           store.dispatch(saveEventPictures(response.data));
         })
         .catch((error) => {
           console.log(error);
+          // TODO : action.history.push('...');
         })
         .finally(() => {
           store.dispatch(setLoadingPictures(false));
@@ -31,11 +30,11 @@ const reviewsMiddleware = (store) => (next) => (action) => {
       store.dispatch(setLoadingPictures(true));
       axios.get(`/picture?user=${action.userId}&order=DESC`)
         .then((response) => {
-          console.log(response);
           store.dispatch(saveUserPictures(response.data));
         })
         .catch((error) => {
           console.log(error);
+          // TODO : action.history.push('...');
         })
         .finally(() => {
           store.dispatch(setLoadingPictures(false));

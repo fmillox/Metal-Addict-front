@@ -26,9 +26,10 @@ export const fetchUserPictures = (userId) => ({
   userId,
 });
 
-export const fetchUserDatas = (userId) => ({
+export const fetchUserDatas = (userId, history) => ({
   type: FETCH_USER_DATAS,
   userId,
+  history,
 });
 
 export const saveUserEvents = (events) => ({

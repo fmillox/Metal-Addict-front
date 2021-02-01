@@ -12,7 +12,6 @@ import {
 } from 'src/actions/auth';
 
 const authMiddleware = (store) => (next) => (action) => {
-  // console.log('on a intercepté une action dans le middleware: ', action);
   switch (action.type) {
     case LOG_IN: {
       const { redirect } = store.getState().auth;
@@ -22,7 +21,6 @@ const authMiddleware = (store) => (next) => (action) => {
         password: action.password,
       })
         .then((response) => {
-          // console.log(response);
           store.dispatch(saveUser(response.data.token));
           action.history.push(redirect);
         })
@@ -32,6 +30,7 @@ const authMiddleware = (store) => (next) => (action) => {
           }
           else {
             console.log(error);
+            // TODO : action.history.push('...');
           }
         });
       next(action);
@@ -42,15 +41,15 @@ const authMiddleware = (store) => (next) => (action) => {
       axios.post('/user', {
         email: action.email,
         password: action.password,
-        // passwordConfirmed: action.passwordConfirmed,
+        // passwordConfirmed: action.passwordConfirmed, // TODO : check with back
         nickname: action.nickname,
       })
         .then((response) => {
-          console.log(response);
           action.history.push('/connexion');
         })
         .catch((error) => {
           console.log(error);
+          // TODO : action.history.push('...');
         });
       next(action);
       break;
@@ -67,7 +66,6 @@ const authMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response.data);
           store.dispatch(saveAvatar(response.data));
         })
         .catch((error) => {
@@ -88,7 +86,6 @@ const authMiddleware = (store) => (next) => (action) => {
     }
 
     default:
-      // on passe l'action au suivant (middleware suivant ou reducer)
       next(action);
   }
 };

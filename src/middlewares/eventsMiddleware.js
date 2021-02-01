@@ -11,7 +11,6 @@ import { FETCH_USER_EVENTS, saveUserEvents } from 'src/actions/users';
 import { convertEventsIntoSetlistEvents } from 'src/utils';
 
 const eventsMiddleware = (store) => (next) => (action) => {
-  // console.log('on a intercepté une action dans le middleware: ', action);
   switch (action.type) {
     case FETCH_SET_LIST_API_MORE_EVENTS: {
       const {
@@ -39,6 +38,7 @@ const eventsMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log(error);
+          // TODO : action.history.push('...');
         })
         .finally(() => {
           store.dispatch(setLoadingEvents(false));
@@ -51,12 +51,12 @@ const eventsMiddleware = (store) => (next) => (action) => {
       store.dispatch(setLoadingEvents(true));
       axios.get(`/event?user=${action.userId}&order=DESC`)
         .then((response) => {
-          console.log(response);
           const setListEvents = convertEventsIntoSetlistEvents(response.data);
           store.dispatch(saveUserEvents(setListEvents));
         })
         .catch((error) => {
           console.log(error);
+          // TODO : action.history.push('...');
         })
         .finally(() => {
           store.dispatch(setLoadingEvents(false));
@@ -65,7 +65,6 @@ const eventsMiddleware = (store) => (next) => (action) => {
       break;
 
     default:
-      // on passe l'action au suivant (middleware suivant ou reducer)
       next(action);
   }
 };

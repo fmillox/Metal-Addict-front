@@ -14,7 +14,6 @@ import {
 import { setLoadingEvents, saveEventsResults } from 'src/actions/events';
 
 const searchFormMiddleware = (store) => (next) => (action) => {
-  // console.log('on a intercepté une action dans le middleware: ', action);
   switch (action.type) {
     case FETCH_BANDS:
       axios.get('/band')
@@ -23,6 +22,7 @@ const searchFormMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log(error);
+          // TODO : action.history.push('...');
         })
         .finally(() => {
           store.dispatch(updatedLoadingBands());
@@ -37,6 +37,7 @@ const searchFormMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log(error);
+          // TODO : action.history.push('...');
         })
         .finally(() => {
           store.dispatch(updatedLoadingCountries());
@@ -64,11 +65,11 @@ const searchFormMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          // console.log(response.data);
           store.dispatch(saveEventsResults(response.data));
         })
         .catch((error) => {
           console.log(error);
+          // TODO : action.history.push('...');
         })
         .finally(() => {
           store.dispatch(setLoadingEvents(false));
@@ -76,8 +77,8 @@ const searchFormMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     }
+
     default:
-      // on passe l'action au suivant (middleware suivant ou reducer)
       next(action);
   }
 };

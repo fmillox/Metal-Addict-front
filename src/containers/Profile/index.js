@@ -44,8 +44,8 @@ const mapDispatchToProps = (dispatch) => ({
   manageUploadAvatar: (formData, history) => {
     dispatch(uploadAvatar(formData, history));
   },
-  loadUserDatas: (userId) => {
-    dispatch(fetchUserDatas(userId));
+  loadUserDatas: (userId, history) => {
+    dispatch(fetchUserDatas(userId, history));
     dispatch(fetchUserEvents(userId));
     dispatch(fetchUserReviews(userId));
     dispatch(fetchUserPictures(userId));

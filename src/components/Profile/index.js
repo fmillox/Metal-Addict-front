@@ -46,7 +46,7 @@ const Profile = ({
   const userId = getIdFromSlug(slug);
   const history = useHistory();
   useEffect(() => {
-    loadUserDatas(userId);
+    loadUserDatas(userId, history);
   }, []);
 
   const classes = useStyles();

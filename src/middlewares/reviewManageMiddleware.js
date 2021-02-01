@@ -12,7 +12,6 @@ import {
 import { redirectTo } from 'src/actions/auth';
 
 const reviewMiddleware = (store) => (next) => (action) => {
-  // console.log('on a intercepté une action dans le middleware: ', action);
   switch (action.type) {
     case FETCH_REVIEW_MANAGE: {
       store.dispatch(setLoadingReviewManage(true));
@@ -22,6 +21,7 @@ const reviewMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log(error);
+          // TODO : action.history.push('...');
         })
         .finally(() => {
           store.dispatch(setLoadingReviewManage(false));
@@ -29,6 +29,7 @@ const reviewMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     }
+
     case CREATE_REVIEW_MANAGE: {
       const { title, content } = store.getState().reviewManage;
       const { token } = store.getState().auth;
@@ -41,7 +42,6 @@ const reviewMiddleware = (store) => (next) => (action) => {
         headers: { Authorization: `Bearer ${token}` },
       })
         .then((response) => {
-          console.log(response);
           store.dispatch(resetReviewManage());
           action.history.goBack();
         })
@@ -61,6 +61,7 @@ const reviewMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     }
+
     case EDIT_REVIEW_MANAGE: {
       const { title, content } = store.getState().reviewManage;
       const { token } = store.getState().auth;
@@ -73,7 +74,6 @@ const reviewMiddleware = (store) => (next) => (action) => {
         headers: { Authorization: `Bearer ${token}` },
       })
         .then((response) => {
-          console.log(response);
           store.dispatch(resetReviewManage());
           action.history.goBack();
         })
@@ -93,8 +93,8 @@ const reviewMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     }
+
     default:
-      // on passe l'action au suivant (middleware suivant ou reducer)
       next(action);
   }
 };
