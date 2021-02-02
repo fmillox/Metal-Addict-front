@@ -180,7 +180,7 @@ export const getAbsoluteAvatarPath = (path) => {
 export const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
 
 export const getBandPictureUrl = (picturesArray) => {
-  if (picturesArray.length > 0) {
+  if (picturesArray !== undefined && picturesArray.length > 0) {
     return picturesArray[getRandomInt(picturesArray.length)].url;
   }
   return band;

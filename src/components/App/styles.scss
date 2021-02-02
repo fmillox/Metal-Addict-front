@@ -1,8 +1,9 @@
+@use 'src/styles/vars';
 @import "src/styles/media";
 
 .app {
   margin: 0 auto;
-  background-color: #ECECEC;
+  background-color: vars.$primaryColor;
   min-height: 100vh;
 
   @include lg {

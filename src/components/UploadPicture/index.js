@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Loader from 'react-loader-spinner';
-
+import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import img from 'src/assets/images/upload.png';
 
 import './uploadPicture.scss';
@@ -48,16 +48,18 @@ function UploadPicture({ loading, manageSubmit }) {
       }
       {
         !loading && (
-        <input
-          type="image"
-          src={img}
-          alt=""
-          style={{ outline: 'none', width: 30 }}
-          onClick={(evt) => {
-            evt.preventDefault();
-            inputFileRef.current.click();
-          }}
-        />
+          <AddAPhotoIcon>
+            <input
+              type="image"
+              src={img}
+              alt=""
+              style={{ outline: 'none', width: 30 }}
+              onClick={(evt) => {
+                evt.preventDefault();
+                inputFileRef.current.click();
+              }}
+            />
+          </AddAPhotoIcon>
         )
       }
     </form>

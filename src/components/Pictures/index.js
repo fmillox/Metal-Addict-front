@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { ChevronDown } from 'react-feather';
 
 import './pictures.scss';
 
@@ -23,7 +24,7 @@ const Pictures = ({ pictures, picturesOnScreen, showNickname }) => {
         <SmallPicture key={picture.id} picture={picture} showNickname={showNickname} />
       ))}
       {(pictures.length > picturesOnScreen) && (
-      <button type="button" className="pictures-button" onClick={handleOnClick}>Voir/cacher toutes les photos</button>
+      <button type="button" className="pictures-button" onClick={handleOnClick}><ChevronDown /></button>
       )}
     </div>
   );
