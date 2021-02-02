@@ -48,18 +48,19 @@ function UploadPicture({ loading, manageSubmit }) {
       }
       {
         !loading && (
-          <AddAPhotoIcon>
-            <input
-              type="image"
-              src={img}
-              alt=""
-              style={{ outline: 'none', width: 30 }}
-              onClick={(evt) => {
-                evt.preventDefault();
-                inputFileRef.current.click();
-              }}
-            />
-          </AddAPhotoIcon>
+          <AddAPhotoIcon
+            style={
+              {
+                outline: 'none',
+                width: 30,
+                cursor: 'pointer',
+              }
+            }
+            onClick={(evt) => {
+              evt.preventDefault();
+              inputFileRef.current.click();
+            }}
+          />
         )
       }
     </form>
