@@ -121,7 +121,7 @@ const Review = ({
                 Photos
               </div>
               <div className="review-pictures-list">
-                <Pictures pictures={galleryPictures} picturesOnScreen={9} />
+                <Pictures pictures={galleryPictures} picturesOnScreen={8} />
               </div>
             </div>
             )
