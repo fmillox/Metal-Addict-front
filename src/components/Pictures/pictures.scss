@@ -12,10 +12,12 @@
 
   @include md {
     grid-template-columns: 1fr 1fr;
+    padding: 0 8*vars.$gutter;
   }
 
   @include lg {
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 0
   }
 
   &.picture--few {
@@ -36,11 +38,10 @@
       width: 210px;
       height: 210px;
       object-fit: cover;
-      border: gray 6px double;
-      border-radius: 5px;
 
       &:hover {
-        border: hotpink 3px solid;
+        border: vars.$secondaryColor 3px solid;
+        border-radius: 5px;
       }
     }
 
@@ -52,14 +53,14 @@
   .pictures-button {
     position: absolute;
     bottom: 0px;
-    width: 150px; 
+    width: 70px; 
     left:50%; 
     transform:translate(-50%);
-    background-color: blue;
+    background-color: vars.$secondaryColor;
     border: none;
     border-radius: 0.5em;
-    padding: .3em;
-    color: white;
+    padding: .2em;
+    color: vars.$primaryColor;
 
     &:hover {
       background-color: green;

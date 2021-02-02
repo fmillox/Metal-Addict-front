@@ -6,6 +6,7 @@
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+  position: relative;
 
   .event-header {
     padding: 1em 1em 0 1em;
@@ -15,6 +16,7 @@
 
     .event-back-to-events-results {
       cursor: pointer;
+      color: vars.$secondaryColor;
 
       &:hover {
         color: grey;
@@ -69,18 +71,10 @@
       }
     }
   }
-  
-  .event-band {
-    margin-top: vars.$gutter;
-    text-transform: uppercase;
-    font-size: 1.7em;
-    font-weight: 700;
-  }
 
   .event-band-img-container {
     margin-top: vars.$gutter;
-    border-radius: 10%;
-    width: 300px;
+    width: 100%;
 
     @include lg {
       width: 500px;
@@ -89,8 +83,20 @@
     .event-band-img {
       width: 100%;
       height: 100%;
-      border-radius: inherit;
     }
+  }
+
+  .event-band {
+    margin-top: vars.$gutter;
+    text-transform: uppercase;
+    font-size: 1.7em;
+    font-weight: 700;
+    color: vars.$secondaryColor;
+    font-family: vars.$titleFont;
+
+      .image-band {
+        width: 100%;
+      }
   }
 
   .event-data {
@@ -98,42 +104,99 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+    color: vars.$secondaryColor;
     
-    @include lg {
+    @include md {
       flex-direction: row;
       justify-content: space-between;
       width: 50%;
+      margin-top: 40px;
     }
 
     .event-date {
       margin-top: vars.$gutter;
-      font-style: italic;
+      width: 100px;
+      height: 90px;
+      border: 3px solid vars.$secondaryColor;
+      border-radius: 10%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+
+      .event-date-line-left {
+        position: absolute;
+        height: 30px;
+        border-left: 3px solid vars.$secondaryColor;
+        left: 15px;
+        top: -16px;
+      }
+
+      .event-date-line-right {
+        position: absolute;
+        height: 30px;
+        border-left: 3px solid vars.$secondaryColor;
+        right: 12px;
+        top: -16px;
+      }
+
+      .event-date-top {
+        max-height: 30px;
+      }
+
+      .event-date-bottom {
+        width: 100%;
+        border-top: 3px solid vars.$secondaryColor;
+        padding: 5px 25px 5px 25px;
+        text-align: center;
+        color: vars.$secondaryColor;
+      }
     }
   
     .event-city-country {
-      margin-top: vars.$gutter;
+      margin-top: 0.5*vars.$gutter;
+
+      @include md {
+        font-size: 1.1em;
+      }
+      
     }
   
     .event-venue {
       margin-top: vars.$gutter;
+      text-align: center;
+
+      @include md {
+        font-size: 1.4em;
+      }
     }
   }
   
   .event-setlist-container {
     margin: vars.$gutter vars.$gutter 0 vars.$gutter;
-    border: 1px solid lightgrey;
     padding: 1em 0.25em 0.5em;
+    background-color: vars.$secondaryColor;
+    width: 100%;
+
+    @include md {
+      width: 70%;
+      margin: 3*vars.$gutter auto;
+    }
 
     .event-setlist-label {
       font-weight: 700;
       text-align: center;
+      font-size: 2.2em;
+      color: vars.$lightPrimaryColor;
+      font-family: vars.$titleFont;
     }
 
     .event-setlist-list {
-      margin: vars.$gutter;
+      margin: vars.$gutter auto;
       column-rule: 0;
+      width: 80%;
 
-      @include lg {
+      @include md {
         -webkit-column-count: 2;  /* Chrome/Opera, Safari */
         -moz-column-count: 2; /* Mozilla Firefox */
         column-count: 2;
@@ -148,13 +211,56 @@
     }
   }
 
-  .event-reviews-container {
-    margin: 2 * vars.$gutter vars.$gutter 0 vars.$gutter;
+      .secondary-picture-container {
+        display: none;
+        margin-top: vars.$gutter;
+        width: 20%;
+        margin-left: 73%;
+        margin-top: -120px;
+        margin-bottom: 30px;
+    
+        .event-band-second-img {
+          width: 100%;
+          height: 100%;
+        }
 
+        @include lg {
+          display: block;
+        }
+      }
+
+    
+    
+
+  .event-reviews-container {
+    margin: 3 * vars.$gutter vars.$gutter 3*vars.$gutter vars.$gutter;
+    width: 100%;
+   
     .event-reviews-label {
       font-size: 1.7em;
       font-weight: 700;
       text-align: center;
+      background-color: vars.$secondaryColor;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      color: vars.$lightPrimaryColor;
+      margin-bottom: 2*vars.$gutter;
+      padding-right: vars.$gutter;
+      font-family: vars.$titleFont;
+
+      @include md {
+        justify-content: space-between;
+        width: 59%;
+        margin-left: 35%;
+        padding-left: vars.$gutter;
+      }
+
+      @include lg {
+        width: 56%;
+        margin-left: 38%
+      }
 
       span {
         margin: 0 0.5rem;
@@ -168,15 +274,35 @@
 
   .event-pictures-container {
     margin: 2 * vars.$gutter vars.$gutter 0 vars.$gutter;
+    width: 100%;
 
     .event-pictures-label {
       font-size: 1.7em;
       font-weight: 700;
       display: flex;
       justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 80px;
+      background-color: vars.$secondaryColor;
+      color: vars.$lightPrimaryColor;
+      margin-bottom: 3*vars.$gutter;
+      padding-left: vars.$gutter;
+      font-family: vars.$titleFont;
+
+      @include md {
+        justify-content: space-between;
+        width: 59%;
+        margin-left: 7%;
+      }
+
+      @include lg {
+        width: 56%;
+        margin-left: 6%;
+      }
 
       span {
-        margin: 0 0.5rem;
+        margin: 0 2.5rem;
       }
     }
 

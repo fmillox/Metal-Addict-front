@@ -1,6 +1,10 @@
+@use 'src/styles/vars'; 
+@import "src/styles/media";
+
 .header {
   width: 100%;
-  background-color: #798081;
+  background-color: gray;
+  color: vars.$secondaryColor;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -8,6 +12,11 @@
   height: 170px;
   position: relative;
 
+  @include md {
+    background-color: vars.$primaryColor;
+    height: 200px;
+  }
+  
   .sigle {
     max-height: 100%;
     width: 75px;
@@ -15,30 +24,40 @@
 
   .title {
     cursor: pointer;
-    
+
     .main-title {
       font-weight: 700;
-      font-size: 1.3em;
+      font-size: 2.7em;
       margin-bottom: 15px;
+      text-align: center;
+      font-family: vars.$titleFont;
+
+      @include md {
+        font-size: 5em;
+      }
     }
 
     .sub-title {
-      font-size: .6em;
+      font-size: .8em;
       font-style: italic;
+
+      @include md {
+        font-size: 1.2em;
+      }
     }
   }
 
   .image {
     border-radius: 50%;
-    width: 120px;
-    height: 120px;
+    width: 80px;
+    height: 80px;
     display: inline-block;
-    border: gray 1px solid;
 
     .image-content {
       width: inherit;
       height: inherit;
       border-radius: inherit;
+      border: gray 1px solid;
     }
   }
 
