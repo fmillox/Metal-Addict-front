@@ -4,7 +4,7 @@ import { NavLink, useHistory } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import sigle from 'src/assets/images/sigle.svg';
+import sigle from 'src/assets/images/sigle.png';
 import './header.scss';
 
 import { getSlug, getAbsoluteAvatarPath } from 'src/utils';

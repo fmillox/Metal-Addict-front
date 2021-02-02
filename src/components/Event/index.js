@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink, useParams, useHistory } from 'react-router-dom';
 import ScaleLoader from 'react-spinners/ScaleLoader';
 import { UserPlus, UserCheck, Plus } from 'react-feather';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import Moment from 'moment';
+import 'moment/locale/fr';
 
 import Reviews from 'src/components/Reviews';
 import Pictures from 'src/components/Pictures';
@@ -38,12 +40,30 @@ const Event = ({
   const { slug } = useParams();
   const setlistId = getIdFromSlug(slug);
   const history = useHistory();
-  const unifiedSetlist = getUnifiedSetList(event);
 
   useEffect(() => {
     loadEventDatas(setlistId, history);
   }, []);
 
+  const [bandLogo, setBandLogo] = useState('');
+  const [showBandLogo, setShowBandLogo] = useState(false);
+  const [bandPicture, setBandPicture] = useState('');
+  const [bandThumb, setBandThumb] = useState('');
+  const [showBandThumb, setShowBandThumb] = useState(false);
+
+  useEffect(() => {
+    if (event !== null) {
+      setBandLogo(getBandPictureUrl(event.bandImages.musiclogo));
+      // eslint-disable-next-line max-len
+      setShowBandLogo(event.bandImages.musiclogo !== undefined && event.bandImages.musiclogo.length > 0);
+      setBandPicture(getBandPictureUrl(event.bandImages.artistbackground));
+      setBandThumb(getBandPictureUrl(event.bandImages.artistthumb));
+      // eslint-disable-next-line max-len
+      setShowBandThumb(event.bandImages.artistthumb !== undefined && event.bandImages.artistthumb.length > 0);
+    }
+  }, [event]);
+
+  const unifiedSetlist = getUnifiedSetList(event);
   const isUserParticipatedInEvent = checkUserParticipatedInEvent(participatedUsers, currentUser);
   const isUserPublishedAnEventReview = checkUserPublishedAnEventReview(reviews, currentUser);
 
@@ -82,31 +102,39 @@ const Event = ({
                 }
               </div>
             </div>
-            <div className="event-band">
-              {
-                event.bandImages.musiclogo.length > 0 && (
-                  <LazyLoadImage
-                    src={getBandPictureUrl(event.bandImages.musiclogo)}
-                    alt={event.setlist.artist.name}
-                    effect="blur"
-                  />
-                )
-              }
-              {
-                event.bandImages.musiclogo.length === 0 && event.setlist.artist.name
-              }
-            </div>
             <div className="event-band-img-container">
               <LazyLoadImage
                 className="event-band-img"
-                src={getBandPictureUrl(event.bandImages.artistbackground)}
+                src={bandPicture}
                 alt={event.setlist.artist.name}
                 effect="blur"
               />
             </div>
+            <div className="event-band">
+              {
+                showBandLogo && (
+                <LazyLoadImage
+                  src={bandLogo}
+                  alt={event.setlist.artist.name}
+                  effect="blur"
+                  className="image-band"
+                />
+                )
+              }
+              {
+                !showBandLogo && event.setlist.artist.name
+              }
+            </div>
             <div className="event-data">
               <div className="event-date">
-                {event.setlist.eventDate}
+                <span className="event-date-line-left" />
+                <span className="event-date-line-right" />
+                <span className="event-date-top" />
+                <span className="event-date-bottom">
+                  {
+                    Moment(event.setlist.eventDate, 'DD-MM-YYYY').locale('fr').format('DD MMM YYYY')
+                  }
+                </span>
               </div>
               <div className="event-city-country">
                 {
@@ -123,20 +151,34 @@ const Event = ({
             </div>
             {
               (unifiedSetlist.length > 0) && (
-                <div className="event-setlist-container">
-                  <div className="event-setlist-label">
-                    Liste des chansons
+                <>
+                  <div className="event-setlist-container">
+                    <div className="event-setlist-label">
+                      Setlist
+                    </div>
+                    <ul className="event-setlist-list">
+                      {
+                        unifiedSetlist.map(({ numb, name }) => (
+                          <li className="event-setlist-list-item" key={numb}>
+                            {numb} - {name}
+                          </li>
+                        ))
+                      }
+                    </ul>
                   </div>
-                  <ul className="event-setlist-list">
-                    {
-                      unifiedSetlist.map(({ numb, name }) => (
-                        <li className="event-setlist-list-item" key={numb}>
-                          {numb} - {name}
-                        </li>
-                      ))
-                    }
-                  </ul>
-                </div>
+                  {
+                    showBandThumb && (
+                      <div className="secondary-picture-container">
+                        <LazyLoadImage
+                          className="event-band-second-img"
+                          src={bandThumb}
+                          alt={event.setlist.artist.name}
+                          effect="blur"
+                        />
+                      </div>
+                    )
+                  }
+                </>
               )
             }
             {
