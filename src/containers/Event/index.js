@@ -12,8 +12,6 @@ import {
 import { fetchEventReviews } from 'src/actions/reviews';
 import { fetchEventPictures } from 'src/actions/pictures';
 
-import img from 'src/assets/images/band.jpg';
-
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
 const mapStateToProps = (state) => ({
@@ -22,7 +20,6 @@ const mapStateToProps = (state) => ({
   event: state.event.data,
   currentUser: state.auth.user,
   participatedUsers: state.event.users,
-  picture: img, // TODO : V2 - THE API RETURNS THE PICTURE !!! picture: state.event.something
   loadingReviews: state.reviews.loading,
   reviews: state.reviews.eventReviews,
   loadingPictures: state.pictures.loading,
