@@ -64,8 +64,10 @@ const Header = ({
         className="title"
         onClick={handleOnClickHome}
       >
-        <h1 className="main-title">Metal Addict</h1>
-        <h2 className="sub-title">Images and Words</h2>
+        <div className="main-title">
+          <h1 className="main-title-top">Metal</h1>
+          <h2 className="main-title-bottom">Addict</h2>
+        </div>
       </a>
       {isLogged && (
         <>
@@ -101,7 +103,7 @@ const Header = ({
             </MenuItem>
             <MenuItem onClick={handleCloseLogout}>Déconnexion</MenuItem>
           </StyledMenu>
-          <p className="welcome">Bienvenue {user.nickname}</p>
+          <p className="welcome">{user.nickname}</p>
         </>
       )}
       {!isLogged && (

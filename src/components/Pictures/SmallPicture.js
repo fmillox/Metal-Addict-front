@@ -36,9 +36,11 @@ const SmallPicture = ({ picture, showNickname }) => {
         className="picture"
         onClick={handleToggle}
       />
-      {
-        showNickname && <p>Postée par {picture.user.nickname}</p>
-      }
+      <div className="postedBy">
+        {
+          showNickname && <p>Postée par {picture.user.nickname}</p>
+        }
+      </div>
       <Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
         <img src={src} alt="" className="pictureBig" />
       </Backdrop>

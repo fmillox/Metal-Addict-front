@@ -92,6 +92,7 @@
     font-size: 1.7em;
     font-weight: 700;
     color: vars.$secondaryColor;
+    font-family: vars.$titleFont;
 
       .image-band {
         width: 100%;
@@ -105,10 +106,11 @@
     width: 100%;
     color: vars.$secondaryColor;
     
-    @include lg {
+    @include md {
       flex-direction: row;
       justify-content: space-between;
       width: 50%;
+      margin-top: 40px;
     }
 
     .event-date {
@@ -152,11 +154,21 @@
     }
   
     .event-city-country {
-      margin-top: vars.$gutter;
+      margin-top: 0.5*vars.$gutter;
+
+      @include md {
+        font-size: 1.1em;
+      }
+      
     }
   
     .event-venue {
       margin-top: vars.$gutter;
+      text-align: center;
+
+      @include md {
+        font-size: 1.4em;
+      }
     }
   }
   
@@ -168,18 +180,15 @@
 
     @include md {
       width: 70%;
-      margin: auto;
+      margin: 3*vars.$gutter auto;
     }
 
-    @include md {
-      width: 65%;
-      margin: auto;
-    }
     .event-setlist-label {
       font-weight: 700;
       text-align: center;
       font-size: 2.2em;
       color: vars.$lightPrimaryColor;
+      font-family: vars.$titleFont;
     }
 
     .event-setlist-list {
@@ -207,7 +216,8 @@
         margin-top: vars.$gutter;
         width: 20%;
         margin-left: 73%;
-        margin-top: -70px;
+        margin-top: -120px;
+        margin-bottom: 30px;
     
         .event-band-second-img {
           width: 100%;
@@ -223,24 +233,33 @@
     
 
   .event-reviews-container {
-    margin: 2 * vars.$gutter vars.$gutter 0 vars.$gutter;
+    margin: 3 * vars.$gutter vars.$gutter 3*vars.$gutter vars.$gutter;
     width: 100%;
-    height: 60%;
    
     .event-reviews-label {
       font-size: 1.7em;
       font-weight: 700;
       text-align: center;
       background-color: vars.$secondaryColor;
-      height: 75px;
+      height: 80px;
       display: flex;
       align-items: center;
-      justify-content: left;
+      justify-content: space-around;
       color: vars.$lightPrimaryColor;
+      margin-bottom: 2*vars.$gutter;
+      padding-right: vars.$gutter;
+      font-family: vars.$titleFont;
 
       @include md {
-        width: 55%;
-        margin-left: 40%;
+        justify-content: space-between;
+        width: 59%;
+        margin-left: 35%;
+        padding-left: vars.$gutter;
+      }
+
+      @include lg {
+        width: 56%;
+        margin-left: 38%
       }
 
       span {
@@ -261,15 +280,25 @@
       font-size: 1.7em;
       font-weight: 700;
       display: flex;
-      justify-content: right;
+      justify-content: center;
       align-items: center;
       width: 100%;
-      height: 75px;
+      height: 80px;
       background-color: vars.$secondaryColor;
       color: vars.$lightPrimaryColor;
+      margin-bottom: 3*vars.$gutter;
+      padding-left: vars.$gutter;
+      font-family: vars.$titleFont;
 
       @include md {
-        width: 55%;
+        justify-content: space-between;
+        width: 59%;
+        margin-left: 7%;
+      }
+
+      @include lg {
+        width: 56%;
+        margin-left: 6%;
       }
 
       span {

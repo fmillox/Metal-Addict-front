@@ -2,10 +2,15 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink, useParams, useHistory } from 'react-router-dom';
 import ScaleLoader from 'react-spinners/ScaleLoader';
-import { UserPlus, UserCheck, Plus } from 'react-feather';
+import {
+  UserPlus,
+  UserCheck,
+  ArrowLeft,
+} from 'react-feather';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Moment from 'moment';
 import 'moment/locale/fr';
+import ChatIcon from '@material-ui/icons/Chat';
 
 import Reviews from 'src/components/Reviews';
 import Pictures from 'src/components/Pictures';
@@ -80,7 +85,7 @@ const Event = ({
                 className="event-back-to-events-results"
                 onClick={() => history.goBack()}
               >
-                Retour aux résultats précédents
+                <ArrowLeft />
               </a>
               <div className="event-user">
                 <span>({participatedUsers.length})</span>
@@ -136,18 +141,18 @@ const Event = ({
                   }
                 </span>
               </div>
-              <div className="event-city-country">
-                {
-                  changeCityName(event.setlist.venue.city.name)
-                } (
-                {
-                  event.setlist.venue.city.country.name
-                }
-                )
-              </div>
               <div className="event-venue">
                 {event.setlist.venue.name}
+                <div className="event-city-country">
+                  {
+                    changeCityName(event.setlist.venue.city.name)
+                  }
+                  {
+                    `, ${event.setlist.venue.city.country.name}`
+                  }
+                </div>
               </div>
+
             </div>
             {
               (unifiedSetlist.length > 0) && (
@@ -195,7 +200,7 @@ const Event = ({
                           // eslint-disable-next-line prefer-template
                           to={'/chronique/creer/' + getSlug(event.setlist.artist.name, setlistId)}
                         >
-                          <Plus />
+                          <ChatIcon />
                         </NavLink>
                       )
                     }
@@ -213,7 +218,6 @@ const Event = ({
               !loadingPictures && (
                 <div className="event-pictures-container">
                   <div className="event-pictures-label">
-                    <span>Photos ({pictures.length})</span>
                     {
                       isUserParticipatedInEvent && (
                         <UploadPicture
@@ -222,6 +226,7 @@ const Event = ({
                         />
                       )
                     }
+                    <span>Photos ({pictures.length})</span>
                   </div>
                   <div className="event-pictures-list">
                     <Pictures pictures={pictures} picturesOnScreen={8} showNickname />
