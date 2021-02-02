@@ -83,11 +83,18 @@ const Event = ({
               </div>
             </div>
             <div className="event-band">
-              <LazyLoadImage
-                src={getBandPictureUrl(event.bandImages.musiclogo)}
-                alt={event.setlist.artist.name}
-                effect="blur"
-              />
+              {
+                event.bandImages.musiclogo.length > 0 && (
+                  <LazyLoadImage
+                    src={getBandPictureUrl(event.bandImages.musiclogo)}
+                    alt={event.setlist.artist.name}
+                    effect="blur"
+                  />
+                )
+              }
+              {
+                event.bandImages.musiclogo.length === 0 && event.setlist.artist.name
+              }
             </div>
             <div className="event-band-img-container">
               <LazyLoadImage

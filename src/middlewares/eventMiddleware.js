@@ -79,7 +79,7 @@ const eventMiddleware = (store) => (next) => (action) => {
     }
 
     case UPLOAD_PICTURE: {
-      const { id } = store.getState().event.data;
+      const { id } = store.getState().event.data.setlist;
       const { token } = store.getState().auth;
 
       store.dispatch(setLoadingUploadPicture(true));
