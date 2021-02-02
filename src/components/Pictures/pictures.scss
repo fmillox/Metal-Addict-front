@@ -19,7 +19,7 @@
   }
 
   &.picture--few {
-    height: 570px;
+    height: 540px;
   }
 
   &.pictures--all {
@@ -27,8 +27,11 @@
   }
 
   .smallPicture {
-    margin-bottom: 90px;
+    margin-bottom: 29px;
     
+    .postedBy {
+      min-height: 30px;
+    }
     .picture {
       width: 210px;
       height: 210px;
@@ -48,7 +51,7 @@
   }
   .pictures-button {
     position: absolute;
-    bottom: 3px;
+    bottom: 0px;
     width: 150px; 
     left:50%; 
     transform:translate(-50%);
