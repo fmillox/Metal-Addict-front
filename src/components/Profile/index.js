@@ -108,19 +108,16 @@ const Profile = ({
         <div className={EventsCssClass}>
           {eventsLoading && <ScaleLoader />}
           {!eventsLoading && <Events events={userEvents} moreEvents={false} />}
-          {(userEvents.length === 0) && <p>Aucun événement ajouté</p>}
         </div>
         <div onClick={seeReviews}>Voir les chroniques ({userReviews.length})</div>
         <div className={ReviewsCssClass}>
           {reviewsLoading && <ScaleLoader />}
           {!reviewsLoading && <Reviews reviews={userReviews} />}
-          {(userReviews.length === 0) && <p>Aucune chronique ajoutée</p>}
         </div>
         <div onClick={seePictures}>Voir les photos ({userPictures.length})</div>
         <div className={PicturesCssClass}>
           {picturesLoading && <ScaleLoader />}
           {!picturesLoading && <Pictures pictures={userPictures} picturesOnScreen={8} />}
-          {(userPictures.length === 0) && <p>Aucune photo ajoutée</p>}
         </div>
       </div>
 

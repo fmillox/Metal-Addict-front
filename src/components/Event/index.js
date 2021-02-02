@@ -136,9 +136,6 @@ const Event = ({
                     }
                   </div>
                   <div className="event-reviews-list">
-                    {
-                      (reviews.length === 0) && <>Aucune chronique postée</>
-                    }
                     <Reviews reviews={reviews} />
                   </div>
                 </div>
@@ -162,9 +159,6 @@ const Event = ({
                     }
                   </div>
                   <div className="event-pictures-list">
-                    {
-                      (pictures.length === 0) && <>Aucune photo postée</>
-                    }
                     <Pictures pictures={pictures} picturesOnScreen={8} showNickname />
                   </div>
                 </div>
