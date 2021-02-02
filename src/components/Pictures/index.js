@@ -24,7 +24,7 @@ const Pictures = ({ pictures, picturesOnScreen, showNickname }) => {
         <SmallPicture key={picture.id} picture={picture} showNickname={showNickname} />
       ))}
       {(pictures.length > picturesOnScreen) && (
-      <button type="button" className="pictures-button" onClick={handleOnClick}><ChevronDown /></button>
+      <button type="button" className="pictures-button" onClick={handleOnClick}><ChevronDown className="chevron" /></button>
       )}
     </div>
   );

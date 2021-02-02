@@ -26,6 +26,9 @@
 
   &.pictures--all {
     height: 100%;
+    .chevron {
+      transform: rotate(180deg);
+    }
   }
 
   .smallPicture {
