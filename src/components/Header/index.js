@@ -56,6 +56,7 @@ const Header = ({
     setAnchorEl(null);
     handleLogout();
   };
+
   return (
     <header className="header">
       <img src={sigle} alt="sigle" className="sigle" />

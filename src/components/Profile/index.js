@@ -95,7 +95,9 @@ const Profile = ({
         <div className="user">
           <div className="user-identity">
             <div className="user-picture">
-              <img src={getAbsoluteAvatarPath(user.avatar)} alt="" className="picture-content" />
+              {
+                user.avatar !== undefined && <img src={getAbsoluteAvatarPath(user.avatar)} alt="" className="picture-content" />
+              }
             </div>
             <h2 className="user-nickname">{user.nickname}</h2>
           </div>

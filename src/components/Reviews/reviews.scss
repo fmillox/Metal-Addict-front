@@ -4,30 +4,38 @@
 .reviews {
   width: 100%;
   display: grid;
-    grid-template-columns: 1fr;
-    column-gap: 1em;
-  
-    @include md {
-      grid-template-columns: 1fr 1fr;
-    }
-  
-    @include lg {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
+  grid-template-columns: 1fr;
+  column-gap: 1em;
+
+  @include md {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include lg {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 
   .smallReview {
     width: 310px;
-    margin: 20px auto;
+    height: 100px;
+    margin: 1rem auto;
     background-color: rgba(128, 128, 128, 0.4);
     position: relative;
+
+    .data {
+      position: absolute;
+      left: 0px;
+      top: -10px;
+      font-size: 0.7rem;
+    }
   
     .avatar {
       border-radius: 50%;
       position: absolute;
-      top: 5px;
-      left: 5px;
-      width: 55px;
-      height: 55px;
+      top: 21px;
+      left: 10px;
+      width: 60px;
+      height: 60px;
       display: inline-block;
       border: gray 1px solid;
       
@@ -41,21 +49,36 @@
   
     .content {
       width: 80%;
-      text-align: left;
+      text-align: right;
       color: ivory;
       margin-left: 65px;
+      padding: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+      height: 100%;
       
       .title {
         display: inline-block;
-        font-size: 1.1em;
-        margin: 15px 0;
+        margin-top: 0.25rem;
+        font-weight: 700;
       }
   
-      .date {
-        font-style: italic;
-        font-size: .8em;
+      .smallContent {
+
+        .user {
+          font-size: 0.7rem;
+        }
+
+        .date {
+          margin-top: 0.2rem;
+          font-size: 0.7rem;
+        }
       }
+      
   
+      /*
       .name {
         text-transform: uppercase;
         margin: 15px 0;
@@ -67,9 +90,7 @@
         display: inline-block;
         margin-bottom: 15px;
       }
+      */
     }
   }
-  
-  
-  
 }

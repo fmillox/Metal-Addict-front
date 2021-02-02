@@ -5,10 +5,10 @@ import SmallReview from 'src/components/Reviews/SmallReview';
 
 import './reviews.scss';
 
-const Reviews = ({ reviews }) => (
+const Reviews = ({ reviews, showMoreData }) => (
   <div className="reviews">
     {
-      reviews.map((review) => <SmallReview key={review.id} {...review} />)
+      reviews.map((review) => <SmallReview key={review.id} showData={showMoreData} {...review} />)
     }
   </div>
 );
@@ -19,6 +19,11 @@ Reviews.propTypes = {
       id: PropTypes.number.isRequired,
     }.isRequired).isRequired,
   ).isRequired,
+  showMoreData: PropTypes.bool,
+};
+
+Reviews.defaultProps = {
+  showMoreData: true,
 };
 
 export default Reviews;

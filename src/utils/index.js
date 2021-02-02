@@ -1,7 +1,8 @@
 import slugify from 'slugify';
 import DOMPurify from 'dompurify';
 
-import img from 'src/assets/images/avatar.jpg';
+import avatar from 'src/assets/images/avatar.jpg';
+import band from 'src/assets/images/band.jpg';
 
 /**
  * Get the slug
@@ -64,7 +65,7 @@ export const getUnifiedSetList = (event) => {
     let numb = 1;
     let song = '';
 
-    event.sets.set.forEach((setElt) => {
+    event.setlist.sets.set.forEach((setElt) => {
       setElt.song.forEach((setSong) => {
         song = setSong.name.trim();
         if (song.length > 0) {
@@ -170,8 +171,39 @@ export const getAbsolutePicturePath = (path) => (
 
 export const getAbsoluteAvatarPath = (path) => {
   if (path === null) {
-    return img;
+    return avatar;
   }
   // eslint-disable-next-line prefer-template
   return 'http://ec2-54-162-156-51.compute-1.amazonaws.com/Share-O-Metal/public' + path;
+};
+
+export const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
+
+export const getBandPictureUrl = (picturesArray) => {
+  if (picturesArray.length > 0) {
+    return picturesArray[getRandomInt(picturesArray.length)].url;
+  }
+  return band;
+};
+
+export const wordWrap = (text, length) => {
+  if (text.length <= length) {
+    return text;
+  }
+
+  const wordWrapText = text.substring(0, length);
+  let indexOfSpace = text.lastIndexOf(' ');
+
+  if (indexOfSpace === -1) {
+    // eslint-disable-next-line prefer-template
+    return wordWrapText + '...';
+  }
+
+  indexOfSpace = wordWrapText.lastIndexOf(' ');
+  if (indexOfSpace === -1) {
+    // eslint-disable-next-line prefer-template
+    return wordWrapText + '...';
+  }
+  // eslint-disable-next-line prefer-template
+  return wordWrapText.substring(0, indexOfSpace) + '...';
 };

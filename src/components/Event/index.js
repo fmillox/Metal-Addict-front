@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { NavLink, useParams, useHistory } from 'react-router-dom';
 import ScaleLoader from 'react-spinners/ScaleLoader';
 import { UserPlus, UserCheck, Plus } from 'react-feather';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import Reviews from 'src/components/Reviews';
 import Pictures from 'src/components/Pictures';
@@ -15,6 +16,7 @@ import {
   changeCityName,
   checkUserParticipatedInEvent,
   checkUserPublishedAnEventReview,
+  getBandPictureUrl,
 } from 'src/utils';
 
 import './event.scss';
@@ -26,7 +28,6 @@ const Event = ({
   currentUser,
   participatedUsers,
   userParticipateInEvent,
-  picture,
   loadingReviews,
   reviews,
   loadingPictures,
@@ -82,20 +83,35 @@ const Event = ({
               </div>
             </div>
             <div className="event-band">
-              {event.artist.name}
+              <LazyLoadImage
+                src={getBandPictureUrl(event.bandImages.musiclogo)}
+                alt={event.setlist.artist.name}
+                effect="blur"
+              />
             </div>
             <div className="event-band-img-container">
-              <img className="event-band-img" src={picture} alt={event.artist.name} />
+              <LazyLoadImage
+                className="event-band-img"
+                src={getBandPictureUrl(event.bandImages.artistbackground)}
+                alt={event.setlist.artist.name}
+                effect="blur"
+              />
             </div>
             <div className="event-data">
               <div className="event-date">
-                {event.eventDate}
+                {event.setlist.eventDate}
               </div>
               <div className="event-city-country">
-                {changeCityName(event.venue.city.name)} - {event.venue.city.country.name}
+                {
+                  changeCityName(event.setlist.venue.city.name)
+                } (
+                {
+                  event.setlist.venue.city.country.name
+                }
+                )
               </div>
               <div className="event-venue">
-                {event.venue.name}
+                {event.setlist.venue.name}
               </div>
             </div>
             {
@@ -128,7 +144,7 @@ const Event = ({
                       isUserParticipatedInEvent && !isUserPublishedAnEventReview && (
                         <NavLink
                           // eslint-disable-next-line prefer-template
-                          to={'/chronique/creer/' + getSlug(event.artist.name, setlistId)}
+                          to={'/chronique/creer/' + getSlug(event.setlist.artist.name, setlistId)}
                         >
                           <Plus />
                         </NavLink>
@@ -136,7 +152,7 @@ const Event = ({
                     }
                   </div>
                   <div className="event-reviews-list">
-                    <Reviews reviews={reviews} />
+                    <Reviews reviews={reviews} showMoreData={false} />
                   </div>
                 </div>
               )
@@ -175,30 +191,33 @@ Event.propTypes = {
   loadEventDatas: PropTypes.func.isRequired,
   loadingEvent: PropTypes.bool.isRequired,
   event: PropTypes.shape({
-    artist: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-    }.isRequired).isRequired,
-    eventDate: PropTypes.string.isRequired,
-    venue: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      city: PropTypes.shape({
+    setlist: PropTypes.shape({
+      artist: PropTypes.shape({
         name: PropTypes.string.isRequired,
-        country: PropTypes.shape({
+      }.isRequired).isRequired,
+      eventDate: PropTypes.string.isRequired,
+      venue: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        city: PropTypes.shape({
           name: PropTypes.string.isRequired,
+          country: PropTypes.shape({
+            name: PropTypes.string.isRequired,
+          }.isRequired).isRequired,
         }.isRequired).isRequired,
       }.isRequired).isRequired,
-    }.isRequired).isRequired,
-    sets: PropTypes.shape({
-      set: PropTypes.arrayOf(
-        PropTypes.shape({
-          song: PropTypes.arrayOf(
-            PropTypes.shape({
-              name: PropTypes.string.isRequired,
-            }.isRequired).isRequired,
-          ).isRequired,
-        }.isRequired).isRequired,
-      ).isRequired,
-    }.isRequired).isRequired,
+      sets: PropTypes.shape({
+        set: PropTypes.arrayOf(
+          PropTypes.shape({
+            song: PropTypes.arrayOf(
+              PropTypes.shape({
+                name: PropTypes.string.isRequired,
+              }.isRequired).isRequired,
+            ).isRequired,
+          }.isRequired).isRequired,
+        ).isRequired,
+      }.isRequired).isRequired,
+    }.isRequired),
+    bandImages: PropTypes.object.isRequired,
   }.isRequired),
   currentUser: PropTypes.shape({
     id: PropTypes.number.isRequired,
@@ -209,7 +228,6 @@ Event.propTypes = {
     }.isRequired).isRequired,
   ).isRequired,
   userParticipateInEvent: PropTypes.func.isRequired,
-  picture: PropTypes.string.isRequired,
   loadingReviews: PropTypes.bool.isRequired,
   reviews: PropTypes.arrayOf(PropTypes.object).isRequired,
   loadingPictures: PropTypes.bool.isRequired,
