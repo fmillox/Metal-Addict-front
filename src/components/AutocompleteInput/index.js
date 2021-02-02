@@ -4,23 +4,40 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { withStyles } from '@material-ui/core/styles';
 
+import {
+  SECONDARY_COLOR,
+  LIGHT_SECONDARY_COLOR,
+} from 'src/styles/vars';
+
 import { getFilteredAutocompletInputOptions, getObjectByName } from 'src/utils';
 
 const styles = {
   root: {
+    '& label': {
+      color: LIGHT_SECONDARY_COLOR,
+    },
     '& label.Mui-focused': {
-      color: 'grey',
+      color: SECONDARY_COLOR,
     },
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
-        borderColor: 'grey',
+        borderColor: LIGHT_SECONDARY_COLOR,
       },
       '&:hover fieldset': {
-        borderColor: 'grey',
+        borderColor: LIGHT_SECONDARY_COLOR,
       },
       '&.Mui-focused fieldset': {
-        borderColor: 'grey',
+        borderColor: SECONDARY_COLOR,
       },
+    },
+    '& input': {
+      color: LIGHT_SECONDARY_COLOR,
+    },
+    '& .MuiAutocomplete-clearIndicator': {
+      color: LIGHT_SECONDARY_COLOR,
+    },
+    '& .MuiAutocomplete-clearIndicatorDirty': {
+      color: LIGHT_SECONDARY_COLOR,
     },
   },
 };
@@ -95,8 +112,8 @@ const AutocompleteInput = withStyles(styles)(({
         <TextField
           {...params}
           label={label}
-          variant="outlined"
           classes={classes}
+          variant="outlined"
           required={required}
         />
       )}

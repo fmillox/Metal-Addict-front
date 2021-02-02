@@ -1,13 +1,14 @@
-@use 'src/styles/vars'; 
+@use 'src/styles/vars';
 
 .button {
-  background-color: blue;
+  background-color: vars.$lightSecondaryColor;
   border: none;
   border-radius: 0.5em;
   padding: 1em;
-  color: white;
+  color: vars.$primaryColor;
+  font-weight: 700;
 
   &:hover {
-    background-color: green;
+    background-color: vars.$secondaryColor;
   }
 }

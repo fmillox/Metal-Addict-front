@@ -1,17 +1,29 @@
+@use 'src/styles/vars';
+
 .draftEditor {
 
   .draftEditor-wrapper {
     padding: 0.5rem;
-    border: 1px solid #ccc;
+    border: 1px solid vars.$lightSecondaryColor;
   }
   
   .draftEditor-editor {
-    background-color: #fafafb;
+    background-color: vars.$lightSecondaryColor;
     padding: 0.5rem;
-    border: 1px solid #ccc;
+    border: 1px solid vars.$lightSecondaryColor;
     min-height: 100vh;
   }
   .draftEditor-toolbar {
-    border: 1px solid #ccc;
+    border: 1px solid vars.$lightSecondaryColor;
+    background-color: vars.$lightSecondaryColor;
+
+    .rdw-option-wrapper {
+      background-color: vars.$lightSecondaryColor;
+      border-color: vars.$primaryColor;
+
+      &:hover {
+        background-color: vars.$secondaryColor;
+      }
+    }
   }
 }

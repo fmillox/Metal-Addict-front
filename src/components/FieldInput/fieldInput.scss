@@ -1,3 +1,5 @@
+@use 'src/styles/vars';
+
 .inputField {
   display: flex;
   flex-direction: column;
@@ -5,6 +7,7 @@
 
   .inputField-label {
     margin-bottom: 0.5em;
+    color: vars.$lightSecondaryColor;
   }
 
   .inputField-input {
@@ -12,5 +15,11 @@
     padding: 0.25em;
     border: none;
     border-radius: 0.25rem;
+    color: vars.$primaryColor;
+    background-color: vars.$lightSecondaryColor;
+
+    &:focus {
+      border: 2px solid vars.$secondaryColor;
+    }
   }
 }

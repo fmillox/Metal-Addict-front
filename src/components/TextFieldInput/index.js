@@ -3,22 +3,32 @@ import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
 
+import {
+  SECONDARY_COLOR,
+  LIGHT_SECONDARY_COLOR,
+} from 'src/styles/vars';
+
 const styles = {
   root: {
+    '& label': {
+      color: LIGHT_SECONDARY_COLOR,
+    },
     '& label.Mui-focused': {
-      color: 'grey',
+      color: SECONDARY_COLOR,
     },
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
-        borderColor: 'grey',
-        // borderWidth: 3,
+        borderColor: LIGHT_SECONDARY_COLOR,
       },
       '&:hover fieldset': {
-        borderColor: 'grey',
+        borderColor: LIGHT_SECONDARY_COLOR,
       },
       '&.Mui-focused fieldset': {
-        borderColor: 'grey',
+        borderColor: SECONDARY_COLOR,
       },
+    },
+    '& input': {
+      color: LIGHT_SECONDARY_COLOR,
     },
   },
 };

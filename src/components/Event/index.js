@@ -11,6 +11,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Moment from 'moment';
 import 'moment/locale/fr';
 import ChatIcon from '@material-ui/icons/Chat';
+
 import Reviews from 'src/components/Reviews';
 import Pictures from 'src/components/Pictures';
 import UploadPicture from 'src/components/UploadPicture';
@@ -105,20 +106,6 @@ const Event = ({
                   )
                 }
               </div>
-            </div>
-            <div className="event-band">
-              {
-                event.bandImages.musiclogo.length > 0 && (
-                  <LazyLoadImage
-                    src={getBandPictureUrl(event.bandImages.musiclogo)}
-                    alt={event.setlist.artist.name}
-                    effect="blur"
-                  />
-                )
-              }
-              {
-                event.bandImages.musiclogo.length === 0 && event.setlist.artist.name
-              }
             </div>
             <div className="event-band-img-container">
               <LazyLoadImage

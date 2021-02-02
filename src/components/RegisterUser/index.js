@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import FieldInput from 'src/components/FieldInput';
 import Button from 'src/components/Button';
 
-import sigle from 'src/assets/images/sigle.svg';
+import sigle from 'src/assets/images/sigle.png';
 
 import './registerUser.scss';
 
