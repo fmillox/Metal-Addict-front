@@ -5,9 +5,13 @@ import {
   useHistory,
   Link,
 } from 'react-router-dom';
-import Pictures from 'src/components/Pictures';
+import { ArrowLeft, Edit, Trash2 } from 'react-feather';
 import ScaleLoader from 'react-spinners/ScaleLoader';
 import Moment from 'moment';
+
+import Pictures from 'src/components/Pictures';
+
+import { SECONDARY_COLOR } from 'src/styles/vars';
 
 import {
   getIdFromSlug,
@@ -43,10 +47,6 @@ const Review = ({
     });
   }, []);
 
-  const handleOnClick = () => {
-    history.goBack();
-  };
-
   const handleDelete = () => {
     deleteReview(review.id, history);
   };
@@ -56,69 +56,78 @@ const Review = ({
   return (
     <div className="review" ref={refReview}>
       {
-        loadingReview && <ScaleLoader />
+        loadingReview && <ScaleLoader color={SECONDARY_COLOR} />
       }
-
       {
         !loadingReview && (
         <>
-          <a
-            className="review-back-to-reviews-results"
-            onClick={handleOnClick}
-          >
-            Retour à la page précédente
-          </a>
-          <h2 className="review-title">{review.title}</h2>
-
-          {isUserOwnerReview && (
-            <>
-              <Link
-                className="review-modify"
-                // eslint-disable-next-line prefer-template
-                to={'/chronique/editer/' + getSlug(review.event.band.name, review.id)}
-              >
-                Modifier ma chronique
-              </Link>
-              <a
-                className="review-delete"
-                onClick={handleDelete}
-              >
-                Supprimer ma chronique
-              </a>
-            </>
-          )}
+          <div className="review-header">
+            <a
+              className="review-back-to-reviews-results"
+              onClick={() => history.goBack()}
+            >
+              <ArrowLeft />
+            </a>
+            {
+              isUserOwnerReview && (
+                <div className="review-action">
+                  <Link
+                    className="review-modify"
+                    // eslint-disable-next-line prefer-template
+                    to={'/chronique/editer/' + getSlug(review.event.band.name, review.id)}
+                  >
+                    <Edit />
+                  </Link>
+                  <a
+                    className="review-delete"
+                    onClick={handleDelete}
+                  >
+                    <Trash2 />
+                  </a>
+                </div>
+              )
+            }
+          </div>
+          <h1 className="review-title">{review.title}</h1>
           <div className="review-user">
-            <img src={getAbsoluteAvatarPath(review.user.avatar)} alt="" className="review-user-image" />
+            <img
+              src={getAbsoluteAvatarPath(review.user.avatar)}
+              alt={review.user.nickname}
+              className="review-user-image"
+            />
             <div className="user-information">
               <Link
-                className="name"
+                className="user-name"
                 // eslint-disable-next-line prefer-template
                 to={'/utilisateur/' + getSlug(review.user.nickname, review.user.id)}
               >
                 par {review.user.nickname}
               </Link>
-              <p className="date">
+              <p className="user-date">
                 postée le {Moment(review.createdAt).locale('fr').format('L')}
               </p>
             </div>
           </div>
-
-          {(pictures.length > 0) && (
-          <div className="first-image-container">
-            <img src={getAbsolutePicturePath(pictures[0].path)} alt="" className="first-image" />
-          </div>
-          )}
-
-          <div className="review-content" dangerouslySetInnerHTML={createMarkup(review.content)} />
-
           {
-            loadingPictures && <ScaleLoader />
+            pictures.length > 0 && (
+              <div className="first-image-container">
+                <img
+                  className="first-image"
+                  src={getAbsolutePicturePath(pictures[0].path)}
+                  alt={review.event.band.name}
+                />
+              </div>
+            )
+          }
+          <div className="review-content" dangerouslySetInnerHTML={createMarkup(review.content)} />
+          {
+            loadingPictures && <ScaleLoader color={SECONDARY_COLOR} />
           }
           {
             (!loadingPictures && pictures.length > 1) && (
             <div className="review-pictures-container">
               <div className="review-pictures-label">
-                Photos
+                Photos ({galleryPictures.length})
               </div>
               <div className="review-pictures-list">
                 <Pictures pictures={galleryPictures} picturesOnScreen={8} />

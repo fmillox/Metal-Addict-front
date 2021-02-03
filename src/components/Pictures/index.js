@@ -20,12 +20,26 @@ const Pictures = ({ pictures, picturesOnScreen, showNickname }) => {
 
   return (
     <div className={cssClass}>
-      {pictures.map((picture) => (
-        <SmallPicture key={picture.id} picture={picture} showNickname={showNickname} />
-      ))}
-      {(pictures.length > picturesOnScreen) && (
-      <button type="button" className="pictures-button" onClick={handleOnClick}><ChevronDown /></button>
-      )}
+      {
+        pictures.map((picture) => (
+          <SmallPicture
+            key={picture.id}
+            picture={picture}
+            showNickname={showNickname}
+          />
+        ))
+      }
+      {
+        pictures.length > picturesOnScreen && (
+          <button
+            type="button"
+            className="pictures-button"
+            onClick={handleOnClick}
+          >
+            <ChevronDown className="chevron" />
+          </button>
+        )
+      }
     </div>
   );
 };

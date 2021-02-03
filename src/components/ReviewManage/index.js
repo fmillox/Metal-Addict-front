@@ -2,10 +2,13 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ScaleLoader from 'react-spinners/ScaleLoader';
+import { ArrowLeft } from 'react-feather';
 
 import TextFieldInput from 'src/components/TextFieldInput';
 import DraftEditor from 'src/components/DraftEditor';
 import Button from 'src/components/Button';
+
+import { SECONDARY_COLOR } from 'src/styles/vars';
 
 import './reviewManage.scss';
 
@@ -31,7 +34,7 @@ const ReviewManage = ({
         className="reviewManage-go-back"
         onClick={() => history.goBack()}
       >
-        Retour à la précédente
+        <ArrowLeft />
       </a>
       <div className="reviewManage-title">
         <TextFieldInput name="title" label="Titre" value={title} manageChange={setTitle} />
@@ -41,7 +44,7 @@ const ReviewManage = ({
       </div>
       <div className="reviewManage-button">
         {
-          loadingSubmit && <ScaleLoader />
+          loadingSubmit && <ScaleLoader color={SECONDARY_COLOR} />
         }
         {
           !loadingSubmit && <Button label={buttonLabel} />

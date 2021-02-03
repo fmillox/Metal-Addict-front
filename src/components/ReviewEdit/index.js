@@ -7,6 +7,8 @@ import ScaleLoader from 'react-spinners/ScaleLoader';
 // == Import
 import ReviewManage from 'src/containers/ReviewManage';
 
+import { SECONDARY_COLOR } from 'src/styles/vars';
+
 import { getIdFromSlug } from 'src/utils';
 
 import './reviewEdit.scss';
@@ -28,7 +30,7 @@ const ReviewEdit = ({
   return (
     <div className="reviewEdit">
       {
-        loadingReview && <ScaleLoader />
+        loadingReview && <ScaleLoader color={SECONDARY_COLOR} />
       }
       {
         !loadingReview && (
