@@ -17,65 +17,96 @@
 
   .smallReview {
     width: 310px;
-    height: 100px;
-    margin: 1rem auto;
-    background-color: vars.$lightPrimaryColor;
-    position: relative;
-
+    margin: 1.8rem auto;
+    display: flex;
+    flex-direction: column;
+    
     .data {
-      position: absolute;
-      left: 0px;
-      top: -10px;
-      font-size: 0.7rem;
-    }
-  
-    .avatar {
-      border-radius: 50%;
-      position: absolute;
-      top: 15px;
-      left: 10px;
-      width: 70px;
-      height: 70px;
-      display: inline-block;
-      // border: gray 1px solid;
-      
-  
-      .avatar-image {
-        width: inherit;
-        height: inherit;
-        border-radius: inherit;
-      }
-    }
-  
-    .content {
-      width: 80%;
-      text-align: right;
-      margin-left: 65px;
-      padding: 0.5rem;
+      font-size: 1rem;
+      color: vars.$lightSecondaryColor;
+      border-top: vars.$secondaryColor solid 2px;
+      border-left: vars.$secondaryColor solid 2px;
+      border-right: vars.$secondaryColor solid 2px;
+      height: 165px;
       display: flex;
       flex-direction: column;
+      text-align: center;
       justify-content: space-between;
-      align-items: flex-end;
-      height: 100%;
-      color: vars.$lightSecondaryColor;
+      padding-bottom: 61px;
+      padding-top: 10px;
+      border-radius: 5px 5px 0 0 ;
+      margin-bottom: -4px;
       
-      .title {
+      .data-band{
+        font-size: 1.7em;
+      }
+
+      .hide-data {
+        display: none;
+      }
+      
+    }
+    
+    .review-content {
+      background-color: vars.$lightSecondaryColor;
+      border: vars.$secondaryColor solid 2px;
+      position: relative;
+      height: 220px;
+      border-radius: 5px 5px 5px 5px;
+
+      .avatar {
+        border-radius: 50%;
+        position: absolute;
+        top: -45px;
+        left: 110px;
+        width: 85px;
+        height: 85px;
         display: inline-block;
-        margin-top: 0.25rem;
-        font-weight: 700;
+        // border: gray 1px solid;
+        
+    
+        .avatar-image {
+          width: inherit;
+          height: inherit;
+          border-radius: inherit;
+        }
       }
+    
+      .content {
+        width: 100%;
+        padding: 1em 0.7em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+        height: 100%;
+        color: vars.$primaryColor;
+        
+        .title {
+          display: inline-block;
+          margin-top: 3rem;
+          font-weight: 700;
+          font-size: 1.6em;
+          align-self: center;
+        }
+    
+        .smallContent {
+          font-size: 1.1rem;
+          text-align: right;
+         
+         
+          
+          .user {
+            margin-bottom: 0.4em;
+          }
   
-      .smallContent {
-
-        .user {
-          font-size: 0.7rem;
+          .date {
+            margin-top: 0.2rem;
+            
+          }
         }
-
-        .date {
-          margin-top: 0.2rem;
-          font-size: 0.7rem;
-        }
-      }
+    }
+    
       
   
       /*
