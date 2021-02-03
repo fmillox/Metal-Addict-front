@@ -1,7 +1,6 @@
 @use 'src/styles/vars'; 
 @import "src/styles/media";
 
-
 .pictures {
   position: relative;
   display: grid;
@@ -12,7 +11,7 @@
 
   @include md {
     grid-template-columns: 1fr 1fr;
-    padding: 0 8*vars.$gutter;
+    padding: 0 8 * vars.$gutter;
   }
 
   @include lg {
@@ -26,6 +25,7 @@
 
   &.pictures--all {
     height: 100%;
+
     .chevron {
       transform: rotate(180deg);
     }
@@ -43,7 +43,7 @@
       object-fit: cover;
 
       &:hover {
-        border: vars.$secondaryColor 3px solid;
+        border: vars.$lightSecondaryColor 3px solid;
         border-radius: 5px;
       }
     }
@@ -53,20 +53,21 @@
       max-width: 100%;
     }
   }
+
   .pictures-button {
     position: absolute;
     bottom: 0px;
     width: 70px; 
     left:50%; 
     transform:translate(-50%);
-    background-color: vars.$secondaryColor;
+    background-color: vars.$lightSecondaryColor;
     border: none;
     border-radius: 0.5em;
     padding: .2em;
     color: vars.$primaryColor;
 
     &:hover {
-      background-color: green;
-  }
+      background-color: vars.$secondaryColor;
+    }
   }
 }

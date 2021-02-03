@@ -16,6 +16,8 @@ import Reviews from 'src/components/Reviews';
 import Pictures from 'src/components/Pictures';
 import UploadPicture from 'src/components/UploadPicture';
 
+import { SECONDARY_COLOR } from 'src/styles/vars';
+
 import {
   getUnifiedSetList,
   getIdFromSlug,
@@ -75,7 +77,7 @@ const Event = ({
   return (
     <div className="event">
       {
-        loadingEvent && <ScaleLoader />
+        loadingEvent && <ScaleLoader color={SECONDARY_COLOR} />
       }
       {
         !loadingEvent && (
@@ -187,7 +189,7 @@ const Event = ({
               )
             }
             {
-              loadingReviews && <ScaleLoader />
+              loadingReviews && <ScaleLoader color={SECONDARY_COLOR} />
             }
             {
               !loadingReviews && (
@@ -197,6 +199,7 @@ const Event = ({
                     {
                       isUserParticipatedInEvent && !isUserPublishedAnEventReview && (
                         <NavLink
+                          className="event-reviews-create"
                           // eslint-disable-next-line prefer-template
                           to={'/chronique/creer/' + getSlug(event.setlist.artist.name, setlistId)}
                         >
@@ -212,7 +215,7 @@ const Event = ({
               )
             }
             {
-              loadingPictures && <ScaleLoader />
+              loadingPictures && <ScaleLoader color={SECONDARY_COLOR} />
             }
             {
               !loadingPictures && (

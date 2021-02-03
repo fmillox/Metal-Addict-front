@@ -16,10 +16,10 @@
 
     .event-back-to-events-results {
       cursor: pointer;
-      color: vars.$secondaryColor;
+      color: vars.$lightSecondaryColor;
 
       &:hover {
-        color: grey;
+        color: vars.$secondaryColor;
       }
     }
 
@@ -189,6 +189,11 @@
       margin: 3*vars.$gutter auto;
     }
 
+    @include lg {
+      margin-left: 0;
+      margin-right: 198px;
+    }
+
     .event-setlist-label {
       font-weight: 700;
       text-align: center;
@@ -217,29 +222,26 @@
     }
   }
 
-      .secondary-picture-container {
-        display: none;
-        margin-top: vars.$gutter;
-        width: 20%;
-        margin-left: 73%;
-        margin-top: -120px;
-        margin-bottom: 30px;
-    
-        .event-band-second-img {
-          width: 100%;
-          height: 100%;
-        }
+  .secondary-picture-container {
+    display: none;
+    margin-top: vars.$gutter;
+    width: 22%;
+    margin-left: 66%;
+    margin-top: -90px;
+    margin-bottom: 30px;
 
-        @include lg {
-          display: block;
-        }
-      }
+    .event-band-second-img {
+      width: 100%;
+      height: 100%;
+    }
 
-    
-    
+    @include lg {
+      display: block;
+    }
+  }
 
   .event-reviews-container {
-    margin: 3 * vars.$gutter vars.$gutter 3*vars.$gutter vars.$gutter;
+    margin: 3 * vars.$gutter vars.$gutter;
     width: 100%;
    
     .event-reviews-label {
@@ -252,7 +254,7 @@
       align-items: center;
       justify-content: space-around;
       color: vars.$lightPrimaryColor;
-      margin-bottom: 2*vars.$gutter;
+      margin-bottom: 2 * vars.$gutter;
       padding-right: vars.$gutter;
       font-family: vars.$titleFont;
 
@@ -271,15 +273,26 @@
       span {
         margin: 0 0.5rem;
       }
+
+      .event-reviews-create {
+        color: vars.$lightPrimaryColor;
+
+        &:hover {
+          color: vars.$primaryColor;
+        }
+      }
     }
 
     .event-reviews-list {
-      margin: vars.$gutter vars.$gutter 0 vars.$gutter;
+      
+      @include md {
+        margin: vars.$gutter vars.$gutter 0 vars.$gutter;
+      }
     }
   }
 
   .event-pictures-container {
-    margin: 2 * vars.$gutter vars.$gutter 0 vars.$gutter;
+    margin: 2 * vars.$gutter vars.$gutter;
     width: 100%;
 
     .event-pictures-label {
