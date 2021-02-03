@@ -8,13 +8,12 @@ import sigle from 'src/assets/images/sigle.png';
 import './header.scss';
 
 import { getSlug, getAbsoluteAvatarPath } from 'src/utils';
-import { yellow } from '@material-ui/core/colors';
 
 const StyledMenu = withStyles({
   paper: {
-    border: '1px solid #d3d4d5',
+    // border: '1px solid #d3d4d5',
     borderRadius: 10,
-    color: yellow,
+    backgroundColor: 'yellow',
   },
 })((props) => (
   <Menu
