@@ -20,6 +20,15 @@
   .sigle {
     max-height: 100%;
     width: 75px;
+
+    @include md {
+      width: 110px;
+    }
+
+    @include lg {
+      width: 130px;
+      margin-left: 2em;
+    }
   }
 
   .title {
@@ -58,6 +67,17 @@
       height: inherit;
       border-radius: inherit;
       border: gray 1px solid;
+    }
+
+    @include md {
+      width: 130px;
+      height: 130px;
+    }
+
+    @include lg {
+      width: 150px;
+      height: 150px;
+      margin-right: 2em;
     }
   }
 
