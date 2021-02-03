@@ -10,7 +10,7 @@ import Button from 'src/components/Button';
 
 import { SECONDARY_COLOR } from 'src/styles/vars';
 
-import img from 'src/assets/images/band.jpg';
+import img from 'src/assets/images/sigle.png';
 
 import './events.scss';
 
@@ -19,6 +19,7 @@ const Events = ({
   loadingEvents,
   events,
   picture,
+  showMoreData,
   moreEvents,
   manageSubmit,
 }) => {
@@ -33,7 +34,12 @@ const Events = ({
         {
           events.map((event) => (
             <div key={event.id}>
-              <SmallEvent key={event.id} {...event} picture={picture} />
+              <SmallEvent
+                key={event.id}
+                {...event}
+                picture={picture}
+                showData={showMoreData}
+              />
             </div>
           ))
         }
@@ -64,6 +70,7 @@ Events.propTypes = {
     }.isRequired).isRequired,
   ).isRequired,
   picture: PropTypes.string,
+  showMoreData: PropTypes.bool,
   moreEvents: PropTypes.bool.isRequired,
   manageSubmit: PropTypes.func,
 };
@@ -71,6 +78,7 @@ Events.propTypes = {
 Events.defaultProps = {
   loadingEvents: false,
   picture: img,
+  showMoreData: false,
   manageSubmit: null,
 };
 

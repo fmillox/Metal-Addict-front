@@ -6,8 +6,8 @@ import './home.scss';
 import { ArrowLeft, ArrowRight } from 'react-feather';
 import { ScaleLoader } from 'react-spinners';
 
-import firstPicture from 'src/images/concert5.jpg';
-import secondPicture from 'src/images/concert3.jpg';
+import firstPicture from 'src/images/concert8.jpg';
+import secondPicture from 'src/images/concert13.jpg';
 
 import Reviews from 'src/components/Reviews';
 

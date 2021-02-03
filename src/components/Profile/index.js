@@ -114,7 +114,7 @@ const Profile = ({
         <div onClick={seeEvents} className="label-events">Voir les concerts ({userEvents.length})</div>
         <div className={EventsCssClass}>
           {eventsLoading && <ScaleLoader color={SECONDARY_COLOR} />}
-          {!eventsLoading && <Events events={userEvents} moreEvents={false} />}
+          {!eventsLoading && <Events events={userEvents} moreEvents={false} showMoreData />}
         </div>
         <div onClick={seeReviews} className="label-reviews">Voir les chroniques ({userReviews.length})</div>
         <div className={ReviewsCssClass}>
