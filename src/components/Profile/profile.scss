@@ -1,7 +1,13 @@
+@use 'src/styles/vars';
 @import "src/styles/media";
 
 .profile {
   min-height: 100vh;
+  color: vars.$secondaryColor;
+
+  .review-back-to-reviews-results{
+    margin-left: 1.5*vars.$gutter;
+  }
 
   .user {
       display: flex;
@@ -18,19 +24,24 @@
     align-items: center;
     margin: 30px 0;
 
-    .user-picture{
-      border-radius: 50%;
-      width: 120px;
-      height: 120px;
-      display: inline-block;
-      border: gray 1px solid;
-      margin: 0 20px 0 20px;
+    .avatar {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+
+      .user-picture{
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        display: inline-block;
+        border: gray 1px solid;
+        margin: 0 20px 0 20px;
       
-    
-      .picture-content {
-        width: 100%;
-        height: 100%;
-        border-radius: inherit;
+        .picture-content {
+          width: 100%;
+          height: 100%;
+          border-radius: inherit;
+        }
       }
     }
   }
@@ -38,7 +49,8 @@
     @include sm {
       width: 60%;
     }
-
+    background-color: vars.$lightPrimaryColor;
+    color: vars.$secondaryColor;
     border: 1px solid black;
     width: 280px;
     margin: auto;
@@ -49,15 +61,91 @@
   .user-main-content {
       display: flex;
       flex-direction: column;
-      align-items: center;
       margin-top: 30px;
+
+    .label-events {
+      font-size: 1.7em;
+      font-weight: 700;
+      background-color: vars.$secondaryColor;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: vars.$lightPrimaryColor;
+      margin-bottom: 2.5*vars.$gutter;
+      font-family: vars.$titleFont;
+
+      @include md {
+        width: 59%;
+        margin-left: 35%;
+        padding-left: vars.$gutter;
+      }
+
+      @include lg {
+        width: 56%;
+        margin-left: 38%;
+        justify-content: flex-start;
+      }
+    }
+
+    .label-reviews {
+      font-size: 1.7em;
+      font-weight: 700;
+      background-color: vars.$secondaryColor;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: vars.$lightPrimaryColor;
+      margin-bottom: 2.5*vars.$gutter;
+      font-family: vars.$titleFont;
+
+
+      @include md {
+        width: 59%;
+        margin-left: 7%;
+        padding-left: vars.$gutter;
+      }
+
+      @include lg {
+        width: 56%;
+        margin-left: 6%;
+        justify-content: flex-start;
+      }
+    }
+
+    .label-pictures {
+      font-size: 1.7em;
+      font-weight: 700;
+      background-color: vars.$secondaryColor;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: vars.$lightPrimaryColor;
+      margin-bottom: 2.5*vars.$gutter;
+      font-family: vars.$titleFont;
+
+      @include md {
+        width: 59%;
+        margin-left: 35%;
+        padding-left: vars.$gutter;
+      }
+
+      @include lg {
+        width: 56%;
+        margin-left: 38%;
+        justify-content: flex-end;
+      }
+    }
 
     .eventsNoShow {
       display: none;
     }
   
     .eventsShow {
-      display: initial;
+      display: block;
+      margin-bottom: 4*vars.$gutter;
     }
   
     .reviewsNoShow {
@@ -65,7 +153,8 @@
     }
   
     .reviewsShow {
-      display: initial;
+      display: block;
+      margin-bottom: 4*vars.$gutter;
     }
   
     .picturesNoShow {
@@ -73,7 +162,7 @@
     }
   
     .picturesShow {
-      display: initial;
+      display: block;
     }
   }
 }
