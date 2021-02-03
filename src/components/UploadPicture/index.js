@@ -4,7 +4,8 @@ import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Loader from 'react-loader-spinner';
 import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
-import img from 'src/assets/images/upload.png';
+
+import { LIGHT_PRIMARY_COLOR } from 'src/styles/vars';
 
 import './uploadPicture.scss';
 
@@ -40,7 +41,7 @@ function UploadPicture({ loading, manageSubmit }) {
         loading && (
           <Loader
             type="ThreeDots"
-            color="#000000"
+            color={LIGHT_PRIMARY_COLOR}
             width={30}
             height={30}
           />
@@ -49,13 +50,7 @@ function UploadPicture({ loading, manageSubmit }) {
       {
         !loading && (
           <AddAPhotoIcon
-            style={
-              {
-                outline: 'none',
-                width: 30,
-                cursor: 'pointer',
-              }
-            }
+            className="uploadPicture-icon"
             onClick={(evt) => {
               evt.preventDefault();
               inputFileRef.current.click();

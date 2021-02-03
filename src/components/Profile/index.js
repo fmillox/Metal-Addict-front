@@ -14,6 +14,8 @@ import Pictures from 'src/components/Pictures';
 import ModifyProfile from 'src/components/Profile/ModifyProfile/ModifyProfile';
 import UploadPicture from 'src/components/UploadPicture';
 
+import { SECONDARY_COLOR } from 'src/styles/vars';
+
 import './profile.scss';
 
 const useStyles = makeStyles((theme) => ({
@@ -90,7 +92,7 @@ const Profile = ({
           />
         )
       }
-      {userLoading && <ScaleLoader />}
+      {userLoading && <ScaleLoader color={SECONDARY_COLOR} />}
       {!userLoading && (
         <div className="user">
           <div className="user-identity">
@@ -108,17 +110,17 @@ const Profile = ({
       <div className="user-main-content">
         <div onClick={seeEvents}>Voir les concerts ({userEvents.length})</div>
         <div className={EventsCssClass}>
-          {eventsLoading && <ScaleLoader />}
+          {eventsLoading && <ScaleLoader color={SECONDARY_COLOR} />}
           {!eventsLoading && <Events events={userEvents} moreEvents={false} />}
         </div>
         <div onClick={seeReviews}>Voir les chroniques ({userReviews.length})</div>
         <div className={ReviewsCssClass}>
-          {reviewsLoading && <ScaleLoader />}
+          {reviewsLoading && <ScaleLoader color={SECONDARY_COLOR} />}
           {!reviewsLoading && <Reviews reviews={userReviews} />}
         </div>
         <div onClick={seePictures}>Voir les photos ({userPictures.length})</div>
         <div className={PicturesCssClass}>
-          {picturesLoading && <ScaleLoader />}
+          {picturesLoading && <ScaleLoader color={SECONDARY_COLOR} />}
           {!picturesLoading && <Pictures pictures={userPictures} picturesOnScreen={8} />}
         </div>
       </div>

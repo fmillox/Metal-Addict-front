@@ -1,5 +1,5 @@
 // == Import npm
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useParams, useHistory } from 'react-router-dom';
 
@@ -11,10 +11,14 @@ import { getIdFromSlug } from 'src/utils';
 import './reviewCreate.scss';
 
 // == Composant
-const ReviewCreate = ({ manageCreate }) => {
+const ReviewCreate = ({ reset, manageCreate }) => {
   const { slug } = useParams();
   const setlistId = getIdFromSlug(slug);
   const history = useHistory();
+
+  useEffect(() => {
+    reset();
+  }, []);
 
   return (
     <div className="reviewCreate">
@@ -27,6 +31,7 @@ const ReviewCreate = ({ manageCreate }) => {
 };
 
 ReviewCreate.propTypes = {
+  reset: PropTypes.func.isRequired,
   manageCreate: PropTypes.func.isRequired,
 };
 

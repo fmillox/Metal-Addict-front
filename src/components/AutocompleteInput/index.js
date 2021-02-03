@@ -4,10 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { withStyles } from '@material-ui/core/styles';
 
-import {
-  SECONDARY_COLOR,
-  LIGHT_SECONDARY_COLOR,
-} from 'src/styles/vars';
+import { SECONDARY_COLOR, LIGHT_SECONDARY_COLOR } from 'src/styles/vars';
 
 import { getFilteredAutocompletInputOptions, getObjectByName } from 'src/utils';
 

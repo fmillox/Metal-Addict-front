@@ -10,6 +10,8 @@ import AutocompleteInput from 'src/components/AutocompleteInput';
 import TextFieldInput from 'src/components/TextFieldInput';
 import Button from 'src/components/Button';
 
+import { SECONDARY_COLOR } from 'src/styles/vars';
+
 import { createYearArray, isObjectValid } from 'src/utils';
 
 import './searchForm.scss';
@@ -75,7 +77,7 @@ const SearchForm = ({
       {
         loading && (
           <div className="searchForm-loader">
-            <ScaleLoader />
+            <ScaleLoader color={SECONDARY_COLOR} />
           </div>
         )
       }

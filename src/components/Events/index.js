@@ -8,6 +8,8 @@ import ScaleLoader from 'react-spinners/ScaleLoader';
 import SmallEvent from './SmallEvent';
 import Button from 'src/components/Button';
 
+import { SECONDARY_COLOR } from 'src/styles/vars';
+
 import img from 'src/assets/images/band.jpg';
 
 import './events.scss';
@@ -40,7 +42,7 @@ const Events = ({
         moreEvents && (
           <form className="events-more-results" onSubmit={onSubmit}>
             {
-              loadingEvents && <ScaleLoader />
+              loadingEvents && <ScaleLoader color={SECONDARY_COLOR} />
             }
             {
               !loadingEvents && (

@@ -11,6 +11,8 @@ import secondPicture from 'src/images/concert3.jpg';
 
 import Reviews from 'src/components/Reviews';
 
+import { SECONDARY_COLOR } from 'src/styles/vars';
+
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -46,7 +48,7 @@ const Home = ({
       <div className="description"> <p data-aos="fade-left" data-aos-duration="500">Quis omnis cum ut veritatis sit iste architecto aut libero ipsum repellendus</p></div>
 
       <h2 className="lastReviews">Dernières reviews</h2>
-      {loadingReviews && <ScaleLoader />}
+      {loadingReviews && <ScaleLoader color={SECONDARY_COLOR} />}
       {!loadingReviews && <Reviews reviews={reviews} />}
 
       <div className="secondBlock">

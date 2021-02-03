@@ -1,14 +1,18 @@
+@use 'src/styles/vars'; 
+
 .reviewManage {
   display: flex;
   flex-direction: column;
   width: 100%;
 
   .reviewManage-go-back {
+    align-self: flex-start;
     padding: 1em;
     cursor: pointer;
+    color: vars.$lightSecondaryColor;
 
     &:hover {
-      color: grey;
+      color: vars.$secondaryColor;
     }
   }
 
