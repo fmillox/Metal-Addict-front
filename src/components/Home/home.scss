@@ -14,7 +14,7 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 35px;
-    background-color: #9E9E9E;
+    background-color: vars.$secondaryColor;
     padding: 0 60px;
 
     .news-content {
@@ -32,7 +32,7 @@
     .introduction {
       width: 100%;
       height: 80px;
-      background: linear-gradient(to right, #e6dada, #274046);
+      background-color: vars.$secondaryColor;
       margin-top: 35px;
       font-size: 1.2em;
 
@@ -68,7 +68,7 @@
     width: 100%;
     height: 300px;
     margin-top: 35px;
-    background-color: #9E9E9E;
+    background-color: vars.$secondaryColor;
     font-size: 1.5em;
   }
 
@@ -103,10 +103,10 @@
       }
   }
     .about {
-      color: #ECECEC;
+      color: vars.$primaryColor;
       width: 100%;
       height: 185px;
-      background: linear-gradient(to right, #232526, #414345);
+      background-color: vars.$secondaryColor;
       text-align: center;
       font-size: 1.6em;
 

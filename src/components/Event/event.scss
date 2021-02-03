@@ -77,12 +77,12 @@
     width: 100%;
 
     @include lg {
-      width: 500px;
+      width: 650px;
     }
 
     .event-band-img {
       width: 100%;
-      height: 100%;
+      height: auto;
     }
   }
 
@@ -93,9 +93,15 @@
     font-weight: 700;
     color: vars.$secondaryColor;
     font-family: vars.$titleFont;
+    
 
       .image-band {
         width: 100%;
+        
+        @include lg {
+          width: 550px;
+        }
+
       }
   }
 

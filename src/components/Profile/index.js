@@ -5,7 +5,7 @@ import ScaleLoader from 'react-spinners/ScaleLoader';
 import classNames from 'classnames';
 import Backdrop from '@material-ui/core/Backdrop';
 import { makeStyles } from '@material-ui/core/styles';
-
+import { ArrowLeft } from 'react-feather';
 import { getIdFromSlug, getAbsoluteAvatarPath } from 'src/utils';
 
 import Events from 'src/containers/Events';
@@ -81,24 +81,27 @@ const Profile = ({
   return (
     <div className="profile">
       <a className="review-back-to-reviews-results" onClick={handleOnClick}>
-        Retour à la page précédente
+        <ArrowLeft />
       </a>
       { /* isConnectedUser && <p onClick={handleToggle}>Modifier mon profil</p> */ }
-      {
-        isConnectedUser && (
-          <UploadPicture
-            loading={loadingUploadAvatar}
-            manageSubmit={manageUploadAvatar}
-          />
-        )
-      }
       {userLoading && <ScaleLoader color={SECONDARY_COLOR} />}
       {!userLoading && (
         <div className="user">
           <div className="user-identity">
-            <div className="user-picture">
+            <div className="avatar">
+              <div className="user-picture">
+                {
+                  user.avatar !== undefined && <img src={getAbsoluteAvatarPath(user.avatar)} alt="" className="picture-content" />
+                }
+              </div>
               {
-                user.avatar !== undefined && <img src={getAbsoluteAvatarPath(user.avatar)} alt="" className="picture-content" />
+              isConnectedUser && (
+                <UploadPicture
+                  className="upload-avatar"
+                  loading={loadingUploadAvatar}
+                  manageSubmit={manageUploadAvatar}
+                />
+              )
               }
             </div>
             <h2 className="user-nickname">{user.nickname}</h2>
@@ -108,17 +111,17 @@ const Profile = ({
       )}
 
       <div className="user-main-content">
-        <div onClick={seeEvents}>Voir les concerts ({userEvents.length})</div>
+        <div onClick={seeEvents} className="label-events">Voir les concerts ({userEvents.length})</div>
         <div className={EventsCssClass}>
           {eventsLoading && <ScaleLoader color={SECONDARY_COLOR} />}
           {!eventsLoading && <Events events={userEvents} moreEvents={false} />}
         </div>
-        <div onClick={seeReviews}>Voir les chroniques ({userReviews.length})</div>
+        <div onClick={seeReviews} className="label-reviews">Voir les chroniques ({userReviews.length})</div>
         <div className={ReviewsCssClass}>
           {reviewsLoading && <ScaleLoader color={SECONDARY_COLOR} />}
           {!reviewsLoading && <Reviews reviews={userReviews} />}
         </div>
-        <div onClick={seePictures}>Voir les photos ({userPictures.length})</div>
+        <div onClick={seePictures} className="label-pictures">Voir les photos ({userPictures.length})</div>
         <div className={PicturesCssClass}>
           {picturesLoading && <ScaleLoader color={SECONDARY_COLOR} />}
           {!picturesLoading && <Pictures pictures={userPictures} picturesOnScreen={8} />}
