@@ -40,11 +40,10 @@
       .data-band{
         font-size: 1.7em;
       }
+    }
 
-      .hide-data {
-        display: none;
-      }
-      
+    .hide-data {
+      display: none;
     }
     
     .review-content {
@@ -106,22 +105,6 @@
           }
         }
     }
-    
-      
-  
-      /*
-      .name {
-        text-transform: uppercase;
-        margin: 15px 0;
-        font-size: 1.7em;
-        font-weight: 700;
-      }
-  
-      .venue {
-        display: inline-block;
-        margin-bottom: 15px;
-      }
-      */
     }
   }
 }
