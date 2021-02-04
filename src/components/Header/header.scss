@@ -46,7 +46,6 @@
 
         @include md {
           font-size: 6em;
-          line-height: 0.6em;
         }
       }
     }
@@ -62,7 +61,7 @@
       width: inherit;
       height: inherit;
       border-radius: inherit;
-      border: gray 1px solid;
+      // border: gray 1px solid;
     }
 
     @include md {

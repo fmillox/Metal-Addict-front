@@ -8,26 +8,23 @@
     padding: 1rem;
   }
 
-  .login-link {
-    cursor: pointer;
-
-    .login-link-container {
+  .login-link-container {
+    display: flex;
+    flex-direction: column;
       
-      .login-link-title {
-        color: vars.$secondaryColor;
-        text-align: center;
-        font-family: vars.$headerFont;
-        font-size: 4em;
-        line-height: 0.9em;
-
-        @include md {
-          font-size: 6em;
-          line-height: 0.6em;
-        }
+    .login-link-title {
+      cursor: pointer;
+      align-self: center;
+      color: vars.$secondaryColor;
+      font-family: vars.$headerFont;
+      font-size: 4em;
+      line-height: 0.9em;
+      
+      @include md {
+        font-size: 6em;
       }
     }
   }
-
 
   .login-title {
     margin: 2em 0;

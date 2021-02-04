@@ -65,14 +65,13 @@ const RegisterUser = ({ resetHomePage, registerNewUser }) => {
 
   return (
     <div className="register-user">
-      <div className="register-user-logo-link">
-        <a
-          onClick={handleOnClickHome}
-        >
-          <h1 className="register-user-logo-title">Metal</h1>
-          <h2 className="register-user-logo-title">Addict</h2>
-        </a>
-      </div>
+      <a
+        className="register-user-link-container"
+        onClick={handleOnClickHome}
+      >
+        <span className="register-user-link-title">Metal</span>
+        <span className="register-user-link-title">Addict</span>
+      </a>
       <h1 className="register-user-title">
         Création de compte
       </h1>

@@ -8,16 +8,18 @@
     padding: 1rem;
   }
 
-  .register-user-logo-link {
-    cursor: pointer;
-    
-    .register-user-logo-title {
+  .register-user-link-container {
+    display: flex;
+    flex-direction: column;
+      
+    .register-user-link-title {
+      cursor: pointer;
+      align-self: center;
       color: vars.$secondaryColor;
-      text-align: center;
       font-family: vars.$headerFont;
       font-size: 4em;
       line-height: 0.9em;
-
+      
       @include md {
         font-size: 6em;
       }

@@ -37,13 +37,11 @@ const Login = ({ notAuthorized, resetHomePage, handleLogin }) => {
   return (
     <div className="login">
       <a
-        className="login-link"
+        className="login-link-container"
         onClick={handleOnClickHome}
       >
-        <div className="login-link-container">
-          <h1 className="login-link-title">Metal</h1>
-          <h2 className="login-link-title">Addict</h2>
-        </div>
+        <span className="login-link-title">Metal</span>
+        <span className="login-link-title">Addict</span>
       </a>
       <h1 className="login-title">
         Connexion
