@@ -1,20 +1,17 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-
-import './home.scss';
-
-import { ArrowLeft, ArrowRight } from 'react-feather';
 import { ScaleLoader } from 'react-spinners';
-
-import firstPicture from 'src/images/concert8.jpg';
-import secondPicture from 'src/images/concert13.jpg';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 import Reviews from 'src/components/Reviews';
 
 import { SECONDARY_COLOR } from 'src/styles/vars';
 
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import firstPicture from 'src/images/concert8.jpg';
+import secondPicture from 'src/images/concert13.jpg';
+
+import './home.scss';
 
 AOS.init();
 
@@ -30,9 +27,7 @@ const Home = ({
   return (
     <div className="home">
       <div className="news">
-        <ArrowLeft />
         <p className="news-content">Nouvelle fonctionnalité : ajouter vos photos!!</p>
-        <ArrowRight />
       </div>
 
       <div className="firstBlock">
@@ -44,10 +39,7 @@ const Home = ({
           <img src={firstPicture} className="image" alt="" />
         </div>
       </div>
-
-      <div className="description"> <p data-aos="fade-left" data-aos-duration="500">Quis omnis cum ut veritatis sit iste architecto aut libero ipsum repellendus</p></div>
-
-      <h2 className="lastReviews">Dernières reviews</h2>
+      <h2 className="lastReviews">Dernières chroniques</h2>
       {loadingReviews && <ScaleLoader color={SECONDARY_COLOR} />}
       {!loadingReviews && <Reviews reviews={reviews} />}
 

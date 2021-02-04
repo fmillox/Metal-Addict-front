@@ -1,0 +1,15 @@
+@use 'src/styles/vars';
+@import "src/styles/media";
+
+.app {
+  margin: 0 auto;
+  background-color: vars.$primaryColor;
+  min-height: 100vh;
+
+  @include lg {
+    max-width: 1150px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+}
+

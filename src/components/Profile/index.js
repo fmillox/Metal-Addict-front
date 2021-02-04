@@ -123,17 +123,17 @@ const Profile = ({
             <div className="user-description">{user.biography}</div>
           </div>
           <div className="user-main-content">
-            <div onClick={handleEventsOnClick} className="label-events">Voir les concerts ({userEvents.length})</div>
+            <div onClick={handleEventsOnClick} className="label-events">Concerts ({userEvents.length})</div>
             <div className={EventsCssClass}>
               {eventsLoading && <ScaleLoader color={SECONDARY_COLOR} />}
               {!eventsLoading && <Events events={userEvents} moreEvents={false} showMoreData />}
             </div>
-            <div onClick={handleReviewsOnClick} className="label-reviews">Voir les chroniques ({userReviews.length})</div>
+            <div onClick={handleReviewsOnClick} className="label-reviews">Chroniques ({userReviews.length})</div>
             <div className={ReviewsCssClass}>
               {reviewsLoading && <ScaleLoader color={SECONDARY_COLOR} />}
               {!reviewsLoading && <Reviews reviews={userReviews} />}
             </div>
-            <div onClick={handlePicturesOnClick} className="label-pictures">Voir les photos ({userPictures.length})</div>
+            <div onClick={handlePicturesOnClick} className="label-pictures">Photos ({userPictures.length})</div>
             <div className={PicturesCssClass}>
               {picturesLoading && <ScaleLoader color={SECONDARY_COLOR} />}
               {!picturesLoading && <Pictures pictures={userPictures} picturesOnScreen={8} />}

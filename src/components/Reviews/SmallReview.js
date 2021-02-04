@@ -30,12 +30,7 @@ const SmallReview = ({
   });
 
   return (
-    <article
-      className="smallReview"
-      data-aos="flip-down"
-      data-aos-easing="linear"
-      data-aos-duration="500"
-    >
+    <article className="smallReview">
       <Link
         to={location}
       >

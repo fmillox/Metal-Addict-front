@@ -44,7 +44,7 @@ const SmallEvent = ({
               {venue.name}
             </div>
             <div className="smallEvent-city-country">
-              {changeCityName(venue.city.name)} - {venue.city.country.name}
+              {changeCityName(venue.city.name)} ({venue.city.country.name})
             </div>
           </div>
         </div>
