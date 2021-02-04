@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink, useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -13,7 +13,7 @@ const StyledMenu = withStyles({
   paper: {
     // border: '1px solid #d3d4d5',
     borderRadius: 10,
-    backgroundColor: 'yellow',
+    backgroundColor: '#FFDB15',
   },
 })((props) => (
   <Menu
@@ -65,9 +65,9 @@ const Header = ({
         className="title"
         onClick={handleOnClickHome}
       >
-        <div className="main-title">
-          <h1 className="main-title-top">Metal</h1>
-          <h2 className="main-title-bottom">Addict</h2>
+        <div className="main-title-container">
+          <h1 className="main-title">Metal</h1>
+          <h2 className="main-title">Addict</h2>
         </div>
       </a>
       {isLogged && (
@@ -95,24 +95,23 @@ const Header = ({
             <MenuItem
               onClick={handleClose}
             >
-              <NavLink
+              <Link
                 // eslint-disable-next-line prefer-template
                 to={'/utilisateur/' + getSlug(user.nickname, user.id)}
                 onClick={handleClose}
               >Voir/modifier mon profil
-              </NavLink>
+              </Link>
             </MenuItem>
             <MenuItem onClick={handleCloseLogout}>Déconnexion</MenuItem>
           </StyledMenu>
-          <p className="welcome">{user.nickname}</p>
         </>
       )}
       {!isLogged && (
-        <NavLink
-          to="/connexion"
+        <Link
           className="connexionLink"
+          to="/connexion"
         >Se connecter
-        </NavLink>
+        </Link>
       )}
     </header>
   );
