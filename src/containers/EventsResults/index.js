@@ -11,7 +11,7 @@ import { checkMoreEventsInSetListApi } from 'src/utils';
 // si j'ai besoin de lire des informations dans le state
 const mapStateToProps = (state) => ({
   // nom de la prop à remplir: élément à récupérer dans le state
-  loadingEvents: state.events.loading,
+  loadingEvents: state.events.searchEvents === null,
   events: state.events.searchEvents,
   moreEvents: checkMoreEventsInSetListApi(state.events.searchEvents),
 });

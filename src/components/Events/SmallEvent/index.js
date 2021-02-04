@@ -26,13 +26,12 @@ const SmallEvent = ({
   });
   return (
     <div className="smallEvent">
-      <div className={cssClass}>
-        <span className="smallEvent-band">{artist.name}</span>
-      </div>
-
       <Link
         to={location}
       >
+        <div className={cssClass}>
+          <span className="smallEvent-band">{artist.name}</span>
+        </div>
         <div className="smallEvent-content-container">
           <div className="smallEvent-picture-container">
             <img className="smallEvent-picture" src={picture} alt={artist.name} />

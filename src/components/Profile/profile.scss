@@ -5,14 +5,19 @@
   min-height: 100vh;
   color: vars.$secondaryColor;
 
-  .review-back-to-reviews-results{
+  .loader {
+    display: flex;
+    justify-content: center;
+  }
+
+  .back-to{
     margin-left: 1.5*vars.$gutter;
   }
 
   .user {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     @include md {
       display: flex;
@@ -62,6 +67,7 @@
       display: flex;
       flex-direction: column;
       margin-top: 30px;
+      margin-bottom: 1em;
 
     .label-events {
       font-size: 1.7em;

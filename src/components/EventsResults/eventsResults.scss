@@ -1,4 +1,5 @@
-@use 'src/styles/vars'; 
+@use 'src/styles/vars';
+@import "src/styles/media";
 
 .eventsResults {
   display: flex;
@@ -11,7 +12,26 @@
     color: vars.$lightSecondaryColor;
   }
 
+  .eventsResults-band-img {
+    margin-top: 2 * vars.$gutter;
+    width: 100%;
+    
+    @include lg {
+      width: 550px;
+    }
+  }
+
+  .eventsResults-band {
+    margin-top: 2 * vars.$gutter;
+    text-transform: uppercase;
+    font-size: 1.7em;
+    font-weight: 700;
+    color: vars.$secondaryColor;
+    font-family: vars.$titleFont;
+  }
+
   .eventsResults-events {
-    margin-top: vars.$gutter;
+    margin-top: 3 * vars.$gutter;
+    margin-bottom: 3 * vars.$gutter;
   }
 }

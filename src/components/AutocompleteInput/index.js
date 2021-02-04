@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import Popper from '@material-ui/core/Popper';
 import { withStyles } from '@material-ui/core/styles';
 
 import { SECONDARY_COLOR, LIGHT_SECONDARY_COLOR } from 'src/styles/vars';
@@ -58,10 +59,13 @@ const AutocompleteInput = withStyles(styles)(({
     optionsFiltered = getFilteredAutocompletInputOptions(options, inputValue);
   }
 
+  const CustomPopper = (props) => <Popper {...props} />;
+
   const id = `autocomplete-input-${name}`;
 
   return (
     <Autocomplete
+      PopperComponent={CustomPopper}
       value={value}
       onChange={(event, newValue) => {
         if (typeof newValue === 'string') {

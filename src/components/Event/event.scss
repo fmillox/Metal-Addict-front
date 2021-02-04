@@ -87,22 +87,24 @@
   }
 
   .event-band {
-    margin-top: vars.$gutter;
+    margin: vars.$gutter 0;
     text-transform: uppercase;
-    font-size: 1.7em;
+    font-size: 2rem;
     font-weight: 700;
     color: vars.$secondaryColor;
     font-family: vars.$titleFont;
+
+    @include lg {
+      font-size: 5rem;
+    }
     
-
-      .image-band {
-        width: 100%;
-        
-        @include lg {
-          width: 550px;
-        }
-
+    .image-band {
+      width: 100%;
+      
+      @include lg {
+        width: 550px;
       }
+    }
   }
 
   .event-data {

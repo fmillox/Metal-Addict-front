@@ -5,9 +5,6 @@ import {
   fetchUserReviews,
   fetchUserPictures,
   fetchUserDatas,
-  displayEvents,
-  displayReviews,
-  displayPictures,
 } from 'src/actions/users';
 
 import { uploadAvatar } from 'src/actions/auth';
@@ -32,9 +29,6 @@ const mapStateToProps = (state) => ({
   reviewsLoading: state.reviews.loading,
   picturesLoading: state.pictures.loading,
   userLoading: state.user.loading,
-  showEvents: state.user.showEvents,
-  showReviews: state.user.showReviews,
-  showPictures: state.user.showPictures,
 });
 
 // === mapDispatchToProps
@@ -50,15 +44,6 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(fetchUserReviews(userId));
     dispatch(fetchUserPictures(userId));
   },
-  seeEvents: () => dispatch(
-    displayEvents(),
-  ),
-  seeReviews: () => dispatch(
-    displayReviews(),
-  ),
-  seePictures: () => dispatch(
-    displayPictures(),
-  ),
 });
 
 // === création de l'assistant
