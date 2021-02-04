@@ -9,7 +9,7 @@
   .introduction {
     width: 100%;
     height: 215px;
-    margin-top: 35px;
+    margin-top: 55px;
     background-color: vars.$secondaryColor;
     padding: 1.1em;
 
@@ -19,7 +19,7 @@
     }
 
     @include lg {
-      height: 320px;
+      height: 305px;
       padding: 1.8em 1.6em;
     }
 
@@ -52,6 +52,10 @@
         margin: 1.1em 0;
       }
 
+      .introduction-content-text-bold {
+        font-weight: 600;
+      }
+
       .introduction-content-register {
 
         .introduction-content-register-link{
@@ -64,9 +68,10 @@
 
   .firstBlock {
     width: 100%;
-
+    
     @include lg {
       position: relative;
+      margin-top: 40px;
     }
 
     .description {
@@ -95,6 +100,11 @@
       .description-text-middle {
         margin: .6em 0;
       }
+
+      .description-italic {
+        font-style: italic;
+        font-weight: 500;
+      }
     }
   
     .firstImage {
@@ -117,53 +127,92 @@
   }
 
   .lastReviews {
-    text-align: center;
+    width: 100%;
+    font-size: 2.7em;
+    font-weight: 700;
+    background-color: vars.$secondaryColor;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: vars.$lightPrimaryColor;
+    margin-bottom: 2.5*vars.$gutter;
+    font-family: vars.$titleFont;
     margin-top: 35px;
-    color: vars.$secondaryColor;
-    font-size: 1.5em;
-    margin-bottom: 15px;
+
+    @include lg {
+      width: 56%;
+      margin-right: 22%;
+      justify-content: flex-end;
+      padding-right: 1.2em;
+      padding-top: .2em;
+      margin-top: 75px;
+    }
   }
+  
 
   .secondBlock {
     width: 100%;
     margin-top: 35px;
 
-    @include md {
+    @include lg {
       position: relative;
     }
 
     .secondImage {
       width: 100%;
-      margin-top: 35px;
-      clip-path: polygon(25% 0%, 100% 1%, 100% 100%, 25% 100%, 0% 50%);
-  
+      
       .image{
         width: 100%;
         height: 100%;
         object-fit: cover;
       }
 
-      @include md {
-        width: 50%;
-        margin-left: 50%;
+      @include lg {
+        position: absolute;
+        bottom: 140px;
+        width: 45%;
+        margin-left: 55%;
+        clip-path: polygon(25% 0%, 100% 1%, 100% 100%, 25% 100%, 0% 50%);
       }
   }
     .about {
       color: vars.$primaryColor;
       width: 100%;
-      height: 280px;
+      height: 330px;
       background-color: vars.$secondaryColor;
-      text-align: center;
-      font-size: 1.6em;
-      
+      font-size: 1em;
+      padding: 1.1em;
 
       @include md {
-        width: 50%;
-        position: absolute;
-        left: 0;
-        top: 35%;
-        transform:translate(0, -40%);
-        margin-bottom: 4em;
+        height: 535px;
+        padding-top: 1em;
+        font-size: 1.9em;
+      }
+
+      @include lg {
+        width: 55%;
+        margin-right: 50%;
+        margin-bottom: 2em;
+        font-size: 1.7em;
+        height: 500px;
+      }
+
+      .about-team {
+        margin: .6em 0;
+
+        .about-team-title {
+          font-style: italic;
+          margin-bottom: .3em;
+        }
+      }
+
+      .about-bold {
+        font-weight: 700;
+      }
+
+      .about-technology {
+        margin: .6em 0;
       }
   }
   }
