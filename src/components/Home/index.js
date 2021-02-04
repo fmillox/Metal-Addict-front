@@ -41,16 +41,20 @@ const Home = ({
       </div>
 
       <div className="firstBlock">
-      <div className="firstImage" data-aos="fade-up-top" data-aos-duration="1000">
+        <div className="firstImage">
           <img src={firstPicture} className="image" alt="" />
         </div>
-        <div className="description" data-aos="fade-up-bottom">
+        <div className="description">
           <p>
-            Tu peux désormais partager tes photos de concert avec les autres metalheads ! Alors rend-toi tout de suite sur la page de ton dernier concert pour y poster la photo de ton pote qui a encore trop bu et qui est monté sur scène piquer le micro… (on le connait que trop bien)
+            Tu peux désormais partager tes photos de concert avec les autres metalheads !
           </p>
-          <p>Inscrivez-vous pour nous partarger vos meilleurs souvenirs.</p>
+          <p className="description-text-middle">
+            Alors rend-toi tout de suite sur la page de ton dernier concert pour y poster la photo de ton pote qui a encore trop bu et qui est monté sur scène piquer le micro… (on le connait que trop bien)
+          </p>
+          <p>
+            Inscrivez-vous pour nous partarger vos meilleurs souvenirs.
+          </p>
         </div>
-        
       </div>
 
       <h2 className="lastReviews">Dernières reviews</h2>
