@@ -4,7 +4,9 @@ import './footer.scss';
 
 const Footer = () => (
   <div className="footer">
-    Footer
+    <a>Présentation de l'équipe</a>
+    <a>Contact</a>
+    <a>Mentions légales</a>
   </div>
 );
 

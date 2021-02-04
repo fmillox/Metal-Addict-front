@@ -6,8 +6,6 @@ import { useForm } from 'react-hook-form';
 import FieldInput from 'src/components/FieldInput';
 import Button from 'src/components/Button';
 
-import sigle from 'src/assets/images/sigle.png';
-
 import './login.scss';
 
 const Login = ({ notAuthorized, resetHomePage, handleLogin }) => {
@@ -38,13 +36,15 @@ const Login = ({ notAuthorized, resetHomePage, handleLogin }) => {
 
   return (
     <div className="login">
-      <div className="login-sigle-link">
-        <a
-          onClick={handleOnClickHome}
-        >
-          <img src={sigle} alt="sigle" className="login-sigle" />
-        </a>
-      </div>
+      <a
+        className="login-link"
+        onClick={handleOnClickHome}
+      >
+        <div className="login-link-container">
+          <h1 className="login-link-title">Metal</h1>
+          <h2 className="login-link-title">Addict</h2>
+        </div>
+      </a>
       <h1 className="login-title">
         Connexion
       </h1>

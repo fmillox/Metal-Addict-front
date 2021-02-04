@@ -2,18 +2,17 @@
 @use 'vars';
 
 body {
-  font-family: sans-serif;
-  background-color: lightgray;
+  font-family: 'Roboto', sans-serif;
 }
 
-/* 
-  // or you can import your own font
-  @font-face {
-    font-family: 'Roboto';
-    src: url('../assets/fonts/Roboto-Regular.ttf');
-  }
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-  body {
-    font-family: 'Roboto', sans-serif;
-  }
-*/
+@font-face {
+  font-family: 'act_of_rejectionregular';
+  src: url('../assets/fonts/Act_Of_Rejection.ttf');
+}
+
+@font-face {
+  font-family: 'macabre';
+  src: url('../assets/fonts/The Macabre.otf');
+}
