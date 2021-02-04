@@ -1,4 +1,9 @@
 .reviewEdit {
   min-height: 100vh;
+
+  .reviewEdit-loader {
+    display: flex;
+    justify-content: center;
+  }
 }
 

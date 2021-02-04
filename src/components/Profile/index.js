@@ -37,33 +37,38 @@ const Profile = ({
   reviewsLoading,
   picturesLoading,
   userLoading,
-  seeEvents,
-  seeReviews,
-  seePictures,
-  showEvents,
-  showReviews,
-  showPictures,
 }) => {
   const { slug } = useParams();
   const userId = getIdFromSlug(slug);
   const history = useHistory();
+  const classes = useStyles();
+
   useEffect(() => {
     loadUserDatas(userId, history);
   }, []);
 
-  const classes = useStyles();
+  const handleBackToOnClick = () => {
+    history.goBack();
+  };
+
   const [open, setOpen] = useState(false);
   const handleClose = () => {
     setOpen(false);
   };
-  /*
-  const handleToggle = () => {
-    setOpen(!open);
-  };
-  */
 
-  const handleOnClick = () => {
-    history.goBack();
+  const [showEvents, setShowEvents] = useState(false);
+  const handleEventsOnClick = () => {
+    setShowEvents(!showEvents);
+  };
+
+  const [showReviews, setShowReviews] = useState(false);
+  const handleReviewsOnClick = () => {
+    setShowReviews(!showReviews);
+  };
+
+  const [showPictures, setShowPictures] = useState(false);
+  const handlePicturesOnClick = () => {
+    setShowPictures(!showPictures);
   };
 
   const EventsCssClass = classNames('eventsNoShow', {
@@ -78,59 +83,68 @@ const Profile = ({
     picturesShow: showPictures,
   });
 
+  if (user.biography === null) {
+    user.biography = 'Description de malade !!!';
+  }
+
   return (
     <div className="profile">
-      <a className="review-back-to-reviews-results" onClick={handleOnClick}>
-        <ArrowLeft />
-      </a>
       { /* isConnectedUser && <p onClick={handleToggle}>Modifier mon profil</p> */ }
-      {userLoading && <ScaleLoader color={SECONDARY_COLOR} />}
-      {!userLoading && (
-        <div className="user">
-          <div className="user-identity">
-            <div className="avatar">
-              <div className="user-picture">
-                {
-                  user.avatar !== undefined && <img src={getAbsoluteAvatarPath(user.avatar)} alt="" className="picture-content" />
-                }
-              </div>
-              {
-              isConnectedUser && (
-                <UploadPicture
-                  className="upload-avatar"
-                  loading={loadingUploadAvatar}
-                  manageSubmit={manageUploadAvatar}
-                />
-              )
-              }
-            </div>
-            <h2 className="user-nickname">{user.nickname}</h2>
-          </div>
-          <div className="user-description">{user.biography}</div>
+      {userLoading && (
+        <div className="loader">
+          <ScaleLoader color={SECONDARY_COLOR} />
         </div>
       )}
+      {!userLoading && (
+        <>
+          <a className="back-to" onClick={handleBackToOnClick}>
+            <ArrowLeft />
+          </a>
+          <div className="user">
+            <div className="user-identity">
+              <div className="avatar">
+                <div className="user-picture">
+                  {
+                    user.avatar !== undefined && <img src={getAbsoluteAvatarPath(user.avatar)} alt="" className="picture-content" />
+                  }
+                </div>
+                {
+                isConnectedUser && (
+                  <UploadPicture
+                    className="upload-avatar"
+                    loading={loadingUploadAvatar}
+                    manageSubmit={manageUploadAvatar}
+                  />
+                )
+                }
+              </div>
+              <h2 className="user-nickname">{user.nickname}</h2>
+            </div>
+            <div className="user-description">{user.biography}</div>
+          </div>
+          <div className="user-main-content">
+            <div onClick={handleEventsOnClick} className="label-events">Voir les concerts ({userEvents.length})</div>
+            <div className={EventsCssClass}>
+              {eventsLoading && <ScaleLoader color={SECONDARY_COLOR} />}
+              {!eventsLoading && <Events events={userEvents} moreEvents={false} showMoreData />}
+            </div>
+            <div onClick={handleReviewsOnClick} className="label-reviews">Voir les chroniques ({userReviews.length})</div>
+            <div className={ReviewsCssClass}>
+              {reviewsLoading && <ScaleLoader color={SECONDARY_COLOR} />}
+              {!reviewsLoading && <Reviews reviews={userReviews} />}
+            </div>
+            <div onClick={handlePicturesOnClick} className="label-pictures">Voir les photos ({userPictures.length})</div>
+            <div className={PicturesCssClass}>
+              {picturesLoading && <ScaleLoader color={SECONDARY_COLOR} />}
+              {!picturesLoading && <Pictures pictures={userPictures} picturesOnScreen={8} />}
+            </div>
+          </div>
 
-      <div className="user-main-content">
-        <div onClick={seeEvents} className="label-events">Voir les concerts ({userEvents.length})</div>
-        <div className={EventsCssClass}>
-          {eventsLoading && <ScaleLoader color={SECONDARY_COLOR} />}
-          {!eventsLoading && <Events events={userEvents} moreEvents={false} showMoreData />}
-        </div>
-        <div onClick={seeReviews} className="label-reviews">Voir les chroniques ({userReviews.length})</div>
-        <div className={ReviewsCssClass}>
-          {reviewsLoading && <ScaleLoader color={SECONDARY_COLOR} />}
-          {!reviewsLoading && <Reviews reviews={userReviews} />}
-        </div>
-        <div onClick={seePictures} className="label-pictures">Voir les photos ({userPictures.length})</div>
-        <div className={PicturesCssClass}>
-          {picturesLoading && <ScaleLoader color={SECONDARY_COLOR} />}
-          {!picturesLoading && <Pictures pictures={userPictures} picturesOnScreen={8} />}
-        </div>
-      </div>
-
-      <Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
-        <ModifyProfile />
-      </Backdrop>
+          <Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
+            <ModifyProfile />
+          </Backdrop>
+        </>
+      )}
     </div>
   );
 };
@@ -147,12 +161,6 @@ Profile.propTypes = {
   reviewsLoading: PropTypes.bool.isRequired,
   picturesLoading: PropTypes.bool.isRequired,
   userLoading: PropTypes.bool.isRequired,
-  seeEvents: PropTypes.func.isRequired,
-  seeReviews: PropTypes.func.isRequired,
-  seePictures: PropTypes.func.isRequired,
-  showEvents: PropTypes.bool.isRequired,
-  showReviews: PropTypes.bool.isRequired,
-  showPictures: PropTypes.bool.isRequired,
   isConnectedUser: PropTypes.bool.isRequired,
 };
 

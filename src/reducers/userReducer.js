@@ -1,9 +1,6 @@
 import {
   SET_LOADING_USER,
   SAVE_USER_DATAS,
-  DISPLAY_EVENTS,
-  DISPLAY_REVIEWS,
-  DISPLAY_PICTURES,
 } from 'src/actions/users';
 
 import { SAVE_AVATAR } from 'src/actions/auth';
@@ -12,12 +9,6 @@ const initialState = {
   user: {},
 
   loading: false,
-
-  showEvents: false,
-
-  showReviews: false,
-
-  showPictures: false,
 };
 
 function authReducer(state = initialState, action = {}) {
@@ -32,24 +23,6 @@ function authReducer(state = initialState, action = {}) {
       return {
         ...state,
         user: action.datas,
-      };
-
-    case DISPLAY_EVENTS:
-      return {
-        ...state,
-        showEvents: !state.showEvents,
-      };
-
-    case DISPLAY_REVIEWS:
-      return {
-        ...state,
-        showReviews: !state.showReviews,
-      };
-
-    case DISPLAY_PICTURES:
-      return {
-        ...state,
-        showPictures: !state.showPictures,
       };
 
     case SAVE_AVATAR:

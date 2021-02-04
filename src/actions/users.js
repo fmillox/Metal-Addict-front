@@ -7,9 +7,6 @@ export const SAVE_USER_EVENTS = 'SAVE_USER_EVENTS';
 export const SAVE_USER_PICTURES = 'SAVE_USER_PICTURES';
 export const SAVE_USER_DATAS = 'SAVE_USER_DATAS';
 export const SET_LOADING_USER = 'SET_LOADING_USER';
-export const DISPLAY_EVENTS = 'DISPLAY_EVENTS';
-export const DISPLAY_REVIEWS = 'DISPLAY_REVIEWS';
-export const DISPLAY_PICTURES = 'DISPLAY_PICTURES';
 
 export const fetchUserEvents = (userId) => ({
   type: FETCH_USER_EVENTS,
@@ -55,16 +52,4 @@ export const saveUserDatas = (datas) => ({
 export const setLoadingUser = (value) => ({
   type: SET_LOADING_USER,
   value,
-});
-
-export const displayEvents = () => ({
-  type: DISPLAY_EVENTS,
-});
-
-export const displayReviews = () => ({
-  type: DISPLAY_REVIEWS,
-});
-
-export const displayPictures = () => ({
-  type: DISPLAY_PICTURES,
 });

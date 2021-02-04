@@ -9,7 +9,8 @@ import { fetchSetListApiMoreEvents } from 'src/actions/events';
 // si j'ai besoin de lire des informations dans le state
 const mapStateToProps = (state) => ({
   // nom de la prop à remplir: élément à récupérer dans le state
-  showEventsResults: state.events.showSearchEvents,
+  // eslint-disable-next-line max-len
+  showEventsResults: state.events.showSearchEvents || (state.events.loading && !state.events.showSearchEvents),
 });
 
 // === mapDispatchToProps

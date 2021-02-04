@@ -30,7 +30,11 @@ const ReviewEdit = ({
   return (
     <div className="reviewEdit">
       {
-        loadingReview && <ScaleLoader color={SECONDARY_COLOR} />
+        loadingReview && (
+          <div className="reviewEdit-loader">
+            <ScaleLoader color={SECONDARY_COLOR} />
+          </div>
+        )
       }
       {
         !loadingReview && (
