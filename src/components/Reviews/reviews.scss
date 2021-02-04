@@ -20,9 +20,10 @@
     margin: 1.8rem auto;
     display: flex;
     flex-direction: column;
-    
+
     .data {
       font-size: 1rem;
+      background-color: vars.$lightPrimaryColor; // a voir si on laisse cette couleur ?
       color: vars.$lightSecondaryColor;
       border-top: vars.$secondaryColor solid 2px;
       border-left: vars.$secondaryColor solid 2px;
@@ -33,12 +34,13 @@
       text-align: center;
       justify-content: space-between;
       padding-bottom: 61px;
-      padding-top: 10px;
+      padding-top: 12px;
       border-radius: 5px 5px 0 0 ;
       margin-bottom: -4px;
       
       .data-band{
-        font-size: 1.7em;
+        font-size: 1.9em;
+        font-family: vars.$titleFont;
       }
 
     }
@@ -97,14 +99,18 @@
           
           .user {
             margin-bottom: 0.4em;
+
+            .user-nickname{
+              font-weight: 600;
+            }
           }
   
           .date {
             margin-top: 0.2rem;
-            
+            font-style: italic;
           }
         }
-    }
+      }
     }
   }
 }

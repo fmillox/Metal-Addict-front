@@ -3,13 +3,13 @@
 
 .header {
   width: 100%;
-  background-color: gray;
+  background-color: vars.$lightPrimaryColor;
   color: vars.$secondaryColor;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  height: 170px;
+  padding: 0 1em;
+  height: 120px;
   position: relative;
 
   @include md {
@@ -19,7 +19,7 @@
   
   .sigle {
     max-height: 100%;
-    width: 75px;
+    width: 50px;
 
     @include md {
       width: 110px;
@@ -34,32 +34,28 @@
   .title {
     cursor: pointer;
 
-    .main-title {
-      font-weight: 700;
-      font-size: 2.7em;
-      margin-bottom: 15px;
-      text-align: center;
-      font-family: vars.$titleFont;
+    .main-title-container {
+      //font-weight: 700;
+      
+      .main-title {
+        
+        text-align: center;
+        font-family: vars.$headerFont;
+        font-size: 4em;
+        line-height: 0.9em;
 
-      @include md {
-        font-size: 5em;
-      }
-    }
-
-    .sub-title {
-      font-size: .8em;
-      font-style: italic;
-
-      @include md {
-        font-size: 1.2em;
+        @include md {
+          font-size: 6em;
+          line-height: 0.6em;
+        }
       }
     }
   }
 
   .image {
     border-radius: 50%;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     display: inline-block;
 
     .image-content {
@@ -80,11 +76,4 @@
       margin-right: 2em;
     }
   }
-
-  .welcome {
-    position: absolute;
-    bottom: 6px;
-    right: 15px;
-  }
 }
-

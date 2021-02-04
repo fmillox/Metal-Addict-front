@@ -1,7 +1,10 @@
+@use 'src/styles/vars';
+
 .footer {
   width: 100%;
   height: 100px;
-  background-color: gray;
+  background-color: vars.$lightPrimaryColor;
   text-align: center;
   margin-top: 7px;
+  color: vars.$lightSecondaryColor;
 }

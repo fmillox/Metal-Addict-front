@@ -139,7 +139,6 @@ const Profile = ({
               {!picturesLoading && <Pictures pictures={userPictures} picturesOnScreen={8} />}
             </div>
           </div>
-
           <Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
             <ModifyProfile />
           </Backdrop>

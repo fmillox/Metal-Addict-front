@@ -65,11 +65,12 @@ const RegisterUser = ({ resetHomePage, registerNewUser }) => {
 
   return (
     <div className="register-user">
-      <div className="register-user-sigle-link">
+      <div className="register-user-logo-link">
         <a
           onClick={handleOnClickHome}
         >
-          <img src={sigle} alt="sigle" className="register-user-sigle" />
+          <h1 className="register-user-logo-title">Metal</h1>
+          <h2 className="register-user-logo-title">Addict</h2>
         </a>
       </div>
       <h1 className="register-user-title">

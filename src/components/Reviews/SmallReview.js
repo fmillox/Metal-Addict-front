@@ -56,7 +56,7 @@ const SmallReview = ({
             <h3 className="title">{wordWrap(title, 50)} </h3>
             <div className="smallContent">
               <p className="user">
-                par {user.nickname}
+                par <span className="user-nickname">{user.nickname}</span>
               </p>
               <p className="date">
                 le {Moment(createdAt).locale('fr').format('DD/MM/YYYY à HH:mm')}

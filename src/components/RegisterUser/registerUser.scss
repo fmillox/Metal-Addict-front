@@ -8,22 +8,24 @@
     padding: 1rem;
   }
 
-  .register-user-sigle-link {
+  .register-user-logo-link {
     cursor: pointer;
-    text-align: center;
-    height: 100px;
+    
+    .register-user-logo-title {
+      color: vars.$secondaryColor;
+      text-align: center;
+      font-family: vars.$headerFont;
+      font-size: 4em;
+      line-height: 0.9em;
 
-    @include md {
-      height: 170px;
-    }
-
-    .register-user-sigle{
-      max-height: 100%;
+      @include md {
+        font-size: 6em;
+      }
     }
   }
 
   .register-user-title {
-    margin: 1em 0 2em;
+    margin: 2em 0;
     text-align: center;
     font-weight: 700;
     font-size: 1.2rem;
