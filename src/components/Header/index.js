@@ -12,8 +12,18 @@ import { getSlug, getAbsoluteAvatarPath } from 'src/utils';
 const StyledMenu = withStyles({
   paper: {
     // border: '1px solid #d3d4d5',
-    borderRadius: 10,
+    borderRadius: 5,
     backgroundColor: '#FFDB15',
+    width: '65px',
+    height: '65px',
+    '@media (min-width: 768px)': {
+      width: '140px',
+      height: '140px',
+    },
+    '@media (min-width: 992px)': {
+      width: '165px',
+      height: '165px',
+    },
   },
 })((props) => (
   <Menu
@@ -99,7 +109,7 @@ const Header = ({
                 // eslint-disable-next-line prefer-template
                 to={'/utilisateur/' + getSlug(user.nickname, user.id)}
                 onClick={handleClose}
-              >Voir/modifier mon profil
+              >Mon profil
               </Link>
             </MenuItem>
             <MenuItem onClick={handleCloseLogout}>Déconnexion</MenuItem>

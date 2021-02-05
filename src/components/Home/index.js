@@ -33,7 +33,7 @@ const Home = ({
         <div className="introduction-content">
           <h2 className="introduction-content-title">Welcome dear headbanger !</h2>
           <p className="introduction-content-text">
-            Ici tu peux répertorier les <span className="introduction-content-text-bold">concerts</span> inoubliable auxquels tu as assistés et partager ton expérience !<br />Ou tout simplement chercher où a tourné ce groupe underground moldave des années 90 dont tout le monde parle (ou pas).
+            Ici tu peux répertorier les <span className="introduction-content-text-bold">concerts</span> inoubliables auxquels tu as assistés et partager ton expérience !<br />Ou tout simplement chercher où a tourné ce groupe underground moldave des années 90 dont tout le monde parle (ou pas).
           </p>
           <p className="introduction-content-register">
             Pour t’inscrire ça se passe
@@ -50,10 +50,10 @@ const Home = ({
         </div>
         <div className="description">
           <p>
-            Tu peux désormais partager tes photos de concert avec les autres metalheads !
+            Tu peux désormais partager tes photos de concerts avec les autres metalheads !
           </p>
           <p className="description-text-middle">
-            Alors rend-toi tout de suite sur la page de ton dernier concert pour y poster la photo de ton pote qui a encore trop bu et qui est monté sur scène piquer le micro… (on le connait que trop bien)
+            Alors rends-toi tout de suite sur la page de ton dernier concert pour y poster la photo de ton pote qui a encore trop bu et qui est monté sur scène piquer le micro… (on le connait que trop bien)
           </p>
           <p>
             <span className="description-italic">Inscrivez-vous</span> pour nous partarger vos meilleurs souvenirs.
@@ -61,7 +61,7 @@ const Home = ({
         </div>
       </div>
 
-      <h2 className="lastReviews">Dernieres reviews</h2>
+      <h2 className="lastReviews">Dernieres chroniques</h2>
       {loadingReviews && <ScaleLoader color={SECONDARY_COLOR} />}
       {!loadingReviews && <Reviews reviews={reviews} />}
 
