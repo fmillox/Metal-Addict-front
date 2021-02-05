@@ -14,12 +14,12 @@
     padding: 1.1em;
 
     @include md {
-      height: 355px;
-      padding-top: 1.6em;
+      height: 325px;
+      padding-top: 1.8em;
     }
 
     @include lg {
-      height: 305px;
+      height: 270px;
       padding: 1.8em 1.6em;
     }
 
@@ -27,16 +27,16 @@
       font-size: 1em;
 
       @include md {
-        font-size: 1.9em;
+        font-size: 1.6em;
       }
 
       @include lg {
-        font-size: 1.7em;
+        font-size: 1.4em;
       }
 
       .introduction-content-title {
         text-align: center;
-        font-size: 1.2em;
+        font-size: 1.8em;
         // font-weight: 600;
         font-family: vars.$titleFont;
 
@@ -45,7 +45,7 @@
         }
 
         @include lg {
-          font-size: 1.8em;
+          font-size: 2.1em;
         }
       }
 
@@ -86,9 +86,9 @@
       padding: 1.1em;
 
       @include md {
-        height: 340px;
-        padding-top: 1em;
-        font-size: 1.9em;
+        height: 300px;
+        padding-top: 1.6em;
+        font-size: 1.6em;
       }
 
       @include lg {
@@ -96,8 +96,9 @@
         height: 335px;
         margin-top: 150px;
         margin-left: 37%;
-        padding-left: 175px;
-        font-size: 1.7em;
+        padding-top: 2.7em;
+        padding-left: 170px;
+        font-size: 1.4em;
       }
 
       .description-text-middle {
@@ -132,7 +133,7 @@
 
   .lastReviews {
     width: 100%;
-    font-size: 2em;
+    font-size: 2.2em;
     // font-weight: 700;
     background-color: vars.$secondaryColor;
     height: 80px;
@@ -144,12 +145,15 @@
     font-family: vars.$titleFont;
     margin-top: 35px;
 
+    @include md {
+      font-size: 3.1em;
+    }
+
     @include lg {
       width: 56%;
       margin-right: 38%;
       justify-content: flex-end;
-      padding-right: .7em;
-      padding-top: .2em;
+      padding-right: .8em;
       margin-top: 100px;
     }
   }
@@ -174,7 +178,7 @@
 
       @include lg {
         position: absolute;
-        bottom: 140px;
+        bottom: 75px;
         width: 45%;
         margin-left: 55%;
         clip-path: polygon(25% 0%, 100% 1%, 100% 100%, 25% 100%, 0% 50%);
@@ -189,9 +193,9 @@
       padding: 1.1em;
 
       @include md {
-        height: 535px;
-        padding-top: 1em;
-        font-size: 1.9em;
+        height: 445px;
+        padding-top: 1.4em;
+        font-size: 1.6em;
       }
 
       @include lg {
@@ -199,7 +203,9 @@
         margin-right: 50%;
         margin-bottom: 2em;
         font-size: 1.7em;
-        height: 500px;
+        height: 410px;
+        font-size: 1.4em;
+        padding-top: 1.3em;
       }
 
       .about-team {

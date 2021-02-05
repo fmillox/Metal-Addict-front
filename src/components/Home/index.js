@@ -37,7 +37,7 @@ const Home = ({
             Ici tu peux répertorier les <span className="introduction-content-text-bold">concerts</span> inoubliables auxquels tu as assistés et partager ton expérience !<br />Ou tout simplement chercher où a tourné ce groupe underground moldave des années 90 dont tout le monde parle (ou pas).
           </p>
           <p className="introduction-content-register">
-            Pour t’inscrire ça se passe 
+            Pour t’inscrire ça se passe&nbsp;
             <Link to="/inscription">
               <span className="introduction-content-register-link">ici</span>
             </Link>
@@ -57,7 +57,7 @@ const Home = ({
             Alors rends-toi tout de suite sur la page de ton dernier concert pour y poster la photo de ton pote qui a encore trop bu et qui est monté sur scène piquer le micro… (on le connait que trop bien)
           </p>
           <p>
-          <Link to="/inscription"><span className="description-italic">Inscris-toi </span></Link>pour nous partarger tes meilleurs souvenirs.
+          <Link to="/inscription"><span className="description-italic">Inscris-toi</span></Link>&nbsp;pour nous partager tes meilleurs souvenirs.
           </p>
         </div>
       </div>
