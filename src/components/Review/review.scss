@@ -49,15 +49,20 @@
 
   .review-title {
     text-align: center;
-    font-size: 1.4em;
-    font-weight: 700;
+    font-size: 1.7em;
+    //font-weight: 700;
     margin-top: vars.$gutter;
     width: 100%;
     color: vars.$secondaryColor;
     text-transform: uppercase;
+    font-family: vars.$titleFont;
+
+    @include md {
+      font-size: 2.3em;
+    }
 
     @include lg {
-      font-size: 1.7em;
+      font-size: 2.8em;
     }
   }
   
@@ -68,13 +73,13 @@
     margin-top: 2 * vars.$gutter;
     padding: 0 vars.$gutter;
     width: 100%;
-
+    
     @include lg {
       margin-left: auto;
       margin-right: auto;
       width: 80%;
     }
-    
+
     .review-user-image {
       width: 50px;
       height: 50px;
@@ -99,8 +104,13 @@
       .user-name {
         color: vars.$lightSecondaryColor;
   
-        &:hover {
-          color: vars.$secondaryColor;
+        .user-name-bold {
+          font-weight: 600;
+          
+          &:hover {
+            color: vars.$secondaryColor;
+            text-decoration: underline;
+          }
         }
 
         @include lg {
@@ -171,7 +181,7 @@
 
     .review-pictures-label {
       font-size: 1.7em;
-      font-weight: 700;
+      // font-weight: 700;
       background-color: vars.$secondaryColor;
       height: 80px;
       display: flex;

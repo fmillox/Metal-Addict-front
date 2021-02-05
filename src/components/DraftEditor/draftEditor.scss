@@ -8,21 +8,22 @@
   }
   
   .draftEditor-editor {
-    background-color: vars.$lightSecondaryColor;
+    background-color: vars.$primaryColor;
     padding: 0.5rem;
     border: 1px solid vars.$lightSecondaryColor;
     min-height: 100vh;
+    color: vars.$lightSecondaryColor;
   }
   .draftEditor-toolbar {
     border: 1px solid vars.$lightSecondaryColor;
-    background-color: vars.$lightSecondaryColor;
-
+    background-color: vars.$primaryColor;
+    
     .rdw-option-wrapper {
-      background-color: vars.$lightSecondaryColor;
-      border-color: vars.$primaryColor;
-
+      background-color: vars.$primaryColor;
+      border-color: vars.$lightSecondaryColor;
+      
       &:hover {
-        background-color: vars.$secondaryColor;
+        background-color: vars.$lightPrimaryColor;
       }
     }
   }

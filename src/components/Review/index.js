@@ -101,7 +101,7 @@ const Review = ({
                 // eslint-disable-next-line prefer-template
                 to={'/utilisateur/' + getSlug(review.user.nickname, review.user.id)}
               >
-                par {review.user.nickname}
+                par <span className="user-name-bold">{review.user.nickname}</span>
               </Link>
               <p className="user-date">
                 postée le {Moment(review.createdAt).locale('fr').format('L')}

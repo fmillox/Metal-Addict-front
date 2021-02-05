@@ -12,14 +12,18 @@
 
   .inputField-input {
     height: 2rem;
-    padding: 0.25em;
-    border: none;
+    padding: 0.5em;
     border-radius: 0.25rem;
-    color: vars.$primaryColor;
-    background-color: vars.$lightSecondaryColor;
+    color: vars.$lightSecondaryColor;
+    background-color: vars.$primaryColor;
+    border: 1px solid vars.$lightSecondaryColor;
+
+    &::placeholder { 
+      color: vars.$lightSecondaryColor;
+    }
 
     &:focus {
-      border: 2px solid vars.$secondaryColor;
+      border: 1px solid vars.$secondaryColor;
     }
   }
 }

@@ -16,7 +16,7 @@
       cursor: pointer;
       align-self: center;
       color: vars.$secondaryColor;
-      font-family: vars.$headerFont;
+      font-family: vars.$titleFont;
       font-size: 4em;
       line-height: 0.9em;
       
@@ -31,7 +31,7 @@
     text-align: center;
     font-weight: 700;
     font-size: 1.2rem;
-    color: vars.$secondaryColor;
+    color: vars.$lightSecondaryColor;
   }
   
   .register-user-form {

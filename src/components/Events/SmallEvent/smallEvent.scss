@@ -1,11 +1,21 @@
-@use 'src/styles/vars'; 
+@use 'src/styles/vars';
+@import "src/styles/media";
 
 .smallEvent {
   width: 310px;
   margin: 1.8rem auto;
   display: flex;
   flex-direction: column;
-  
+  @include lg {
+      &:hover {
+        .smallEvent-band-container{
+        background-color: vars.$lightPrimaryColor;
+      }
+      .smallEvent-content-container{
+        background-color: vars.$secondaryColor;
+      }
+    }
+  }
   .smallEvent-band-container {
     color: vars.$lightSecondaryColor;
     border-top: vars.$secondaryColor solid 2px;
@@ -21,8 +31,9 @@
     border-radius: 5px 5px 0 0 ;
     margin-bottom: -4px;
     
+
     .smallEvent-band{
-      font-size: 1.9em;
+      font-size: 2.3em;
       font-family: vars.$titleFont;
     }
   }

@@ -37,7 +37,7 @@
       .introduction-content-title {
         text-align: center;
         font-size: 1.2em;
-        font-weight: 600;
+        // font-weight: 600;
         font-family: vars.$titleFont;
 
         @include md {
@@ -62,6 +62,7 @@
         .introduction-content-register-link{
           font-style: italic;
           font-weight: 500;
+          text-decoration: underline;
         }
       }
     }
@@ -105,7 +106,8 @@
 
       .description-italic {
         font-style: italic;
-        font-weight: 500;
+        font-weight: 600;
+        text-decoration: underline;
       }
     }
   
@@ -131,7 +133,7 @@
   .lastReviews {
     width: 100%;
     font-size: 2em;
-    font-weight: 700;
+    // font-weight: 700;
     background-color: vars.$secondaryColor;
     height: 80px;
     display: flex;

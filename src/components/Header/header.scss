@@ -9,25 +9,31 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 1em;
-  height: 120px;
+  height: 105px;
   position: relative;
 
   @include md {
+    height: 150px;
     background-color: vars.$primaryColor;
-    height: 200px;
   }
   
+  @include lg {
+    height: 175px;
+    background-color: vars.$primaryColor;
+  }
+
   .sigle {
     max-height: 100%;
-    width: 50px;
+    width: 65px;
+    margin-left: -0.6em;
 
     @include md {
-      width: 80px;
+      width: 95px;
     }
 
     @include lg {
-      width: 100px;
-      margin-left: 2em;
+      width: 125px;
+      margin-left: 1.2em;
     }
   }
 
@@ -40,9 +46,9 @@
       .main-title {
         
         text-align: center;
-        font-family: vars.$headerFont;
-        font-size: 4em;
-        line-height: 0.9em;
+        font-family: vars.$titleFont;
+        font-size: 3.5em;
+        line-height: 0.8em;
 
         @include md {
           font-size: 5em;
@@ -69,8 +75,8 @@
     }
 
     @include md {
-      width: 90px;
-      height: 90px;
+      width: 85px;
+      height: 85px;
     }
 
     @include lg {
