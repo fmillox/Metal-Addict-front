@@ -9,8 +9,9 @@ export const setLoadingReviews = (value) => ({
   value,
 });
 
-export const fetchLastReviews = () => ({
+export const fetchLastReviews = (history) => ({
   type: FETCH_LAST_REVIEWS,
+  history,
 });
 
 export const saveLastReviews = (reviews) => ({
@@ -18,9 +19,10 @@ export const saveLastReviews = (reviews) => ({
   reviews,
 });
 
-export const fetchEventReviews = (setlistId) => ({
+export const fetchEventReviews = (setlistId, history) => ({
   type: FETCH_EVENT_REVIEWS,
   setlistId,
+  history,
 });
 
 export const saveEventReviews = (reviews) => ({

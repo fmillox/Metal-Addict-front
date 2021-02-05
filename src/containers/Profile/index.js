@@ -40,9 +40,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   loadUserDatas: (userId, history) => {
     dispatch(fetchUserDatas(userId, history));
-    dispatch(fetchUserEvents(userId));
-    dispatch(fetchUserReviews(userId));
-    dispatch(fetchUserPictures(userId));
+    dispatch(fetchUserEvents(userId, history));
+    dispatch(fetchUserReviews(userId, history));
+    dispatch(fetchUserPictures(userId, history));
   },
 });
 

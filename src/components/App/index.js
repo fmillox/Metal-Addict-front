@@ -23,9 +23,6 @@ const App = () => {
   return (
     <div className="app">
       <Switch>
-        <Route path="/connexion?redirection={location}/{slug}">
-          <Login />
-        </Route>
         <Route exact path="/connexion">
           <Login />
         </Route>

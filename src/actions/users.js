@@ -8,19 +8,22 @@ export const SAVE_USER_PICTURES = 'SAVE_USER_PICTURES';
 export const SAVE_USER_DATAS = 'SAVE_USER_DATAS';
 export const SET_LOADING_USER = 'SET_LOADING_USER';
 
-export const fetchUserEvents = (userId) => ({
+export const fetchUserEvents = (userId, history) => ({
   type: FETCH_USER_EVENTS,
   userId,
+  history,
 });
 
-export const fetchUserReviews = (userId) => ({
+export const fetchUserReviews = (userId, history) => ({
   type: FETCH_USER_REVIEWS,
   userId,
+  history,
 });
 
-export const fetchUserPictures = (userId) => ({
+export const fetchUserPictures = (userId, history) => ({
   type: FETCH_USER_PICTURES,
   userId,
+  history,
 });
 
 export const fetchUserDatas = (userId, history) => ({

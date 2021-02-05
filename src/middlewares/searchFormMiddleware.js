@@ -22,7 +22,7 @@ const searchFormMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log(error);
-          // TODO : action.history.push('...');
+          action.history.push('/erreur');
         })
         .finally(() => {
           store.dispatch(updatedLoadingBands());
@@ -37,7 +37,7 @@ const searchFormMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log(error);
-          // TODO : action.history.push('...');
+          action.history.push('/erreur');
         })
         .finally(() => {
           store.dispatch(updatedLoadingCountries());
@@ -69,7 +69,7 @@ const searchFormMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log(error);
-          // TODO : action.history.push('...');
+          action.history.push('/erreur');
         })
         .finally(() => {
           store.dispatch(setLoadingEvents(false));

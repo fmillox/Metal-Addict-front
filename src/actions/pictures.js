@@ -8,9 +8,10 @@ export const setLoadingPictures = (value) => ({
   value,
 });
 
-export const fetchEventPictures = (setlistId) => ({
+export const fetchEventPictures = (setlistId, history) => ({
   type: FETCH_EVENT_PICTURES,
   setlistId,
+  history,
 });
 
 export const saveEventPictures = (pictures) => ({

@@ -58,8 +58,8 @@ const RegisterUser = ({ resetHomePage, registerNewUser }) => {
       message: '3 caractères minimum',
     },
     maxLength: {
-      value: 10,
-      message: '10 caractères maximum',
+      value: 20,
+      message: '20 caractères maximum',
     },
   };
 

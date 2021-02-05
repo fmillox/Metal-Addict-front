@@ -20,7 +20,7 @@ const reviewsMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log(error);
-          // TODO : action.history.push('...');
+          action.history.push('/erreur');
         })
         .finally(() => {
           store.dispatch(setLoadingReviews(false));
@@ -36,7 +36,7 @@ const reviewsMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log(error);
-          // TODO : action.history.push('...');
+          action.history.push('/erreur');
         })
         .finally(() => {
           store.dispatch(setLoadingReviews(false));
@@ -53,7 +53,7 @@ const reviewsMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log(error);
-          // TODO : action.history.push('...');
+          action.history.push('/erreur');
         })
         .finally(() => {
           store.dispatch(setLoadingReviews(false));

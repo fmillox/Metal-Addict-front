@@ -10,7 +10,7 @@ import Button from 'src/components/Button';
 
 import { SECONDARY_COLOR } from 'src/styles/vars';
 
-import img from 'src/assets/images/sigle.png';
+import img from 'src/assets/images/event.png';
 
 import './events.scss';
 

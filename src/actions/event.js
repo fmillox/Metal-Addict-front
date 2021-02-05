@@ -24,9 +24,10 @@ export const saveEvent = (event) => ({
   event,
 });
 
-export const fetchUsersParticipateInEvent = (setlistId) => ({
+export const fetchUsersParticipateInEvent = (setlistId, history) => ({
   type: FETCH_USERS_PARTICIPATE_IN_EVENT,
   setlistId,
+  history,
 });
 
 export const saveUsersParticipateInEvent = (users) => ({

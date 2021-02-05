@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import { ScaleLoader } from 'react-spinners';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -20,8 +21,10 @@ const Home = ({
   loadingReviews,
   loadReviews,
 }) => {
+  const history = useHistory();
+
   useEffect(() => {
-    loadReviews();
+    loadReviews(history);
   }, []);
 
   return (

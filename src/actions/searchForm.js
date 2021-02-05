@@ -11,12 +11,14 @@ export const SUBMIT_EVENTS_SEARCH = 'SUBMIT_EVENTS_SEARCH';
 export const UPDATE_LOADING_BANDS = 'UPDATE_LOADING_BANDS';
 export const UPDATE_LOADING_COUNTRIES = 'UPDATE_LOADING_COUNTRIES';
 
-export const fetchBands = () => ({
+export const fetchBands = (history) => ({
   type: FETCH_BANDS,
+  history,
 });
 
-export const fetchCountries = () => ({
+export const fetchCountries = (history) => ({
   type: FETCH_COUNTRIES,
+  history,
 });
 
 export const updateBands = (bands) => ({
@@ -54,8 +56,9 @@ export const updateEventPlace = (value) => ({
   value,
 });
 
-export const submitEventsSearch = () => ({
+export const submitEventsSearch = (history) => ({
   type: SUBMIT_EVENTS_SEARCH,
+  history,
 });
 
 export const updatedLoadingBands = () => ({

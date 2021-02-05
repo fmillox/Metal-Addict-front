@@ -25,8 +25,8 @@ const mapDispatchToProps = (dispatch) => ({
   loadReview: (id, history) => {
     dispatch(fetchReview(id, history));
   },
-  loadPictures: (id) => {
-    dispatch(fetchPictures(id));
+  loadPictures: (id, history) => {
+    dispatch(fetchPictures(id, history));
   },
   deleteReview: (id, history) => {
     dispatch(deleteReview(id, history));

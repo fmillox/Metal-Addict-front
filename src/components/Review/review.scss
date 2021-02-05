@@ -54,6 +54,7 @@
     margin-top: vars.$gutter;
     width: 100%;
     color: vars.$secondaryColor;
+    text-transform: uppercase;
 
     @include lg {
       font-size: 1.7em;

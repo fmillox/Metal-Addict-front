@@ -16,7 +16,7 @@ const userMiddleware = (store) => (next) => (action) => {
           }
           else {
             console.log(error);
-            // TODO : action.history.push('...');
+            action.history.push('/erreur');
           }
         })
         .finally(() => {

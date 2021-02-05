@@ -1,27 +1,20 @@
 import React from 'react';
 
+import error from 'src/assets/images/error.jpg';
+
 import './error.scss';
 
 const Error = () => (
-  <div className="container">
-    <h1>
-      <p>Metal</p>
-      <p>Addict</p>
-    </h1>
-    <div className="content">
-      <h2>Une erreur est survenue...</h2>
+  <div className="error">
+    <span className="error-content">
+      Une erreur est survenue...
+    </span>
+    <div className="error-image-container">
+      <img className="error-image" src={error} alt="phil" />
     </div>
-    <div className="image">
-      <img src="phil.jpg" alt="phil" />
-    </div>
-    <div className="text">
-      <p>"I’m broken dude !"</p>
-    </div>
-    <div className="link">
-      <a href="#">
-        retour
-      </a>
-    </div>
+    <span className="error-text">
+      "I'm broken dude !"
+    </span>
   </div>
 );
 

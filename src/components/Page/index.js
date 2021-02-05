@@ -9,7 +9,8 @@ import ReviewCreate from 'src/containers/ReviewCreate';
 import ReviewEdit from 'src/containers/ReviewEdit';
 import Review from 'src/containers/Review';
 import Profile from 'src/containers/Profile';
-import NotFound from 'src/containers/NotFound';
+import Error from 'src/components/Error';
+import NotFound from 'src/components/NotFound';
 
 import './page.scss';
 
@@ -32,8 +33,11 @@ const Page = () => (
       <Route path="/chronique/:slug">
         <Review />
       </Route>
-      <Route exact path="/utilisateur/:slug">
+      <Route path="/utilisateur/:slug">
         <Profile />
+      </Route>
+      <Route exact path="/erreur">
+        <Error />
       </Route>
       <Route>
         <NotFound />

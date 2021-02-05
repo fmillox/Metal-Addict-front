@@ -21,7 +21,7 @@ const reviewMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log(error);
-          // TODO : action.history.push('...');
+          action.history.push('/erreur');
         })
         .finally(() => {
           store.dispatch(setLoadingReviewManage(false));
@@ -43,7 +43,8 @@ const reviewMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           store.dispatch(resetReviewManage());
-          action.history.goBack();
+          // eslint-disable-next-line prefer-template
+          action.history.push('/evenement/' + action.slug);
         })
         .catch((error) => {
           if (error.response.status === 401) {
@@ -52,7 +53,7 @@ const reviewMiddleware = (store) => (next) => (action) => {
           }
           else {
             console.log(error);
-            // TODO : action.history.push('...');
+            action.history.push('/erreur');
           }
         })
         .finally(() => {
@@ -75,7 +76,8 @@ const reviewMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           store.dispatch(resetReviewManage());
-          action.history.goBack();
+          // eslint-disable-next-line prefer-template
+          action.history.push('/chronique/' + action.slug);
         })
         .catch((error) => {
           if (error.response.status === 401) {
@@ -84,7 +86,7 @@ const reviewMiddleware = (store) => (next) => (action) => {
           }
           else {
             console.log(error);
-            // TODO : action.history.push('...');
+            action.history.push('/erreur');
           }
         })
         .finally(() => {

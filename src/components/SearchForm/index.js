@@ -1,6 +1,7 @@
 // == Import npm
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import classNames from 'classnames';
 import { ScaleLoader } from 'react-spinners';
 import { ChevronsDown, ChevronsUp } from 'react-feather';
@@ -36,6 +37,7 @@ const SearchForm = ({
   setEventPlace,
   manageSubmit,
 }) => {
+  const history = useHistory();
   const [bandInputValue, setBandInputValue] = useState('');
   const [countryInputValue, setCountryInputValue] = useState('');
   const [yearInputValue, setYearInputValue] = useState('');
@@ -43,8 +45,8 @@ const SearchForm = ({
   const [open, setOpen] = useState(true);
 
   useEffect(() => {
-    loadBands();
-    loadCountries();
+    loadBands(history);
+    loadCountries(history);
     setYears(createYearArray());
   }, []);
 
@@ -68,7 +70,7 @@ const SearchForm = ({
       setYear(null);
     }
     else {
-      manageSubmit();
+      manageSubmit(history);
     }
   };
 

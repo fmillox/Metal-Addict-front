@@ -8,8 +8,9 @@ export const setLoadingEvents = (value) => ({
   value,
 });
 
-export const fetchSetListApiMoreEvents = () => ({
+export const fetchSetListApiMoreEvents = (history) => ({
   type: FETCH_SET_LIST_API_MORE_EVENTS,
+  history,
 });
 
 export const saveSetListApiMoreEvents = (events) => ({
