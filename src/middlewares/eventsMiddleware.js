@@ -38,7 +38,7 @@ const eventsMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log(error);
-          // TODO : action.history.push('...');
+          action.history.push('/erreur');
         })
         .finally(() => {
           store.dispatch(setLoadingEvents(false));
@@ -56,7 +56,7 @@ const eventsMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log(error);
-          // TODO : action.history.push('...');
+          action.history.push('/erreur');
         })
         .finally(() => {
           store.dispatch(setLoadingEvents(false));

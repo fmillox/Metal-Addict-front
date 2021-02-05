@@ -21,7 +21,13 @@ export const getSlug = (text, id) => {
 export const getIdFromSlug = (slug) => {
   const index = slug.lastIndexOf('-');
 
-  return (index === -1 ? '' : slug.substring(index + 1));
+  if (index === -1) {
+    return 'NO_ID';
+  }
+
+  const id = slug.substring(index + 1).trim();
+
+  return (id.length === 0 ? 'NO_ID' : id);
 };
 
 export const createYearArray = () => {

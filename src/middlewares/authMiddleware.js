@@ -30,7 +30,7 @@ const authMiddleware = (store) => (next) => (action) => {
           }
           else {
             console.log(error);
-            // TODO : action.history.push('...');
+            action.history.push('/erreur');
           }
         });
       next(action);
@@ -41,7 +41,6 @@ const authMiddleware = (store) => (next) => (action) => {
       axios.post('/user', {
         email: action.email,
         password: action.password,
-        // passwordConfirmed: action.passwordConfirmed, // TODO : check with back
         nickname: action.nickname,
       })
         .then((response) => {
@@ -49,7 +48,7 @@ const authMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log(error);
-          // TODO : action.history.push('...');
+          action.history.push('/erreur');
         });
       next(action);
       break;
@@ -75,7 +74,7 @@ const authMiddleware = (store) => (next) => (action) => {
           }
           else {
             console.log(error);
-            // TODO : action.history.push('...');
+            action.history.push('/erreur');
           }
         })
         .finally(() => {

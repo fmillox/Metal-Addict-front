@@ -1,17 +1,16 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-
-import './home.scss';
-
 import { ScaleLoader } from 'react-spinners';
+
+import Reviews from 'src/components/Reviews';
 
 import firstPicture from 'src/assets/images/concert8.jpg';
 import secondPicture from 'src/assets/images/concert13.jpg';
 
-import Reviews from 'src/components/Reviews';
-
 import { SECONDARY_COLOR } from 'src/styles/vars';
+
+import './home.scss';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -23,8 +22,10 @@ const Home = ({
   loadingReviews,
   loadReviews,
 }) => {
+  const history = useHistory();
+
   useEffect(() => {
-    loadReviews();
+    loadReviews(history);
   }, []);
 
   return (
@@ -60,8 +61,7 @@ const Home = ({
           </p>
         </div>
       </div>
-
-      <h2 className="lastReviews">Dernieres chroniques</h2>
+      <h2 className="lastReviews">Dernières chroniques</h2>
       {loadingReviews && <ScaleLoader color={SECONDARY_COLOR} />}
       {!loadingReviews && <Reviews reviews={reviews} />}
 

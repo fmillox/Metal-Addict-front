@@ -24,7 +24,7 @@ const ReviewEdit = ({
   const history = useHistory();
 
   useEffect(() => {
-    loadReview(id);
+    loadReview(id, history);
   }, []);
 
   return (
@@ -40,7 +40,7 @@ const ReviewEdit = ({
         !loadingReview && (
           <ReviewManage
             buttonLabel="Modifier la chronique"
-            manageSubmit={() => manageEdit(id, history)}
+            manageSubmit={() => manageEdit(id, history, slug)}
           />
         )
       }

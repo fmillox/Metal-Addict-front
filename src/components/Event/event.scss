@@ -26,6 +26,7 @@
     .event-user {
       display: flex;
       align-items: center;
+      color: vars.$lightSecondaryColor;
 
       .event-user-not-checked-info {
         margin-left: 0.5em;

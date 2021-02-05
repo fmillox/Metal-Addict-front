@@ -33,12 +33,12 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   // nom de la prop à remplir: fonction qui dispatch l'action
   // nom de la prop à remplir: fonction qui dispatch l'action
-  loadBands: () => {
-    dispatch(fetchBands());
+  loadBands: (history) => {
+    dispatch(fetchBands(history));
   },
 
-  loadCountries: () => {
-    dispatch(fetchCountries());
+  loadCountries: (history) => {
+    dispatch(fetchCountries(history));
   },
 
   setBand: (value) => {
@@ -61,8 +61,8 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(updateEventPlace(value));
   },
 
-  manageSubmit: () => {
-    dispatch(submitEventsSearch());
+  manageSubmit: (history) => {
+    dispatch(submitEventsSearch(history));
   },
 });
 

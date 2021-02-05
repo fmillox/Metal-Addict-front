@@ -21,9 +21,10 @@ export const saveReview = (review) => ({
   review,
 });
 
-export const fetchPictures = (reviewId) => ({
+export const fetchPictures = (reviewId, history) => ({
   type: FETCH_PICTURES,
   reviewId,
+  history,
 });
 
 export const saveReviewPictures = (pictures) => ({

@@ -40,7 +40,7 @@ const Review = ({
 
   useEffect(() => {
     loadReview(id, history);
-    loadPictures(id);
+    loadPictures(id, history);
     refReview.current.scrollTo({
       top: 0,
       left: 0,

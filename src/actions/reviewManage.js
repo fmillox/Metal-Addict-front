@@ -12,9 +12,10 @@ export const setLoadingReviewManage = (value) => ({
   value,
 });
 
-export const fetchReviewManage = (id) => ({
+export const fetchReviewManage = (id, history) => ({
   type: FETCH_REVIEW_MANAGE,
   id,
+  history,
 });
 
 export const saveReviewManage = (title, content) => ({
@@ -33,16 +34,18 @@ export const setReviewManageContent = (value) => ({
   value,
 });
 
-export const createReviewManage = (setlistId, history) => ({
+export const createReviewManage = (setlistId, history, slug) => ({
   type: CREATE_REVIEW_MANAGE,
   setlistId,
   history,
+  slug,
 });
 
-export const editReviewManage = (id, history) => ({
+export const editReviewManage = (id, history, slug) => ({
   type: EDIT_REVIEW_MANAGE,
   id,
   history,
+  slug,
 });
 
 export const resetReviewManage = () => ({

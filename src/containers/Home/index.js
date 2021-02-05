@@ -16,8 +16,8 @@ const mapStateToProps = (state) => ({
 // === mapDispatchToProps
 // si j'ai besoin de dispatcher des actions vers le store (mettre à jour le state)
 const mapDispatchToProps = (dispatch) => ({
-  loadReviews: () => {
-    dispatch(fetchLastReviews());
+  loadReviews: (history) => {
+    dispatch(fetchLastReviews(history));
   },
 });
 

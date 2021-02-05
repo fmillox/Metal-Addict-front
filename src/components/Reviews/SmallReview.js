@@ -30,9 +30,7 @@ const SmallReview = ({
   });
 
   return (
-    <article
-      className="smallReview"
-    >
+    <article className="smallReview">
       <Link
         to={location}
       >

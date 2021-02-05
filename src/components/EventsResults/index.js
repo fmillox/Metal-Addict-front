@@ -1,6 +1,7 @@
 // == Import npm
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import ScaleLoader from 'react-spinners/ScaleLoader';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
@@ -20,6 +21,7 @@ const EventsResults = ({
   moreEvents,
   manageMoreEventsSubmit,
 }) => {
+  const history = useHistory();
   const [bandLogo, setBandLogo] = useState('');
   const [showBandLogo, setShowBandLogo] = useState(false);
 
@@ -64,7 +66,7 @@ const EventsResults = ({
                 events={events.setlist}
                 loadingEvents={loadingEvents}
                 moreEvents={moreEvents}
-                manageSubmit={manageMoreEventsSubmit}
+                manageSubmit={() => manageMoreEventsSubmit(history)}
               />
             </div>
           </>

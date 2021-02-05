@@ -30,7 +30,7 @@ const eventMiddleware = (store) => (next) => (action) => {
           }
           else {
             console.log(error);
-            // TODO : action.history.push('...');
+            action.history.push('/erreur');
           }
         })
         .finally(() => {
@@ -47,7 +47,7 @@ const eventMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log(error);
-          // TODO : action.history.push('...');
+          action.history.push('/erreur');
         });
       next(action);
       break;
@@ -71,7 +71,7 @@ const eventMiddleware = (store) => (next) => (action) => {
           }
           else {
             console.log(error);
-            // TODO : action.history.push('...');
+            action.history.push('/erreur');
           }
         });
       next(action);
@@ -99,7 +99,7 @@ const eventMiddleware = (store) => (next) => (action) => {
           }
           else {
             console.log(error);
-            // TODO : action.history.push('...');
+            action.history.push('/erreur');
           }
         })
         .finally(() => {

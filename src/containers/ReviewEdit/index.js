@@ -16,11 +16,11 @@ const mapStateToProps = (state) => ({
 // si j'ai besoin de dispatcher des actions vers le store (mettre à jour le state)
 const mapDispatchToProps = (dispatch) => ({
   // nom de la prop à remplir: fonction qui dispatch l'action
-  loadReview: (id) => {
-    dispatch(fetchReviewManage(id));
+  loadReview: (id, history) => {
+    dispatch(fetchReviewManage(id, history));
   },
-  manageEdit: (id, history) => {
-    dispatch(editReviewManage(id, history));
+  manageEdit: (id, history, slug) => {
+    dispatch(editReviewManage(id, history, slug));
   },
 });
 
