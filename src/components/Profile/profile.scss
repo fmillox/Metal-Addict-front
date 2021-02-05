@@ -49,6 +49,10 @@
         }
       }
     }
+
+    .user-nickname  {
+      font-weight: 700;
+    }
   }
   .user-description {
     @include sm {
@@ -72,7 +76,7 @@
     .label-events {
       cursor: pointer;
       font-size: 1.7em;
-      font-weight: 700;
+      //font-weight: 700;
       background-color: vars.$secondaryColor;
       height: 80px;
       display: flex;
@@ -92,13 +96,17 @@
         width: 56%;
         margin-left: 38%;
         justify-content: flex-end;
+
+        &:hover {
+          background-color: vars.$lightSecondaryColor;
+        }
       }
     }
 
     .label-reviews {
       cursor: pointer;
       font-size: 1.7em;
-      font-weight: 700;
+      // font-weight: 700;
       background-color: vars.$secondaryColor;
       height: 80px;
       display: flex;
@@ -119,13 +127,17 @@
         width: 56%;
         margin-left: 6%;
         justify-content: flex-start;
+
+        &:hover {
+          background-color: vars.$lightSecondaryColor;
+        }
       }
     }
 
     .label-pictures {
       cursor: pointer;
       font-size: 1.7em;
-      font-weight: 700;
+      // font-weight: 700;
       background-color: vars.$secondaryColor;
       height: 80px;
       display: flex;
@@ -145,6 +157,10 @@
         width: 56%;
         margin-left: 38%;
         justify-content: flex-end;
+
+        &:hover {
+          background-color: vars.$lightSecondaryColor;
+        }
       }
     }
 

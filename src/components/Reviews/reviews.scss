@@ -21,9 +21,20 @@
     display: flex;
     flex-direction: column;
 
+    @include lg {
+      &:hover {
+        .data{
+        background-color: vars.$lightPrimaryColor;
+      }
+      .review-content{
+        background-color: vars.$secondaryColor;
+      }
+    }
+  }
+
     .data {
-      font-size: 1rem;
-      background-color: vars.$lightPrimaryColor; // a voir si on laisse cette couleur ?
+      font-size: 1.2rem;
+      background-color: vars.$primaryColor; // a voir si on laisse cette couleur ?
       color: vars.$lightSecondaryColor;
       border-top: vars.$secondaryColor solid 2px;
       border-left: vars.$secondaryColor solid 2px;

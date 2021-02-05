@@ -36,6 +36,7 @@
     
     .postedBy {
       min-height: 30px;
+      color: vars.$lightSecondaryColor
     }
     .picture {
       width: 210px;
@@ -60,14 +61,17 @@
     width: 70px; 
     left:50%; 
     transform:translate(-50%);
-    background-color: vars.$lightSecondaryColor;
+    background-color: vars.$primaryColor;
     border: none;
     border-radius: 0.5em;
     padding: .2em;
-    color: vars.$primaryColor;
+    color: vars.$lightSecondaryColor;
+    border: 1px vars.$lightSecondaryColor solid;
 
     &:hover {
-      background-color: vars.$secondaryColor;
+      background-color: vars.$lightSecondaryColor;
+      color: vars.$primaryColor;
+      border: 1px vars.$lightSecondaryColor solid
     }
   }
 }

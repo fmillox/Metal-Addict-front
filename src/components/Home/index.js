@@ -37,9 +37,9 @@ const Home = ({
             Ici tu peux répertorier les <span className="introduction-content-text-bold">concerts</span> inoubliables auxquels tu as assistés et partager ton expérience !<br />Ou tout simplement chercher où a tourné ce groupe underground moldave des années 90 dont tout le monde parle (ou pas).
           </p>
           <p className="introduction-content-register">
-            Pour t’inscrire ça se passe
+            Pour t’inscrire ça se passe 
             <Link to="/inscription">
-              <span className="introduction-content-register-link"> ici</span>
+              <span className="introduction-content-register-link">ici</span>
             </Link>
           </p>
         </div>
@@ -57,7 +57,7 @@ const Home = ({
             Alors rends-toi tout de suite sur la page de ton dernier concert pour y poster la photo de ton pote qui a encore trop bu et qui est monté sur scène piquer le micro… (on le connait que trop bien)
           </p>
           <p>
-            <span className="description-italic">Inscrivez-vous</span> pour nous partarger vos meilleurs souvenirs.
+          <Link to="/inscription"><span className="description-italic">Inscris-toi </span></Link>pour nous partarger tes meilleurs souvenirs.
           </p>
         </div>
       </div>
@@ -71,7 +71,7 @@ const Home = ({
         </div>
         <div className="about">
           <p>
-            Ce site est l’aboutissement du projet d’apothéose d’Oclock (promo Lyra-PHP) dont l’idée à germée dans la tête de Thomas.<br />
+            Ce site est l’aboutissement du projet d’apothéose d’Oclock (promo Lyra-PHP) dont l’idée a germé dans la tête de Thomas.<br />
             Il a rapidement été rejoint par Frédéric, Hugo et … Hugo.
           </p>
           <div className="about-team">
@@ -83,7 +83,7 @@ const Home = ({
           </div>
           <p className="about-technology">Ce site a été développé en <span className="about-bold">React</span> et <span className="about-bold">Symfony</span>.</p>
           <p>
-            Les données (groupes, concerts, images…) ont été rendue accessibles grâce à l’utilisation des APIs de Musicbrainz.org, Setlist.fm et Fanart.tv.
+            Les données (groupes, concerts, images…) ont été rendues accessibles grâce à l’utilisation des APIs de Musicbrainz.org, Setlist.fm et Fanart.tv.
           </p>
         </div>
       </div>

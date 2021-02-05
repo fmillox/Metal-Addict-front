@@ -16,7 +16,7 @@
       cursor: pointer;
       align-self: center;
       color: vars.$secondaryColor;
-      font-family: vars.$headerFont;
+      font-family: vars.$titleFont;
       font-size: 4em;
       line-height: 0.9em;
       
@@ -31,7 +31,7 @@
     text-align: center;
     font-weight: 700;
     font-size: 1.2rem;
-    color: vars.$secondaryColor;
+    color: vars.$lightSecondaryColor;
   }
 
   .login-container {
@@ -84,16 +84,18 @@
   
       .login-create-account-button {
         margin: 1em 0;
-        background-color: vars.$lightSecondaryColor;
-        color: vars.$primaryColor;
+        background-color: vars.$primaryColor;
+        color: vars.$lightSecondaryColor;
         border: none;
         border-radius: 0.5em;
         padding: 1em;
-        color: vars.$primaryColor;
         font-weight: 700;
+        border: 1px solid vars.$lightSecondaryColor;
 
         &:hover {
-          background-color: vars.$secondaryColor;
+          background-color: vars.$lightSecondaryColor;
+          color: vars.$primaryColor;
+          border: 1px solid vars.$lightSecondaryColor;
         }
       }
     }
