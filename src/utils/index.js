@@ -172,7 +172,7 @@ export const changeCityName = (cityName) => {
 
 export const getAbsolutePicturePath = (path) => (
   // eslint-disable-next-line prefer-template
-  'http://ec2-54-162-156-51.compute-1.amazonaws.com/Share-O-Metal/public' + path
+  'http://ec2-3-88-13-25.compute-1.amazonaws.com/Share-O-Metal/public' + path
 );
 
 export const getAbsoluteAvatarPath = (path) => {
@@ -180,7 +180,7 @@ export const getAbsoluteAvatarPath = (path) => {
     return avatar;
   }
   // eslint-disable-next-line prefer-template
-  return 'http://ec2-54-162-156-51.compute-1.amazonaws.com/Share-O-Metal/public' + path;
+  return 'http://ec2-3-88-13-25.compute-1.amazonaws.com/Share-O-Metal/public' + path;
 };
 
 export const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));

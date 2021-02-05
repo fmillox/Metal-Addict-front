@@ -83,7 +83,10 @@ const Home = ({
           </div>
           <p className="about-technology">Ce site a été développé en <span className="about-bold">React</span> et <span className="about-bold">Symfony</span>.</p>
           <p>
-            Les données (groupes, concerts, images…) ont été rendues accessibles grâce à l’utilisation des APIs de Musicbrainz.org, Setlist.fm et Fanart.tv.
+            Les données (groupes, concerts, images…) ont été rendues accessibles grâce à l’utilisation des APIs de&nbsp;
+            <a className="about-link" href="https://musicbrainz.org/">Musicbrainz.org</a>,&nbsp;
+            <a className="about-link" href="https://www.setlist.fm/">Setlist.fm</a> et&nbsp;
+            <a className="about-link" href="https://fanart.tv/">Fanart.tv</a>.
           </p>
         </div>
       </div>

@@ -109,15 +109,13 @@ const Profile = ({
                   }
                 </div>
                 {
-                isConnectedUser && (
-                  <div className="upload-avatar-container">
+                  isConnectedUser && (
                     <UploadPicture
                       className="upload-avatar"
                       loading={loadingUploadAvatar}
                       manageSubmit={manageUploadAvatar}
                     />
-                  </div>
-                )
+                  )
                 }
               </div>
               <h2 className="user-nickname">{user.nickname}</h2>
