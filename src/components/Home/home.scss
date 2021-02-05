@@ -6,41 +6,106 @@
   flex-direction: column;
   align-items: center;
 
-  .news {
+  .introduction {
     width: 100%;
-    height: 250px;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 35px;
+    height: 215px;
+    margin-top: 65px;
     background-color: vars.$secondaryColor;
-    padding: 0 60px;
+    padding: 1.1em;
 
-    .news-content {
-      font-size: 1.6em;
+    @include md {
+      height: 355px;
+      padding-top: 1.6em;
+    }
+
+    @include lg {
+      height: 305px;
+      padding: 1.8em 1.6em;
+    }
+
+    .introduction-content {
+      font-size: 1em;
+
+      @include md {
+        font-size: 1.9em;
+      }
+
+      @include lg {
+        font-size: 1.7em;
+      }
+
+      .introduction-content-title {
+        text-align: center;
+        font-size: 1.2em;
+        font-weight: 600;
+        font-family: vars.$titleFont;
+
+        @include md {
+          font-size: 1.8em;
+        }
+
+        @include lg {
+          font-size: 1.8em;
+        }
+      }
+
+      .introduction-content-text {
+        margin: 1.1em 0;
+      }
+
+      .introduction-content-text-bold {
+        font-weight: 600;
+      }
+
+      .introduction-content-register {
+
+        .introduction-content-register-link{
+          font-style: italic;
+          font-weight: 500;
+        }
+      }
     }
   }
 
   .firstBlock {
     width: 100%;
-
-    @include md {
+    
+    @include lg {
       position: relative;
+      margin-top: 40px;
     }
 
-    .introduction {
+    .description {
       width: 100%;
-      height: 80px;
-      background-color: vars.$secondaryColor;
+      height: 200px;
+      background-color: vars.$lightPrimaryColor;
+      color: vars.$lightSecondaryColor;
       margin-top: 35px;
-      font-size: 1.2em;
+      font-size: 1em;
+      padding: 1.1em;
 
       @include md {
+        height: 340px;
+        padding-top: 1em;
+        font-size: 1.9em;
+      }
+
+      @include lg {
         width: 63%;
-        height: 300px;
+        height: 335px;
         margin-top: 150px;
-        padding-right: 130px;
+        margin-left: 37%;
+        padding-left: 175px;
+        font-size: 1.7em;
+      }
+
+      .description-text-middle {
+        margin: .6em 0;
+      }
+
+      .description-italic {
+        font-style: italic;
+        font-weight: 500;
       }
     }
   
@@ -54,69 +119,102 @@
         object-fit: cover;
       }
 
-      @include md {
+      @include lg {
         width: 50%;
         position: absolute;
-        right: 0;
+        left: 0;
         top: 0;
       }
     }
   }
-  
-
-  .description {
-    width: 100%;
-    height: 300px;
-    margin-top: 35px;
-    background-color: vars.$secondaryColor;
-    font-size: 1.5em;
-  }
 
   .lastReviews {
-    text-align: center;
+    width: 100%;
+    font-size: 2em;
+    font-weight: 700;
+    background-color: vars.$secondaryColor;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: vars.$lightPrimaryColor;
+    margin-bottom: .4*vars.$gutter;
+    font-family: vars.$titleFont;
     margin-top: 35px;
-    color: vars.$secondaryColor;
-    font-size: 1.5em;
-    margin-bottom: 15px;
+
+    @include lg {
+      width: 56%;
+      margin-right: 38%;
+      justify-content: flex-end;
+      padding-right: .7em;
+      padding-top: .2em;
+      margin-top: 100px;
+    }
   }
+  
 
   .secondBlock {
     width: 100%;
-    margin-top: 35px;
+    margin-top: 55px;
 
-    @include md {
+    @include lg {
       position: relative;
     }
 
     .secondImage {
       width: 100%;
-      margin-top: 35px;
-      clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
-  
+      
       .image{
         width: 100%;
         height: 100%;
         object-fit: cover;
       }
 
-      @include md {
-        width: 50%;
+      @include lg {
+        position: absolute;
+        bottom: 140px;
+        width: 45%;
+        margin-left: 55%;
+        clip-path: polygon(25% 0%, 100% 1%, 100% 100%, 25% 100%, 0% 50%);
       }
   }
     .about {
       color: vars.$primaryColor;
       width: 100%;
-      height: 185px;
+      height: 330px;
       background-color: vars.$secondaryColor;
-      text-align: center;
-      font-size: 1.6em;
+      font-size: 1em;
+      padding: 1.1em;
 
       @include md {
-        width: 50%;
-        position: absolute;
-        right: 0;
-        top: 35%;
-        transform:translate(0, -40%);
+        height: 535px;
+        padding-top: 1em;
+        font-size: 1.9em;
+      }
+
+      @include lg {
+        width: 55%;
+        margin-right: 50%;
+        margin-bottom: 2em;
+        font-size: 1.7em;
+        height: 500px;
+      }
+
+      .about-team {
+        margin: .6em 0;
+
+        .about-team-title {
+          font-style: italic;
+          margin-bottom: .3em;
+        }
+      }
+
+      .about-bold {
+        font-weight: 700;
+      }
+
+      .about-technology {
+        margin: .6em 0;
       }
   }
   }
