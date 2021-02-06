@@ -13,7 +13,7 @@ import './main.scss';
 const Main = ({ showEventsResults }) => (
   <div className="main">
     <div className="main-searchForm">
-      <SearchForm showOpenButton={showEventsResults} />
+      <SearchForm />
     </div>
     {
       !showEventsResults && (

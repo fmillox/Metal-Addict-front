@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import classNames from 'classnames';
 import { ScaleLoader } from 'react-spinners';
-import { ChevronsDown, ChevronsUp } from 'react-feather';
 
 // == Import
 import AutocompleteInput from 'src/components/AutocompleteInput';
@@ -22,7 +21,6 @@ const SearchForm = ({
   loading,
   bands,
   countries,
-  showOpenButton,
   band,
   country,
   city,
@@ -143,18 +141,6 @@ const SearchForm = ({
                 <Button label="Rechercher" />
               </div>
             </div>
-            {
-              showOpenButton && (
-                <div className="searchForm-open-btn">
-                  {
-                    open && <ChevronsUp onClick={onOpenBtnClick} />
-                  }
-                  {
-                    !open && <ChevronsDown onClick={onOpenBtnClick} />
-                  }
-                </div>
-              )
-            }
           </>
         )
       }
@@ -166,7 +152,6 @@ SearchForm.propTypes = {
   loading: PropTypes.bool.isRequired,
   bands: PropTypes.arrayOf(PropTypes.object).isRequired,
   countries: PropTypes.arrayOf(PropTypes.object).isRequired,
-  showOpenButton: PropTypes.bool,
   band: PropTypes.object,
   country: PropTypes.object,
   city: PropTypes.string.isRequired,
@@ -183,7 +168,6 @@ SearchForm.propTypes = {
 };
 
 SearchForm.defaultProps = {
-  showOpenButton: false,
   band: null,
   country: null,
   year: null,

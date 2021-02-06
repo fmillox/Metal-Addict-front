@@ -8,10 +8,9 @@ import {
   SUBMIT_EVENTS_SEARCH,
   updatedLoadingBands,
   updatedLoadingCountries,
-
 } from 'src/actions/searchForm';
 
-import { setLoadingEvents, saveEventsResults } from 'src/actions/events';
+import { setLoadingEvents, saveEventsResults, hideSearchEvents } from 'src/actions/events';
 
 const searchFormMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -54,6 +53,7 @@ const searchFormMiddleware = (store) => (next) => (action) => {
         year,
       } = store.getState().searchForm;
 
+      store.dispatch(hideSearchEvents());
       store.dispatch(setLoadingEvents(true));
       axios.get(`/search/${band.id}`, {
         params: {

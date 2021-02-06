@@ -2,6 +2,7 @@ import {
   SET_LOADING_EVENTS,
   SAVE_EVENTS_RESULTS,
   SAVE_SET_LIST_API_MORE_EVENTS,
+  HIDE_SEARCH_EVENTS,
 } from 'src/actions/events';
 
 import { RESET_HOME_PAGE } from 'src/actions/home';
@@ -47,13 +48,17 @@ function eventsReducer(state = initialState, action = {}) {
         showSearchEvents: false,
         loading: false,
       };
-
     case SAVE_USER_EVENTS:
       return {
         ...state,
         userEvents: action.events,
       };
-
+    case HIDE_SEARCH_EVENTS:
+      return {
+        ...state,
+        searchEvents: null,
+        showSearchEvents: false,
+      };
     default:
       return state;
   }

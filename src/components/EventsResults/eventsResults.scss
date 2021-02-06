@@ -2,6 +2,7 @@
 @import "src/styles/media";
 
 .eventsResults {
+  margin-top: 2 * vars.$gutter;
   display: flex;
   flex-direction: column;
   align-items: center;
