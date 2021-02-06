@@ -203,27 +203,30 @@
     .review-pictures-label {
       font-size: 1.7em;
       // font-weight: 700;
-      background-color: vars.$secondaryColor;
-      height: 80px;
       display: flex;
-      align-items: center;
       justify-content: center;
-      color: vars.$lightPrimaryColor;
-      margin-bottom: 2.5 * vars.$gutter;
-      font-family: vars.$titleFont;
-      text-align: center;
+      align-items: center;
       width: 100%;
-      
+      height: 80px;
+      background-color: vars.$secondaryColor;
+      color: vars.$lightPrimaryColor;
+      margin-bottom: 3*vars.$gutter;
+      padding-left: vars.$gutter;
+      font-family: vars.$titleFont;
+
       @include md {
+        justify-content: space-between;
         width: 59%;
         margin-left: 7%;
-        padding-left: vars.$gutter;
       }
 
       @include lg {
         width: 56%;
         margin-left: 6%;
-        justify-content: flex-start;
+      }
+
+      span {
+        margin: 0 2.5rem;
       }
     }
   }

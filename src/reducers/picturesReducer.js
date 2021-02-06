@@ -2,6 +2,7 @@ import {
   SET_LOADING_PICTURES,
   SAVE_EVENT_PICTURES,
   ADD_EVENT_PICTURE,
+  ADD_REVIEW_PICTURE,
 } from 'src/actions/pictures';
 import { SAVE_USER_PICTURES } from 'src/actions/users';
 import { SAVE_REVIEW_PICTURES } from 'src/actions/review';
@@ -46,6 +47,12 @@ function picturesReducer(state = initialState, action = {}) {
       return {
         ...state,
         reviewPictures: action.pictures,
+      };
+
+    case ADD_REVIEW_PICTURE:
+      return {
+        ...state,
+        reviewPictures: [action.picture].concat([...state.reviewPictures]),
       };
 
     default:

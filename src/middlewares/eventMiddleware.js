@@ -4,7 +4,7 @@ import {
   FETCH_EVENT,
   FETCH_USERS_PARTICIPATE_IN_EVENT,
   USER_PARTICIPATE_IN_EVENT,
-  UPLOAD_PICTURE,
+  UPLOAD_PICTURE_IN_EVENT,
   setLoadingEvent,
   saveEvent,
   saveUsersParticipateInEvent,
@@ -78,7 +78,7 @@ const eventMiddleware = (store) => (next) => (action) => {
       break;
     }
 
-    case UPLOAD_PICTURE: {
+    case UPLOAD_PICTURE_IN_EVENT: {
       const { id } = store.getState().event.data.setlist;
       const { token } = store.getState().auth;
 
