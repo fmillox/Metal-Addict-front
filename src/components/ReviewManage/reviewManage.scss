@@ -1,4 +1,5 @@
-@use 'src/styles/vars'; 
+@use 'src/styles/vars';
+@import "src/styles/media";
 
 .reviewManage {
   display: flex;
@@ -6,13 +7,19 @@
   width: 100%;
 
   .reviewManage-go-back {
-    align-self: flex-start;
-    padding: 1em;
+    margin: 1em;
     cursor: pointer;
-    color: vars.$lightSecondaryColor;
+    fill: vars.$lightSecondaryColor;
+    width: 25px;
+    height: 25px;
 
     &:hover {
-      color: vars.$secondaryColor;
+      fill: vars.$secondaryColor;
+    }
+
+    @include lg {
+      width: 40px;
+      height: 40px;
     }
   }
 

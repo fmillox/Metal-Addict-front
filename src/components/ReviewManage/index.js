@@ -2,11 +2,11 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ScaleLoader from 'react-spinners/ScaleLoader';
-import { ArrowLeft } from 'react-feather';
 
 import TextFieldInput from 'src/components/TextFieldInput';
 import DraftEditor from 'src/components/DraftEditor';
 import Button from 'src/components/Button';
+import { Back } from 'src/components/Icons';
 
 import { SECONDARY_COLOR } from 'src/styles/vars';
 
@@ -30,11 +30,8 @@ const ReviewManage = ({
 
   return (
     <form className="reviewManage" onSubmit={handleSubmit}>
-      <a
-        className="reviewManage-go-back"
-        onClick={() => history.goBack()}
-      >
-        <ArrowLeft />
+      <a onClick={() => history.goBack()}>
+        <Back className="reviewManage-go-back" />
       </a>
       <div className="reviewManage-title">
         <TextFieldInput name="title" label="Titre" value={title} manageChange={setTitle} />

@@ -19,11 +19,11 @@
     background-color: vars.$primaryColor;
     
     .rdw-option-wrapper {
-      background-color: vars.$primaryColor;
-      border-color: vars.$lightSecondaryColor;
+      background-color: vars.$lightSecondaryColor;
+      border-color: vars.$primaryColor;
       
       &:hover {
-        background-color: vars.$lightPrimaryColor;
+        background-color: vars.$secondaryColor;
       }
     }
   }

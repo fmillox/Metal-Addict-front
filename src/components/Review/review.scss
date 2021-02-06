@@ -15,10 +15,17 @@
 
     .review-back-to-reviews-results {
       cursor: pointer;
-      color: vars.$lightSecondaryColor;
-  
+      fill: vars.$lightSecondaryColor;
+      width: 25px;
+      height: 25px;
+
       &:hover {
-        color: vars.$secondaryColor;
+        fill: vars.$secondaryColor;
+      }
+
+      @include lg {
+        width: 40px;
+        height: 40px;
       }
     }
 
@@ -29,19 +36,33 @@
       .review-modify {
         cursor: pointer;
         color: vars.$lightSecondaryColor;
+        width: 29px;
+        height: 29px;
         padding-right: 0.5 * vars.$gutter;
     
         &:hover {
           color: vars.$secondaryColor;
+        }
+
+        @include lg {
+          width: 44px;
+          height: 44px;
         }
       }
     
       .review-delete {
         cursor: pointer;
         color: vars.$lightSecondaryColor;
+        width: 25px;
+        height: 25px;
     
         &:hover {
           color: vars.$secondaryColor;
+        }
+
+        @include lg {
+          width: 40px;
+          height: 40px;
         }
       }
     }

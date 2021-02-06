@@ -4,7 +4,11 @@ import { Link, useHistory } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+
+import { Login } from 'src/components/Icons';
+
 import sigle from 'src/assets/images/sigle.png';
+
 import './header.scss';
 
 import { getSlug, getAbsoluteAvatarPath } from 'src/utils';
@@ -117,10 +121,8 @@ const Header = ({
         </>
       )}
       {!isLogged && (
-        <Link
-          className="connexionLink"
-          to="/connexion"
-        >Se connecter
+        <Link to="/connexion">
+          <Login className="login" />
         </Link>
       )}
     </header>

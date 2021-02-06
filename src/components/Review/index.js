@@ -5,11 +5,12 @@ import {
   useHistory,
   Link,
 } from 'react-router-dom';
-import { ArrowLeft, Edit, Trash2 } from 'react-feather';
+import { Edit, Trash2 } from 'react-feather';
 import ScaleLoader from 'react-spinners/ScaleLoader';
 import Moment from 'moment';
 
 import Pictures from 'src/components/Pictures';
+import { Back } from 'src/components/Icons';
 
 import { SECONDARY_COLOR } from 'src/styles/vars';
 
@@ -62,27 +63,22 @@ const Review = ({
         !loadingReview && (
         <>
           <div className="review-header">
-            <a
-              className="review-back-to-reviews-results"
-              onClick={() => history.goBack()}
-            >
-              <ArrowLeft />
+            <a onClick={() => history.goBack()}>
+              <Back className="review-back-to-reviews-results" />
             </a>
             {
               isUserOwnerReview && (
                 <div className="review-action">
                   <Link
-                    className="review-modify"
                     // eslint-disable-next-line prefer-template
                     to={'/chronique/editer/' + getSlug(review.event.band.name, review.id)}
                   >
-                    <Edit />
+                    <Edit className="review-modify" />
                   </Link>
                   <a
-                    className="review-delete"
                     onClick={handleDelete}
                   >
-                    <Trash2 />
+                    <Trash2 className="review-delete" />
                   </a>
                 </div>
               )
