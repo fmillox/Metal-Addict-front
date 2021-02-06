@@ -31,6 +31,14 @@
     margin: 0.5em;
   }
 
+  .reviewManage-error {
+    height: 30px;
+    padding-top: 0.25em;
+    color: vars.$errorColor;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
   .reviewManage-button {
     margin: 1em 0 2em;
     text-align: center;
