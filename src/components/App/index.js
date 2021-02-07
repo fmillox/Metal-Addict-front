@@ -12,7 +12,7 @@ import './styles.scss';
 
 // == Composant
 const App = () => {
-  axios.defaults.baseURL = 'http://ec2-3-88-13-25.compute-1.amazonaws.com/Share-O-Metal/public/api';
+  axios.defaults.baseURL = 'http://ec2-3-80-87-102.compute-1.amazonaws.com/Share-O-Metal/public/api';
 
   const { pathname } = useLocation();
 
