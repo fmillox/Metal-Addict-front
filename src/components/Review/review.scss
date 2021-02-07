@@ -153,7 +153,8 @@
     margin-top: 2 * vars.$gutter;
     padding: 0 vars.$gutter;
     width: 100%;
-    color: vars.$lightSecondaryColor;
+    color: white;
+    text-align: justify;
 
     @include lg {
       margin-left: auto;
@@ -180,7 +181,7 @@
     width: 100%;
 
     .review-pictures-label {
-      font-size: 1.7em;
+      font-size: 2.5em;
       // font-weight: 700;
       background-color: vars.$secondaryColor;
       height: 80px;
@@ -197,12 +198,15 @@
         width: 59%;
         margin-left: 7%;
         padding-left: vars.$gutter;
+        font-size: 2.9em;
+        margin-bottom: 1.6*vars.$gutter;
       }
 
       @include lg {
         width: 56%;
         margin-left: 6%;
         justify-content: flex-start;
+        font-size: 3.2em;
       }
     }
   }

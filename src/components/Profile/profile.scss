@@ -22,49 +22,81 @@
     @include md {
       display: flex;
       flex-direction: row;
+      margin-top: 1.2em;
     }
 
     .user-identity {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    margin: 30px 0;
+    margin: 15px 0 25px 0;
 
-    .avatar {
-      display: flex;
-      flex-direction: column;
-      text-align: center;
+      @include md {
+        margin-left: 1.7em;
+        margin-bottom: 0;
+      }
 
-      .user-picture{
-        border-radius: 50%;
-        width: 120px;
-        height: 120px;
-        display: inline-block;
-        // border: gray 1px solid;
-        margin: 0 20px 0 20px;
+      @include lg {
+        flex-direction: row;
+      }
+
+      .avatar {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        border: 2px solid vars.$lightSecondaryColor;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        padding: 10px 0;
+        
+        .user-picture{
+          border-radius: 50%;
+          width: 120px;
+          height: 120px;
+          display: inline-block;
+          // border: gray 1px solid;
+          margin: 0 20px 10px 20px;
+        
+          .picture-content {
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+          }
+        }
+        .uploadPicture-icon {
+          color: vars.$lightSecondaryColor;
       
-        .picture-content {
-          width: 100%;
-          height: 100%;
-          border-radius: inherit;
+          &:hover {
+            color: vars.$secondaryColor;
+          }
         }
       }
-    }
 
-    .user-nickname  {
-      font-weight: 700;
-    }
+      .user-nickname  {
+        font-weight: 700;
+        font-size: 1.2em;
+
+        @include md {
+          font-size: 1.4em;
+        }
+
+        @include lg {
+          font-size: 1.4em;
+          margin-left: 1.5em;
+        }
+      }
   }
-  .user-description {
-    @include sm {
-      width: 60%;
-    }
-    background-color: vars.$lightPrimaryColor;
-    color: vars.$secondaryColor;
-    border: 1px solid black;
-    width: 280px;
-    margin: auto;
-    padding: 10px;
-  }
+      .user-description {
+        @include sm {
+          width: 45%;
+        }
+        background-color: vars.$lightPrimaryColor;
+        color: vars.$secondaryColor;
+        border: 1px solid black;
+        width: 280px;
+        margin: auto;
+        padding: 10px;
+      }
 }
 
   .user-main-content {
@@ -75,7 +107,7 @@
 
     .label-events {
       cursor: pointer;
-      font-size: 1.7em;
+      font-size: 2.1em;
       //font-weight: 700;
       background-color: vars.$secondaryColor;
       height: 80px;
@@ -90,12 +122,15 @@
         width: 59%;
         margin-left: 35%;
         padding-right: vars.$gutter;
+        font-size: 2.7em;
+        margin-bottom: 1.6*vars.$gutter;
       }
 
       @include lg {
         width: 56%;
         margin-left: 38%;
         justify-content: flex-end;
+        font-size: 3em;
 
         &:hover {
           background-color: vars.$lightSecondaryColor;
@@ -105,7 +140,7 @@
 
     .label-reviews {
       cursor: pointer;
-      font-size: 1.7em;
+      font-size: 2.1em;
       // font-weight: 700;
       background-color: vars.$secondaryColor;
       height: 80px;
@@ -121,12 +156,15 @@
         width: 59%;
         margin-left: 7%;
         padding-left: vars.$gutter;
+        font-size: 2.7em;
+        margin-bottom: 1.6*vars.$gutter;
       }
 
       @include lg {
         width: 56%;
         margin-left: 6%;
         justify-content: flex-start;
+        font-size: 3em;
 
         &:hover {
           background-color: vars.$lightSecondaryColor;
@@ -136,7 +174,7 @@
 
     .label-pictures {
       cursor: pointer;
-      font-size: 1.7em;
+      font-size: 2.1em;
       // font-weight: 700;
       background-color: vars.$secondaryColor;
       height: 80px;
@@ -151,12 +189,16 @@
         width: 59%;
         margin-left: 35%;
         padding-right: vars.$gutter;
+        font-size: 2.7em;
+        margin-bottom: 1.6*vars.$gutter;
       }
 
       @include lg {
         width: 56%;
         margin-left: 38%;
         justify-content: flex-end;
+        font-size: 3em;
+        
 
         &:hover {
           background-color: vars.$lightSecondaryColor;
