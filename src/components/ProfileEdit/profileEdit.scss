@@ -1,0 +1,79 @@
+@use 'src/styles/vars';
+@import "src/styles/media";
+
+.profile-edit {
+  min-height: 100vh;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  
+  @include md {
+    padding: 1rem;
+  }
+
+  .profile-edit-loader-user {
+    align-self: center;
+  }
+
+  .profile-edit-back-to-profile {
+    margin: 0.5rem;
+    cursor: pointer;
+    fill: vars.$lightSecondaryColor;
+    width: 25px;
+    height: 25px;
+
+    &:hover {
+      fill: vars.$secondaryColor;
+    }
+
+    @include lg {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .profile-edit-title {
+    margin: 1em 0 2em;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: vars.$lightSecondaryColor;
+  }
+  
+  .profile-edit-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    @include md {
+      width: 60%;
+      margin: 0 auto;
+    }
+  
+    @include lg {
+      width: 40%;
+    }
+    
+    .profile-edit-nickname {
+      margin-bottom: 30px;
+    }
+
+    .profile-edit-biography {
+      margin-bottom: 30px;
+    }
+  
+    .profile-edit-error {
+      height: 30px;
+      padding-top: 0.25em;
+      color: vars.$errorColor;
+      font-size: 0.8rem;
+    }
+  
+    .profile-edit-button {
+      margin: 1em 0;
+      align-self: center;
+    }
+  }
+}
+

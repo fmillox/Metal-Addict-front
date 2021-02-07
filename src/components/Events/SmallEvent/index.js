@@ -19,8 +19,7 @@ const SmallEvent = ({
   picture,
   showData,
 }) => {
-  // eslint-disable-next-line prefer-template
-  const location = '/evenement/' + getSlug(artist.name, id);
+  const location = `/evenement/${getSlug(artist.name, id)}`;
   const cssClass = classNames('smallEvent-band-container', {
     'hide-smallEvent-band-container': !showData,
   });

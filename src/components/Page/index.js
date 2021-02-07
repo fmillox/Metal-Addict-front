@@ -8,6 +8,7 @@ import Event from 'src/containers/Event';
 import ReviewCreate from 'src/containers/ReviewCreate';
 import ReviewEdit from 'src/containers/ReviewEdit';
 import Review from 'src/containers/Review';
+import ProfileEdit from 'src/containers/ProfileEdit';
 import Profile from 'src/containers/Profile';
 import Error from 'src/components/Error';
 import NotFound from 'src/components/NotFound';
@@ -32,6 +33,9 @@ const Page = () => (
       </Route>
       <Route path="/chronique/:slug">
         <Review />
+      </Route>
+      <Route path="/utilisateur/editer/:slug">
+        <ProfileEdit />
       </Route>
       <Route path="/utilisateur/:slug">
         <Profile />

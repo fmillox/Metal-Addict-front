@@ -43,8 +43,7 @@ const reviewMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           store.dispatch(resetReviewManage());
-          // eslint-disable-next-line prefer-template
-          action.history.push('/evenement/' + action.slug);
+          action.history.push(`/evenement/${action.slug}`);
         })
         .catch((error) => {
           if (error.response.status === 401) {
@@ -76,8 +75,7 @@ const reviewMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           store.dispatch(resetReviewManage());
-          // eslint-disable-next-line prefer-template
-          action.history.push('/chronique/' + action.slug);
+          action.history.push(`/chronique/${action.slug}`);
         })
         .catch((error) => {
           if (error.response.status === 401) {

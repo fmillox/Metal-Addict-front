@@ -83,6 +83,25 @@
             color: vars.$secondaryColor;
           }
         }
+
+        .user-action {
+          align-self: center;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .user-edit {
+            cursor: pointer;
+            color: vars.$lightSecondaryColor;
+            width: 31px;
+            height: 31px;
+            padding-right: 0.5 * vars.$gutter;
+        
+            &:hover {
+              color: vars.$secondaryColor;
+            }
+          }
+        }
       }
 
       .user-nickname  {

@@ -8,6 +8,8 @@ import {
   REDIRECT_TO,
   SET_LOADING_AVATAR,
   SAVE_AVATAR,
+  SET_LOADING_EDIT_USER,
+  SAVE_EDITED_USER,
 } from 'src/actions/auth';
 
 import { RESET_HOME_PAGE } from 'src/actions/home';
@@ -22,6 +24,8 @@ const initialState = {
   notAuthorized: false,
 
   loadingAvatar: false,
+
+  loadingEdit: false,
 
   redirect: INITIAL_REDIRECT,
 };
@@ -87,7 +91,26 @@ function authReducer(state = initialState, action = {}) {
     case SAVE_AVATAR:
       return {
         ...state,
-        user: { ...state.user, avatar: action.path },
+        user: {
+          ...state.user,
+          avatar: action.path,
+        },
+      };
+
+    case SET_LOADING_EDIT_USER:
+      return {
+        ...state,
+        loadingEdit: action.value,
+      };
+
+    case SAVE_EDITED_USER:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          nickname: action.nickname,
+          biography: action.biography,
+        },
       };
 
     default:

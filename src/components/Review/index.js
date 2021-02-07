@@ -72,8 +72,7 @@ const Review = ({
               isUserOwnerReview && (
                 <div className="review-action">
                   <Link
-                    // eslint-disable-next-line prefer-template
-                    to={'/chronique/editer/' + getSlug(review.event.band.name, review.id)}
+                    to={`/chronique/editer/${getSlug(review.event.band.name, review.id)}`}
                   >
                     <Edit className="review-modify" />
                   </Link>
@@ -96,8 +95,7 @@ const Review = ({
             <div className="user-information">
               <Link
                 className="user-name"
-                // eslint-disable-next-line prefer-template
-                to={'/utilisateur/' + getSlug(review.user.nickname, review.user.id)}
+                to={`/utilisateur/${getSlug(review.user.nickname, review.user.id)}`}
               >
                 par <span className="user-name-bold">{review.user.nickname}</span>
               </Link>
