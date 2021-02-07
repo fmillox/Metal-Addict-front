@@ -213,3 +213,10 @@ export const wordWrap = (text, length) => {
   // eslint-disable-next-line prefer-template
   return wordWrapText.substring(0, indexOfSpace) + '...';
 };
+
+export const isDataValid = (text) => {
+  let textToCheck = text;
+  textToCheck = textToCheck.replace(/<p>/g, '');
+  textToCheck = textToCheck.replace(/<\/p>/g, '');
+  return textToCheck.trim().length > 0;
+};

@@ -5,8 +5,8 @@ export const FETCH_USERS_PARTICIPATE_IN_EVENT = 'FETCH_USERS_PARTICIPATE_IN_EVEN
 export const SAVE_USERS_PARTICIPATE_IN_EVENT = 'SAVE_USERS_PARTICIPATE_IN_EVENT';
 export const USER_PARTICIPATE_IN_EVENT = 'USER_PARTICIPATE_IN_EVENT';
 export const ADD_USER_PARTICIPATE_IN_EVENT = 'ADD_USER_PARTICIPATE_IN_EVENT';
-export const SET_LOADING_UPLOAD_PICTURE = 'SET_LOADING_UPLOAD_PICTURE';
-export const UPLOAD_PICTURE = 'UPLOAD_PICTURE';
+export const SET_LOADING_UPLOAD_PICTURE_IN_EVENT = 'SET_LOADING_UPLOAD_PICTURE_IN_EVENT';
+export const UPLOAD_PICTURE_IN_EVENT = 'UPLOAD_PICTURE_IN_EVENT';
 
 export const setLoadingEvent = (value) => ({
   type: SET_LOADING_EVENT,
@@ -47,12 +47,12 @@ export const addUserParticipateInEvent = (user) => ({
 });
 
 export const setLoadingUploadPicture = (value) => ({
-  type: SET_LOADING_UPLOAD_PICTURE,
+  type: SET_LOADING_UPLOAD_PICTURE_IN_EVENT,
   value,
 });
 
 export const uploadPicture = (formData, history) => ({
-  type: UPLOAD_PICTURE,
+  type: UPLOAD_PICTURE_IN_EVENT,
   formData,
   history,
 });

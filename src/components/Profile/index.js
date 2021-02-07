@@ -5,7 +5,6 @@ import ScaleLoader from 'react-spinners/ScaleLoader';
 import classNames from 'classnames';
 import Backdrop from '@material-ui/core/Backdrop';
 import { makeStyles } from '@material-ui/core/styles';
-import { ArrowLeft } from 'react-feather';
 import { getIdFromSlug, getAbsoluteAvatarPath } from 'src/utils';
 
 import Events from 'src/containers/Events';
@@ -13,6 +12,7 @@ import Reviews from 'src/components/Reviews';
 import Pictures from 'src/components/Pictures';
 import ModifyProfile from 'src/components/Profile/ModifyProfile/ModifyProfile';
 import UploadPicture from 'src/components/UploadPicture';
+import { Back } from 'src/components/Icons';
 
 import { SECONDARY_COLOR } from 'src/styles/vars';
 
@@ -97,8 +97,8 @@ const Profile = ({
       )}
       {!userLoading && (
         <>
-          <a className="back-to" onClick={handleBackToOnClick}>
-            <ArrowLeft />
+          <a onClick={handleBackToOnClick}>
+            <Back className="back-to" />
           </a>
           <div className="user">
             <div className="user-identity">

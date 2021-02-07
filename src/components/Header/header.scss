@@ -85,4 +85,24 @@
       margin-right: 2em;
     }
   }
+
+  .login {
+    cursor: pointer;
+    fill: vars.$lightSecondaryColor;
+    width: 45px;
+    height: 45px;
+
+    &:hover {
+      fill: vars.$secondaryColor;
+    }
+
+    @include md {
+      width: 80px;
+      height: 80px;
+    }
+
+    @include lg {
+      margin-right: 2em;
+    }
+  }
 }

@@ -5,11 +5,13 @@ import {
   useHistory,
   Link,
 } from 'react-router-dom';
-import { ArrowLeft, Edit, Trash2 } from 'react-feather';
+import { Edit, Trash2 } from 'react-feather';
 import ScaleLoader from 'react-spinners/ScaleLoader';
 import Moment from 'moment';
 
+import UploadPicture from 'src/components/UploadPicture';
 import Pictures from 'src/components/Pictures';
+import { Back } from 'src/components/Icons';
 
 import { SECONDARY_COLOR } from 'src/styles/vars';
 
@@ -19,6 +21,7 @@ import {
   getSlug,
   getAbsoluteAvatarPath,
   getAbsolutePicturePath,
+  getRandomInt,
 } from 'src/utils';
 
 import './review.scss';
@@ -30,6 +33,8 @@ const Review = ({
   pictures,
   loadPictures,
   loadingPictures,
+  manageUploadPicture,
+  loadingUploadPicture,
   isUserOwnerReview,
   deleteReview,
 }) => {
@@ -51,8 +56,6 @@ const Review = ({
     deleteReview(review.id, history);
   };
 
-  const galleryPictures = pictures.filter((picture, index) => index !== 0);
-
   return (
     <div className="review" ref={refReview}>
       {
@@ -62,27 +65,22 @@ const Review = ({
         !loadingReview && (
         <>
           <div className="review-header">
-            <a
-              className="review-back-to-reviews-results"
-              onClick={() => history.goBack()}
-            >
-              <ArrowLeft />
+            <a onClick={() => history.goBack()}>
+              <Back className="review-back-to-reviews-results" />
             </a>
             {
               isUserOwnerReview && (
                 <div className="review-action">
                   <Link
-                    className="review-modify"
                     // eslint-disable-next-line prefer-template
                     to={'/chronique/editer/' + getSlug(review.event.band.name, review.id)}
                   >
-                    <Edit />
+                    <Edit className="review-modify" />
                   </Link>
                   <a
-                    className="review-delete"
                     onClick={handleDelete}
                   >
-                    <Trash2 />
+                    <Trash2 className="review-delete" />
                   </a>
                 </div>
               )
@@ -113,7 +111,7 @@ const Review = ({
               <div className="first-image-container">
                 <img
                   className="first-image"
-                  src={getAbsolutePicturePath(pictures[0].path)}
+                  src={getAbsolutePicturePath(pictures[getRandomInt(pictures.length)].path)}
                   alt={review.event.band.name}
                 />
               </div>
@@ -124,13 +122,21 @@ const Review = ({
             loadingPictures && <ScaleLoader color={SECONDARY_COLOR} />
           }
           {
-            (!loadingPictures && pictures.length > 1) && (
+            !loadingPictures && (
             <div className="review-pictures-container">
               <div className="review-pictures-label">
-                Photos ({galleryPictures.length})
+                {
+                  isUserOwnerReview && (
+                    <UploadPicture
+                      loading={loadingUploadPicture}
+                      manageSubmit={manageUploadPicture}
+                    />
+                  )
+                }
+                <span>Photos ({pictures.length})</span>
               </div>
               <div className="review-pictures-list">
-                <Pictures pictures={galleryPictures} picturesOnScreen={8} />
+                <Pictures pictures={pictures} picturesOnScreen={8} />
               </div>
             </div>
             )
@@ -147,6 +153,8 @@ Review.propTypes = {
   loadReview: PropTypes.func.isRequired,
   loadPictures: PropTypes.func.isRequired,
   loadingPictures: PropTypes.bool.isRequired,
+  manageUploadPicture: PropTypes.func.isRequired,
+  loadingUploadPicture: PropTypes.bool.isRequired,
   pictures: PropTypes.arrayOf(PropTypes.object).isRequired,
   review: PropTypes.shape({
     title: PropTypes.string.isRequired,

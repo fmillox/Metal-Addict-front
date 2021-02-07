@@ -15,10 +15,17 @@
 
     .review-back-to-reviews-results {
       cursor: pointer;
-      color: vars.$lightSecondaryColor;
-  
+      fill: vars.$lightSecondaryColor;
+      width: 25px;
+      height: 25px;
+
       &:hover {
-        color: vars.$secondaryColor;
+        fill: vars.$secondaryColor;
+      }
+
+      @include lg {
+        width: 40px;
+        height: 40px;
       }
     }
 
@@ -29,19 +36,33 @@
       .review-modify {
         cursor: pointer;
         color: vars.$lightSecondaryColor;
+        width: 29px;
+        height: 29px;
         padding-right: 0.5 * vars.$gutter;
     
         &:hover {
           color: vars.$secondaryColor;
+        }
+
+        @include lg {
+          width: 44px;
+          height: 44px;
         }
       }
     
       .review-delete {
         cursor: pointer;
         color: vars.$lightSecondaryColor;
+        width: 25px;
+        height: 25px;
     
         &:hover {
           color: vars.$secondaryColor;
+        }
+
+        @include lg {
+          width: 40px;
+          height: 40px;
         }
       }
     }
@@ -183,18 +204,19 @@
     .review-pictures-label {
       font-size: 2.5em;
       // font-weight: 700;
-      background-color: vars.$secondaryColor;
-      height: 80px;
       display: flex;
-      align-items: center;
       justify-content: center;
-      color: vars.$lightPrimaryColor;
-      margin-bottom: 2.5 * vars.$gutter;
-      font-family: vars.$titleFont;
-      text-align: center;
+      align-items: center;
       width: 100%;
-      
+      height: 80px;
+      background-color: vars.$secondaryColor;
+      color: vars.$lightPrimaryColor;
+      margin-bottom: 3*vars.$gutter;
+      padding-left: vars.$gutter;
+      font-family: vars.$titleFont;
+
       @include md {
+        justify-content: space-between;
         width: 59%;
         margin-left: 7%;
         padding-left: vars.$gutter;
@@ -205,6 +227,10 @@
       @include lg {
         width: 56%;
         margin-left: 6%;
+      }
+
+      span {
+        margin: 0 2.5rem;
         justify-content: flex-start;
         font-size: 3.2em;
       }

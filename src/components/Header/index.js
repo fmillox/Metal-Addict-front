@@ -4,25 +4,61 @@ import { Link, useHistory } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+
+import { Login } from 'src/components/Icons';
+
 import sigle from 'src/assets/images/sigle.png';
+
 import './header.scss';
 
 import { getSlug, getAbsoluteAvatarPath } from 'src/utils';
 
+import { SECONDARY_COLOR } from 'src/styles/vars';
+
 const StyledMenu = withStyles({
-  paper: {
-    // border: '1px solid #d3d4d5',
-    borderRadius: 5,
-    backgroundColor: '#FFDB15',
-    width: '65px',
-    height: '65px',
-    '@media (min-width: 768px)': {
-      width: '140px',
-      height: '140px',
+  '@global': {
+    '.MuiList-root': {
+      borderRadius: '0.25em',
+      backgroundColor: SECONDARY_COLOR,
     },
-    '@media (min-width: 992px)': {
-      width: '165px',
-      height: '165px',
+    '.MuiList-padding': {
+      paddingTop: '0',
+      paddingBottom: '0',
+
+      '@media (min-width: 992px)': {
+        paddingTop: '0.25rem',
+        paddingBottom: '0.25rem',
+      },
+    },
+    '.MuiListItem-gutters': {
+      paddingLeft: '0.5rem',
+      paddingRight: '0.5rem',
+
+      '@media (min-width: 768px)': {
+        paddingLeft: '0.8rem',
+        paddingRight: '0.8rem',
+      },
+
+      '@media (min-width: 992px)': {
+        paddingLeft: '1rem',
+        paddingRight: '1rem',
+      },
+    },
+    '.MuiMenuItem-root': {
+      lineHeight: '0.5rem',
+      fontSize: '0.8rem',
+      minHeight: '30px',
+
+      '@media (min-width: 768px)': {
+        lineHeight: '1rem',
+        fontSize: '1rem',
+        minHeight: '42px',
+      },
+      '@media (min-width: 992px)': {
+        lineHeight: '1.2rem',
+        fontSize: '1.2rem',
+        minHeight: '50px',
+      },
     },
   },
 })((props) => (
@@ -117,10 +153,8 @@ const Header = ({
         </>
       )}
       {!isLogged && (
-        <Link
-          className="connexionLink"
-          to="/connexion"
-        >Se connecter
+        <Link to="/connexion">
+          <Login className="login" />
         </Link>
       )}
     </header>

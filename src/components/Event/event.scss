@@ -16,17 +16,24 @@
 
     .event-back-to-events-results {
       cursor: pointer;
-      color: vars.$lightSecondaryColor;
+      fill: vars.$lightSecondaryColor;
+      width: 25px;
+      height: 25px;
 
       &:hover {
-        color: vars.$secondaryColor;
+        fill: vars.$secondaryColor;
+      }
+
+      @include lg {
+        width: 40px;
+        height: 40px;
       }
     }
 
     .event-user {
       display: flex;
       align-items: center;
-      color: vars.$lightSecondaryColor;
+      color: vars.$secondaryColor;
 
       .event-user-not-checked-info {
         margin-left: 0.5em;
@@ -44,11 +51,10 @@
           font-style: italic;
         }
   
-        &:hover span
-        {
+        &:hover span {
           display: block;
           position: absolute;
-          top: 20px;
+          top: 30px;
           left: -100px;
           z-index: 1000;
           width: 100px;
@@ -62,13 +68,31 @@
   
         .event-user-not-checked {
           cursor: pointer;
-          color: red;
+          fill: vars.$lightSecondaryColor;
+          width: 25px;
+          height: 25px;
+
+          &:hover {
+            fill: vars.$secondaryColor;
+          }
+
+          @include lg {
+            width: 40px;
+            height: 40px;
+          }
         }
       }
       
       .event-user-checked {
         margin-left: 0.5em;
-        color: green;
+        fill: vars.$secondaryColor;
+        width: 25px;
+        height: 25px;
+
+        @include lg {
+          width: 40px;
+          height: 40px;
+        }
       }
     }
   }

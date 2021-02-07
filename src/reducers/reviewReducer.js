@@ -1,11 +1,15 @@
 import {
   SET_LOADING_REVIEW,
   SAVE_REVIEW,
+  SET_LOADING_UPLOAD_PICTURE_IN_REVIEW,
 } from 'src/actions/review';
 
 const initialState = {
   loading: false,
+
   data: null,
+
+  loadingUploadPicture: false,
 };
 
 function reviewReducer(state = initialState, action = {}) {
@@ -19,6 +23,11 @@ function reviewReducer(state = initialState, action = {}) {
       return {
         ...state,
         data: action.review,
+      };
+    case SET_LOADING_UPLOAD_PICTURE_IN_REVIEW:
+      return {
+        ...state,
+        loadingUploadPicture: action.value,
       };
     default:
       return state;

@@ -3,7 +3,12 @@ import { connect } from 'react-redux';
 // on importe le composant de présentation
 import Review from 'src/components/Review';
 
-import { fetchReview, fetchPictures, deleteReview } from 'src/actions/review';
+import {
+  fetchReview,
+  fetchPictures,
+  deleteReview,
+  uploadPicture,
+} from 'src/actions/review';
 
 import { isUserOwnerReview } from 'src/utils';
 
@@ -14,6 +19,7 @@ const mapStateToProps = (state) => ({
   loadingReview: state.review.loading || state.review.data === null,
   review: state.review.data,
   loadingPictures: state.pictures.loading,
+  loadingUploadPicture: state.review.loadingUploadPicture,
   pictures: state.pictures.reviewPictures,
   isUserOwnerReview: isUserOwnerReview(state.auth.user, state.review.data),
 });
@@ -27,6 +33,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   loadPictures: (id, history) => {
     dispatch(fetchPictures(id, history));
+  },
+  manageUploadPicture: (formData, history) => {
+    dispatch(uploadPicture(formData, history));
   },
   deleteReview: (id, history) => {
     dispatch(deleteReview(id, history));

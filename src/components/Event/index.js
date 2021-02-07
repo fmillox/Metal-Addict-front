@@ -2,11 +2,6 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink, useParams, useHistory } from 'react-router-dom';
 import ScaleLoader from 'react-spinners/ScaleLoader';
-import {
-  UserPlus,
-  UserCheck,
-  ArrowLeft,
-} from 'react-feather';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Moment from 'moment';
 import 'moment/locale/fr';
@@ -15,6 +10,7 @@ import ChatIcon from '@material-ui/icons/Chat';
 import Reviews from 'src/components/Reviews';
 import Pictures from 'src/components/Pictures';
 import UploadPicture from 'src/components/UploadPicture';
+import { Back, AddEventUser, EventUserChecked } from 'src/components/Icons';
 
 import { SECONDARY_COLOR } from 'src/styles/vars';
 
@@ -83,29 +79,25 @@ const Event = ({
         !loadingEvent && (
           <>
             <div className="event-header">
-              <a
-                className="event-back-to-events-results"
-                onClick={() => history.goBack()}
-              >
-                <ArrowLeft />
+              <a onClick={() => history.goBack()}>
+                <Back className="event-back-to-events-results" />
               </a>
               <div className="event-user">
                 <span>({participatedUsers.length})</span>
                 {
                   !isUserParticipatedInEvent && (
                     <div className="event-user-not-checked-info">
-                      <UserPlus
-                        className="event-user-not-checked"
+                      <a
                         onClick={() => userParticipateInEvent(setlistId, history)}
-                      />
+                      >
+                        <AddEventUser className="event-user-not-checked" />
+                      </a>
                       <span>Cliquez ici si vous y avez participé </span>
                     </div>
                   )
                 }
                 {
-                  isUserParticipatedInEvent && (
-                    <UserCheck className="event-user-checked" />
-                  )
+                  isUserParticipatedInEvent && <EventUserChecked className="event-user-checked" />
                 }
               </div>
             </div>
