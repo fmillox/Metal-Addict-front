@@ -57,7 +57,7 @@
         display: flex;
         flex-direction: column;
         text-align: center;
-        border: 2px solid vars.$lightSecondaryColor;
+        border: 2px solid vars.$secondaryColor;
         border-radius: 15px;
         margin-bottom: 20px;
         padding: 10px 0;
@@ -128,6 +128,8 @@
         width: 280px;
         margin: auto;
         padding: 10px;
+        border-radius: 5px; // todo tester
+        line-height: 1.4;
       }
 }
 
@@ -141,7 +143,7 @@
       cursor: pointer;
       font-size: 2.1em;
       //font-weight: 700;
-      background-color: vars.$secondaryColor;
+      background-color: vars.$lightSecondaryColor;
       height: 80px;
       display: flex;
       align-items: center;
@@ -156,6 +158,7 @@
         padding-right: vars.$gutter;
         font-size: 2.7em;
         margin-bottom: 1.6*vars.$gutter;
+        border-radius: 5px;  // todo tester
       }
 
       @include lg {
@@ -165,7 +168,7 @@
         font-size: 3em;
 
         &:hover {
-          background-color: vars.$lightSecondaryColor;
+          background-color: vars.$secondaryColor;
         }
       }
     }
@@ -174,7 +177,7 @@
       cursor: pointer;
       font-size: 2.1em;
       // font-weight: 700;
-      background-color: vars.$secondaryColor;
+      background-color: vars.$lightSecondaryColor;
       height: 80px;
       display: flex;
       align-items: center;
@@ -183,13 +186,13 @@
       margin-bottom: 2.5*vars.$gutter;
       font-family: vars.$titleFont;
 
-
       @include md {
         width: 59%;
         margin-left: 7%;
         padding-left: vars.$gutter;
         font-size: 2.7em;
         margin-bottom: 1.6*vars.$gutter;
+        border-radius: 5px; // todo tester
       }
 
       @include lg {
@@ -199,7 +202,7 @@
         font-size: 3em;
 
         &:hover {
-          background-color: vars.$lightSecondaryColor;
+          background-color: vars.$secondaryColor;
         }
       }
     }
@@ -208,7 +211,7 @@
       cursor: pointer;
       font-size: 2.1em;
       // font-weight: 700;
-      background-color: vars.$secondaryColor;
+      background-color: vars.$lightSecondaryColor;
       height: 80px;
       display: flex;
       align-items: center;
@@ -223,6 +226,7 @@
         padding-right: vars.$gutter;
         font-size: 2.7em;
         margin-bottom: 1.6*vars.$gutter;
+        border-radius: 5px; // todo tester
       }
 
       @include lg {
@@ -233,7 +237,7 @@
         
 
         &:hover {
-          background-color: vars.$lightSecondaryColor;
+          background-color: vars.$secondaryColor;
         }
       }
     }

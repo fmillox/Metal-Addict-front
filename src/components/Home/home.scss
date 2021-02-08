@@ -9,9 +9,13 @@
   .introduction {
     width: 100%;
     margin-top: 65px;
-    background-color: vars.$secondaryColor;
-    padding: 1em;
+    //background-color: vars.$secondaryColor;
+    //background-color: vars.$lightSecondaryColor;
+    background: vars.$gradient;
 
+    padding: 1em;
+    line-height: 1.3;
+    
     .introduction-content {
       font-size: 1em;
 
@@ -72,6 +76,7 @@
       font-size: 1em;
       padding: 1em;
       text-align: justify;
+      line-height: 1.3;
 
       @include md {
         font-size: 1.6em;
@@ -94,6 +99,10 @@
         font-style: italic;
         font-weight: 600;
         text-decoration: underline;
+
+        &:hover {
+          color: vars.$secondaryColor;
+        }
       }
     }
   
@@ -119,7 +128,9 @@
   .lastReviews {
     width: 100%;
     font-size: 2.2em;
-    background-color: vars.$secondaryColor;
+    // background-color: vars.$secondaryColor; // todo :a tester
+    //background-color: vars.$lightSecondaryColor;
+    background: vars.$gradient;
     height: 80px;
     display: flex;
     align-items: center;
@@ -171,9 +182,12 @@
     .about {
       color: vars.$primaryColor;
       width: 100%;
-      background-color: vars.$secondaryColor;
+      //background-color: vars.$secondaryColor; //todo : a tester
+      //background-color: vars.$lightSecondaryColor;
+      background: vars.$gradient;
       font-size: 1em;
       padding: 1em;
+      line-height: 1.3;
 
       @include md {
         font-size: 1.6em;
@@ -207,6 +221,10 @@
       .about-link {
         cursor: pointer;
         text-decoration: underline;
+
+        &:hover {
+          color: vars.$lightPrimaryColor;
+        }
       }
     }
   }
