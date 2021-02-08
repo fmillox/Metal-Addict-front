@@ -22,8 +22,7 @@ const SmallReview = ({
   event,
   showData,
 }) => {
-  // eslint-disable-next-line prefer-template
-  const location = '/chronique/' + getSlug(event.band.name, id);
+  const location = `/chronique/${getSlug(event.band.name, id)}`;
 
   const cssClass = classNames('data', {
     'hide-data': !showData,

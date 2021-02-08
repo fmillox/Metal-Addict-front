@@ -142,8 +142,7 @@ const Header = ({
               onClick={handleClose}
             >
               <Link
-                // eslint-disable-next-line prefer-template
-                to={'/utilisateur/' + getSlug(user.nickname, user.id)}
+                to={`/utilisateur/${getSlug(user.nickname, user.id)}`}
                 onClick={handleClose}
               >Mon profil
               </Link>

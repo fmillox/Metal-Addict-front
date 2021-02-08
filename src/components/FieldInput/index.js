@@ -9,6 +9,7 @@ const FieldInput = ({
   placeholder,
   type,
   reference,
+  multiLine,
 }) => {
   const id = `input-field${name}`;
 
@@ -20,14 +21,29 @@ const FieldInput = ({
       >
         {label}
       </label>
-      <input
-        className="inputField-input"
-        id={id}
-        name={name}
-        placeholder={placeholder}
-        type={type}
-        ref={reference}
-      />
+      {
+        !multiLine && (
+          <input
+            className="inputField-input"
+            id={id}
+            name={name}
+            placeholder={placeholder}
+            type={type}
+            ref={reference}
+          />
+        )
+      }
+      {
+        multiLine && (
+          <textarea
+            className="inputField-textarea"
+            id={id}
+            name={name}
+            placeholder={placeholder}
+            ref={reference}
+          />
+        )
+      }
     </div>
   );
 };
@@ -41,10 +57,12 @@ FieldInput.propTypes = {
     PropTypes.func,
     PropTypes.shape({ current: PropTypes.elementType }),
   ]),
+  multiLine: PropTypes.bool,
 };
 
 FieldInput.defaultProps = {
   reference: null,
+  multiLine: false,
 };
 
 export default FieldInput;

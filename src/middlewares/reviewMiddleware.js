@@ -67,8 +67,7 @@ const reviewMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          // eslint-disable-next-line prefer-template
-          action.history.push('/utilisateur/' + getSlug(user.nickname, user.id));
+          action.history.push(`/utilisateur/${getSlug(user.nickname, user.id)}`);
         })
         .catch((error) => {
           if (error.response.status === 401) {

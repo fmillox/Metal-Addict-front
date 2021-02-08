@@ -4,11 +4,14 @@ import {
   LOG_IN,
   REGISTER_NEW_USER,
   UPLOAD_AVATAR,
+  EDIT_USER,
   saveUser,
   isNotAuthorized,
   setLoadingAvatar,
   saveAvatar,
   redirectTo,
+  setLoadingEditUser,
+  saveEditedUser,
 } from 'src/actions/auth';
 
 const authMiddleware = (store) => (next) => (action) => {
@@ -79,6 +82,37 @@ const authMiddleware = (store) => (next) => (action) => {
         })
         .finally(() => {
           store.dispatch(setLoadingAvatar(false));
+        });
+      next(action);
+      break;
+    }
+
+    case EDIT_USER: {
+      const { user, token } = store.getState().auth;
+
+      store.dispatch(setLoadingEditUser(true));
+      axios.patch(`/user/${user.id}`, {
+        nickname: action.nickname,
+        biography: action.biography,
+      }, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+        .then((response) => {
+          store.dispatch(saveEditedUser(action.nickname, action.biography));
+          action.history.push(`/utilisateur/${action.slug}`);
+        })
+        .catch((error) => {
+          if (error.response.status === 401) {
+            store.dispatch(redirectTo(action.history.location.pathname));
+            action.history.push('/connexion');
+          }
+          else {
+            console.log(error);
+            action.history.push('/erreur');
+          }
+        })
+        .finally(() => {
+          store.dispatch(setLoadingEditUser(false));
         });
       next(action);
       break;

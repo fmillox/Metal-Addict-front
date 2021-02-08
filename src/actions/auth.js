@@ -7,6 +7,9 @@ export const REDIRECT_TO = 'REDIRECT_TO';
 export const SET_LOADING_AVATAR = 'SET_LOADING_AVATAR';
 export const UPLOAD_AVATAR = 'UPLOAD_AVATAR';
 export const SAVE_AVATAR = 'SAVE_AVATAR';
+export const SET_LOADING_EDIT_USER = 'SET_LOADING_EDIT_USER';
+export const EDIT_USER = 'EDIT_USER';
+export const SAVE_EDITED_USER = 'SAVE_EDITED_USER';
 
 export const logIn = (email, password, history) => ({
   type: LOG_IN,
@@ -56,4 +59,23 @@ export const uploadAvatar = (formData, history) => ({
 export const saveAvatar = (path) => ({
   type: SAVE_AVATAR,
   path,
+});
+
+export const setLoadingEditUser = (value) => ({
+  type: SET_LOADING_EDIT_USER,
+  value,
+});
+
+export const editUser = (nickname, biography, history, slug) => ({
+  type: EDIT_USER,
+  nickname,
+  biography,
+  history,
+  slug,
+});
+
+export const saveEditedUser = (nickname, biography) => ({
+  type: SAVE_EDITED_USER,
+  nickname,
+  biography,
 });

@@ -192,8 +192,7 @@ const Event = ({
                       isUserParticipatedInEvent && !isUserPublishedAnEventReview && (
                         <NavLink
                           className="event-reviews-create"
-                          // eslint-disable-next-line prefer-template
-                          to={'/chronique/creer/' + getSlug(event.setlist.artist.name, setlistId)}
+                          to={`/chronique/creer/${getSlug(event.setlist.artist.name, setlistId)}`}
                         >
                           <ChatIcon />
                         </NavLink>

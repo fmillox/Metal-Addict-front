@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { Link, useParams, useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ScaleLoader from 'react-spinners/ScaleLoader';
 import classNames from 'classnames';
-import Backdrop from '@material-ui/core/Backdrop';
 import { makeStyles } from '@material-ui/core/styles';
+import { Edit } from 'react-feather';
 import { getIdFromSlug, getAbsoluteAvatarPath } from 'src/utils';
 
 import Events from 'src/containers/Events';
 import Reviews from 'src/components/Reviews';
 import Pictures from 'src/components/Pictures';
-import ModifyProfile from 'src/components/Profile/ModifyProfile/ModifyProfile';
 import UploadPicture from 'src/components/UploadPicture';
 import { Back } from 'src/components/Icons';
 
@@ -41,7 +40,6 @@ const Profile = ({
   const { slug } = useParams();
   const userId = getIdFromSlug(slug);
   const history = useHistory();
-  const classes = useStyles();
 
   useEffect(() => {
     loadUserDatas(userId, history);
@@ -49,11 +47,6 @@ const Profile = ({
 
   const handleBackToOnClick = () => {
     history.goBack();
-  };
-
-  const [open, setOpen] = useState(false);
-  const handleClose = () => {
-    setOpen(false);
   };
 
   const [showEvents, setShowEvents] = useState(false);
@@ -84,12 +77,11 @@ const Profile = ({
   });
 
   if (user.biography === null) {
-    user.biography = 'Description de malade !!!';
+    user.biography = 'Description non renseignée';
   }
 
   return (
     <div className="profile">
-      { /* isConnectedUser && <p onClick={handleToggle}>Modifier mon profil</p> */ }
       {userLoading && (
         <div className="loader">
           <ScaleLoader color={SECONDARY_COLOR} />
@@ -110,11 +102,18 @@ const Profile = ({
                 </div>
                 {
                   isConnectedUser && (
-                    <UploadPicture
-                      className="upload-avatar"
-                      loading={loadingUploadAvatar}
-                      manageSubmit={manageUploadAvatar}
-                    />
+                    <div className="user-action">
+                      <Link
+                        to={`/utilisateur/editer/${slug}`}
+                      >
+                        <Edit className="user-edit" />
+                      </Link>
+                      <UploadPicture
+                        className="upload-avatar"
+                        loading={loadingUploadAvatar}
+                        manageSubmit={manageUploadAvatar}
+                      />
+                    </div>
                   )
                 }
               </div>
@@ -139,9 +138,6 @@ const Profile = ({
               {!picturesLoading && <Pictures pictures={userPictures} picturesOnScreen={8} />}
             </div>
           </div>
-          <Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
-            <ModifyProfile />
-          </Backdrop>
         </>
       )}
     </div>

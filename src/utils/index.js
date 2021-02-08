@@ -10,8 +10,7 @@ import band from 'src/assets/images/band.jpg';
  * @return the slug for the text
  */
 export const getSlug = (text, id) => {
-  // eslint-disable-next-line prefer-template
-  const textToSlugify = text + '-' + id;
+  const textToSlugify = `${text}-${id}`;
 
   return slugify(textToSlugify, {
     lower: true,
@@ -116,8 +115,7 @@ export const getFilteredAutocompletInputOptions = (options, inputValue) => (
 
 export const pad = (number) => {
   if (number < 10) {
-    // eslint-disable-next-line prefer-template
-    return '0' + number;
+    return `0${number}`;
   }
   return number;
 };
@@ -133,8 +131,7 @@ export const convertEventsIntoSetlistEvents = (events) => {
 
   events.forEach((event) => {
     const date = new Date(event.date);
-    // eslint-disable-next-line prefer-template
-    const eventDate = pad(date.getDate()) + '-' + pad(date.getMonth() + 1) + '-' + date.getFullYear();
+    const eventDate = `${pad(date.getDate())}-${pad(date.getMonth() + 1)}-${date.getFullYear()}`;
 
     setlistApiEvents.setlist.push({
       id: event.setlistId,
@@ -171,16 +168,14 @@ export const changeCityName = (cityName) => {
 };
 
 export const getAbsolutePicturePath = (path) => (
-  // eslint-disable-next-line prefer-template
-  'http://ec2-3-80-87-102.compute-1.amazonaws.com/Share-O-Metal/public' + path
+  `http://ec2-3-80-87-102.compute-1.amazonaws.com/Share-O-Metal/public${path}`
 );
 
 export const getAbsoluteAvatarPath = (path) => {
   if (path === null) {
     return avatar;
   }
-  // eslint-disable-next-line prefer-template
-  return 'http://ec2-3-80-87-102.compute-1.amazonaws.com/Share-O-Metal/public' + path;
+  return `http://ec2-3-80-87-102.compute-1.amazonaws.com/Share-O-Metal/public${path}`;
 };
 
 export const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
@@ -201,17 +196,14 @@ export const wordWrap = (text, length) => {
   let indexOfSpace = text.lastIndexOf(' ');
 
   if (indexOfSpace === -1) {
-    // eslint-disable-next-line prefer-template
-    return wordWrapText + '...';
+    return `${wordWrapText}...`;
   }
 
   indexOfSpace = wordWrapText.lastIndexOf(' ');
   if (indexOfSpace === -1) {
-    // eslint-disable-next-line prefer-template
-    return wordWrapText + '...';
+    return `${wordWrapText}...`;
   }
-  // eslint-disable-next-line prefer-template
-  return wordWrapText.substring(0, indexOfSpace) + '...';
+  return `${wordWrapText.substring(0, indexOfSpace)}...`;
 };
 
 export const isDataValid = (text) => {
