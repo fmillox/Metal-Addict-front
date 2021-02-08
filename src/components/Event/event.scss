@@ -233,6 +233,7 @@
       margin: vars.$gutter auto;
       column-rule: 0;
       width: 80%;
+      line-height: 1.2;
 
       @include md {
         -webkit-column-count: 2;  /* Chrome/Opera, Safari */
