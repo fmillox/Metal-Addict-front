@@ -34,7 +34,7 @@ const Home = ({
         <div className="introduction-content">
           <h2 className="introduction-content-title">Welcome dear headbanger !</h2>
           <p className="introduction-content-text">
-            Ici tu peux répertorier les <span className="introduction-content-text-bold">concerts</span> inoubliables auxquels tu as assistés et partager ton expérience !<br />Ou tout simplement chercher où a tourné ce groupe underground moldave des années 90 dont tout le monde parle (ou pas).
+            Ici tu peux répertorier les <span className="introduction-content-text-bold">concerts</span> inoubliables auxquels tu as assisté et partager ton expérience !<br />Ou tout simplement chercher où a tourné ce groupe underground moldave des années 90 dont tout le monde parle (ou pas).
           </p>
           <p className="introduction-content-register">
             Pour t’inscrire ça se passe&nbsp;
