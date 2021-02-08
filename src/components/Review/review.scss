@@ -174,8 +174,9 @@
     margin-top: 2 * vars.$gutter;
     padding: 0 vars.$gutter;
     width: 100%;
-    color: white;
+    color: #FBEBB2;
     text-align: justify;
+    line-height: 1.5;
 
     @include lg {
       margin-left: auto;
@@ -209,11 +210,12 @@
       align-items: center;
       width: 100%;
       height: 80px;
-      background-color: vars.$secondaryColor;
+      background: vars.$gradient;
       color: vars.$lightPrimaryColor;
       margin-bottom: 3*vars.$gutter;
       padding-left: vars.$gutter;
       font-family: vars.$titleFont;
+      border-radius: 5px;
 
       @include md {
         justify-content: space-between;
