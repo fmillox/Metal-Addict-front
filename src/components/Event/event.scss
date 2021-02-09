@@ -1,0 +1,364 @@
+@use 'src/styles/vars'; 
+@import "src/styles/media";
+
+.event {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+
+  .event-header {
+    padding: 1em 1em 0 1em;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    .event-back-to-events-results {
+      cursor: pointer;
+      fill: vars.$lightSecondaryColor;
+      width: 25px;
+      height: 25px;
+
+      &:hover {
+        fill: vars.$secondaryColor;
+      }
+
+      @include lg {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    .event-user {
+      display: flex;
+      align-items: center;
+      color: vars.$secondaryColor;
+
+      .event-user-not-checked-info {
+        margin-left: 0.5em;
+        text-decoration: none;
+        position: relative;
+  
+        span {
+          display: none;
+          -moz-border-radius: 6px;
+          -webkit-border-radius: 6px;
+          border-radius: 6px;
+          color: black;
+          background-color: #eff1f3;
+          font-size: 10px;
+          font-style: italic;
+        }
+  
+        &:hover span {
+          display: block;
+          position: absolute;
+          top: 30px;
+          left: -100px;
+          z-index: 1000;
+          width: 100px;
+          min-height: 20px;
+          border: 1px solid black;
+          margin-top: 12px;
+          margin-left: 32px;
+          overflow: hidden;
+          padding: 8px;
+        }
+  
+        .event-user-not-checked {
+          cursor: pointer;
+          fill: vars.$lightSecondaryColor;
+          width: 25px;
+          height: 25px;
+
+          &:hover {
+            fill: vars.$secondaryColor;
+          }
+
+          @include lg {
+            width: 40px;
+            height: 40px;
+          }
+        }
+      }
+      
+      .event-user-checked {
+        margin-left: 0.5em;
+        fill: vars.$secondaryColor;
+        width: 25px;
+        height: 25px;
+
+        @include lg {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+  }
+
+  .event-band-img-container {
+    margin-top: vars.$gutter;
+    width: 100%;
+
+    @include lg {
+      width: 650px;
+    }
+
+    .event-band-img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .event-band {
+    margin: vars.$gutter 0;
+    text-transform: uppercase;
+    font-size: 2rem;
+    // font-weight: 700;
+    color: vars.$secondaryColor;
+    font-family: vars.$titleFont;
+
+    @include lg {
+      font-size: 5rem;
+    }
+    
+    .image-band {
+      width: 100%;
+      
+      @include lg {
+        width: 550px;
+      }
+    }
+  }
+
+  .event-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    color: vars.$secondaryColor;
+    
+    @include md {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 50%;
+      margin-top: 40px;
+    }
+
+    .event-date {
+      margin-top: vars.$gutter;
+      width: 100px;
+      height: 90px;
+      border: 3px solid vars.$secondaryColor;
+      border-radius: 10%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+
+      .event-date-line-left {
+        position: absolute;
+        height: 30px;
+        border-left: 3px solid vars.$secondaryColor;
+        left: 15px;
+        top: -16px;
+      }
+
+      .event-date-line-right {
+        position: absolute;
+        height: 30px;
+        border-left: 3px solid vars.$secondaryColor;
+        right: 12px;
+        top: -16px;
+      }
+
+      .event-date-top {
+        max-height: 30px;
+      }
+
+      .event-date-bottom {
+        width: 100%;
+        border-top: 3px solid vars.$secondaryColor;
+        padding: 5px 25px 5px 25px;
+        text-align: center;
+        color: vars.$secondaryColor;
+      }
+    }
+  
+    .event-city-country {
+      margin-top: 0.5*vars.$gutter;
+
+      @include md {
+        font-size: 1.1em;
+      }
+      
+    }
+  
+    .event-venue {
+      margin-top: vars.$gutter;
+      text-align: center;
+
+      @include md {
+        font-size: 1.4em;
+      }
+    }
+  }
+  
+  .event-setlist-container {
+    margin: vars.$gutter vars.$gutter 0 vars.$gutter;
+    padding: 1em 0.25em 0.5em;
+    background: vars.$gradient;
+    width: 100%;
+
+    @include md {
+      width: 70%;
+      margin: 3*vars.$gutter auto;
+    }
+
+    @include lg {
+      margin-left: 0;
+      margin-right: 198px;
+    }
+
+    .event-setlist-label {
+      // font-weight: 700;
+      text-align: center;
+      font-size: 1.7em;
+      color: vars.$lightPrimaryColor;
+      font-family: vars.$titleFont;
+    }
+
+    .event-setlist-list {
+      margin: vars.$gutter auto;
+      column-rule: 0;
+      width: 80%;
+      line-height: 1.2;
+
+      @include md {
+        -webkit-column-count: 2;  /* Chrome/Opera, Safari */
+        -moz-column-count: 2; /* Mozilla Firefox */
+        column-count: 2;
+        -webkit-column-gap: 50px; /* Chrome/Opera, Safari */
+        -moz-column-gap: 50px; /* Mozilla Firefox */
+        column-gap: 50px;
+      }
+
+      .event-setlist-list-item {
+        
+      }
+    }
+  }
+
+  .secondary-picture-container {
+    display: none;
+    margin-top: vars.$gutter;
+    width: 22%;
+    margin-left: 66%;
+    margin-top: -90px;
+    margin-bottom: 30px;
+
+    .event-band-second-img {
+      width: 100%;
+      height: 100%;
+    }
+
+    @include lg {
+      display: block;
+    }
+  }
+
+  .event-reviews-container {
+    margin: 3 * vars.$gutter vars.$gutter;
+    width: 100%;
+   
+    .event-reviews-label {
+      font-size: 2em;
+      // font-weight: 700;
+      text-align: center;
+      background: vars.$gradient;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      color: vars.$lightPrimaryColor;
+      margin-bottom: .8 * vars.$gutter;
+      padding-right: vars.$gutter;
+      font-family: vars.$titleFont;
+
+      @include md {
+        justify-content: space-between;
+        width: 59%;
+        margin-left: 35%;
+        padding-left: vars.$gutter;
+        font-size: 2.5em;
+      }
+
+      @include lg {
+        width: 56%;
+        margin-left: 38%;
+        font-size: 2.8em;
+      }
+
+      span {
+        margin: 0 0.5rem;
+      }
+
+      .event-reviews-create {
+        color: vars.$lightPrimaryColor;
+
+        &:hover {
+          color: vars.$primaryColor;
+        }
+      }
+    }
+
+    .event-reviews-list {
+      
+      @include md {
+        margin: vars.$gutter vars.$gutter 0 vars.$gutter;
+      }
+    }
+  }
+
+  .event-pictures-container {
+    margin: 2 * vars.$gutter vars.$gutter;
+    width: 100%;
+
+    .event-pictures-label {
+      font-size: 1.9em;
+      // font-weight: 700;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+      height: 80px;
+      background: vars.$gradient;
+      color: vars.$lightPrimaryColor;
+      margin-bottom: 3*vars.$gutter;
+      padding-left: vars.$gutter;
+      font-family: vars.$titleFont;
+
+      @include md {
+        justify-content: space-between;
+        width: 59%;
+        margin-left: 7%;
+        font-size: 2.5em;
+      }
+
+      @include lg {
+        width: 56%;
+        margin-left: 6%;
+        font-size: 2.8em;
+      }
+
+      span {
+        margin: 0 2.5rem;
+      }
+    }
+
+    .event-pictures-list {
+      margin: vars.$gutter vars.$gutter 0 vars.$gutter;
+    }
+  }
+}

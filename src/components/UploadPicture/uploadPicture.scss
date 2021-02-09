@@ -1,0 +1,15 @@
+@use 'src/styles/vars'; 
+
+.uploadPicture {
+  
+  .uploadPicture-icon {
+    outline: none;
+    width: 30;
+    cursor: pointer;
+    color: vars.$lightPrimaryColor;
+
+    &:hover {
+      color: vars.$primaryColor;
+    }
+  }
+}

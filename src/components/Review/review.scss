@@ -1,0 +1,240 @@
+@use 'src/styles/vars'; 
+@import "src/styles/media";
+
+.review {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  
+  .review-header {
+    padding: vars.$gutter;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    .review-back-to-reviews-results {
+      cursor: pointer;
+      fill: vars.$lightSecondaryColor;
+      width: 25px;
+      height: 25px;
+
+      &:hover {
+        fill: vars.$secondaryColor;
+      }
+
+      @include lg {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    .review-action {
+      display: flex;
+      justify-content: flex-end;
+
+      .review-modify {
+        cursor: pointer;
+        color: vars.$lightSecondaryColor;
+        width: 29px;
+        height: 29px;
+        padding-right: 0.5 * vars.$gutter;
+    
+        &:hover {
+          color: vars.$secondaryColor;
+        }
+
+        @include lg {
+          width: 44px;
+          height: 44px;
+        }
+      }
+    
+      .review-delete {
+        cursor: pointer;
+        color: vars.$lightSecondaryColor;
+        width: 25px;
+        height: 25px;
+    
+        &:hover {
+          color: vars.$secondaryColor;
+        }
+
+        @include lg {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+  }
+
+  .review-title {
+    text-align: center;
+    font-size: 1.7em;
+    //font-weight: 700;
+    margin-top: vars.$gutter;
+    width: 100%;
+    color: vars.$secondaryColor;
+    text-transform: uppercase;
+    font-family: vars.$titleFont;
+
+    @include md {
+      font-size: 2.3em;
+    }
+
+    @include lg {
+      font-size: 2.8em;
+    }
+  }
+  
+  .review-user {
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    margin-top: 2 * vars.$gutter;
+    padding: 0 vars.$gutter;
+    width: 100%;
+    
+    @include lg {
+      margin-left: auto;
+      margin-right: auto;
+      width: 80%;
+    }
+
+    .review-user-image {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+
+      @include lg {
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+    .user-information {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      margin-left: vars.$gutter;
+
+      @include lg {
+        flex-direction: row;
+      }
+
+      .user-name {
+        color: vars.$lightSecondaryColor;
+  
+        .user-name-bold {
+          font-weight: 600;
+          
+          &:hover {
+            color: vars.$secondaryColor;
+            text-decoration: underline;
+          }
+        }
+
+        @include lg {
+          font-size: 1.1em;
+        }
+      };
+  
+      .user-date {
+        font-style: italic;
+        color: vars.$lightSecondaryColor;
+
+        @include lg {
+          margin-left: vars.$gutter;
+          font-size: 1.1em;
+        }
+      };
+    }
+    
+  }
+  
+  .first-image-container {
+    margin-top: 2 * vars.$gutter;
+    width: 100%;
+
+    @include lg {
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: vars.$gutter;
+      width: 600px;
+    }
+
+    .first-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .review-content {
+    margin-top: 2 * vars.$gutter;
+    padding: 0 vars.$gutter;
+    width: 100%;
+    color: #FBEBB2;
+    text-align: justify;
+    line-height: 1.5;
+
+    @include lg {
+      margin-left: auto;
+      margin-right: auto;
+      width: 80%;
+    }
+
+    strong {
+      font-weight: 700;
+      color: vars.$secondaryColor;
+    }
+
+    em {
+      font-style: italic;
+    }
+
+    p {
+      margin-bottom: vars.$gutter;
+    }
+  }
+
+  .review-pictures-container {
+    margin: 2 * vars.$gutter 0;
+    width: 100%;
+
+    .review-pictures-label {
+      font-size: 1.9em;
+      // font-weight: 700;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+      height: 80px;
+      background: vars.$gradient;
+      color: vars.$lightPrimaryColor;
+      margin-bottom: 3*vars.$gutter;
+      padding-left: vars.$gutter;
+      font-family: vars.$titleFont;
+      border-radius: 5px;
+
+      @include md {
+        justify-content: space-between;
+        width: 59%;
+        margin-left: 7%;
+        font-size: 2.5em;
+      }
+
+      @include lg {
+        width: 56%;
+        margin-left: 6%;
+        font-size: 2.8em;
+      }
+
+      span {
+        margin: 0 2.5rem;
+      }
+    }
+  }
+}
+
+

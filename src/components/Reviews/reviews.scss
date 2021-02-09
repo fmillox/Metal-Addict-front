@@ -1,0 +1,126 @@
+@use 'src/styles/vars'; 
+@import "src/styles/media";
+
+.reviews {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 1em;
+
+  @include md {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include lg {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .smallReview {
+    width: 310px;
+    margin: 1.8rem auto;
+    display: flex;
+    flex-direction: column;
+
+    @include lg {
+      &:hover {
+        .data{
+        background-color: vars.$lightPrimaryColor;
+      }
+      .review-content{
+        background-color: vars.$secondaryColor;
+      }
+    }
+  }
+
+    .data {
+      font-size: 1.2rem;
+      background-color: vars.$primaryColor; // a voir si on laisse cette couleur ?
+      color: vars.$lightSecondaryColor;
+      border-top: vars.$secondaryColor solid 2px;
+      border-left: vars.$secondaryColor solid 2px;
+      border-right: vars.$secondaryColor solid 2px;
+      height: 165px;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      justify-content: space-between;
+      padding-bottom: 61px;
+      padding-top: 12px;
+      border-radius: 5px 5px 0 0 ;
+      margin-bottom: -4px;
+      
+      .data-band{
+        font-size: 1.9em;
+        font-family: vars.$titleFont;
+      }
+
+    }
+    .hide-data {
+      display: none;
+    }
+    
+    .review-content {
+      background-color: vars.$lightSecondaryColor;
+      border: vars.$secondaryColor solid 2px;
+      position: relative;
+      height: 220px;
+      border-radius: 5px 5px 5px 5px;
+
+      .avatar {
+        border-radius: 50%;
+        position: absolute;
+        top: -45px;
+        left: 110px;
+        width: 85px;
+        height: 85px;
+        display: inline-block;
+        // border: gray 1px solid;
+        
+        .avatar-image {
+          width: inherit;
+          height: inherit;
+          border-radius: inherit;
+        }
+      }
+    
+      .content {
+        width: 100%;
+        padding: 1em 0.7em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+        height: 100%;
+        color: vars.$primaryColor;
+        
+        .title {
+          display: inline-block;
+          margin-top: 3rem;
+          font-weight: 700;
+          font-size: 1.6em;
+          align-self: center;
+        }
+    
+        .smallContent {
+          font-size: 1.1rem;
+          text-align: right;
+         
+         
+          
+          .user {
+            margin-bottom: 0.4em;
+
+            .user-nickname{
+              font-weight: 600;
+            }
+          }
+  
+          .date {
+            margin-top: 0.2rem;
+            font-style: italic;
+          }
+        }
+      }
+    }
+  }
+}

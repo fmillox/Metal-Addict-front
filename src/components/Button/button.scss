@@ -1,0 +1,18 @@
+@use 'src/styles/vars';
+
+.button {
+  background-color: vars.$primaryColor;
+  border: none;
+  border-radius: 0.5em;
+  padding: 1em;
+  color: vars.$secondaryColor;
+  font-weight: 700;
+  border: 1px solid vars.$secondaryColor;
+  transition: background-color .5s, color .5s, border .5s;
+
+  &:hover {
+    background-color: vars.$secondaryColor;
+    color: vars.$primaryColor;
+    border: 1px solid vars.$secondaryColor;
+  }
+}

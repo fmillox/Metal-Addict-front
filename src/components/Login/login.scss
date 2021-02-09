@@ -1,0 +1,107 @@
+@use 'src/styles/vars';
+@import "src/styles/media";
+
+.login {
+  padding: 0.5rem;
+
+  @include md {
+    padding: 1rem;
+  }
+
+  .login-link-container {
+    display: flex;
+    flex-direction: column;
+      
+    .login-link-title {
+      cursor: pointer;
+      align-self: center;
+      color: vars.$secondaryColor;
+      font-family: vars.$titleFont;
+      font-size: 4em;
+      line-height: 0.9em;
+      
+      @include md {
+        font-size: 6em;
+      }
+    }
+  }
+
+  .login-title {
+    margin: 2em 0;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: vars.$lightSecondaryColor;
+  }
+
+  .login-container {
+    width: 100%;
+
+    @include md {
+      width: 60%;
+      margin: 0 auto;
+    }
+  
+    @include lg {
+      width: 40%;
+    }
+
+    .login-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      
+      .login-email {
+    
+      }
+    
+      .login-password {
+        margin: 30px;
+      }
+    
+      .login-error {
+        height: 30px;
+        padding-top: 0.25em;
+        color: vars.$errorColor;
+        font-size: 0.8rem;
+      }
+    
+      .login-validate-button {
+        margin: 1em 0;
+        align-self: center;
+      }
+    }
+  
+    .login-create-account {
+      border-top: 1px solid vars.$secondaryColor;
+      margin-top: 3rem;
+      text-align: center;
+  
+      .login-create-account-text {
+        margin-top: 3rem;
+        color: vars.$lightSecondaryColor;
+      }
+  
+      .login-create-account-button {
+        margin: 1em 0;
+        background-color: vars.$primaryColor;
+        color: vars.$lightSecondaryColor;
+        border: none;
+        border-radius: 0.5em;
+        padding: 1em;
+        font-weight: 700;
+        border: 1px solid vars.$lightSecondaryColor;
+        transition: background-color .5s, color .5s, border .5s;
+
+        &:hover {
+          background-color: vars.$lightSecondaryColor;
+          color: vars.$primaryColor;
+          border: 1px solid vars.$lightSecondaryColor;
+        }
+      }
+    }
+  }
+  
+  
+}
+

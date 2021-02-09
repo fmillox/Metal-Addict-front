@@ -1,0 +1,77 @@
+@use 'src/styles/vars'; 
+@import "src/styles/media";
+
+.pictures {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 1em;
+  text-align: center;
+  overflow: hidden;
+
+  @include md {
+    grid-template-columns: 1fr 1fr;
+    padding: 0 8 * vars.$gutter;
+  }
+
+  @include lg {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 0
+  }
+
+  &.picture--few {
+    height: 540px;
+  }
+
+  &.pictures--all {
+    height: 100%;
+
+    .chevron {
+      transform: rotate(180deg);
+    }
+  }
+
+  .smallPicture {
+    margin-bottom: 29px;
+    
+    .postedBy {
+      min-height: 30px;
+      color: vars.$lightSecondaryColor
+    }
+    .picture {
+      width: 210px;
+      height: 210px;
+      object-fit: cover;
+
+      &:hover {
+        border: vars.$lightSecondaryColor 3px solid;
+        border-radius: 5px;
+      }
+    }
+
+    .pictureBig {
+      max-height: 95vh;
+      max-width: 100%;
+    }
+  }
+
+  .pictures-button {
+    position: absolute;
+    bottom: 0px;
+    width: 70px; 
+    left:50%; 
+    transform:translate(-50%);
+    background-color: vars.$primaryColor;
+    border: none;
+    border-radius: 0.5em;
+    padding: .2em;
+    color: vars.$lightSecondaryColor;
+    border: 1px vars.$lightSecondaryColor solid;
+
+    &:hover {
+      background-color: vars.$lightSecondaryColor;
+      color: vars.$primaryColor;
+      border: 1px vars.$lightSecondaryColor solid
+    }
+  }
+}

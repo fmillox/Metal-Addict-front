@@ -1,0 +1,99 @@
+@use 'src/styles/vars';
+@import "src/styles/media";
+
+.smallEvent {
+  width: 310px;
+  margin: 1.8rem auto;
+  display: flex;
+  flex-direction: column;
+  @include lg {
+      &:hover {
+        .smallEvent-band-container{
+        background-color: vars.$lightPrimaryColor;
+      }
+      .smallEvent-content-container{
+        background-color: vars.$secondaryColor;
+      }
+    }
+  }
+  .smallEvent-band-container {
+    color: vars.$lightSecondaryColor;
+    border-top: vars.$secondaryColor solid 2px;
+    border-left: vars.$secondaryColor solid 2px;
+    border-right: vars.$secondaryColor solid 2px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between;
+    padding-bottom: 61px;
+    padding-top: 16px;
+    border-radius: 5px 5px 0 0 ;
+    margin-bottom: -4px;
+    
+
+    .smallEvent-band{
+      font-size: 2.3em;
+      font-family: vars.$titleFont;
+    }
+  }
+
+  .hide-smallEvent-band-container {
+    display: none;
+  }
+  
+  .smallEvent-content-container {
+    background-color: vars.$lightSecondaryColor;
+    border: vars.$secondaryColor solid 2px;
+    position: relative;
+    height: 180px;
+    border-radius: 5px 5px 5px 5px;
+
+    .smallEvent-picture-container {
+      border-radius: 50%;
+      position: absolute;
+      top: -45px;
+      left: 110px;
+      width: 85px;
+      height: 85px;
+      display: inline-block;
+      // border: gray 1px solid;
+      
+  
+      .smallEvent-picture {
+        width: inherit;
+        height: inherit;
+        border-radius: inherit;
+      }
+    }
+  
+    .smallEvent-data-container {
+      width: 100%;
+      padding: 0.4em 0.7em;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+      height: 100%;
+      color: vars.$primaryColor;
+      
+      .smallEvent-date {
+        display: inline-block;
+        margin-top: 3rem;
+        font-weight: 700;
+        font-size: 1.6em;
+        align-self: center;
+      }
+
+        
+      .smallEvent-place{
+        margin-bottom: 0.1em;
+        align-self: center;
+      }
+
+      .smallEvent-city-country{
+        align-self: center;
+      }
+    }
+  }
+}

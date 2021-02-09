@@ -1,0 +1,31 @@
+@use 'src/styles/vars';
+
+.draftEditor {
+
+  .draftEditor-wrapper {
+    padding: 0.5rem;
+    border: 1px solid vars.$lightSecondaryColor;
+  }
+  
+  .draftEditor-editor {
+    background-color: vars.$primaryColor;
+    padding: 0.5rem;
+    border: 1px solid vars.$lightSecondaryColor;
+    min-height: 100vh;
+    color: vars.$lightSecondaryColor;
+    line-height: 1.5;
+  }
+  .draftEditor-toolbar {
+    border: 1px solid vars.$lightSecondaryColor;
+    background-color: vars.$primaryColor;
+    
+    .rdw-option-wrapper {
+      background-color: vars.$lightSecondaryColor;
+      border-color: vars.$primaryColor;
+      
+      &:hover {
+        background-color: vars.$secondaryColor;
+      }
+    }
+  }
+}

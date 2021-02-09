@@ -1,0 +1,88 @@
+@use 'src/styles/vars';
+@import "src/styles/media";
+
+.register-user {
+  padding: 0.5rem;
+
+  @include md {
+    padding: 1rem;
+  }
+
+  .register-user-link-container {
+    display: flex;
+    flex-direction: column;
+      
+    .register-user-link-title {
+      cursor: pointer;
+      align-self: center;
+      color: vars.$secondaryColor;
+      font-family: vars.$titleFont;
+      font-size: 4em;
+      line-height: 0.9em;
+      
+      @include md {
+        font-size: 6em;
+      }
+    }
+  }
+
+  .register-user-title {
+    margin: 2em 0;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: vars.$lightSecondaryColor;
+  }
+  
+  .register-user-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    @include md {
+      width: 80%;
+      margin: 0 auto;
+    }
+  
+    @include lg {
+      width: 60%;
+    }
+    
+    .register-user-email {
+  
+    }
+  
+    .register-user-password {
+      margin: 30px;
+    }
+  
+    .register-user-nickname {
+      margin-bottom: 30px;
+    }
+  
+    .register-user-error {
+      height: 30px;
+      padding-top: 0.25em;
+      color: vars.$errorColor;
+      font-size: 0.8rem;
+    }
+  
+    .register-user-password-rules-label {
+      color: vars.$lightSecondaryColor;
+    }
+  
+    .register-user-password-rules-list {
+      margin: 1em 0 1em;
+  
+      .register-user-password-rules-item {
+        color: vars.$lightSecondaryColor;
+      }
+    }
+  
+    .register-user-button {
+      margin: 1em 0;
+      align-self: center;
+    }
+  }
+}
+

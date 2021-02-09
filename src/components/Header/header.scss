@@ -1,0 +1,108 @@
+@use 'src/styles/vars'; 
+@import "src/styles/media";
+
+.header {
+  width: 100%;
+  background-color: vars.$lightPrimaryColor;
+  color: vars.$secondaryColor;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1em;
+  height: 105px;
+  position: relative;
+
+  @include md {
+    height: 150px;
+    background-color: vars.$primaryColor;
+  }
+  
+  @include lg {
+    height: 175px;
+    background-color: vars.$primaryColor;
+  }
+
+  .sigle {
+    max-height: 100%;
+    width: 65px;
+    margin-left: -0.6em;
+
+    @include md {
+      width: 95px;
+    }
+
+    @include lg {
+      width: 125px;
+      margin-left: 1.2em;
+    }
+  }
+
+  .title {
+    cursor: pointer;
+
+    .main-title-container {
+      //font-weight: 700;
+      
+      .main-title {
+        
+        text-align: center;
+        font-family: vars.$titleFont;
+        font-size: 3.5em;
+        line-height: 0.8em;
+
+        @include md {
+          font-size: 5em;
+        }
+
+        @include lg {
+          font-size: 6em;
+        }
+      }
+    }
+  }
+
+  .image {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+
+    .image-content {
+      width: inherit;
+      height: inherit;
+      border-radius: inherit;
+      // border: gray 1px solid;
+    }
+
+    @include md {
+      width: 85px;
+      height: 85px;
+    }
+
+    @include lg {
+      width: 110px;
+      height: 110px;
+      margin-right: 2em;
+    }
+  }
+
+  .login {
+    cursor: pointer;
+    fill: vars.$lightSecondaryColor;
+    width: 45px;
+    height: 45px;
+
+    &:hover {
+      fill: vars.$secondaryColor;
+    }
+
+    @include md {
+      width: 80px;
+      height: 80px;
+    }
+
+    @include lg {
+      margin-right: 2em;
+    }
+  }
+}

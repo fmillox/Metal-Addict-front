@@ -1,0 +1,57 @@
+@use 'src/styles/vars';
+@import "src/styles/media";
+
+.inputField {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .inputField-label {
+    margin-bottom: 0.5em;
+    color: vars.$lightSecondaryColor;
+  }
+
+  .inputField-input {
+    height: 2rem;
+    padding: 0.5em;
+    border-radius: 0.25rem;
+    color: vars.$lightSecondaryColor;
+    background-color: vars.$primaryColor;
+    border: 1px solid vars.$lightSecondaryColor;
+
+    &::placeholder { 
+      color: vars.$lightSecondaryColor;
+    }
+
+    &:focus {
+      border: 1px solid vars.$secondaryColor;
+    }
+  }
+
+  .inputField-textarea {
+    height: 250px;
+    padding: 0.5em;
+    border-radius: 0.25rem;
+    color: vars.$lightSecondaryColor;
+    background-color: vars.$primaryColor;
+    border: 1px solid vars.$lightSecondaryColor;
+    overflow: hidden;
+
+    &::placeholder { 
+      color: vars.$lightSecondaryColor;
+    }
+
+    &:focus {
+      outline: none !important;
+      border: 1px solid vars.$secondaryColor;
+    }
+
+    @include md {
+      height: 180px;
+    }
+  
+    @include lg {
+      height: 220px;
+    }
+  }
+}

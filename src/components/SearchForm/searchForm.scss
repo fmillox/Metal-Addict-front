@@ -1,0 +1,31 @@
+.searchForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .searchForm-loader {
+    align-self: center;
+  }
+  
+  .searchForm-container {
+    width: 100%;
+
+    .searchForm-input {
+      margin: 1em;
+    }
+  
+    .searchForm-button {
+      margin-top: 1em;
+      text-align: center;
+    }
+
+    &.searchForm-container--close {
+      display: none;
+    }
+  }
+
+  .searchForm-open-btn {
+    margin-top: 1em;
+    align-self: center;
+  }
+}

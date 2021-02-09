@@ -1,0 +1,271 @@
+@use 'src/styles/vars';
+@import "src/styles/media";
+
+.profile {
+  min-height: 100vh;
+  color: vars.$secondaryColor;
+
+  .loader {
+    display: flex;
+    justify-content: center;
+  }
+
+  .back-to{
+    cursor: pointer;
+    fill: vars.$lightSecondaryColor;
+    width: 25px;
+    height: 25px;
+    margin: 1em 0 0 1em;
+    
+    &:hover {
+      fill: vars.$secondaryColor;
+    }
+
+    @include lg {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include md {
+      display: flex;
+      flex-direction: row;
+      margin-top: 1.2em;
+    }
+
+    .user-identity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px 0 25px 0;
+
+      @include md {
+        margin-left: 1.7em;
+        margin-bottom: 0;
+      }
+
+      @include lg {
+        flex-direction: row;
+      }
+
+      .avatar {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        border: 2px solid vars.$secondaryColor;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        padding: 10px 0;
+        
+        .user-picture{
+          border-radius: 50%;
+          width: 120px;
+          height: 120px;
+          display: inline-block;
+          // border: gray 1px solid;
+          margin: 0 20px 10px 20px;
+        
+          .picture-content {
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+          }
+        }
+        .uploadPicture-icon {
+          color: vars.$lightSecondaryColor;
+      
+          &:hover {
+            color: vars.$secondaryColor;
+          }
+        }
+
+        .user-action {
+          align-self: center;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .user-edit {
+            cursor: pointer;
+            color: vars.$lightSecondaryColor;
+            width: 31px;
+            height: 31px;
+            padding-right: 0.5 * vars.$gutter;
+        
+            &:hover {
+              color: vars.$secondaryColor;
+            }
+          }
+        }
+      }
+
+      .user-nickname  {
+        font-weight: 700;
+        font-size: 1.2em;
+
+        @include md {
+          font-size: 1.4em;
+        }
+
+        @include lg {
+          font-size: 1.4em;
+          margin-left: 1.5em;
+        }
+      }
+  }
+      .user-description {
+        @include sm {
+          width: 45%;
+        }
+        background-color: vars.$lightPrimaryColor;
+        color: vars.$secondaryColor;
+        border: 1px solid black;
+        width: 280px;
+        margin: auto;
+        padding: 10px;
+        border-radius: 5px; // todo tester
+        line-height: 1.2;
+      }
+}
+
+  .user-main-content {
+      display: flex;
+      flex-direction: column;
+      margin-top: 30px;
+      margin-bottom: 1em;
+
+    .label-events {
+      cursor: pointer;
+      font-size: 2.1em;
+      //font-weight: 700;
+      background-color: vars.$lightSecondaryColor;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: vars.$lightPrimaryColor;
+      margin-bottom: 2.5*vars.$gutter;
+      font-family: vars.$titleFont;
+
+      @include md {
+        width: 59%;
+        margin-left: 35%;
+        padding-right: vars.$gutter;
+        font-size: 2.7em;
+        margin-bottom: 1.6*vars.$gutter;
+        border-radius: 5px;  // todo tester
+      }
+
+      @include lg {
+        width: 56%;
+        margin-left: 38%;
+        justify-content: flex-end;
+        font-size: 3em;
+
+        &:hover {
+          background-color: vars.$secondaryColor;
+        }
+      }
+    }
+
+    .label-reviews {
+      cursor: pointer;
+      font-size: 2.1em;
+      // font-weight: 700;
+      background-color: vars.$lightSecondaryColor;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: vars.$lightPrimaryColor;
+      margin-bottom: 2.5*vars.$gutter;
+      font-family: vars.$titleFont;
+
+      @include md {
+        width: 59%;
+        margin-left: 7%;
+        padding-left: vars.$gutter;
+        font-size: 2.7em;
+        margin-bottom: 1.6*vars.$gutter;
+        border-radius: 5px; // todo tester
+      }
+
+      @include lg {
+        width: 56%;
+        margin-left: 6%;
+        justify-content: flex-start;
+        font-size: 3em;
+
+        &:hover {
+          background-color: vars.$secondaryColor;
+        }
+      }
+    }
+
+    .label-pictures {
+      cursor: pointer;
+      font-size: 2.1em;
+      // font-weight: 700;
+      background-color: vars.$lightSecondaryColor;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: vars.$lightPrimaryColor;
+      margin-bottom: 2.5*vars.$gutter;
+      font-family: vars.$titleFont;
+
+      @include md {
+        width: 59%;
+        margin-left: 35%;
+        padding-right: vars.$gutter;
+        font-size: 2.7em;
+        margin-bottom: 1.6*vars.$gutter;
+        border-radius: 5px; // todo tester
+      }
+
+      @include lg {
+        width: 56%;
+        margin-left: 38%;
+        justify-content: flex-end;
+        font-size: 3em;
+        
+
+        &:hover {
+          background-color: vars.$secondaryColor;
+        }
+      }
+    }
+
+    .eventsNoShow {
+      display: none;
+    }
+  
+    .eventsShow {
+      display: block;
+      margin-bottom: 4*vars.$gutter;
+    }
+  
+    .reviewsNoShow {
+      display: none;
+    }
+  
+    .reviewsShow {
+      display: block;
+      margin-bottom: 4*vars.$gutter;
+    }
+  
+    .picturesNoShow {
+      display: none;
+    }
+  
+    .picturesShow {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,71 @@
+@use 'src/styles/vars'; 
+@import "src/styles/media";
+
+.notFound {
+  min-height: 100vh;
+  text-align: center;
+  color: burlywood;
+  padding: 1.1em 0;
+
+  .title {
+    font-size: 1.3em;
+    @include md {
+      font-size: 3.5em;
+    }
+
+    @include lg {
+      margin: 40px 0 100px 0;
+    }
+  }
+
+  .main {
+    margin: 1.5em 0;
+
+    @include md {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      padding-right: 1.8em;
+    }
+
+    @include lg {
+      margin-top: 100px;
+    }
+    
+    .picture-content {
+      margin: 10px auto;
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+  
+      @include md {
+        margin-top: 15%;
+        width: 310px;
+        height: 310px;
+      }
+
+      @include lg {
+        margin-top: 80px;
+        max-width: 50%;
+        width: 500px;
+        height: 500px;
+      }
+
+      .picture {
+        width: inherit;
+        border-radius: inherit;
+        height: inherit;
+      }
+    }
+
+    .content {
+      margin-top: 1.5em;
+      @include md {
+        font-size: 1.3em;
+      }
+      @include lg {
+        margin-right: 3em;
+      }
+    }
+  }
+}

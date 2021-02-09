@@ -1,0 +1,46 @@
+@use 'src/styles/vars';
+@import "src/styles/media";
+
+.reviewManage {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .reviewManage-go-back {
+    margin: 1em;
+    cursor: pointer;
+    fill: vars.$lightSecondaryColor;
+    width: 25px;
+    height: 25px;
+
+    &:hover {
+      fill: vars.$secondaryColor;
+    }
+
+    @include lg {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .reviewManage-title {
+    margin: 0.5em;
+  }
+
+  .reviewManage-content {
+    margin: 0.5em;
+  }
+
+  .reviewManage-error {
+    height: 30px;
+    padding-top: 0.25em;
+    color: vars.$errorColor;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .reviewManage-button {
+    margin: 1em 0 2em;
+    text-align: center;
+  }
+}
