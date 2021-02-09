@@ -2,12 +2,17 @@
 @import "src/styles/media";
 
 .app {
-  margin: 0 auto;
-  background-color: vars.$primaryColor;
   min-height: 100vh;
+  background-attachment: fixed;
+  background-size: auto;
+  
+  .app-container {
+    background-color: vars.$primaryColor;
+    margin: 0 auto;
 
-  @include lg {
-    max-width: 1150px;
+    @include lg {
+      max-width: 1150px;
+    }
   }
 }
 

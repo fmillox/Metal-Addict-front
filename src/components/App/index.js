@@ -8,6 +8,8 @@ import Page from 'src/components/Page';
 import Login from 'src/containers/Login';
 import RegisterUser from 'src/containers/RegisterUser';
 
+import background from 'src/assets/images/background.jpg';
+
 import './styles.scss';
 
 // == Composant
@@ -21,18 +23,25 @@ const App = () => {
   }, [pathname]);
 
   return (
-    <div className="app">
-      <Switch>
-        <Route exact path="/connexion">
-          <Login />
-        </Route>
-        <Route exact path="/inscription">
-          <RegisterUser />
-        </Route>
-        <Route>
-          <Page />
-        </Route>
-      </Switch>
+    <div
+      className="app"
+      style={{
+        backgroundImage: `url(${background})`,
+      }}
+    >
+      <div className="app-container">
+        <Switch>
+          <Route exact path="/connexion">
+            <Login />
+          </Route>
+          <Route exact path="/inscription">
+            <RegisterUser />
+          </Route>
+          <Route>
+            <Page />
+          </Route>
+        </Switch>
+      </div>
     </div>
   );
 };
