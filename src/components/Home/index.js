@@ -1,8 +1,10 @@
+// == Npm import
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link, useHistory } from 'react-router-dom';
 import { ScaleLoader } from 'react-spinners';
 
+// == Import
 import Reviews from 'src/components/Reviews';
 
 import firstPicture from 'src/assets/images/concert8.jpg';
@@ -17,6 +19,7 @@ import 'aos/dist/aos.css';
 
 AOS.init();
 
+// == Component
 const Home = ({
   reviews,
   loadingReviews,
@@ -94,9 +97,13 @@ const Home = ({
   );
 };
 
+// == Export
 Home.propTypes = {
+  /** list of review object */
   reviews: PropTypes.array.isRequired,
+  /** boolean to indicate that the reviews are loading */
   loadingReviews: PropTypes.bool.isRequired,
+  /** called when the component renders the first time (useEffect) , no parameter */
   loadReviews: PropTypes.func.isRequired,
 };
 

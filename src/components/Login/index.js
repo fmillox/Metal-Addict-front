@@ -1,13 +1,16 @@
+// == Npm import
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
+// == Import
 import FieldInput from 'src/components/FieldInput';
 import Button from 'src/components/Button';
 
 import './login.scss';
 
+// == Component
 const Login = ({ notAuthorized, resetHomePage, handleLogin }) => {
   const history = useHistory();
 
@@ -100,9 +103,17 @@ const Login = ({ notAuthorized, resetHomePage, handleLogin }) => {
   );
 };
 
+// == Export
 Login.propTypes = {
+  /** boolean to indicate that the user is not authorized (email and/or password invalid) */
   notAuthorized: PropTypes.bool.isRequired,
+  /** called on the onClick of the website logo, no parameter */
   resetHomePage: PropTypes.func.isRequired,
+  /** called when the form is submitted, three parameters :
+   * - email
+   * - password
+   * - history
+   */
   handleLogin: PropTypes.func.isRequired,
 };
 

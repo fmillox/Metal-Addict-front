@@ -1,6 +1,8 @@
+// == Npm import
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
+// == Import
 import Header from 'src/containers/Header';
 import Footer from 'src/components/Footer';
 import Main from 'src/containers/Main';
@@ -51,4 +53,5 @@ const Page = () => (
   </div>
 );
 
+// == Export
 export default Page;

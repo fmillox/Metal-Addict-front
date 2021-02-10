@@ -1,4 +1,4 @@
-// == Import npm
+// == Npm import
 import React from 'react';
 import PropTypes from 'prop-types';
 import ScaleLoader from 'react-spinners/ScaleLoader';
@@ -14,7 +14,7 @@ import img from 'src/assets/images/event.png';
 
 import './events.scss';
 
-// == Composant
+// == Component
 const Events = ({
   loadingEvents,
   events,
@@ -63,15 +63,21 @@ const Events = ({
 };
 
 Events.propTypes = {
+  /** boolean to indicate that the events are loading */
   loadingEvents: PropTypes.bool,
+  /** list of event object */
   events: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
     }.isRequired).isRequired,
   ).isRequired,
+  /** picture representing the event */
   picture: PropTypes.string,
+  /** boolean to indicate if all the event data are displayed or not */
   showMoreData: PropTypes.bool,
+  /** boolean to indicate if we still have more events to display */
   moreEvents: PropTypes.bool.isRequired,
+  /** called when the form is submitted, no parameter */
   manageSubmit: PropTypes.func,
 };
 

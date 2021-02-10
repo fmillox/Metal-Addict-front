@@ -1,8 +1,11 @@
+// == Npm import
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// == Import
 import './fieldInput.scss';
 
+// == Component
 const FieldInput = ({
   name,
   label,
@@ -49,14 +52,20 @@ const FieldInput = ({
 };
 
 FieldInput.propTypes = {
+  /** text used as name for the input/textarea (and also used as id, with a prefix) */
   name: PropTypes.string.isRequired,
+  /** text used as label */
   label: PropTypes.string.isRequired,
+  /** text used as placeholder */
   placeholder: PropTypes.string.isRequired,
+  /** type of the input */
   type: PropTypes.string.isRequired,
+  /** reference of the input/textarea (useRef hook) */
   reference: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.shape({ current: PropTypes.elementType }),
   ]),
+  /** indicate if it's an input (multiLine = false) or a textfield (multiLine = true) */
   multiLine: PropTypes.bool,
 };
 
@@ -65,4 +74,5 @@ FieldInput.defaultProps = {
   multiLine: false,
 };
 
+// == Export
 export default FieldInput;

@@ -1,3 +1,4 @@
+// == Npm import
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { EditorState } from 'draft-js';
@@ -5,8 +6,10 @@ import { convertToHTML, convertFromHTML } from 'draft-convert';
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
+// == Import
 import './draftEditor.scss';
 
+// == Component
 const DraftEditor = ({ htmlContent, setHtmlContent }) => {
   const [editor, setEditor] = useState(
     () => EditorState.createWithContent(convertFromHTML(htmlContent)),
@@ -37,8 +40,13 @@ const DraftEditor = ({ htmlContent, setHtmlContent }) => {
 };
 
 DraftEditor.propTypes = {
+  /** html text used as value for the editor */
   htmlContent: PropTypes.string.isRequired,
+  /** called when onEditorStateChange event is received by the editor component, one parameter :
+   * - new value
+   */
   setHtmlContent: PropTypes.func.isRequired,
 };
 
+// == Export
 export default DraftEditor;
