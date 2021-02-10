@@ -1,3 +1,4 @@
+// == Npm import
 import React from 'react';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
@@ -5,6 +6,7 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import Popper from '@material-ui/core/Popper';
 import { withStyles } from '@material-ui/core/styles';
 
+// == Import
 import { SECONDARY_COLOR, LIGHT_SECONDARY_COLOR } from 'src/styles/vars';
 
 import { getFilteredAutocompletInputOptions, getObjectByName } from 'src/utils';
@@ -40,6 +42,7 @@ const styles = {
   },
 };
 
+// == Component
 const AutocompleteInput = withStyles(styles)(({
   name,
   label,
@@ -112,6 +115,7 @@ const AutocompleteInput = withStyles(styles)(({
       renderInput={(params) => (
         <TextField
           {...params}
+          name={name}
           label={label}
           classes={classes}
           variant="outlined"
@@ -123,19 +127,33 @@ const AutocompleteInput = withStyles(styles)(({
 });
 
 AutocompleteInput.propTypes = {
+  /** text used as name for the textfield (and also used as id, with a prefix) */
   name: PropTypes.string.isRequired,
+  /** text used as placeholder and label */
   label: PropTypes.string.isRequired,
+  /** width of the textfield */
   width: PropTypes.string,
+  /** options list to show in the autocomplete feature */
   options: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
     }.isRequired).isRequired,
   ).isRequired,
+  /** number of char until the autocomplete feature appears */
   nbCarsToFilter: PropTypes.number,
+  /** indicate if a value is required in the textfield */
   required: PropTypes.bool,
+  /** object used as value for the autocomplete */
   value: PropTypes.object,
+  /** called when onChange event is received by the autocomplete component, one parameter :
+   * - new value
+   */
   manageChange: PropTypes.func.isRequired,
+  /** text used as value for the input */
   inputValue: PropTypes.string.isRequired,
+  /** called when onInputChange event is received by the autocomplete component, one parameter :
+   * - new value
+   */
   setInputValue: PropTypes.func.isRequired,
 };
 
@@ -145,4 +163,5 @@ AutocompleteInput.defaultProps = {
   required: false,
 };
 
+// == Export
 export default AutocompleteInput;

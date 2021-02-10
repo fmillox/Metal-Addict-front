@@ -10,7 +10,7 @@ import { Back } from 'src/components/Icons';
 
 import { SECONDARY_COLOR } from 'src/styles/vars';
 
-import { isDataValid } from 'src/utils';
+import { isHtmlContentEmpty } from 'src/utils';
 
 import './reviewManage.scss';
 
@@ -28,7 +28,7 @@ const ReviewManage = ({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (isDataValid(title) && isDataValid(content)) {
+    if (!isHtmlContentEmpty(title) && !isHtmlContentEmpty(content)) {
       manageSubmit();
     }
     else {

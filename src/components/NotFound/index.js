@@ -1,8 +1,11 @@
+// == Npm import
 import React from 'react';
 
+// == Import
 import './notFound.scss';
 import francis from 'src/assets/images/francis.jpg';
 
+// == Component
 const NotFound = () => (
   <div className="notFound">
     <h1 className="title">Cette page n'existe pas.</h1>
@@ -50,4 +53,5 @@ const NotFound = () => (
   </div>
 );
 
+// == Export
 export default NotFound;

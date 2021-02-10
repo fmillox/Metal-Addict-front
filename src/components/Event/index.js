@@ -1,3 +1,4 @@
+// == Npm import
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink, useParams, useHistory } from 'react-router-dom';
@@ -7,6 +8,7 @@ import Moment from 'moment';
 import 'moment/locale/fr';
 import ChatIcon from '@material-ui/icons/Chat';
 
+// == Import
 import Reviews from 'src/components/Reviews';
 import Pictures from 'src/components/Pictures';
 import UploadPicture from 'src/components/UploadPicture';
@@ -26,6 +28,7 @@ import {
 
 import './event.scss';
 
+// == Component
 const Event = ({
   loadEventDatas,
   loadingEvent,
@@ -236,8 +239,11 @@ const Event = ({
 };
 
 Event.propTypes = {
+  /** called when the component renders the first time (useEffect) , no parameter */
   loadEventDatas: PropTypes.func.isRequired,
+  /** boolean to indicate that the event datas are loading */
   loadingEvent: PropTypes.bool.isRequired,
+  /** event object representing the Setlist.fm API and Fanart.tv API */
   event: PropTypes.shape({
     setlist: PropTypes.shape({
       artist: PropTypes.shape({
@@ -267,20 +273,31 @@ Event.propTypes = {
     }.isRequired),
     bandImages: PropTypes.object.isRequired,
   }.isRequired),
+  /** the connected user object (can be null if anonymous user) */
   currentUser: PropTypes.shape({
     id: PropTypes.number.isRequired,
   }.isRequired),
+  /** list of user object already participated at the event */
   participatedUsers: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
     }.isRequired).isRequired,
   ).isRequired,
+  /** boolean to indicate that the current user already participated at the event */
   userParticipateInEvent: PropTypes.func.isRequired,
+  /** boolean to indicate that the reviews are loading */
   loadingReviews: PropTypes.bool.isRequired,
+  /** list of review object */
   reviews: PropTypes.arrayOf(PropTypes.object).isRequired,
+  /** boolean to indicate that the pictures are loading */
   loadingPictures: PropTypes.bool.isRequired,
+  /** list of picture object */
   pictures: PropTypes.arrayOf(PropTypes.object).isRequired,
+  /** boolean to indicate that a the user is uploading a picture */
   loadingUploadPicture: PropTypes.bool.isRequired,
+  /** called when the form is submitted, one parameter :
+   * - data
+   */
   manageUploadPicture: PropTypes.func.isRequired,
 };
 
@@ -289,4 +306,5 @@ Event.defaultProps = {
   currentUser: null,
 };
 
+// == Export
 export default Event;

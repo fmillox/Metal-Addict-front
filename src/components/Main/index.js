@@ -1,4 +1,4 @@
-// == Import npm
+// == Npm import
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -9,7 +9,7 @@ import EventsResults from 'src/containers/EventsResults';
 
 import './main.scss';
 
-// == Composant
+// == Component
 const Main = ({ showEventsResults }) => (
   <div className="main">
     <div className="main-searchForm">
@@ -33,6 +33,7 @@ const Main = ({ showEventsResults }) => (
 );
 
 Main.propTypes = {
+  /** boolean to display or nor the search results */
   showEventsResults: PropTypes.bool.isRequired,
 };
 
