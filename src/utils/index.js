@@ -6,11 +6,12 @@ import band from 'src/assets/images/band.jpg';
 
 /**
  * Get the slug
- * @param {String} text The text to get the slug for
+ * @param {String} text The text to slug on the left part
+ * @param id The id to slug on the right part
  * @return the slug for the text
  */
 export const getSlug = (text, id) => {
-  const textToSlugify = `${text}-${id}`;
+  const textToSlugify = `${text.trim()}-${String(id).trim()}`;
 
   return slugify(textToSlugify, {
     lower: true,
