@@ -119,12 +119,20 @@ const ProfileEdit = ({
 };
 
 ProfileEdit.propTypes = {
+  /* object of the user datas */
   user: PropTypes.shape({
     id: PropTypes.number.isRequired,
     nickname: PropTypes.string.isRequired,
     biography: PropTypes.string.isRequired,
   }.isRequired),
+  /** bool to indicate if datas of the user are loading */
   loadingSubmit: PropTypes.bool.isRequired,
+  /** called when submit event is received, four parameters :
+   * - nickname
+   * - biography
+   * - history
+   * - slug
+    */
   manageSubmit: PropTypes.func.isRequired,
 };
 

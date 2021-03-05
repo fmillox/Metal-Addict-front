@@ -7,12 +7,13 @@ import {
 import { SAVE_USER_REVIEWS } from 'src/actions/users';
 
 const initialState = {
+  /* last reviews posted */
   lastReviews: [],
-
+  /* reviews of a specific event */
   eventReviews: [],
-
+  /* reviews of a specific user */
   userReviews: [],
-
+  /* indicate if reviews are loading */
   loading: false,
 };
 

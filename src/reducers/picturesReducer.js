@@ -8,12 +8,13 @@ import { SAVE_USER_PICTURES } from 'src/actions/users';
 import { SAVE_REVIEW_PICTURES } from 'src/actions/review';
 
 const initialState = {
+  /* pictures of a specific event */
   eventPictures: [],
-
+  /* pictures of a specific review */
   reviewPictures: [],
-
+  /* pictures of a specific user */
   userPictures: [],
-
+  /* indicate if pictures are loading */
   loading: false,
 };
 

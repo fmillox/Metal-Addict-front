@@ -17,16 +17,17 @@ import { RESET_HOME_PAGE } from 'src/actions/home';
 const INITIAL_REDIRECT = '/';
 
 const initialState = {
+  /* connected user informations */
   user: null,
   /* token JWT */
   token: '',
-
+  /* boolean to indicate that the user is not authorized (email and/or password invalid) */
   notAuthorized: false,
-
+  /* indicate if avatar is loading */
   loadingAvatar: false,
-
+  /* indicate if user informations are loading */
   loadingEdit: false,
-
+  /* location to redirect after a login */
   redirect: INITIAL_REDIRECT,
 };
 

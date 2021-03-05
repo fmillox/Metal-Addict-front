@@ -63,7 +63,12 @@ function UploadPicture({ loading, manageSubmit }) {
 }
 
 UploadPicture.propTypes = {
+  /** bool to indicate if picture is uploading */
   loading: PropTypes.bool.isRequired,
+  /** called when the form is submit, two parameters :
+   * - formData
+   * - history
+  */
   manageSubmit: PropTypes.func.isRequired,
 };
 

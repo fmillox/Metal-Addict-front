@@ -14,11 +14,13 @@ const Reviews = ({ reviews, showMoreData }) => (
 );
 
 Reviews.propTypes = {
+  /* array of the reviews with the datas */
   reviews: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
     }.isRequired).isRequired,
   ).isRequired,
+  /** bool to indicate if the review has to be display with all his datas */
   showMoreData: PropTypes.bool,
 };
 

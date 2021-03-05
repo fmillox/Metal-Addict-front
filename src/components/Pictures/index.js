@@ -44,12 +44,15 @@ const Pictures = ({ pictures, picturesOnScreen, showNickname }) => {
   );
 };
 Pictures.propTypes = {
+  /** array with the pictures and theirs datas */
   pictures: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
+  /** number of pictures who appears on the screen at the first render of the page */
   picturesOnScreen: PropTypes.number.isRequired,
+  /** bool to indicate if the nickname of the user who has posted the picture has to be indicate */
   showNickname: PropTypes.bool,
 };
 

@@ -66,11 +66,19 @@ const TextFieldInput = withStyles(styles)(({
 });
 
 TextFieldInput.propTypes = {
+  /** text used as name for the textfield (and also used as id, with a prefix) */
   name: PropTypes.string.isRequired,
+  /**  text used as label for the input */
   label: PropTypes.string.isRequired,
+  /** string to indicate width of the textfield */
   width: PropTypes.string,
+  /** bool to indicate if mutiligne is possible */
   multiline: PropTypes.bool,
+  /** text used as label for the input */
   value: PropTypes.string.isRequired,
+  /** called when onChange event is received by the input, one parameter :
+   * - value
+   */
   manageChange: PropTypes.func.isRequired,
 };
 
