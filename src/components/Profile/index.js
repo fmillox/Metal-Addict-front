@@ -145,17 +145,33 @@ const Profile = ({
 };
 
 Profile.propTypes = {
+  /** object with the datas of the user */
   user: PropTypes.object.isRequired,
+  /** bool to indicate if avatar is loading */
   loadingUploadAvatar: PropTypes.bool.isRequired,
+  /** fonction to upload an avatar, one parameter :
+   * - data
+  */
   manageUploadAvatar: PropTypes.func.isRequired,
+  /** array of the events datas of a user */
   userEvents: PropTypes.array.isRequired,
+  /** array of the reviews datas of a user */
   userReviews: PropTypes.array.isRequired,
+  /** array of the pictures datas of a user */
   userPictures: PropTypes.array.isRequired,
+  /** function to load the datas of a user, one parameter :
+   * - userId
+   */
   loadUserDatas: PropTypes.func.isRequired,
+  /** bool to indicate if events are loading */
   eventsLoading: PropTypes.bool.isRequired,
+  /** bool to indicate if reviews are loading */
   reviewsLoading: PropTypes.bool.isRequired,
+  /** bool to indicate if pictures are loading */
   picturesLoading: PropTypes.bool.isRequired,
+  /** bool to indicate if user datas are loading */
   userLoading: PropTypes.bool.isRequired,
+  /** bool to indicate if the profile user is the user connected */
   isConnectedUser: PropTypes.bool.isRequired,
 };
 

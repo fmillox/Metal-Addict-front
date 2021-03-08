@@ -6,8 +6,9 @@ import {
 import { SAVE_AVATAR } from 'src/actions/auth';
 
 const initialState = {
+  /* datas of a user */
   user: {},
-
+  /* indicate if the loading of the user datas is in progress */
   loading: false,
 };
 

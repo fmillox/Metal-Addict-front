@@ -49,12 +49,14 @@ const SmallPicture = ({ picture, showNickname }) => {
 };
 
 SmallPicture.propTypes = {
+  /** object with the datas of the picture */
   picture: PropTypes.shape({
     path: PropTypes.string.isRequired,
     user: PropTypes.shape({
       nickname: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
+  /** bool to indicate if the nickname of the user who has posted the picture has to be indicate */
   showNickname: PropTypes.bool.isRequired,
 };
 

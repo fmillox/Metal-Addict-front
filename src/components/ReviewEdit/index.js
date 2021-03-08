@@ -49,8 +49,18 @@ const ReviewEdit = ({
 };
 
 ReviewEdit.propTypes = {
+  /** bool to indicate if the review is loading */
   loadingReview: PropTypes.bool.isRequired,
+  /** called when the component renders the first time (useEffect), two parameter :
+   * - id
+   * - history
+  */
   loadReview: PropTypes.func.isRequired,
+  /** called when submit event is received, three parameters :
+   * - id
+   * - history
+   * - slug
+   */
   manageEdit: PropTypes.func.isRequired,
 };
 

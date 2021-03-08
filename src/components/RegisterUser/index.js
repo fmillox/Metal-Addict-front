@@ -145,7 +145,15 @@ const RegisterUser = ({ resetHomePage, registerNewUser }) => {
 };
 
 RegisterUser.propTypes = {
+  /** called on the onClick of the website logo, no parameter */
   resetHomePage: PropTypes.func.isRequired,
+  /** called when submit event is received, five parameters :
+   * - email
+   * - password
+   * - passwordConfirmed
+   * - nickname
+   * - history
+   */
   registerNewUser: PropTypes.func.isRequired,
 };
 

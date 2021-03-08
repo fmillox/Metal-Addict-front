@@ -27,6 +27,11 @@ const ReviewCreate = ({ manageCreate }) => {
 };
 
 ReviewCreate.propTypes = {
+  /** called when submit event is received, three parameters :
+   * - setlistId
+   * - history
+   * - slug
+   */
   manageCreate: PropTypes.func.isRequired,
 };
 

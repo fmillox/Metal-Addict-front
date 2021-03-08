@@ -65,12 +65,23 @@ const ReviewManage = ({
 };
 
 ReviewManage.propTypes = {
+  /* value of the title */
   title: PropTypes.string,
+  /* value of the content */
   content: PropTypes.string,
+  /* value of the button label */
   buttonLabel: PropTypes.string.isRequired,
+  /* bool to indicate if the review is loading */
   loadingSubmit: PropTypes.bool.isRequired,
+  /* function to save title value, one parameter :
+  - value
+  */
   setTitle: PropTypes.func.isRequired,
+  /* function to save content value, one parameter :
+  - value
+  */
   setContent: PropTypes.func.isRequired,
+  /* called when submit event is received, no parameter */
   manageSubmit: PropTypes.func.isRequired,
 };
 
