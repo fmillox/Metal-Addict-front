@@ -149,8 +149,9 @@ Profile.propTypes = {
   user: PropTypes.object.isRequired,
   /** bool to indicate if avatar is loading */
   loadingUploadAvatar: PropTypes.bool.isRequired,
-  /** fonction to upload an avatar, one parameter :
+  /** fonction to upload an avatar, two parameters :
    * - data
+   * - history
   */
   manageUploadAvatar: PropTypes.func.isRequired,
   /** array of the events datas of a user */
@@ -159,8 +160,9 @@ Profile.propTypes = {
   userReviews: PropTypes.array.isRequired,
   /** array of the pictures datas of a user */
   userPictures: PropTypes.array.isRequired,
-  /** function to load the datas of a user, one parameter :
+  /** function to load the datas of a user, two parameters :
    * - userId
+   * - history
    */
   loadUserDatas: PropTypes.func.isRequired,
   /** bool to indicate if events are loading */

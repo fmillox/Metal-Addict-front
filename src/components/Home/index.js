@@ -103,7 +103,9 @@ Home.propTypes = {
   reviews: PropTypes.array.isRequired,
   /** boolean to indicate that the reviews are loading */
   loadingReviews: PropTypes.bool.isRequired,
-  /** called when the component renders the first time (useEffect) , no parameter */
+  /** called when the component renders the first time (useEffect) , one parameter :
+   * - history
+   */
   loadReviews: PropTypes.func.isRequired,
 };
 
