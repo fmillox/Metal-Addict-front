@@ -1,19 +1,22 @@
+// == Npm import
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect, useParams, useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import ScaleLoader from 'react-spinners/ScaleLoader';
 
+// == Import
 import FieldInput from 'src/components/FieldInput';
 import Button from 'src/components/Button';
 import { Back } from 'src/components/Icons';
 
-import { getIdFromSlug } from 'src/utils';
-
 import { SECONDARY_COLOR } from 'src/styles/vars';
+
+import { getIdFromSlug } from 'src/utils';
 
 import './profileEdit.scss';
 
+// == Component
 const ProfileEdit = ({
   user,
   loadingSubmit,
@@ -140,4 +143,5 @@ ProfileEdit.defaultProps = {
   user: null,
 };
 
+// == Export
 export default ProfileEdit;

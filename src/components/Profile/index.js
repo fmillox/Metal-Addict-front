@@ -1,3 +1,4 @@
+// == Npm import
 import React, { useEffect, useState } from 'react';
 import { Link, useParams, useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -5,8 +6,8 @@ import ScaleLoader from 'react-spinners/ScaleLoader';
 import classNames from 'classnames';
 import { makeStyles } from '@material-ui/core/styles';
 import { Edit } from 'react-feather';
-import { getIdFromSlug, getAbsoluteAvatarPath } from 'src/utils';
 
+// == Import
 import Events from 'src/containers/Events';
 import Reviews from 'src/components/Reviews';
 import Pictures from 'src/components/Pictures';
@@ -14,6 +15,8 @@ import UploadPicture from 'src/components/UploadPicture';
 import { Back } from 'src/components/Icons';
 
 import { SECONDARY_COLOR } from 'src/styles/vars';
+
+import { getIdFromSlug, getAbsoluteAvatarPath } from 'src/utils';
 
 import './profile.scss';
 
@@ -23,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// == Component
 const Profile = ({
   loadingUploadAvatar,
   manageUploadAvatar,
@@ -177,4 +181,5 @@ Profile.propTypes = {
   isConnectedUser: PropTypes.bool.isRequired,
 };
 
+// == Export
 export default Profile;

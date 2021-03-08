@@ -97,7 +97,6 @@ const Home = ({
   );
 };
 
-// == Export
 Home.propTypes = {
   /** list of review object */
   reviews: PropTypes.array.isRequired,
@@ -109,4 +108,5 @@ Home.propTypes = {
   loadReviews: PropTypes.func.isRequired,
 };
 
+// == Export
 export default Home;

@@ -1,10 +1,13 @@
+// == Npm import
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// == Import
 import SmallReview from 'src/components/Reviews/SmallReview';
 
 import './reviews.scss';
 
+// == Component
 const Reviews = ({ reviews, showMoreData }) => (
   <div className="reviews">
     {
@@ -28,4 +31,5 @@ Reviews.defaultProps = {
   showMoreData: true,
 };
 
+// == Export
 export default Reviews;

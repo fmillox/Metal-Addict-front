@@ -1,3 +1,4 @@
+// == Npm import
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
@@ -5,10 +6,12 @@ import { useForm } from 'react-hook-form';
 import Loader from 'react-loader-spinner';
 import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 
+// == Import
 import { LIGHT_PRIMARY_COLOR } from 'src/styles/vars';
 
 import './uploadPicture.scss';
 
+// == Component
 function UploadPicture({ loading, manageSubmit }) {
   const { register, handleSubmit, reset } = useForm();
   const history = useHistory();
@@ -72,4 +75,5 @@ UploadPicture.propTypes = {
   manageSubmit: PropTypes.func.isRequired,
 };
 
+// == Export
 export default UploadPicture;

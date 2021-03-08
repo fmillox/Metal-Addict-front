@@ -1,12 +1,15 @@
+// == Npm import
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { ChevronDown } from 'react-feather';
 
-import './pictures.scss';
-
+// == Import
 import SmallPicture from 'src/components/Pictures/SmallPicture';
 
+import './pictures.scss';
+
+// == Component
 const Pictures = ({ pictures, picturesOnScreen, showNickname }) => {
   const [seeAllPictures, setSeeAllPictures] = useState(false);
 
@@ -60,4 +63,5 @@ Pictures.defaultProps = {
   showNickname: false,
 };
 
+// == Export
 export default Pictures;

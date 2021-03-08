@@ -1,4 +1,4 @@
-// == Import npm
+// == Npm import
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useParams, useHistory } from 'react-router-dom';
@@ -13,7 +13,7 @@ import { getIdFromSlug } from 'src/utils';
 
 import './reviewEdit.scss';
 
-// == Composant
+// == Component
 const ReviewEdit = ({
   loadingReview,
   loadReview,

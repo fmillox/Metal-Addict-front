@@ -1,3 +1,4 @@
+// == Npm import
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -5,6 +6,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import { makeStyles } from '@material-ui/core/styles';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
+// == Import
 import { getAbsolutePicturePath } from 'src/utils';
 
 import './pictures.scss';
@@ -16,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// == Component
 const SmallPicture = ({ picture, showNickname }) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
@@ -60,4 +63,5 @@ SmallPicture.propTypes = {
   showNickname: PropTypes.bool.isRequired,
 };
 
+// == Export
 export default SmallPicture;

@@ -1,4 +1,4 @@
-// == Import npm
+// == Npm import
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
@@ -16,7 +16,7 @@ import { createYearArray, isObjectValid } from 'src/utils';
 
 import './searchForm.scss';
 
-// == Composant
+// == Component
 const SearchForm = ({
   loading,
   bands,
