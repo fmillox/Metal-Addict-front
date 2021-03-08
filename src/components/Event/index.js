@@ -283,7 +283,10 @@ Event.propTypes = {
       id: PropTypes.number.isRequired,
     }.isRequired).isRequired,
   ).isRequired,
-  /** boolean to indicate that the current user already participated at the event */
+  /** called onclick to indicate user connected has partipated at the event, two parameters :
+   * - setlistId
+   * - history
+   */
   userParticipateInEvent: PropTypes.func.isRequired,
   /** boolean to indicate that the reviews are loading */
   loadingReviews: PropTypes.bool.isRequired,
