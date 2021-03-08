@@ -11,6 +11,7 @@ import './pictures.scss';
 
 // == Component
 const Pictures = ({ pictures, picturesOnScreen, showNickname }) => {
+  /** bool to indicate if all pictures have to appear on screen */
   const [seeAllPictures, setSeeAllPictures] = useState(false);
 
   const handleOnClick = () => {

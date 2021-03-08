@@ -53,16 +53,19 @@ const Profile = ({
     history.goBack();
   };
 
+  /** bool to indicate if the events have to be displayed */
   const [showEvents, setShowEvents] = useState(false);
   const handleEventsOnClick = () => {
     setShowEvents(!showEvents);
   };
 
+  /** bool to indicate if the reviews have to be displayed */
   const [showReviews, setShowReviews] = useState(false);
   const handleReviewsOnClick = () => {
     setShowReviews(!showReviews);
   };
 
+  /** bool to indicate if the pictures have to be displayed */
   const [showPictures, setShowPictures] = useState(false);
   const handlePicturesOnClick = () => {
     setShowPictures(!showPictures);

@@ -50,11 +50,15 @@ const Event = ({
   useEffect(() => {
     loadEventDatas(setlistId, history);
   }, []);
-
+  /** band logo */
   const [bandLogo, setBandLogo] = useState('');
+  /** bool to indicate if band logo have to be displayed */
   const [showBandLogo, setShowBandLogo] = useState(false);
+  /** band picture */
   const [bandPicture, setBandPicture] = useState('');
+  /** band thumb */
   const [bandThumb, setBandThumb] = useState('');
+  /** bool to indicate if band thumb have to be displayed */
   const [showBandThumb, setShowBandThumb] = useState(false);
 
   useEffect(() => {

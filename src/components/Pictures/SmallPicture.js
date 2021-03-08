@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
 // == Component
 const SmallPicture = ({ picture, showNickname }) => {
   const classes = useStyles();
+  /** bool to indicate if Backdrop component appears */
   const [open, setOpen] = useState(false);
   const handleClose = () => {
     setOpen(false);
