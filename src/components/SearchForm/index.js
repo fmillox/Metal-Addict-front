@@ -36,9 +36,13 @@ const SearchForm = ({
   manageSubmit,
 }) => {
   const history = useHistory();
+  /** string used as band for the input */
   const [bandInputValue, setBandInputValue] = useState('');
+  /** string used as country for the input */
   const [countryInputValue, setCountryInputValue] = useState('');
+  /** string used as year for the input */
   const [yearInputValue, setYearInputValue] = useState('');
+  /** array of the years pre-filled */
   const [years, setYears] = useState([]);
   const [open, setOpen] = useState(true);
 
