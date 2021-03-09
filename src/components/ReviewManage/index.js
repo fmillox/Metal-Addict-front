@@ -1,8 +1,10 @@
+// == Npm import
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ScaleLoader from 'react-spinners/ScaleLoader';
 
+// == Import
 import TextFieldInput from 'src/components/TextFieldInput';
 import DraftEditor from 'src/components/DraftEditor';
 import Button from 'src/components/Button';
@@ -14,6 +16,7 @@ import { isHtmlContentEmpty } from 'src/utils';
 
 import './reviewManage.scss';
 
+// == Component
 const ReviewManage = ({
   title,
   content,
@@ -90,4 +93,5 @@ ReviewManage.defaultProps = {
   content: '',
 };
 
+// == Export
 export default ReviewManage;

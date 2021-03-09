@@ -22,7 +22,9 @@ const EventsResults = ({
   manageMoreEventsSubmit,
 }) => {
   const history = useHistory();
+  /** band logo */
   const [bandLogo, setBandLogo] = useState('');
+  /** bool to indicate if band logo have to be displayed */
   const [showBandLogo, setShowBandLogo] = useState(false);
 
   useEffect(() => {

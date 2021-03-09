@@ -17,11 +17,11 @@ const initialState = {
   band: null,
   /* country name value selected by the user in the form */
   country: null,
-  /* city name value selected by the user in the form */
+  /* city name value indicated by the user in the form */
   city: '',
   /* year value selected by the user in the form */
   year: null,
-  /* venue value selected by the user in the form */
+  /* venue value indicated by the user in the form */
   venue: '',
   /* indicate if pre-filled bands are loading */
   loadingBands: true,

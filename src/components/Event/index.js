@@ -50,11 +50,15 @@ const Event = ({
   useEffect(() => {
     loadEventDatas(setlistId, history);
   }, []);
-
+  /** band logo */
   const [bandLogo, setBandLogo] = useState('');
+  /** bool to indicate if band logo have to be displayed */
   const [showBandLogo, setShowBandLogo] = useState(false);
+  /** band picture */
   const [bandPicture, setBandPicture] = useState('');
+  /** band thumb */
   const [bandThumb, setBandThumb] = useState('');
+  /** bool to indicate if band thumb have to be displayed */
   const [showBandThumb, setShowBandThumb] = useState(false);
 
   useEffect(() => {
@@ -239,7 +243,10 @@ const Event = ({
 };
 
 Event.propTypes = {
-  /** called when the component renders the first time (useEffect) , no parameter */
+  /** called when the component renders the first time (useEffect) , two parameters :
+   * - setlistId
+   * - history
+   */
   loadEventDatas: PropTypes.func.isRequired,
   /** boolean to indicate that the event datas are loading */
   loadingEvent: PropTypes.bool.isRequired,
@@ -283,7 +290,10 @@ Event.propTypes = {
       id: PropTypes.number.isRequired,
     }.isRequired).isRequired,
   ).isRequired,
-  /** boolean to indicate that the current user already participated at the event */
+  /** called onclick to indicate user connected has partipated at the event, two parameters :
+   * - setlistId
+   * - history
+   */
   userParticipateInEvent: PropTypes.func.isRequired,
   /** boolean to indicate that the reviews are loading */
   loadingReviews: PropTypes.bool.isRequired,
@@ -295,8 +305,9 @@ Event.propTypes = {
   pictures: PropTypes.arrayOf(PropTypes.object).isRequired,
   /** boolean to indicate that a the user is uploading a picture */
   loadingUploadPicture: PropTypes.bool.isRequired,
-  /** called when the form is submitted, one parameter :
+  /** called when the form is submitted, two parameters :
    * - data
+   * - history
    */
   manageUploadPicture: PropTypes.func.isRequired,
 };

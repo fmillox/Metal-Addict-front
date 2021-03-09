@@ -1,3 +1,4 @@
+// == Npm import
 import React from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'moment';
@@ -5,6 +6,7 @@ import 'moment/locale/fr';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
+// == Import
 import {
   getSlug,
   getAbsoluteAvatarPath,
@@ -14,6 +16,7 @@ import {
 
 import './reviews.scss';
 
+// == Component
 const SmallReview = ({
   id,
   title,
@@ -92,4 +95,5 @@ SmallReview.propTypes = {
   showData: PropTypes.bool.isRequired,
 };
 
+// == Export
 export default SmallReview;

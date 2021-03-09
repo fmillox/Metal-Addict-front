@@ -1,3 +1,4 @@
+// == Npm import
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -9,6 +10,7 @@ import { Edit, Trash2 } from 'react-feather';
 import ScaleLoader from 'react-spinners/ScaleLoader';
 import Moment from 'moment';
 
+// == Import
 import UploadPicture from 'src/components/UploadPicture';
 import Pictures from 'src/components/Pictures';
 import { Back } from 'src/components/Icons';
@@ -26,6 +28,7 @@ import {
 
 import './review.scss';
 
+// == Component
 const Review = ({
   loadReview,
   loadingReview,
@@ -192,4 +195,5 @@ Review.defaultProps = {
   review: null,
 };
 
+// == Export
 export default Review;

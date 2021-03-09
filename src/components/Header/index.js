@@ -163,7 +163,6 @@ const Header = ({
   );
 };
 
-// == Export
 Header.propTypes = {
   /** called on the onClick of the website logo, no parameter */
   resetHomePage: PropTypes.func.isRequired,
@@ -178,4 +177,6 @@ Header.propTypes = {
 Header.defaultProps = {
   user: null,
 };
+
+// == Export
 export default Header;

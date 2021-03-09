@@ -103,7 +103,6 @@ const Login = ({ notAuthorized, resetHomePage, handleLogin }) => {
   );
 };
 
-// == Export
 Login.propTypes = {
   /** boolean to indicate that the user is not authorized (email and/or password invalid) */
   notAuthorized: PropTypes.bool.isRequired,
@@ -117,4 +116,5 @@ Login.propTypes = {
   handleLogin: PropTypes.func.isRequired,
 };
 
+// == Export
 export default Login;

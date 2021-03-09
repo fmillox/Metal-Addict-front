@@ -1,8 +1,10 @@
+// == Npm import
 import React from 'react';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
 
+// == Import
 import {
   SECONDARY_COLOR,
   LIGHT_SECONDARY_COLOR,
@@ -33,6 +35,7 @@ const styles = {
   },
 };
 
+// == Component
 const TextFieldInput = withStyles(styles)(({
   name,
   label,
@@ -87,4 +90,5 @@ TextFieldInput.defaultProps = {
   multiline: false,
 };
 
+// == Export
 export default TextFieldInput;
