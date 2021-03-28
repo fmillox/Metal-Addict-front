@@ -2,7 +2,7 @@ import { expect } from 'chai';
 
 import userReducer from 'src/reducers/userReducer';
 
-import { setLoadingUser, saveUserDatas } from 'src/actions/users';
+import { setLoadingUser, saveUserDatas } from 'src/actions/user';
 
 import { saveAvatar } from 'src/actions/auth';
 

@@ -1,7 +1,7 @@
 import {
   SET_LOADING_USER,
   SAVE_USER_DATAS,
-} from 'src/actions/users';
+} from 'src/actions/user';
 
 import { SAVE_AVATAR } from 'src/actions/auth';
 

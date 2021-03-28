@@ -2,9 +2,8 @@ import {
   SET_LOADING_REVIEWS,
   SAVE_LAST_REVIEWS,
   SAVE_EVENT_REVIEWS,
+  SAVE_USER_REVIEWS,
 } from 'src/actions/reviews';
-
-import { SAVE_USER_REVIEWS } from 'src/actions/users';
 
 const initialState = {
   /* last reviews posted */

@@ -5,10 +5,11 @@ import Review from 'src/components/Review';
 
 import {
   fetchReview,
-  fetchPictures,
   deleteReview,
   uploadPicture,
 } from 'src/actions/review';
+
+import { fetchReviewPictures } from 'src/actions/pictures';
 
 import { isUserOwnerReview } from 'src/utils';
 
@@ -32,7 +33,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(fetchReview(id, history));
   },
   loadPictures: (id, history) => {
-    dispatch(fetchPictures(id, history));
+    dispatch(fetchReviewPictures(id, history));
   },
   manageUploadPicture: (formData, history) => {
     dispatch(uploadPicture(formData, history));

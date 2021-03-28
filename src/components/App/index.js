@@ -14,7 +14,7 @@ import './styles.scss';
 
 // == Component
 const App = () => {
-  axios.defaults.baseURL = 'http://ec2-3-80-87-102.compute-1.amazonaws.com/Share-O-Metal/public/api';
+  axios.defaults.baseURL = `${process.env.API_URL}/api/`;
 
   const { pathname } = useLocation();
 

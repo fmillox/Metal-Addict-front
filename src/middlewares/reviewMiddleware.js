@@ -4,14 +4,14 @@ import {
   FETCH_REVIEW,
   setLoadingReview,
   saveReview,
-  FETCH_PICTURES,
-  saveReviewPictures,
   DELETE_REVIEW,
   UPLOAD_PICTURE_IN_REVIEW,
   setLoadingUploadPicture,
 } from 'src/actions/review';
 
-import { setLoadingPictures, addReviewPicture } from 'src/actions/pictures';
+import {
+  addReviewPicture,
+} from 'src/actions/pictures';
 
 import { redirectTo } from 'src/actions/auth';
 
@@ -41,22 +41,7 @@ const reviewMiddleware = (store) => (next) => (action) => {
       break;
     }
 
-    case FETCH_PICTURES: {
-      store.dispatch(setLoadingPictures(true));
-      axios.get(`/picture?review=${action.reviewId}&order=DESC`)
-        .then((response) => {
-          store.dispatch(saveReviewPictures(response.data));
-        })
-        .catch((error) => {
-          console.log(error);
-          action.history.push('/erreur');
-        })
-        .finally(() => {
-          store.dispatch(setLoadingPictures(false));
-        });
-      next(action);
-      break;
-    }
+    
 
     case DELETE_REVIEW: {
       const { token, user } = store.getState().auth;

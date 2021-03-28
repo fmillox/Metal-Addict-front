@@ -2,11 +2,11 @@ import axios from 'axios';
 
 import {
   FETCH_SET_LIST_API_MORE_EVENTS,
+  FETCH_USER_EVENTS,
   setLoadingEvents,
   saveSetListApiMoreEvents,
+  saveUserEvents,
 } from 'src/actions/events';
-
-import { FETCH_USER_EVENTS, saveUserEvents } from 'src/actions/users';
 
 import { convertEventsIntoSetlistEvents } from 'src/utils';
 

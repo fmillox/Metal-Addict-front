@@ -248,7 +248,7 @@ export const changeCityName = (cityName) => {
  * @return the url of the picture
  */
 export const getAbsolutePicturePath = (path) => (
-  `http://ec2-3-80-87-102.compute-1.amazonaws.com/Share-O-Metal/public${path}`
+  `${process.env.API_URL}${path}`
 );
 
 /**
@@ -260,7 +260,7 @@ export const getAbsoluteAvatarPath = (path) => {
   if (path === null) {
     return avatar;
   }
-  return `http://ec2-3-80-87-102.compute-1.amazonaws.com/Share-O-Metal/public${path}`;
+  return `${process.env.API_URL}${path}`;
 };
 
 /**

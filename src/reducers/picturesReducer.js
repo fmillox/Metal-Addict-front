@@ -3,9 +3,9 @@ import {
   SAVE_EVENT_PICTURES,
   ADD_EVENT_PICTURE,
   ADD_REVIEW_PICTURE,
+  SAVE_REVIEW_PICTURES,
+  SAVE_USER_PICTURES,
 } from 'src/actions/pictures';
-import { SAVE_USER_PICTURES } from 'src/actions/users';
-import { SAVE_REVIEW_PICTURES } from 'src/actions/review';
 
 const initialState = {
   /* pictures of a specific event */
