@@ -9,8 +9,11 @@ import {
   updatedLoadingBands,
   updatedLoadingCountries,
 } from 'src/actions/searchForm';
-
-import { setLoadingEvents, saveEventsResults, hideSearchEvents } from 'src/actions/events';
+import {
+  setLoadingEvents,
+  saveEventsResults,
+  hideSearchEvents,
+} from 'src/actions/events';
 
 const searchFormMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -20,7 +23,7 @@ const searchFormMiddleware = (store) => (next) => (action) => {
           store.dispatch(updateBands(response.data));
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
           action.history.push('/erreur');
         })
         .finally(() => {
@@ -35,7 +38,7 @@ const searchFormMiddleware = (store) => (next) => (action) => {
           store.dispatch(updateCountries(response.data));
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
           action.history.push('/erreur');
         })
         .finally(() => {
@@ -68,7 +71,7 @@ const searchFormMiddleware = (store) => (next) => (action) => {
           store.dispatch(saveEventsResults(response.data));
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
           action.history.push('/erreur');
         })
         .finally(() => {

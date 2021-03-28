@@ -2,7 +2,6 @@ import { combineReducers } from 'redux';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-// on importe tous les reducers
 import authReducer from './authReducer';
 import eventsReducer from './eventsReducer';
 import reviewsReducer from './reviewsReducer';

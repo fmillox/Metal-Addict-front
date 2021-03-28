@@ -8,13 +8,8 @@ import {
   UPLOAD_PICTURE_IN_REVIEW,
   setLoadingUploadPicture,
 } from 'src/actions/review';
-
-import {
-  addReviewPicture,
-} from 'src/actions/pictures';
-
+import { addReviewPicture } from 'src/actions/pictures';
 import { redirectTo } from 'src/actions/auth';
-
 import { getSlug } from 'src/utils';
 
 const reviewMiddleware = (store) => (next) => (action) => {
@@ -30,7 +25,7 @@ const reviewMiddleware = (store) => (next) => (action) => {
             action.history.push('/page_non_trouvee');
           }
           else {
-            console.log(error);
+            // console.log(error);
             action.history.push('/erreur');
           }
         })
@@ -40,8 +35,6 @@ const reviewMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     }
-
-    
 
     case DELETE_REVIEW: {
       const { token, user } = store.getState().auth;
@@ -60,7 +53,7 @@ const reviewMiddleware = (store) => (next) => (action) => {
             action.history.push('/connexion');
           }
           else {
-            console.log(error);
+            // console.log(error);
             action.history.push('/erreur');
           }
         });
@@ -88,7 +81,7 @@ const reviewMiddleware = (store) => (next) => (action) => {
             action.history.push('/connexion');
           }
           else {
-            console.log(error);
+            // console.log(error);
             action.history.push('/erreur');
           }
         })

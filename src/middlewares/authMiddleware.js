@@ -32,7 +32,7 @@ const authMiddleware = (store) => (next) => (action) => {
             store.dispatch(isNotAuthorized());
           }
           else {
-            console.log(error);
+            // console.log(error);
             action.history.push('/erreur');
           }
         });
@@ -50,7 +50,7 @@ const authMiddleware = (store) => (next) => (action) => {
           action.history.push('/connexion');
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
           action.history.push('/erreur');
         });
       next(action);
@@ -76,7 +76,7 @@ const authMiddleware = (store) => (next) => (action) => {
             action.history.push('/connexion');
           }
           else {
-            console.log(error);
+            // console.log(error);
             action.history.push('/erreur');
           }
         })
@@ -107,7 +107,7 @@ const authMiddleware = (store) => (next) => (action) => {
             action.history.push('/connexion');
           }
           else {
-            console.log(error);
+            // console.log(error);
             action.history.push('/erreur');
           }
         })

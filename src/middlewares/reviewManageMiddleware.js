@@ -8,10 +8,9 @@ import {
   saveReviewManage,
   resetReviewManage,
 } from 'src/actions/reviewManage';
-
 import { redirectTo } from 'src/actions/auth';
 
-const reviewMiddleware = (store) => (next) => (action) => {
+const reviewManageMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_REVIEW_MANAGE: {
       store.dispatch(setLoadingReviewManage(true));
@@ -20,7 +19,7 @@ const reviewMiddleware = (store) => (next) => (action) => {
           store.dispatch(saveReviewManage(response.data.title, response.data.content));
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
           action.history.push('/erreur');
         })
         .finally(() => {
@@ -51,7 +50,7 @@ const reviewMiddleware = (store) => (next) => (action) => {
             action.history.push('/connexion');
           }
           else {
-            console.log(error);
+            // console.log(error);
             action.history.push('/erreur');
           }
         })
@@ -83,7 +82,7 @@ const reviewMiddleware = (store) => (next) => (action) => {
             action.history.push('/connexion');
           }
           else {
-            console.log(error);
+            // console.log(error);
             action.history.push('/erreur');
           }
         })
@@ -98,4 +97,4 @@ const reviewMiddleware = (store) => (next) => (action) => {
       next(action);
   }
 };
-export default reviewMiddleware;
+export default reviewManageMiddleware;

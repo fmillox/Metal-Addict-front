@@ -7,7 +7,6 @@ import {
   saveSetListApiMoreEvents,
   saveUserEvents,
 } from 'src/actions/events';
-
 import { convertEventsIntoSetlistEvents } from 'src/utils';
 
 const eventsMiddleware = (store) => (next) => (action) => {
@@ -37,7 +36,7 @@ const eventsMiddleware = (store) => (next) => (action) => {
           store.dispatch(saveSetListApiMoreEvents(response.data));
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
           action.history.push('/erreur');
         })
         .finally(() => {
@@ -55,7 +54,7 @@ const eventsMiddleware = (store) => (next) => (action) => {
           store.dispatch(saveUserEvents(setListEvents));
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
           action.history.push('/erreur');
         })
         .finally(() => {

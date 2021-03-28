@@ -19,7 +19,7 @@ const reviewsMiddleware = (store) => (next) => (action) => {
           store.dispatch(saveLastReviews(response.data));
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
           action.history.push('/erreur');
         })
         .finally(() => {
@@ -35,7 +35,7 @@ const reviewsMiddleware = (store) => (next) => (action) => {
           store.dispatch(saveEventReviews(response.data));
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
           action.history.push('/erreur');
         })
         .finally(() => {

@@ -11,9 +11,7 @@ import {
   addUserParticipateInEvent,
   setLoadingUploadPicture,
 } from 'src/actions/event';
-
 import { addEventPicture } from 'src/actions/pictures';
-
 import { redirectTo } from 'src/actions/auth';
 
 const eventMiddleware = (store) => (next) => (action) => {
@@ -29,7 +27,7 @@ const eventMiddleware = (store) => (next) => (action) => {
             action.history.push('/page_non_trouvee');
           }
           else {
-            console.log(error);
+            // console.log(error);
             action.history.push('/erreur');
           }
         })
@@ -46,7 +44,7 @@ const eventMiddleware = (store) => (next) => (action) => {
           store.dispatch(saveUsersParticipateInEvent(response.data));
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
           action.history.push('/erreur');
         });
       next(action);
@@ -70,7 +68,7 @@ const eventMiddleware = (store) => (next) => (action) => {
             action.history.push('/connexion');
           }
           else {
-            console.log(error);
+            // console.log(error);
             action.history.push('/erreur');
           }
         });
@@ -98,7 +96,7 @@ const eventMiddleware = (store) => (next) => (action) => {
             action.history.push('/connexion');
           }
           else {
-            console.log(error);
+            // console.log(error);
             action.history.push('/erreur');
           }
         })

@@ -10,7 +10,7 @@ import {
   saveUserPictures,
 } from 'src/actions/pictures';
 
-const reviewsMiddleware = (store) => (next) => (action) => {
+const picturesMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_EVENT_PICTURES: {
       store.dispatch(setLoadingPictures(true));
@@ -19,7 +19,7 @@ const reviewsMiddleware = (store) => (next) => (action) => {
           store.dispatch(saveEventPictures(response.data));
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
           action.history.push('/erreur');
         })
         .finally(() => {
@@ -36,7 +36,7 @@ const reviewsMiddleware = (store) => (next) => (action) => {
           store.dispatch(saveReviewPictures(response.data));
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
           action.history.push('/erreur');
         })
         .finally(() => {
@@ -53,7 +53,7 @@ const reviewsMiddleware = (store) => (next) => (action) => {
           store.dispatch(saveUserPictures(response.data));
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
           action.history.push('/erreur');
         })
         .finally(() => {
@@ -63,8 +63,7 @@ const reviewsMiddleware = (store) => (next) => (action) => {
       break;
 
     default:
-      // on passe l'action au suivant (middleware suivant ou reducer)
       next(action);
   }
 };
-export default reviewsMiddleware;
+export default picturesMiddleware;

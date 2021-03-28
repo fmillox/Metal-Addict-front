@@ -1,6 +1,10 @@
 import axios from 'axios';
 
-import { FETCH_USER_DATAS, setLoadingUser, saveUserDatas } from 'src/actions/user';
+import {
+  FETCH_USER_DATAS,
+  setLoadingUser,
+  saveUserDatas,
+} from 'src/actions/user';
 
 const userMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -15,7 +19,7 @@ const userMiddleware = (store) => (next) => (action) => {
             action.history.push('/page_non_trouvee');
           }
           else {
-            console.log(error);
+            // console.log(error);
             action.history.push('/erreur');
           }
         })
