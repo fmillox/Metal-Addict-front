@@ -1,12 +1,9 @@
 import { connect } from 'react-redux';
 
-import {
-  fetchUserEvents,
-  fetchUserReviews,
-  fetchUserPictures,
-  fetchUserDatas,
-} from 'src/actions/users';
-
+import { fetchUserDatas } from 'src/actions/user';
+import { fetchUserEvents } from 'src/actions/events';
+import { fetchUserReviews } from 'src/actions/reviews';
+import { fetchUserPictures } from 'src/actions/pictures';
 import { uploadAvatar } from 'src/actions/auth';
 
 // on importe le composant de présentation

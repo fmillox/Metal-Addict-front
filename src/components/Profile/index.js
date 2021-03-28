@@ -1,3 +1,4 @@
+// == Npm import
 import React, { useEffect, useState } from 'react';
 import { Link, useParams, useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -5,8 +6,8 @@ import ScaleLoader from 'react-spinners/ScaleLoader';
 import classNames from 'classnames';
 import { makeStyles } from '@material-ui/core/styles';
 import { Edit } from 'react-feather';
-import { getIdFromSlug, getAbsoluteAvatarPath } from 'src/utils';
 
+// == Import
 import Events from 'src/containers/Events';
 import Reviews from 'src/components/Reviews';
 import Pictures from 'src/components/Pictures';
@@ -14,6 +15,8 @@ import UploadPicture from 'src/components/UploadPicture';
 import { Back } from 'src/components/Icons';
 
 import { SECONDARY_COLOR } from 'src/styles/vars';
+
+import { getIdFromSlug, getAbsoluteAvatarPath } from 'src/utils';
 
 import './profile.scss';
 
@@ -23,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// == Component
 const Profile = ({
   loadingUploadAvatar,
   manageUploadAvatar,
@@ -49,16 +53,19 @@ const Profile = ({
     history.goBack();
   };
 
+  /** bool to indicate if the events have to be displayed */
   const [showEvents, setShowEvents] = useState(false);
   const handleEventsOnClick = () => {
     setShowEvents(!showEvents);
   };
 
+  /** bool to indicate if the reviews have to be displayed */
   const [showReviews, setShowReviews] = useState(false);
   const handleReviewsOnClick = () => {
     setShowReviews(!showReviews);
   };
 
+  /** bool to indicate if the pictures have to be displayed */
   const [showPictures, setShowPictures] = useState(false);
   const handlePicturesOnClick = () => {
     setShowPictures(!showPictures);
@@ -145,18 +152,37 @@ const Profile = ({
 };
 
 Profile.propTypes = {
+  /** object with the datas of the user */
   user: PropTypes.object.isRequired,
+  /** bool to indicate if avatar is loading */
   loadingUploadAvatar: PropTypes.bool.isRequired,
+  /** fonction to upload an avatar, two parameters :
+   * - data
+   * - history
+  */
   manageUploadAvatar: PropTypes.func.isRequired,
+  /** array of the events datas of a user */
   userEvents: PropTypes.array.isRequired,
+  /** array of the reviews datas of a user */
   userReviews: PropTypes.array.isRequired,
+  /** array of the pictures datas of a user */
   userPictures: PropTypes.array.isRequired,
+  /** function to load the datas of a user, two parameters :
+   * - userId
+   * - history
+   */
   loadUserDatas: PropTypes.func.isRequired,
+  /** bool to indicate if events are loading */
   eventsLoading: PropTypes.bool.isRequired,
+  /** bool to indicate if reviews are loading */
   reviewsLoading: PropTypes.bool.isRequired,
+  /** bool to indicate if pictures are loading */
   picturesLoading: PropTypes.bool.isRequired,
+  /** bool to indicate if user datas are loading */
   userLoading: PropTypes.bool.isRequired,
+  /** bool to indicate if the profile user is the user connected */
   isConnectedUser: PropTypes.bool.isRequired,
 };
 
+// == Export
 export default Profile;

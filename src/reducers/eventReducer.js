@@ -7,12 +7,13 @@ import {
 } from 'src/actions/event';
 
 const initialState = {
+  /* indicate if the event is loading */
   loading: false,
-
+  /* data of the event */
   data: null,
-
+  /* datas of the users who had participated at the event */
   users: [],
-
+  /* indicate if the user is uploading a picture */
   loadingUploadPicture: false,
 };
 

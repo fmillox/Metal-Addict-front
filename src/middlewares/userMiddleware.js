@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { FETCH_USER_DATAS, saveUserDatas, setLoadingUser } from 'src/actions/users';
+import { FETCH_USER_DATAS, setLoadingUser, saveUserDatas } from 'src/actions/user';
 
 const userMiddleware = (store) => (next) => (action) => {
   switch (action.type) {

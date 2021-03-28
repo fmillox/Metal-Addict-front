@@ -1,3 +1,4 @@
+// == Npm import
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, useHistory } from 'react-router-dom';
@@ -5,15 +6,16 @@ import { withStyles } from '@material-ui/core/styles';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
+// == Import
 import { Login } from 'src/components/Icons';
+
+import { SECONDARY_COLOR } from 'src/styles/vars';
+
+import { getSlug, getAbsoluteAvatarPath } from 'src/utils';
 
 import sigle from 'src/assets/images/sigle.png';
 
 import './header.scss';
-
-import { getSlug, getAbsoluteAvatarPath } from 'src/utils';
-
-import { SECONDARY_COLOR } from 'src/styles/vars';
 
 const StyledMenu = withStyles({
   '@global': {
@@ -77,6 +79,7 @@ const StyledMenu = withStyles({
   />
 ));
 
+// == Component
 const Header = ({
   resetHomePage,
   isLogged,
@@ -161,13 +164,19 @@ const Header = ({
 };
 
 Header.propTypes = {
+  /** called on the onClick of the website logo, no parameter */
   resetHomePage: PropTypes.func.isRequired,
+  /** boolean to indicate if the user is logged */
   isLogged: PropTypes.bool.isRequired,
+  /** called on the onClick of the menu item, no parameter */
   handleLogout: PropTypes.func.isRequired,
+  /** the connected user object (can be null if anonymous user) */
   user: PropTypes.object,
 };
 
 Header.defaultProps = {
   user: null,
 };
+
+// == Export
 export default Header;

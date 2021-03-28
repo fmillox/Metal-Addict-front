@@ -1,7 +1,10 @@
+// == Npm import
 import React from 'react';
 
+// == Import
 import './footer.scss';
 
+// == Component
 const Footer = () => (
   <div className="footer">
     <a>&copy;2021 Metal Addict </a>
@@ -12,4 +15,5 @@ const Footer = () => (
   </div>
 );
 
+// == Export
 export default Footer;

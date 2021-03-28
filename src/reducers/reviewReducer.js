@@ -5,10 +5,11 @@ import {
 } from 'src/actions/review';
 
 const initialState = {
+  /* indicate if the review is loading */
   loading: false,
-
+  /* data of the review */
   data: null,
-
+  /* indicate if the user is uploading a picture */
   loadingUploadPicture: false,
 };
 

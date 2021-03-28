@@ -2,17 +2,17 @@ import {
   SET_LOADING_REVIEWS,
   SAVE_LAST_REVIEWS,
   SAVE_EVENT_REVIEWS,
+  SAVE_USER_REVIEWS,
 } from 'src/actions/reviews';
 
-import { SAVE_USER_REVIEWS } from 'src/actions/users';
-
 const initialState = {
+  /* last reviews posted */
   lastReviews: [],
-
+  /* reviews of a specific event */
   eventReviews: [],
-
+  /* reviews of a specific user */
   userReviews: [],
-
+  /* indicate if reviews are loading */
   loading: false,
 };
 

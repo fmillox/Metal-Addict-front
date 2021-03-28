@@ -1,4 +1,4 @@
-// == Import npm
+// == Npm import
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useParams, useHistory } from 'react-router-dom';
@@ -13,7 +13,7 @@ import { getIdFromSlug } from 'src/utils';
 
 import './reviewEdit.scss';
 
-// == Composant
+// == Component
 const ReviewEdit = ({
   loadingReview,
   loadReview,
@@ -49,8 +49,18 @@ const ReviewEdit = ({
 };
 
 ReviewEdit.propTypes = {
+  /** bool to indicate if the review is loading */
   loadingReview: PropTypes.bool.isRequired,
+  /** called when the component renders the first time (useEffect), two parameter :
+   * - id
+   * - history
+  */
   loadReview: PropTypes.func.isRequired,
+  /** called when submit event is received, three parameters :
+   * - id
+   * - history
+   * - slug
+   */
   manageEdit: PropTypes.func.isRequired,
 };
 

@@ -1,13 +1,16 @@
+// == Npm import
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
+// == Import
 import FieldInput from 'src/components/FieldInput';
 import Button from 'src/components/Button';
 
 import './registerUser.scss';
 
+// == Component
 const RegisterUser = ({ resetHomePage, registerNewUser }) => {
   const history = useHistory();
 
@@ -145,8 +148,17 @@ const RegisterUser = ({ resetHomePage, registerNewUser }) => {
 };
 
 RegisterUser.propTypes = {
+  /** called on the onClick of the website logo, no parameter */
   resetHomePage: PropTypes.func.isRequired,
+  /** called when submit event is received, five parameters :
+   * - email
+   * - password
+   * - passwordConfirmed
+   * - nickname
+   * - history
+   */
   registerNewUser: PropTypes.func.isRequired,
 };
 
+// == Export
 export default RegisterUser;

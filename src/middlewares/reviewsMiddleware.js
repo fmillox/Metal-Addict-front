@@ -3,12 +3,12 @@ import axios from 'axios';
 import {
   FETCH_LAST_REVIEWS,
   FETCH_EVENT_REVIEWS,
+  FETCH_USER_REVIEWS,
   setLoadingReviews,
   saveLastReviews,
   saveEventReviews,
+  saveUserReviews,
 } from 'src/actions/reviews';
-
-import { FETCH_USER_REVIEWS, saveUserReviews } from 'src/actions/users';
 
 const reviewsMiddleware = (store) => (next) => (action) => {
   switch (action.type) {

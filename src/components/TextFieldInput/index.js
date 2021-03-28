@@ -1,8 +1,10 @@
+// == Npm import
 import React from 'react';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
 
+// == Import
 import {
   SECONDARY_COLOR,
   LIGHT_SECONDARY_COLOR,
@@ -33,6 +35,7 @@ const styles = {
   },
 };
 
+// == Component
 const TextFieldInput = withStyles(styles)(({
   name,
   label,
@@ -66,11 +69,19 @@ const TextFieldInput = withStyles(styles)(({
 });
 
 TextFieldInput.propTypes = {
+  /** text used as name for the textfield (and also used as id, with a prefix) */
   name: PropTypes.string.isRequired,
+  /**  text used as label for the input */
   label: PropTypes.string.isRequired,
+  /** string to indicate width of the textfield */
   width: PropTypes.string,
+  /** bool to indicate if mutiligne is possible */
   multiline: PropTypes.bool,
+  /** text used as label for the input */
   value: PropTypes.string.isRequired,
+  /** called when onChange event is received by the input, one parameter :
+   * - value
+   */
   manageChange: PropTypes.func.isRequired,
 };
 
@@ -79,4 +90,5 @@ TextFieldInput.defaultProps = {
   multiline: false,
 };
 
+// == Export
 export default TextFieldInput;

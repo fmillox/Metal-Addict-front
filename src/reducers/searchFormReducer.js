@@ -13,23 +13,23 @@ import {
 import { RESET_HOME_PAGE } from 'src/actions/home';
 
 const initialState = {
-  // contenu du champs nom du groupe
+  /* band name value selected by the user in the form */
   band: null,
-
+  /* country name value selected by the user in the form */
   country: null,
-
+  /* city name value indicated by the user in the form */
   city: '',
-
+  /* year value selected by the user in the form */
   year: null,
-
+  /* venue value indicated by the user in the form */
   venue: '',
-
+  /* indicate if pre-filled bands are loading */
   loadingBands: true,
-
+  /* indicate if pre-filled countries are loading */
   loadingCountries: true,
-
+  /* list of bands to pre-fill the form */
   bands: [],
-
+  /* list of countries to pre-fill the form */
   countries: [],
 };
 

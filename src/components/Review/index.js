@@ -1,3 +1,4 @@
+// == Npm import
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -9,6 +10,7 @@ import { Edit, Trash2 } from 'react-feather';
 import ScaleLoader from 'react-spinners/ScaleLoader';
 import Moment from 'moment';
 
+// == Import
 import UploadPicture from 'src/components/UploadPicture';
 import Pictures from 'src/components/Pictures';
 import { Back } from 'src/components/Icons';
@@ -26,6 +28,7 @@ import {
 
 import './review.scss';
 
+// == Component
 const Review = ({
   loadReview,
   loadingReview,
@@ -147,26 +150,50 @@ const Review = ({
 };
 
 Review.propTypes = {
+  /* bool to indicate if the review is loading */
   loadingReview: PropTypes.bool.isRequired,
+  /* function to load the review, two parameters :
+  - id
+  - history
+  */
   loadReview: PropTypes.func.isRequired,
+  /* function to load the pictures of the review, two parameters :
+  - id
+  - history
+  */
   loadPictures: PropTypes.func.isRequired,
+  /* bool to indicate if the review is loading */
   loadingPictures: PropTypes.bool.isRequired,
+  /* function to upload a picture, two parameters :
+  - formData
+  - history
+  */
   manageUploadPicture: PropTypes.func.isRequired,
+  /* bool to indicate if a user is uploading a picture */
   loadingUploadPicture: PropTypes.bool.isRequired,
+  /* array of the pictures connected to the review */
   pictures: PropTypes.arrayOf(PropTypes.object).isRequired,
+  /* object with the datas of the review */
   review: PropTypes.shape({
     title: PropTypes.string.isRequired,
     createdAt: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
+    /* object with the datas of the user who has written the review */
     user: PropTypes.shape({
       nickname: PropTypes.string.isRequired,
     }.isRequired),
   }.isRequired),
+  /* bool to indicate if the user has written the review */
   isUserOwnerReview: PropTypes.bool.isRequired,
+  /* function to delete a review, two parameters :
+  - id
+  - history
+   */
   deleteReview: PropTypes.func.isRequired,
 };
 Review.defaultProps = {
   review: null,
 };
 
+// == Export
 export default Review;

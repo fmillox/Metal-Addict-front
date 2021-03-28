@@ -3,6 +3,8 @@ export const FETCH_LAST_REVIEWS = 'FETCH_LAST_REVIEWS';
 export const SAVE_LAST_REVIEWS = 'SAVE_LAST_REVIEWS';
 export const FETCH_EVENT_REVIEWS = 'FETCH_EVENT_REVIEWS';
 export const SAVE_EVENT_REVIEWS = 'SAVE_EVENT_REVIEWS';
+export const FETCH_USER_REVIEWS = 'FETCH_USER_REVIEWS';
+export const SAVE_USER_REVIEWS = 'SAVE_USER_REVIEWS';
 
 export const setLoadingReviews = (value) => ({
   type: SET_LOADING_REVIEWS,
@@ -27,5 +29,16 @@ export const fetchEventReviews = (setlistId, history) => ({
 
 export const saveEventReviews = (reviews) => ({
   type: SAVE_EVENT_REVIEWS,
+  reviews,
+});
+
+export const fetchUserReviews = (userId, history) => ({
+  type: FETCH_USER_REVIEWS,
+  userId,
+  history,
+});
+
+export const saveUserReviews = (reviews) => ({
+  type: SAVE_USER_REVIEWS,
   reviews,
 });

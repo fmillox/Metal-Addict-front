@@ -1,8 +1,10 @@
+// == Npm import
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ScaleLoader from 'react-spinners/ScaleLoader';
 
+// == Import
 import TextFieldInput from 'src/components/TextFieldInput';
 import DraftEditor from 'src/components/DraftEditor';
 import Button from 'src/components/Button';
@@ -10,10 +12,11 @@ import { Back } from 'src/components/Icons';
 
 import { SECONDARY_COLOR } from 'src/styles/vars';
 
-import { isDataValid } from 'src/utils';
+import { isHtmlContentEmpty } from 'src/utils';
 
 import './reviewManage.scss';
 
+// == Component
 const ReviewManage = ({
   title,
   content,
@@ -28,7 +31,7 @@ const ReviewManage = ({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (isDataValid(title) && isDataValid(content)) {
+    if (!isHtmlContentEmpty(title) && !isHtmlContentEmpty(content)) {
       manageSubmit();
     }
     else {
@@ -65,12 +68,23 @@ const ReviewManage = ({
 };
 
 ReviewManage.propTypes = {
+  /* value of the title */
   title: PropTypes.string,
+  /* value of the content */
   content: PropTypes.string,
+  /* value of the button label */
   buttonLabel: PropTypes.string.isRequired,
+  /* bool to indicate if the review is loading */
   loadingSubmit: PropTypes.bool.isRequired,
+  /* function to save title value, one parameter :
+  - value
+  */
   setTitle: PropTypes.func.isRequired,
+  /* function to save content value, one parameter :
+  - value
+  */
   setContent: PropTypes.func.isRequired,
+  /* called when submit event is received, no parameter */
   manageSubmit: PropTypes.func.isRequired,
 };
 
@@ -79,4 +93,5 @@ ReviewManage.defaultProps = {
   content: '',
 };
 
+// == Export
 export default ReviewManage;

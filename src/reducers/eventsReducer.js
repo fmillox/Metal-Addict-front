@@ -3,19 +3,19 @@ import {
   SAVE_EVENTS_RESULTS,
   SAVE_SET_LIST_API_MORE_EVENTS,
   HIDE_SEARCH_EVENTS,
+  SAVE_USER_EVENTS,
 } from 'src/actions/events';
 
 import { RESET_HOME_PAGE } from 'src/actions/home';
 
-import { SAVE_USER_EVENTS } from 'src/actions/users';
-
 const initialState = {
+  /* events found after a search" */
   searchEvents: null,
-
+  /* indicate to show the search results */
   showSearchEvents: false,
-
+  /* events that a specific user has participated" */
   userEvents: null,
-
+  /* indicate if the events are loading */
   loading: false,
 };
 

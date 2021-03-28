@@ -1,4 +1,4 @@
-// == Import npm
+// == Npm import
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import { Route, Switch, useLocation } from 'react-router-dom';
@@ -12,9 +12,9 @@ import background from 'src/assets/images/background.jpg';
 
 import './styles.scss';
 
-// == Composant
+// == Component
 const App = () => {
-  axios.defaults.baseURL = 'http://ec2-3-80-87-102.compute-1.amazonaws.com/Share-O-Metal/public/api';
+  axios.defaults.baseURL = `${process.env.API_URL}/api/`;
 
   const { pathname } = useLocation();
 

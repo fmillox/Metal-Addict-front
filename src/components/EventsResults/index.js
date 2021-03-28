@@ -1,4 +1,4 @@
-// == Import npm
+// == Npm import
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
@@ -14,7 +14,7 @@ import { getBandPictureUrl } from 'src/utils';
 
 import './eventsResults.scss';
 
-// == Composant
+// == Component
 const EventsResults = ({
   loadingEvents,
   events,
@@ -22,7 +22,9 @@ const EventsResults = ({
   manageMoreEventsSubmit,
 }) => {
   const history = useHistory();
+  /** band logo */
   const [bandLogo, setBandLogo] = useState('');
+  /** bool to indicate if band logo have to be displayed */
   const [showBandLogo, setShowBandLogo] = useState(false);
 
   useEffect(() => {
@@ -77,9 +79,15 @@ const EventsResults = ({
 };
 
 EventsResults.propTypes = {
+  /** boolean to indicate that the events are loading */
   loadingEvents: PropTypes.bool.isRequired,
+  /** list of event object */
   events: PropTypes.object,
+  /** boolean to indicate if we still have more events to display */
   moreEvents: PropTypes.bool.isRequired,
+  /** called when the form is submitted, one parameter :
+   * - history
+   */
   manageMoreEventsSubmit: PropTypes.func.isRequired,
 };
 

@@ -7,8 +7,11 @@ import {
 } from 'src/actions/reviewManage';
 
 const initialState = {
+  /* indicate if the review is loading */
   loading: false,
+  /* title of the review */
   title: '',
+  /* content of the review (html) */
   content: '',
 };
 

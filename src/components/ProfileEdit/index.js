@@ -1,19 +1,22 @@
+// == Npm import
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect, useParams, useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import ScaleLoader from 'react-spinners/ScaleLoader';
 
+// == Import
 import FieldInput from 'src/components/FieldInput';
 import Button from 'src/components/Button';
 import { Back } from 'src/components/Icons';
 
-import { getIdFromSlug } from 'src/utils';
-
 import { SECONDARY_COLOR } from 'src/styles/vars';
+
+import { getIdFromSlug } from 'src/utils';
 
 import './profileEdit.scss';
 
+// == Component
 const ProfileEdit = ({
   user,
   loadingSubmit,
@@ -119,12 +122,20 @@ const ProfileEdit = ({
 };
 
 ProfileEdit.propTypes = {
+  /* object of the user datas */
   user: PropTypes.shape({
     id: PropTypes.number.isRequired,
     nickname: PropTypes.string.isRequired,
     biography: PropTypes.string.isRequired,
   }.isRequired),
+  /** bool to indicate if datas of the user are loading */
   loadingSubmit: PropTypes.bool.isRequired,
+  /** called when submit event is received, four parameters :
+   * - nickname
+   * - biography
+   * - history
+   * - slug
+    */
   manageSubmit: PropTypes.func.isRequired,
 };
 
@@ -132,4 +143,5 @@ ProfileEdit.defaultProps = {
   user: null,
 };
 
+// == Export
 export default ProfileEdit;

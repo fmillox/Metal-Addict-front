@@ -1,4 +1,4 @@
-// == Import npm
+// == Npm import
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useParams, useHistory } from 'react-router-dom';
@@ -10,7 +10,7 @@ import { getIdFromSlug } from 'src/utils';
 
 import './reviewCreate.scss';
 
-// == Composant
+// == Component
 const ReviewCreate = ({ manageCreate }) => {
   const { slug } = useParams();
   const setlistId = getIdFromSlug(slug);
@@ -27,6 +27,11 @@ const ReviewCreate = ({ manageCreate }) => {
 };
 
 ReviewCreate.propTypes = {
+  /** called when submit event is received, three parameters :
+   * - setlistId
+   * - history
+   * - slug
+   */
   manageCreate: PropTypes.func.isRequired,
 };
 

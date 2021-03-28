@@ -1,3 +1,4 @@
+// == Npm import
 import React from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'moment';
@@ -5,6 +6,7 @@ import 'moment/locale/fr';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
+// == Import
 import {
   getSlug,
   getAbsoluteAvatarPath,
@@ -14,6 +16,7 @@ import {
 
 import './reviews.scss';
 
+// == Component
 const SmallReview = ({
   id,
   title,
@@ -64,24 +67,33 @@ const SmallReview = ({
 };
 
 SmallReview.propTypes = {
+  /** number of the id review */
   id: PropTypes.number.isRequired,
+  /**  string of the review title */
   title: PropTypes.string.isRequired,
+  /** string indicate the creation date of the review */
   createdAt: PropTypes.string.isRequired,
+  /** object with the data of the user who created the review */
   user: PropTypes.shape({
     nickname: PropTypes.string.isRequired,
     avatar: PropTypes.string.isRequired,
   }.isRequired).isRequired,
+  /** object with the data of the event linked to the review */
   event: PropTypes.shape({
     city: PropTypes.string.isRequired,
+    /** object with the data of the country linked to the event */
     country: PropTypes.shape({
       name: PropTypes.string.isRequired,
     }.isRequired).isRequired,
     date: PropTypes.string.isRequired,
+    /** object with the data of the band linked to the event */
     band: PropTypes.shape({
       name: PropTypes.string.isRequired,
     }.isRequired).isRequired,
   }.isRequired).isRequired,
+  /** bool to indicate if the review has to be display with all his datas */
   showData: PropTypes.bool.isRequired,
 };
 
+// == Export
 export default SmallReview;

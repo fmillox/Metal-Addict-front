@@ -1,16 +1,17 @@
-// == Import npm
+// == Npm import
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Moment from 'moment';
 import 'moment/locale/fr';
 import classNames from 'classnames';
+
 // == Import
 import { getSlug, changeCityName } from 'src/utils';
 
 import './smallEvent.scss';
 
-// == Composant
+// == Component
 const SmallEvent = ({
   id,
   artist,
@@ -53,11 +54,15 @@ const SmallEvent = ({
 };
 
 SmallEvent.propTypes = {
+  /** text used as id */
   id: PropTypes.string.isRequired,
+  /** value (object) for the artist */
   artist: PropTypes.shape({
     name: PropTypes.string.isRequired,
   }.isRequired).isRequired,
+  /** value for the event date */
   eventDate: PropTypes.string.isRequired,
+  /** value (object) for the venue */
   venue: PropTypes.shape({
     name: PropTypes.string.isRequired,
     city: PropTypes.shape({
@@ -67,7 +72,9 @@ SmallEvent.propTypes = {
       }.isRequired).isRequired,
     }.isRequired).isRequired,
   }.isRequired).isRequired,
+  /** picture representing the event */
   picture: PropTypes.string.isRequired,
+  /** boolean to indicate if all the event data are displayed or not */
   showData: PropTypes.bool.isRequired,
 };
 

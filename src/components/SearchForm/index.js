@@ -1,4 +1,4 @@
-// == Import npm
+// == Npm import
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
@@ -16,7 +16,7 @@ import { createYearArray, isObjectValid } from 'src/utils';
 
 import './searchForm.scss';
 
-// == Composant
+// == Component
 const SearchForm = ({
   loading,
   bands,
@@ -36,9 +36,13 @@ const SearchForm = ({
   manageSubmit,
 }) => {
   const history = useHistory();
+  /** string used as band for the input */
   const [bandInputValue, setBandInputValue] = useState('');
+  /** string used as country for the input */
   const [countryInputValue, setCountryInputValue] = useState('');
+  /** string used as year for the input */
   const [yearInputValue, setYearInputValue] = useState('');
+  /** array of the years pre-filled */
   const [years, setYears] = useState([]);
   const [open, setOpen] = useState(true);
 
@@ -149,21 +153,53 @@ const SearchForm = ({
 };
 
 SearchForm.propTypes = {
+  /* bool to indicate form is loading */
   loading: PropTypes.bool.isRequired,
+  /* array of the bands pre-filled */
   bands: PropTypes.arrayOf(PropTypes.object).isRequired,
+  /* array of the countries pre-filled */
   countries: PropTypes.arrayOf(PropTypes.object).isRequired,
+  /* objet of the band selected by the user */
   band: PropTypes.object,
+  /* objet of the country selected by the user */
   country: PropTypes.object,
+  /* text used as city for the input */
   city: PropTypes.string.isRequired,
+  /* object used as year for the input */
   year: PropTypes.object,
+  /* string used as event place for the input */
   eventPlace: PropTypes.string.isRequired,
+  /* called when the component renders the first time (useEffect), one parameter :
+  - history
+  */
   loadBands: PropTypes.func.isRequired,
+  /* called when the component renders the first time (useEffect), one parameter :
+  - history
+  */
   loadCountries: PropTypes.func.isRequired,
+  /* function to save the selected band in the state, one parameter :
+  - value
+  */
   setBand: PropTypes.func.isRequired,
+  /* function to save the selected country in the state, one parameter :
+  - value
+  */
   setCountry: PropTypes.func.isRequired,
+  /* function to save the selected city in the state, one parameter :
+  - value
+  */
   setCity: PropTypes.func.isRequired,
+  /* function to save the selected year in the state, one parameter :
+  - value
+  */
   setYear: PropTypes.func.isRequired,
+  /* function to save the selected event place in the state, one parameter :
+  - value
+  */
   setEventPlace: PropTypes.func.isRequired,
+  /* called when submit event is received, one parameter :
+  - history
+  */
   manageSubmit: PropTypes.func.isRequired,
 };
 
